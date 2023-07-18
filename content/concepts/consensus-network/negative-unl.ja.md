@@ -166,7 +166,7 @@ V<sub>a</sub>は、サーバー側のコンセンサス見解と一致した過�
     - [コンセンサスプロトコル](consensus.html)
 - **チュートリアル:**
     - [Testnetや別の並列ネットワークへ接続する](connect-your-rippled-to-the-xrp-test-net.html)
-    - [バリデータとしての`rippled`の実行](run-rippled-as-a-validator.html)
+    - [バリデータとしての<span class="code-snippet">rippled</span>の実行](run-rippled-as-a-validator.html)
 - **リファレンス:**
     - [negativeUNL オブジェクト](negativeunl.html)
     - [UNLModify pseudo-transaction][]

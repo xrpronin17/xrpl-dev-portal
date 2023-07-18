@@ -12,11 +12,11 @@ Here's an overview of some of the more common signature-related fields used in t
 
 ***TODO: JHA fix the IA here. Also need to more clearly express the single-signer flow vs multi-signer flow. Provide a flow diagram. Also need to move some conceptual content out of "Authorizing Transactions" and "Signing and Submitting Transactions" and put it in this doc.***
 
-## `SigningPubKey` (top-level)
+## <span class="code-snippet">SigningPubKey</span> (top-level)
 
 The public key of the sender in hex format. Empty in the case of a multi-signed transaction.
 
-To verify whether a single-signed transaction is valid, a `rippled` server checks that all of the following are true:
+To verify whether a single-signed transaction is valid, a <span class="code-snippet">rippled</span> server checks that all of the following are true:
 
 1. This key hashes to an address that's authorized by the transaction's sender.
 
@@ -26,25 +26,25 @@ To verify whether a single-signed transaction is valid, a `rippled` server check
 
 3. The signature matches the transaction instructions.
 
-The validation process for multi-signed transactions is slightly different. For more information, see [`Signers[*].SigningPubKey`](#signerssigningpubkey).
+The validation process for multi-signed transactions is slightly different. For more information, see [<span class="code-snippet">Signers[*].SigningPubKey</span>](#signerssigningpubkey).
 
 
-## `TxnSignature` (top-level)
+## <span class="code-snippet">TxnSignature</span> (top-level)
 
 The signature of the transaction instructions, in hex format.
 
-Used with the `SigningPubKey` to verify that the sender did in fact approve the corresponding transaction instructions.
+Used with the <span class="code-snippet">SigningPubKey</span> to verify that the sender did in fact approve the corresponding transaction instructions.
 
 ***TODO: Ensure that this doc reflects this: In transactions, we have two TxnSignature fields—one at the top level for single-signed transactions, and one in each member of the Signers array for multi-signed transactions. (Any given transaction has either the top level TxnSignature or the members in the Signers array but not both.)***
 
-## `Signers` (in a multi-signed transaction)
+## <span class="code-snippet">Signers</span> (in a multi-signed transaction)
 
 An array of signature data for a [multi-signed transaction](reference-transaction-format.html#multi-signing).
 
 Used to verify that a quorum of signers approved a transaction.
 
 
-### `Signers[*].AccountID`
+### <span class="code-snippet">Signers[*].AccountID</span>
 
 The address of one signer, in base58.
 ***TODO: JHA: Slightly nitpicky note (relevant to all the fields, but it especially attracted my notice here): the base58 is how it's generally represented in JSON. In the canonical binary format, I believe this is the AccountID as a 160-bit number, so it's not base58-encoded and doesn't have the checksum in the binary format. Similarly, hexadecimal is just a way of representing a 160-bit number in formats like JSON. In the native binary format, the various fields are just numbers/data in various low-level computer formats. That's only relevant for people who are trying to implement offline signing, though. Everyone else will probably see the JSON representation, where they'll want to know what the conventional way to represent the fields is.***
@@ -52,23 +52,23 @@ The address of one signer, in base58.
 Identifies which signer from the (predefined) [multi-signing list](reference-transaction-format.html#multi-signing) this portion of the multi-signature represents.
 
 
-### `Signers[*].TxnSignature`
+### <span class="code-snippet">Signers[*].TxnSignature</span>
 
 One signature, as hexadecimal.
 
-Verifying a [multi-signed transaction](reference-transaction-format.html#multi-signing) involves making sure each such signature is valid for its `SigningPubKey` and the transaction instructions.
+Verifying a [multi-signed transaction](reference-transaction-format.html#multi-signing) involves making sure each such signature is valid for its <span class="code-snippet">SigningPubKey</span> and the transaction instructions.
 
 
-### `Signers[*].SigningPubKey`
+### <span class="code-snippet">Signers[*].SigningPubKey</span>
 
-The public key of one signer. Verifying a [multi-signed transaction](reference-transaction-format.html#multi-signing) involves making sure each such key is authorized to sign for the `AccountID` of the signer.
+The public key of one signer. Verifying a [multi-signed transaction](reference-transaction-format.html#multi-signing) involves making sure each such key is authorized to sign for the <span class="code-snippet">AccountID</span> of the signer.
 
-Multi-signature `AccountIDs` are a little special. If one is an address that doesn't exist in the ledger, then the `SigningPubKey` must hash to the `AccountID` value using the standard rules for [deriving an AccountID](accounts.html#address-encoding) from a public key. If the address does exist in the ledger, then either:
+Multi-signature <span class="code-snippet">AccountIDs</span> are a little special. If one is an address that doesn't exist in the ledger, then the <span class="code-snippet">SigningPubKey</span> must hash to the <span class="code-snippet">AccountID</span> value using the standard rules for [deriving an AccountID](accounts.html#address-encoding) from a public key. If the address does exist in the ledger, then either:
 
-1. The `SigningPubKey` must hash to the `AccountID` and the address must not have the master key disabled.
+1. The <span class="code-snippet">SigningPubKey</span> must hash to the <span class="code-snippet">AccountID</span> and the address must not have the master key disabled.
 
     or
 
-2. The `SigningPubKey` must hash to a regular key that the address has set in the ledger.
+2. The <span class="code-snippet">SigningPubKey</span> must hash to a regular key that the address has set in the ledger.
 
 For more information about signing transactions, see [Signing and Submitting Transactions](reference-transaction-format.html#signing-and-submitting-transactions).

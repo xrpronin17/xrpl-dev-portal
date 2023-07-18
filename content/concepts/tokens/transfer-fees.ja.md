@@ -8,7 +8,7 @@ labels:
 ---
 # 送金手数料
 
-[XRP Ledgerで通貨を発行する金融機関](become-an-xrp-ledger-gateway.html)は、XRP Ledgerの`TransferRate`設定を使用して、 その金融機関が発行する通貨を送金するユーザーに対し _送金手数料_ を請求できます。この送金の送金元からは送金手数料に基づくパーセンテージが引き落とされ、送金先には予定額が入金されます。差額が送金手数料です。送金手数料は発行アドレスの資産となり、XRP Ledgerではこれ以上追跡されません。発行アカウントとの _直接_ の送金と入金には送金手数料は適用されませんが、[運用アドレス][]から別のユーザーへの送金には送金手数料が適用されます。
+[XRP Ledgerで通貨を発行する金融機関](become-an-xrp-ledger-gateway.html)は、XRP Ledgerの<span class="code-snippet">TransferRate</span>設定を使用して、 その金融機関が発行する通貨を送金するユーザーに対し _送金手数料_ を請求できます。この送金の送金元からは送金手数料に基づくパーセンテージが引き落とされ、送金先には予定額が入金されます。差額が送金手数料です。送金手数料は発行アドレスの資産となり、XRP Ledgerではこれ以上追跡されません。発行アカウントとの _直接_ の送金と入金には送金手数料は適用されませんが、[運用アドレス][]から別のユーザーへの送金には送金手数料が適用されます。
 
 [運用アドレス]: issuing-and-operational-addresses.html
 [発行アドレス]: issuing-and-operational-addresses.html
@@ -39,15 +39,15 @@ XRPにはイシュアーがいないため、送金手数料が発生するこ�
 
 送金手数料は[発行アドレス][]の設定により表されます。送金手数料には、0%未満の値と100%を超える値は指定できず、0.0000001%の位までで切り捨てられます。TransferRate設定は同一アカウントにより発行されるすべての通貨に適用されます。通貨によって異なる送金手数料のパーセンテージを適用するには、通貨ごとに異なる[発行アドレス][]を使用します。
 
-**注記:** `rippled` v0.80.0で導入され2017-11-14に有効となった[fix1201 Amendment](amendments.html)により、最大送金手数料は実効限度である約329%（32ビット整数の最大サイズに基づく）から100%に引き下げられました。送金手数料の設定が100%（`TransferRate`が`2000000000`）を上回るアカウントがレジャーにまだ含まれている可能性があります。すでに設定されている手数料はすべて、規定のレートで引き続き運用されます。
+**注記:** <span class="code-snippet">rippled</span> v0.80.0で導入され2017-11-14に有効となった[fix1201 Amendment](amendments.html)により、最大送金手数料は実効限度である約329%（32ビット整数の最大サイズに基づく）から100%に引き下げられました。送金手数料の設定が100%（<span class="code-snippet">TransferRate</span>が<span class="code-snippet">2000000000</span>）を上回るアカウントがレジャーにまだ含まれている可能性があります。すでに設定されている手数料はすべて、規定のレートで引き続き運用されます。
 
 ## rippled
 
-`rippled`のJSON-RPC APIおよびWebSocket APIでは、送金手数料は`TransferRate`フィールドに10進数で指定され、この数字は受取人が同一通貨を10億単位受領できるよう送金する必要のある額を表します。`TransferRate`が`1005000000`の場合、送金手数料0.5%に相当します。デフォルトでは`TransferRate`は手数料なしに設定されています。`TransferRate`には、`1000000000`（手数料「0%」）未満の値と`2000000000`（手数料「100%」）を上回る値は指定できません。値`0`は手数料なしの特殊なケースであり、`1000000000`に相当します。
+<span class="code-snippet">rippled</span>のJSON-RPC APIおよびWebSocket APIでは、送金手数料は<span class="code-snippet">TransferRate</span>フィールドに10進数で指定され、この数字は受取人が同一通貨を10億単位受領できるよう送金する必要のある額を表します。<span class="code-snippet">TransferRate</span>が<span class="code-snippet">1005000000</span>の場合、送金手数料0.5%に相当します。デフォルトでは<span class="code-snippet">TransferRate</span>は手数料なしに設定されています。<span class="code-snippet">TransferRate</span>には、<span class="code-snippet">1000000000</span>（手数料「0%」）未満の値と<span class="code-snippet">2000000000</span>（手数料「100%」）を上回る値は指定できません。値<span class="code-snippet">0</span>は手数料なしの特殊なケースであり、<span class="code-snippet">1000000000</span>に相当します。
 
-金融機関は、[発行アドレス][]から[AccountSetトランザクション][]を送信して、イシュアンスの`TransferRate`を変更することができます。
+金融機関は、[発行アドレス][]から[AccountSetトランザクション][]を送信して、イシュアンスの<span class="code-snippet">TransferRate</span>を変更することができます。
 
-アカウントの`TransferRate`を確認するには、[account_infoメソッド][]を使用します。`TransferRate`が省略されている場合は、手数料はありません。
+アカウントの<span class="code-snippet">TransferRate</span>を確認するには、[account_infoメソッド][]を使用します。<span class="code-snippet">TransferRate</span>が省略されている場合は、手数料はありません。
 
 
 ## 関連項目

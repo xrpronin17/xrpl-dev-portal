@@ -15,7 +15,7 @@ In the XRP Ledger's [decentralized exchange](decentralized-exchange.html), trade
 
 ## Lifecycle of an Offer
 
-An [OfferCreate transaction][] is an instruction to conduct a trade, either between two tokens, or a token and XRP. Every such transaction contains a buy amount (`TakerPays`) and a sell amount (`TakerGets`). When the transaction is processed, it automatically consumes matching or crossing Offers to the extent possible. If that does not completely fill the new Offer, then the rest becomes an Offer object in the ledger.
+An [OfferCreate transaction][] is an instruction to conduct a trade, either between two tokens, or a token and XRP. Every such transaction contains a buy amount (<span class="code-snippet">TakerPays</span>) and a sell amount (<span class="code-snippet">TakerGets</span>). When the transaction is processed, it automatically consumes matching or crossing Offers to the extent possible. If that does not completely fill the new Offer, then the rest becomes an Offer object in the ledger.
 
 The Offer object waits in the ledger until other Offers or cross-currency payments fully consume it. The account that placed the Offer is called the Offer's _owner_. You can cancel your own Offers at any time, using the dedicated [OfferCancel transaction][], or as an option of the [OfferCreate transaction][].
 
@@ -23,7 +23,7 @@ While you have an Offer in the ledger, it sets aside some of your XRP toward the
 
 ### Variations
 
-- **Buy vs. Sell:** By default, Offers are "buy" Offers and are considered fully filled when you have acquired the entire "buy" (`TakerPays`) amount. (You may spend less than you expected while receiving the specified amount.) By contrast, a "Sell" Offer is only considered fully filled when you have spent the entire "sell" (`TakerGets`) amount. (You may receive more than you expected while spending the specified amount.) This is only relevant if the Offer _initially_ executes at better than its requested exchange rate: after the Offer gets placed into the ledger, it only ever executes at _exactly_ the requested exchange rate.
+- **Buy vs. Sell:** By default, Offers are "buy" Offers and are considered fully filled when you have acquired the entire "buy" (<span class="code-snippet">TakerPays</span>) amount. (You may spend less than you expected while receiving the specified amount.) By contrast, a "Sell" Offer is only considered fully filled when you have spent the entire "sell" (<span class="code-snippet">TakerGets</span>) amount. (You may receive more than you expected while spending the specified amount.) This is only relevant if the Offer _initially_ executes at better than its requested exchange rate: after the Offer gets placed into the ledger, it only ever executes at _exactly_ the requested exchange rate.
 - An **Immediate or Cancel** Offer is not placed into the ledger, so it only trades up to the amount that matches existing, matching Offers at the time the transaction is processed.
 - A **Fill or Kill** Offer is not placed into the ledger, _and_ it is canceled if the full amount is not filled when it initially executes. This is similar to "Immediate or Cancel" except it _cannot_ be partially filled.
 - A **Passive** Offer does not consume matching Offers that have the exact same exchange rate (going the other direction), and instead is placed directly into the ledger. You can use this to create an exact peg between two assets. Passive Offers still consume other Offers that have a _better_ exchange rate going the other way.
@@ -68,7 +68,7 @@ An unfunded Offer stays on the ledger until a transaction removes it. Ways that 
 
 Tracking the funding status of all Offers can be computationally taxing. In particular, addresses that are actively trading may have a large number of Offers open. A single balance can affect the funding status of many Offers. Because of this, the XRP Ledger does not _proactively_ find and remove unfunded or expired Offers.
 
-A client application can locally track the funding status of Offers. To do this, first retrieve an order book using the [book_offers method][] and check the `taker_gets_funded` field of Offers. Then, [subscribe](subscribe.html) to the `transactions` stream and watch the transaction metadata to see which Offers are modified.
+A client application can locally track the funding status of Offers. To do this, first retrieve an order book using the [book_offers method][] and check the <span class="code-snippet">taker_gets_funded</span> field of Offers. Then, [subscribe](subscribe.html) to the <span class="code-snippet">transactions</span> stream and watch the transaction metadata to see which Offers are modified.
 
 
 ## Offers and Trust
@@ -82,7 +82,7 @@ Trust line limits protect you from receiving more of a token as payment than you
 
 ## Offer Preference
 
-Existing Offers are grouped by exchange rate, which is measured as the ratio between `TakerGets` and `TakerPays`. Offers with a higher exchange rate are taken preferentially. (That is, the person accepting the offer receives as much as possible for the amount of currency they pay out.) Offers with the same exchange rate are taken on the basis of which offer was placed first.
+Existing Offers are grouped by exchange rate, which is measured as the ratio between <span class="code-snippet">TakerGets</span> and <span class="code-snippet">TakerPays</span>. Offers with a higher exchange rate are taken preferentially. (That is, the person accepting the offer receives as much as possible for the amount of currency they pay out.) Offers with the same exchange rate are taken on the basis of which offer was placed first.
 
 When Offers execute in the same ledger block, the order in which they execute is determined by the [canonical order](https://github.com/ripple/rippled/blob/release/src/ripple/app/misc/CanonicalTXSet.cpp "Source code: Transaction ordering") in which the transactions were [applied to the ledger](https://github.com/ripple/rippled/blob/5425a90f160711e46b2c1f1c93d68e5941e4bfb6/src/ripple/app/consensus/LedgerConsensus.cpp#L1435-L1538 "Source code: Applying transactions"). This behavior is designed to be deterministic, efficient, and hard to game.
 

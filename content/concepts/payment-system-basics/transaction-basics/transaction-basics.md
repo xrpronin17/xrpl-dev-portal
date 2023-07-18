@@ -10,12 +10,12 @@ labels:
 
 A _Transaction_ is the only way to modify the XRP Ledger. Transactions are only final if signed, submitted, and accepted into a validated ledger version following the [consensus process](consensus.html). Some ledger rules also generate _[pseudo-transactions](pseudo-transaction-types.html)_, which aren't signed or submitted, but still must be accepted by consensus. Transactions that fail are also included in ledgers because they modify balances of XRP to pay for the anti-spam [transaction cost][].
 
-Transactions can do more than send money. In addition to supporting various [Payment Types](payment-types.html), transactions in the XRP Ledger are also used to rotate [cryptographic keys](cryptographic-keys.html), manage other settings, and trade in the XRP Ledger's [decentralized exchange](decentralized-exchange.html). The [`rippled` API reference](http-websocket-apis.html) has a complete [list of transaction types](transaction-types.html).
+Transactions can do more than send money. In addition to supporting various [Payment Types](payment-types.html), transactions in the XRP Ledger are also used to rotate [cryptographic keys](cryptographic-keys.html), manage other settings, and trade in the XRP Ledger's [decentralized exchange](decentralized-exchange.html). The [<span class="code-snippet">rippled</span> API reference](http-websocket-apis.html) has a complete [list of transaction types](transaction-types.html).
 
 
 ### Identifying Transactions
 
-Every signed transaction has a unique `"hash"` that identifies it. The server provides the hash in the response when you submit the transaction; you can also look up a transaction in an account's transaction history with the [account_tx command](account_tx.html).
+Every signed transaction has a unique <span class="code-snippet">"hash"</span> that identifies it. The server provides the hash in the response when you submit the transaction; you can also look up a transaction in an account's transaction history with the [account_tx command](account_tx.html).
 
 The transaction hash can be used as a "proof of payment" since anyone can [look up the transaction by its hash](look-up-transaction-results.html) to verify its final status.
 
@@ -25,7 +25,7 @@ The transaction hash can be used as a "proof of payment" since anyone can [look 
 
 ## Claimed Cost Justification
 
-Although it may seem unfair to charge a [transaction cost](transaction-cost.html) for a failed transaction, the `tec` class of errors exists for good reasons:
+Although it may seem unfair to charge a [transaction cost](transaction-cost.html) for a failed transaction, the <span class="code-snippet">tec</span> class of errors exists for good reasons:
 
 * Transactions submitted after the failed one do not have to have their Sequence values renumbered. Incorporating the failed transaction into a ledger uses up the transaction's sequence number, preserving the expected sequence.
 * Distributing the transaction throughout the network increases network load. Enforcing a cost makes it harder for attackers to abuse the network with failed transactions.
@@ -59,7 +59,7 @@ Sending a transaction to the XRP Ledger involves several steps:
 
 1. Create an [unsigned transaction in JSON format](#example-unsigned-transaction).
 2. Use one or more signatures to [authorize the transaction](#authorizing-transactions).
-3. Submit a transaction to an XRP Ledger server (usually a [`rippled` instance](xrpl-servers.html)). If the transaction is properly formed, the server provisionally applies the transaction to its current version of the ledger and relays the transaction to other members of the peer-to-peer network.
+3. Submit a transaction to an XRP Ledger server (usually a [<span class="code-snippet">rippled</span> instance](xrpl-servers.html)). If the transaction is properly formed, the server provisionally applies the transaction to its current version of the ledger and relays the transaction to other members of the peer-to-peer network.
 4. The [consensus process](consensus.html) determines which provisional transactions get included in the next validated ledger.
 5. The servers apply those transactions to the previous ledger in a canonical order and share their results.
 6. If enough [trusted validators](rippled-server-modes.html#validators) created the exact same ledger, that ledger is declared _validated_ and the [results of the transactions](transaction-results.html) in that ledger are immutable.
@@ -71,7 +71,7 @@ See [Send XRP](send-xrp.html) for an interactive tutorial in sending XRP payment
 
 Here is an example of an unsigned [Payment transaction][] in JSON:
 
-```json
+<span class="code-snippet"></span>`json
 {
   "TransactionType" : "Payment",
   "Account" : "rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn",
@@ -85,21 +85,21 @@ Here is an example of an unsigned [Payment transaction][] in JSON:
   "Flags": 2147483648,
   "Sequence": 2,
 }
-```
+<span class="code-snippet"></span>`
 
-The XRP Ledger only relays and executes a transaction if the transaction object has been authorized by the sending address (in the `Account`) field. For instructions on how to do this securely, see [Set Up Secure Signing](set-up-secure-signing.html).
+The XRP Ledger only relays and executes a transaction if the transaction object has been authorized by the sending address (in the <span class="code-snippet">Account</span>) field. For instructions on how to do this securely, see [Set Up Secure Signing](set-up-secure-signing.html).
 
 ## Example Signed Transaction Blob
 
 Signing a transaction results in a chunk of binary data, called a "blob", that can be submitted to the network. Here is an example of the same transaction, as a signed blob, being [submitted with the WebSocket API](submit.html):
 
-```json
+<span class="code-snippet"></span>`json
 {
   "id": 2,
   "command": "submit",
   "tx_blob" : "120000240000000461D4838D7EA4C6800000000000000000000000000055534400000000004B4E9C06F24296074F7BC48F92A97916C6DC5EA968400000000000000F732103AB40A0490F9B7ED8DF29D246BF2D6269820A0EE7742ACDD457BEA7C7D0931EDB74483046022100982064CDD3F052D22788DB30B52EEA8956A32A51375E72274E417328EBA31E480221008F522C9DB4B0F31E695AA013843958A10DE8F6BA7D6759BEE645F71A7EB240BE81144B4E9C06F24296074F7BC48F92A97916C6DC5EA983143E9D4A2B8AA0780F682D136F7A56D6724EF53754"
 }
-```
+<span class="code-snippet"></span>`
 
 ## Example Executed Transaction with Metadata
 
@@ -109,9 +109,9 @@ You can check a transaction's status using the API, for example using the [tx co
 
 **Caution:** The results of a transaction, including all its metadata, are not final unless the transaction appears in a **validated** ledger. See also: [Finality of Results](finality-of-results.html).
 
-Example response from the `tx` command:
+Example response from the <span class="code-snippet">tx</span> command:
 
-```json
+<span class="code-snippet"></span>`json
 {
   "id": 6,
   "status": "success",
@@ -197,7 +197,7 @@ Example response from the `tx` command:
     "validated": true
   }
 }
-```
+<span class="code-snippet"></span>`
 
 
 ## See Also

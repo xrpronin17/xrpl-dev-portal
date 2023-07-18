@@ -9,21 +9,21 @@ labels:
 ---
 # Ledger History
 
-The [consensus process](intro-to-consensus.html) creates a chain of [validated ledger versions](ledgers.html), each derived from the previous one by applying a set of [transactions](transaction-basics.html). Every [`rippled` server](xrpl-servers.html) stores ledger versions and transaction history locally. The amount of transaction history a server stores depends on how long that server has been online and how much history it is configured to fetch and keep.
+The [consensus process](intro-to-consensus.html) creates a chain of [validated ledger versions](ledgers.html), each derived from the previous one by applying a set of [transactions](transaction-basics.html). Every [<span class="code-snippet">rippled</span> server](xrpl-servers.html) stores ledger versions and transaction history locally. The amount of transaction history a server stores depends on how long that server has been online and how much history it is configured to fetch and keep.
 
 Servers in the peer-to-peer XRP Ledger network share transactions and other data with each other as part of the consensus process. Each server independently builds each new ledger version and compares results with its trusted validators to ensure consistency. (If a consensus of trusted validators disagrees with a server's results, that server fetches the necessary data from its peers to achieve consistency.) Servers can download older data from their peers to fill gaps in their available history. The structure of the ledger uses cryptographic [hashes](basic-data-types.html#hashes) of the data so that any server can verify the integrity and consistency of the data.
 
 ## Databases
 
-Servers keep ledger state data and transactions in a key-value store called the _ledger store_. Additionally, `rippled` maintains a few SQLite database files for more flexible access to things like transaction history, and to track certain settings changes.
+Servers keep ledger state data and transactions in a key-value store called the _ledger store_. Additionally, <span class="code-snippet">rippled</span> maintains a few SQLite database files for more flexible access to things like transaction history, and to track certain settings changes.
 
-It is generally safe to delete all of a `rippled` server's database files when that server is not running. (You may want to do this, for example, if you change the server's storage settings or if you are switching from a test net to the production network.)
+It is generally safe to delete all of a <span class="code-snippet">rippled</span> server's database files when that server is not running. (You may want to do this, for example, if you change the server's storage settings or if you are switching from a test net to the production network.)
 
 ## Available History
 
 By design, all data and transactions in the XRP Ledger are public, and anyone can search or query anything. However, your server can only search data that it has available locally. If you try to query for a ledger version or transaction that your server does not have available, your server replies that it cannot find that data. Other servers that have the necessary history can respond successfully to the same query. If you have a business that uses XRP Ledger data, you should be mindful of how much history your server has available.
 
-The [server_info method][] reports how many ledger versions your server has available in the `complete_ledgers` field.
+The [server_info method][] reports how many ledger versions your server has available in the <span class="code-snippet">complete_ledgers</span> field.
 
 ## Fetching History
 
@@ -38,9 +38,9 @@ The XRP Ledger identifies data (on several different levels) by a unique hash of
 ### Backfilling
 [Updated in: rippled 1.6.0][]
 
-The amount of history a server attempts to download depends on its configuration. The server automatically tries to fill gaps by downloading history up to **the oldest ledger it already has available**. You can use the `[ledger_history]` setting to make the server backfill history beyond that point. However, the server never downloads ledgers that would be scheduled for [deletion](online-deletion.html).
+The amount of history a server attempts to download depends on its configuration. The server automatically tries to fill gaps by downloading history up to **the oldest ledger it already has available**. You can use the <span class="code-snippet">[ledger_history]</span> setting to make the server backfill history beyond that point. However, the server never downloads ledgers that would be scheduled for [deletion](online-deletion.html).
 
-The `[ledger_history]` setting defines a minimum number of ledgers to accumulate from before the current validated ledger. Use the special value `full` to download the [full history](#full-history) of the network. If you specify a number of ledgers, it must be equal to or more than the `online_deletion` setting; you cannot use `[ledger_history]` to make the server download _less_ history. To reduce the amount of history a server stores, change the [online deletion](online-deletion.html) settings instead. <!-- STYLE_OVERRIDE: a number of -->
+The <span class="code-snippet">[ledger_history]</span> setting defines a minimum number of ledgers to accumulate from before the current validated ledger. Use the special value <span class="code-snippet">full</span> to download the [full history](#full-history) of the network. If you specify a number of ledgers, it must be equal to or more than the <span class="code-snippet">online_deletion</span> setting; you cannot use <span class="code-snippet">[ledger_history]</span> to make the server download _less_ history. To reduce the amount of history a server stores, change the [online deletion](online-deletion.html) settings instead. <!-- STYLE_OVERRIDE: a number of -->
 
 
 
@@ -49,7 +49,7 @@ The `[ledger_history]` setting defines a minimum number of ledgers to accumulate
 Some servers in the XRP Ledger network are configured as "full-history" servers. These servers, which require significantly more disk space than other tracking servers, collect all available XRP Ledger history and **do not use online deletion**.
 
 The XRP Ledger Foundation provides access to a set of full history servers operated by community members (see [xrplcluster.com](https://xrplcluster.com) for more details).
-Ripple also provides a set of public full-history servers as a public service at `s2.ripple.com`. <!-- SPELLING_IGNORE: xrplcluster -->
+Ripple also provides a set of public full-history servers as a public service at <span class="code-snippet">s2.ripple.com</span>. <!-- SPELLING_IGNORE: xrplcluster -->
 
 Providers of Full History servers reserve the right to block access that is found to abuse resources, or put inordinate load on the systems.
 
@@ -72,7 +72,7 @@ For more information, see [Configure History Sharding](configure-history-shardin
     - [Ledgers](ledgers.html)
     - [Introduction to Consensus](intro-to-consensus.html)
 - **Tutorials:**
-    - [Configure `rippled`](configure-rippled.html)
+    - [Configure <span class="code-snippet">rippled</span>](configure-rippled.html)
         - [Configure Online Deletion](configure-online-deletion.html)
         - [Configure Advisory Deletion](configure-advisory-deletion.html)
         - [Configure History Sharding](configure-history-sharding.html)

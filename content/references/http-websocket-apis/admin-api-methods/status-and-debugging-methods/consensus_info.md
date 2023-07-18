@@ -9,9 +9,9 @@ labels:
 # consensus_info
 [[Source]](https://github.com/ripple/rippled/blob/a61ffab3f9010d8accfaa98aa3cacc7d38e74121/src/ripple/rpc/handlers/ConsensusInfo.cpp "Source")
 
-The `consensus_info` command provides information about the [consensus process](consensus.html) for debugging purposes.
+The <span class="code-snippet">consensus_info</span> command provides information about the [consensus process](consensus.html) for debugging purposes.
 
-_The `consensus_info` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">consensus_info</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -214,28 +214,28 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `info`  | Object | Information that may be useful for debugging consensus. This output is subject to change without notice. |
+| <span class="code-snippet">info</span>  | Object | Information that may be useful for debugging consensus. This output is subject to change without notice. |
 
-The following is an incomplete summary of fields that may be contained in the `info` object:
+The following is an incomplete summary of fields that may be contained in the <span class="code-snippet">info</span> object:
 
 | `Field`          | Type    | Description                                     |
 |:-----------------|:--------|:------------------------------------------------|
-| `ledger_seq`     | Number  | The [ledger index][Ledger Index] of the [ledger](ledgers.html) currently in the consensus process |
-| `our_position`   | Object  | This server's expectation for the ledger in the consensus process. |
-| `peer_positions` | Object  | Map of peers and their proposed versions of the ledger in the consensus process. |
-| `proposers`      | Number  | The number of trusted validators participating in this consensus process. Which validators are trusted depends on this server's configuration. |
-| `synched`        | Boolean | Whether this server considers itself in sync with the network. |
-| `state`          | String  | What part of the consensus process is currently in progress: `open`, `consensus`, `finished`, or `accepted`. |
+| <span class="code-snippet">ledger_seq</span>     | Number  | The [ledger index][Ledger Index] of the [ledger](ledgers.html) currently in the consensus process |
+| <span class="code-snippet">our_position</span>   | Object  | This server's expectation for the ledger in the consensus process. |
+| <span class="code-snippet">peer_positions</span> | Object  | Map of peers and their proposed versions of the ledger in the consensus process. |
+| <span class="code-snippet">proposers</span>      | Number  | The number of trusted validators participating in this consensus process. Which validators are trusted depends on this server's configuration. |
+| <span class="code-snippet">synched</span>        | Boolean | Whether this server considers itself in sync with the network. |
+| <span class="code-snippet">state</span>          | String  | What part of the consensus process is currently in progress: <span class="code-snippet">open</span>, <span class="code-snippet">consensus</span>, <span class="code-snippet">finished</span>, or <span class="code-snippet">accepted</span>. |
 
-It is also normal to get a minimal result where the only field in `info` is `"consensus": "none"`. This indicates that the server is in between consensus rounds.
+It is also normal to get a minimal result where the only field in <span class="code-snippet">info</span> is <span class="code-snippet">"consensus": "none"</span>. This indicates that the server is in between consensus rounds.
 
-The results of the `consensus_info` command can vary dramatically if you run it several times, even in short succession.
+The results of the <span class="code-snippet">consensus_info</span> command can vary dramatically if you run it several times, even in short succession.
 
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

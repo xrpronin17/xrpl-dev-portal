@@ -7,26 +7,26 @@ blurb: WebSocket、JSON-RPC、コマンドラインインターフェイスの�
 
 ## WebSocketフォーマット  
 
-`rippled`サーバーへのWebSocketを開いた後、以下の属性を使用して、コマンドを[JSON](https://en.wikipedia.org/wiki/JSON)オブジェクトとして送信できます。
+<span class="code-snippet">rippled</span>サーバーへのWebSocketを開いた後、以下の属性を使用して、コマンドを[JSON](https://en.wikipedia.org/wiki/JSON)オブジェクトとして送信できます。
 
-* コマンド名を最上位の`"command"`フィールドに指定します。
+* コマンド名を最上位の<span class="code-snippet">"command"</span>フィールドに指定します。
 * このコマンドのすべての関連パラメーターも最上位に指定します。
-* オプションで、任意の値を指定した`"id"`フィールドを指定します。この要求への応答では、同一の`"id"`フィールドを使用します。そうすることで、応答が順不同で到達した場合も、どの要求によってどの応答を得られたのかがわかります。
+* オプションで、任意の値を指定した<span class="code-snippet">"id"</span>フィールドを指定します。この要求への応答では、同一の<span class="code-snippet">"id"</span>フィールドを使用します。そうすることで、応答が順不同で到達した場合も、どの要求によってどの応答を得られたのかがわかります。
 
 応答はJSONオブジェクトとして返されます。
 
 ## JSON-RPCフォーマット
 
-JSON-RPC要求を実行するには、`rippled`サーバーがJSON-RPC接続をリッスンしているポートおよびIPで、HTTP **POST**要求をルートパス（`/`）に送信します。HTTP/1.0またはHTTP/1.1を使用できます。HTTPSを使用する場合は、TLS v1.2を使用してください。セキュリティ上の理由から、`rippled`ではSSL v3以前を _サポートしていません_ 。
+JSON-RPC要求を実行するには、<span class="code-snippet">rippled</span>サーバーがJSON-RPC接続をリッスンしているポートおよびIPで、HTTP **POST**要求をルートパス（<span class="code-snippet">/</span>）に送信します。HTTP/1.0またはHTTP/1.1を使用できます。HTTPSを使用する場合は、TLS v1.2を使用してください。セキュリティ上の理由から、<span class="code-snippet">rippled</span>ではSSL v3以前を _サポートしていません_ 。
 
-常に`Content-Type`ヘッダー（値`application/json`）を指定してください。
+常に<span class="code-snippet">Content-Type</span>ヘッダー（値<span class="code-snippet">application/json</span>）を指定してください。
 
 複数の要求を実行する予定の場合は、要求間で接続を閉じてから開く操作を行わずに済むように、[Keep-Alives](http://tools.ietf.org/html/rfc7230#section-6.3)を使用してください。
 
 以下の属性を指定した要求本文を[JSON](https://en.wikipedia.org/wiki/JSON)オブジェクトとして送信します。
 
-* コマンドを最上位の`"method"` フィールドに指定します。
-* 最上位の`"params"`フィールドを指定します。このフィールドの内容は、コマンドのすべてのパラメーターが指定された1つの入れ子JSONオブジェクトのみを保持している**1要素配列**です。
+* コマンドを最上位の<span class="code-snippet">"method"</span> フィールドに指定します。
+* 最上位の<span class="code-snippet">"params"</span>フィールドを指定します。このフィールドの内容は、コマンドのすべてのパラメーターが指定された1つの入れ子JSONオブジェクトのみを保持している**1要素配列**です。
 
 応答もJSONオブジェクトです。
 

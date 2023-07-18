@@ -11,14 +11,14 @@ The fields of a successful response include:
 
 | `Field`         | Type     | Description                                     |
 |:----------------|:---------|:------------------------------------------------|
-| `id`            | (Varies) | (WebSocket only) ID provided in the request that prompted this response |
-| `status`        | String   | (WebSocket only) The value `success` indicates the request was successfully received and understood by the server. Some [client libraries](client-libraries.html) omit this field on success. |
-| `result.status` | String   | (JSON-RPC and Commandline) The value `success` indicates the request was successfully received and understood by the server. Some [client libraries](client-libraries.html) omit this field on success. |
-| `type`          | String   | (WebSocket only) The value `response` indicates a direct response to an API request. [Asynchronous notifications](subscribe.html) use a different value such as `ledgerClosed` or `transaction`. |
-| `result`        | Object   | The result of the query; contents vary depending on the command. |
-| `warning`       | String   | _(May be omitted)_ If this field is provided, the value is the string `load`. This means the client is approaching the [rate limiting](rate-limiting.html) threshold where the server will disconnect this client. <!-- STYLE_OVERRIDE: will --> |
-| `warnings`      | Array    | _(May be omitted)_ If this field is provided, it contains one or more **Warnings Objects** with important warnings. For details, see [API Warnings](#api-warnings). [New in: rippled 1.5.0][] |
-| `forwarded`     | Boolean  | _(May be omitted)_ If `true`, this request and response have been forwarded from a [Reporting Mode][] server to a P2P Mode server (and back) because the request requires data that is not available in Reporting Mode. The default is `false`. |
+| <span class="code-snippet">id</span>            | (Varies) | (WebSocket only) ID provided in the request that prompted this response |
+| <span class="code-snippet">status</span>        | String   | (WebSocket only) The value <span class="code-snippet">success</span> indicates the request was successfully received and understood by the server. Some [client libraries](client-libraries.html) omit this field on success. |
+| <span class="code-snippet">result.status</span> | String   | (JSON-RPC and Commandline) The value <span class="code-snippet">success</span> indicates the request was successfully received and understood by the server. Some [client libraries](client-libraries.html) omit this field on success. |
+| <span class="code-snippet">type</span>          | String   | (WebSocket only) The value <span class="code-snippet">response</span> indicates a direct response to an API request. [Asynchronous notifications](subscribe.html) use a different value such as <span class="code-snippet">ledgerClosed</span> or <span class="code-snippet">transaction</span>. |
+| <span class="code-snippet">result</span>        | Object   | The result of the query; contents vary depending on the command. |
+| <span class="code-snippet">warning</span>       | String   | _(May be omitted)_ If this field is provided, the value is the string <span class="code-snippet">load</span>. This means the client is approaching the [rate limiting](rate-limiting.html) threshold where the server will disconnect this client. <!-- STYLE_OVERRIDE: will --> |
+| <span class="code-snippet">warnings</span>      | Array    | _(May be omitted)_ If this field is provided, it contains one or more **Warnings Objects** with important warnings. For details, see [API Warnings](#api-warnings). [New in: rippled 1.5.0][] |
+| <span class="code-snippet">forwarded</span>     | Boolean  | _(May be omitted)_ If <span class="code-snippet">true</span>, this request and response have been forwarded from a [Reporting Mode][] server to a P2P Mode server (and back) because the request requires data that is not available in Reporting Mode. The default is <span class="code-snippet">false</span>. |
 
 
 ## Example Successful Response
@@ -99,13 +99,13 @@ HTTP Status: 200 OK
 
 ## API Warnings
 
-When the response contains a `warnings` array, each member of the array represents a separate warning from the server. Each such **Warning Object** contains the following fields:
+When the response contains a <span class="code-snippet">warnings</span> array, each member of the array represents a separate warning from the server. Each such **Warning Object** contains the following fields:
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `id`      | Number | A unique numeric code for this warning message.         |
-| `message` | String | A human-readable string describing the cause of this message. Do not write software that relies the contents of this message; use the `id` (and `details`, if applicable) to identify the warning instead. |
-| `details` | Object | _(May be omitted)_ Additional information about this warning. The contents vary depending on the type of warning. |
+| <span class="code-snippet">id</span>      | Number | A unique numeric code for this warning message.         |
+| <span class="code-snippet">message</span> | String | A human-readable string describing the cause of this message. Do not write software that relies the contents of this message; use the <span class="code-snippet">id</span> (and <span class="code-snippet">details</span>, if applicable) to identify the warning instead. |
+| <span class="code-snippet">details</span> | Object | _(May be omitted)_ Additional information about this warning. The contents vary depending on the type of warning. |
 
 The following reference describes all possible warnings.
 
@@ -126,16 +126,16 @@ Example warning:
 ]
 ```
 
-This warning indicates that the one or more [amendments](amendments.html) to the XRP Ledger protocol are scheduled to become enabled, but the current server does not have an implementation for those amendments. If those amendments become enabled, the current server will become [amendment blocked](amendments.html#amendment-blocked-servers), so you should [upgrade to the latest `rippled` version](install-rippled.html) as soon as possible. <!-- STYLE_OVERRIDE: will -->
+This warning indicates that the one or more [amendments](amendments.html) to the XRP Ledger protocol are scheduled to become enabled, but the current server does not have an implementation for those amendments. If those amendments become enabled, the current server will become [amendment blocked](amendments.html#amendment-blocked-servers), so you should [upgrade to the latest <span class="code-snippet">rippled</span> version](install-rippled.html) as soon as possible. <!-- STYLE_OVERRIDE: will -->
 
 The server only sends this warning if the client is [connected as an admin](get-started-using-http-websocket-apis.html#admin-access).
 
-This warning includes a `details` field with the following fields:
+This warning includes a <span class="code-snippet">details</span> field with the following fields:
 
 | Field               | Value  | Description                                   |
 |:--------------------|:-------|:----------------------------------------------|
-| `expected_date`     | Number | The time that the first unsupported amendment is expected to become enabled, in [seconds since the Ripple Epoch][]. |
-| `expected_date_UTC` | String | The timestamp, in UTC, when the first unsupported amendment is expected to become enabled. |
+| <span class="code-snippet">expected_date</span>     | Number | The time that the first unsupported amendment is expected to become enabled, in [seconds since the Ripple Epoch][]. |
+| <span class="code-snippet">expected_date_UTC</span> | String | The timestamp, in UTC, when the first unsupported amendment is expected to become enabled. |
 
 Due to the variation in ledger close times, these times are approximate. It is also possible that the amendment fails to maintain support from >80% of validators until the specified time, and does not become enabled at the expected time. The server will not become amendment blocked so long as the unsupported amendments do not become enabled.
 
@@ -155,7 +155,7 @@ Example warning:
 
 This warning indicates that the server is [amendment blocked](amendments.html#amendment-blocked-servers) and can no longer remain synced with the XRP Ledger.
 
-The server administrator must [upgrade `rippled`](install-rippled.html) to a version that supports the activated amendments.
+The server administrator must [upgrade <span class="code-snippet">rippled</span>](install-rippled.html) to a version that supports the activated amendments.
 
 ### 1003. This is a reporting server
 [New in: rippled 1.7.0][]
@@ -183,13 +183,13 @@ It is generally safe to ignore this warning.
 - [Request Formatting](request-formatting.html)
 - [Error Formatting](error-formatting.html) for unsuccessful API responses.
 - **Concepts:**
-    - [The `rippled` Server](xrpl-servers.html)
+    - [The <span class="code-snippet">rippled</span> Server](xrpl-servers.html)
     - [Introduction to Consensus](intro-to-consensus.html)
     - [Amendments](amendments.html)
         - [Known Amendments](known-amendments.html)
 - **Tutorials:**
     - [Get Started with XRP Ledger APIs](get-started-using-http-websocket-apis.html)
-    - [Install and Update `rippled`](install-rippled.html)
+    - [Install and Update <span class="code-snippet">rippled</span>](install-rippled.html)
 - **References:**
     - [feature method][]
     - [server_info method][]

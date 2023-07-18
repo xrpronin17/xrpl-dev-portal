@@ -10,7 +10,7 @@ labels:
 
 Requests information from peer servers about which [shards of historical ledger data](history-sharding.html) they have available. [New in: rippled 1.2.0][]
 
-_The `crawl_shards` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">crawl_shards</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 
@@ -50,10 +50,10 @@ The request includes the following fields:
 
 | `Field`  | Type    | Description                                             |
 |:---------|:--------|:--------------------------------------------------------|
-| `public_key` | Boolean | _(Optional)_ If `true`, the response includes the node public keys (for peer-to-peer communications) of servers that were crawled. The default is `false`. |
-| `limit`  | Number  | _(Optional)_ How many hops deep to search. The default is 0, which searches direct peers only. With a limit of `1`, searches peers' peers also. The maximum value is `3`. |
+| <span class="code-snippet">public_key</span> | Boolean | _(Optional)_ If <span class="code-snippet">true</span>, the response includes the node public keys (for peer-to-peer communications) of servers that were crawled. The default is <span class="code-snippet">false</span>. |
+| <span class="code-snippet">limit</span>  | Number  | _(Optional)_ How many hops deep to search. The default is 0, which searches direct peers only. With a limit of <span class="code-snippet">1</span>, searches peers' peers also. The maximum value is <span class="code-snippet">3</span>. |
 
-**Caution:** The number of peers potentially searched grows exponentially as `limit` increases. With a limit of 2 or 3, it can take several seconds for the server to respond to the API request.
+**Caution:** The number of peers potentially searched grows exponentially as <span class="code-snippet">limit</span> increases. With a limit of 2 or 3, it can take several seconds for the server to respond to the API request.
 
 
 ### Response Format
@@ -117,27 +117,27 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`           | Type   | Description                                     |
 |:------------------|:-------|:------------------------------------------------|
-| `complete_shards` | String | _(May be omitted)_ The range of [history shards](history-sharding.html) that are available on the local server. This may be an empty string, or a disjointed range. For example, `1-2,5,7-9` indicates that shards 1, 2, 5, 7, 8, and 9 are available. Omitted if this server does not have history sharding enabled. |
-| `peers`           | Array  | _(May be omitted)_ List of **Peer Shard Objects** (see below) describing which history shards each peer has available. The response omits this field if no peers within the number of hops specified by `limit` have any shards. |
+| <span class="code-snippet">complete_shards</span> | String | _(May be omitted)_ The range of [history shards](history-sharding.html) that are available on the local server. This may be an empty string, or a disjointed range. For example, <span class="code-snippet">1-2,5,7-9</span> indicates that shards 1, 2, 5, 7, 8, and 9 are available. Omitted if this server does not have history sharding enabled. |
+| <span class="code-snippet">peers</span>           | Array  | _(May be omitted)_ List of **Peer Shard Objects** (see below) describing which history shards each peer has available. The response omits this field if no peers within the number of hops specified by <span class="code-snippet">limit</span> have any shards. |
 
 #### Peer Shard Objects
 
-Each member of the `peers` array of the response is an object that describes one server in the peer-to-peer network. The list only includes peers that have at least one complete [history shard](history-sharding.html) available. Each object in the array has the following fields:
+Each member of the <span class="code-snippet">peers</span> array of the response is an object that describes one server in the peer-to-peer network. The list only includes peers that have at least one complete [history shard](history-sharding.html) available. Each object in the array has the following fields:
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `complete_shards` | String | The range of complete history shards this peer has available. This may be disjointed. For example, `1-2,5,7-9` indicates that shards 1, 2, 5, 7, 8, and 9 are available. |
-| `incomplete_shards` | String | _(May be omitted)_ A comma-separated list of history shards this peer has partially downloaded, and percent completion for each. For example, `1:50,2:25` indicates that shard 1 is 50% downloaded and shard 2 is 25% downloaded. [New in: rippled 1.8.1][] |
-| `public_key` | String | _(Omitted unless the request specified `"public_key": true`)_ The public key this peer uses for peer-to-peer communications, in the XRP Ledger's [base58 format](base58-encodings.html). |
+| <span class="code-snippet">complete_shards</span> | String | The range of complete history shards this peer has available. This may be disjointed. For example, <span class="code-snippet">1-2,5,7-9</span> indicates that shards 1, 2, 5, 7, 8, and 9 are available. |
+| <span class="code-snippet">incomplete_shards</span> | String | _(May be omitted)_ A comma-separated list of history shards this peer has partially downloaded, and percent completion for each. For example, <span class="code-snippet">1:50,2:25</span> indicates that shard 1 is 50% downloaded and shard 2 is 25% downloaded. [New in: rippled 1.8.1][] |
+| <span class="code-snippet">public_key</span> | String | _(Omitted unless the request specified <span class="code-snippet">"public_key": true</span>)_ The public key this peer uses for peer-to-peer communications, in the XRP Ledger's [base58 format](base58-encodings.html). |
 
-The `ip` field is no longer provided. [Removed in: rippled 1.8.1][]
+The <span class="code-snippet">ip</span> field is no longer provided. [Removed in: rippled 1.8.1][]
 
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `invalidParams` - One or more required fields were omitted from the request, or a provided field was specified as the wrong data type.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">invalidParams</span> - One or more required fields were omitted from the request, or a provided field was specified as the wrong data type.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 
 <!--{# common link defs #}-->

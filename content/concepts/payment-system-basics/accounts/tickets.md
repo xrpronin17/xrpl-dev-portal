@@ -41,7 +41,7 @@ Continuing the above example, you can send a transaction using sequence number 1
 
 **Caution:** Each Ticket counts as a separate item for the [owner reserve](reserves.html), so you must set aside 2 XRP for each Ticket. (The XRP becomes available again after you use the Ticket.) This cost can add up quickly if you create a large number of Tickets at once.
 
-As with sequence numbers, sending a transaction uses up the Ticket _if and only if_ the transaction is confirmed by [consensus](consensus.html). However, transactions that fail to do what they were intended to do can still be confirmed by consensus with [`tec`-class result codes](tec-codes.html).
+As with sequence numbers, sending a transaction uses up the Ticket _if and only if_ the transaction is confirmed by [consensus](consensus.html). However, transactions that fail to do what they were intended to do can still be confirmed by consensus with [<span class="code-snippet">tec</span>-class result codes](tec-codes.html).
 
 To look up what Tickets an account has available, use the [account_objects method][].
 

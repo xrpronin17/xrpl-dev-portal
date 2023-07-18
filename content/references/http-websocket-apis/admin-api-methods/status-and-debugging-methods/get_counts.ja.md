@@ -8,9 +8,9 @@ labels:
 # get_counts
 [[ソース]](https://github.com/ripple/rippled/blob/c7118a183a660648aa88a3546a6b2c5bce858440/src/ripple/rpc/handlers/GetCounts.cpp "Source")
 
-`get_counts`コマンドは、サーバーの健全性に関するさまざまな統計情報を提供します。そのほとんどは、現在メモリーに格納されている各種オブジェクトの数です。
+<span class="code-snippet">get_counts</span>コマンドは、サーバーの健全性に関するさまざまな統計情報を提供します。そのほとんどは、現在メモリーに格納されている各種オブジェクトの数です。
 
-_`get_counts`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">get_counts</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -53,7 +53,7 @@ rippled get_counts 100
 
 | `Field`     | 型                      | 説明                        |
 |:------------|:--------------------------|:-----------------------------------|
-| `min_count` | 数値（符号なし整数） | この値以上の値を含むフィールドのみを返します。 |
+| <span class="code-snippet">min_count</span> | 数値（符号なし整数） | この値以上の値を含むフィールドのみを返します。 |
 
 ### 応答フォーマット
 
@@ -144,16 +144,16 @@ Connecting to 127.0.0.1:5005
 
 | `Field`       | 型   | 説明                                         |
 |:--------------|:-------|:----------------------------------------------------|
-| `Transaction` | 数値 | メモリー内の`Transaction`オブジェクトの数       |
-| `Ledger`      | 数値 | メモリー内のレジャーの数                     |
-| `uptime`      | 文字列 | このサーバーの連続稼働時間。 |
+| <span class="code-snippet">Transaction</span> | 数値 | メモリー内の<span class="code-snippet">Transaction</span>オブジェクトの数       |
+| <span class="code-snippet">Ledger</span>      | 数値 | メモリー内のレジャーの数                     |
+| <span class="code-snippet">uptime</span>      | 文字列 | このサーバーの連続稼働時間。 |
 
 その他のほとんどのエントリーでは、値はメモリー内に現在保持されている当該タイプのオブジェクトの数を示します。
 
 ### 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
-* `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+* <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

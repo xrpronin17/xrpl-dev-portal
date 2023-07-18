@@ -9,9 +9,9 @@ labels:
 # validation_seed
 [[Source]](https://github.com/ripple/rippled/blob/a61ffab3f9010d8accfaa98aa3cacc7d38e74121/src/ripple/rpc/handlers/ValidationSeed.cpp "Source")
 
-The `validation_seed` command temporarily sets the secret value that rippled uses to sign validations. This value resets based on the config file when you restart the server. [Disabled since: rippled 0.29.1](https://github.com/ripple/rippled/releases/tag/0.29.1-rc1 "BADGE_RED")
+The <span class="code-snippet">validation_seed</span> command temporarily sets the secret value that rippled uses to sign validations. This value resets based on the config file when you restart the server. [Disabled since: rippled 0.29.1](https://github.com/ripple/rippled/releases/tag/0.29.1-rc1 "BADGE_RED")
 
-*The `validation_seed` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">validation_seed</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -41,7 +41,7 @@ The request includes the following parameters:
 
 | `Field`  | Type   | Description                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `secret` | String | _(Optional)_ If present, use this value as the secret value for the validating key pair. Valid formats include the XRP Ledger's [base58][] format, [RFC-1751](https://tools.ietf.org/html/rfc1751), or as a passphrase. If omitted, disables proposing validations to the network. |
+| <span class="code-snippet">secret</span> | String | _(Optional)_ If present, use this value as the secret value for the validating key pair. Valid formats include the XRP Ledger's [base58][] format, [RFC-1751](https://tools.ietf.org/html/rfc1751), or as a passphrase. If omitted, disables proposing validations to the network. |
 
 ### Response Format
 
@@ -86,14 +86,14 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`                 | Type   | Description                               |
 |:------------------------|:-------|:------------------------------------------|
-| `validation_key`        | String | (Omitted if proposing disabled) The secret key for these validation credentials, in [RFC-1751](https://tools.ietf.org/html/rfc1751) format. |
-| `validation_public_key` | String | (Omitted if proposing disabled) The public key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
-| `validation_seed`       | String | (Omitted if proposing disabled) The secret key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
+| <span class="code-snippet">validation_key</span>        | String | (Omitted if proposing disabled) The secret key for these validation credentials, in [RFC-1751](https://tools.ietf.org/html/rfc1751) format. |
+| <span class="code-snippet">validation_public_key</span> | String | (Omitted if proposing disabled) The public key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
+| <span class="code-snippet">validation_seed</span>       | String | (Omitted if proposing disabled) The secret key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
 
 ### Possible Errors
 
 * Any of the [universal error types][].
-* `badSeed` - The request provided an invalid secret value. This usually means that the secret value appears to be a valid string of a different format, such as an account address or validation public key.
+* <span class="code-snippet">badSeed</span> - The request provided an invalid secret value. This usually means that the secret value appears to be a valid string of a different format, such as an account address or validation public key.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

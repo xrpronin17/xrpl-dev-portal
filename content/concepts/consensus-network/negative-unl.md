@@ -166,8 +166,8 @@ The following example demonstrates how the Negative UNL affects the consensus pr
 - **Concepts:**
     - [Consensus Protocol](consensus.html)
 - **Tutorials:**
-    - [Connect Your `rippled` to a Parallel Network](connect-your-rippled-to-the-xrp-test-net.html)
-    - [Run `rippled` as a Validator](run-rippled-as-a-validator.html)
+    - [Connect Your <span class="code-snippet">rippled</span> to a Parallel Network](connect-your-rippled-to-the-xrp-test-net.html)
+    - [Run <span class="code-snippet">rippled</span> as a Validator](run-rippled-as-a-validator.html)
 - **References:**
     - [NegativeUNL Object](negativeunl.html)
     - [UNLModify pseudo-transaction][]

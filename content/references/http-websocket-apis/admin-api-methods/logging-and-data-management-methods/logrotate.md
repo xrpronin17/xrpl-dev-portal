@@ -8,11 +8,11 @@ labels:
 # logrotate
 [[Source]](https://github.com/ripple/rippled/blob/743bd6c9175c472814448ea889413be79dfd1c07/src/ripple/rpc/handlers/LogRotate.cpp "Source")
 
-The `logrotate` command closes and reopens the log file. This is intended to help with log rotation on Linux file systems.
+The <span class="code-snippet">logrotate</span> command closes and reopens the log file. This is intended to help with log rotation on Linux file systems.
 
-Most Linux systems come pre-installed with a [`logrotate`](https://linux.die.net/man/8/logrotate) program, which is separate from this command. Application specific log rotation scripts are placed in `/etc/logrotate.d`
+Most Linux systems come pre-installed with a [<span class="code-snippet">logrotate</span>](https://linux.die.net/man/8/logrotate) program, which is separate from this command. Application specific log rotation scripts are placed in <span class="code-snippet">/etc/logrotate.d</span>
 
-The following script is a sample that can be created as `/etc/logrotate.d/rippled`
+The following script is a sample that can be created as <span class="code-snippet">/etc/logrotate.d/rippled</span>
 
 ```logrotate
 /var/log/rippled/*.log {
@@ -32,13 +32,13 @@ The following script is a sample that can be created as `/etc/logrotate.d/ripple
 }
 ```
 
-You can configure parameters such as `minsize` and `rotate` depending on the amount of logs you keep. Use the `log_level` setting in your `rippled.cfg` file to configure how verbose your server's logs are. This sample script is based on standard `log_level` and stores approximately 2 weeks worth of logs in a compressed format.
+You can configure parameters such as <span class="code-snippet">minsize</span> and <span class="code-snippet">rotate</span> depending on the amount of logs you keep. Use the <span class="code-snippet">log_level</span> setting in your <span class="code-snippet">rippled.cfg</span> file to configure how verbose your server's logs are. This sample script is based on standard <span class="code-snippet">log_level</span> and stores approximately 2 weeks worth of logs in a compressed format.
 
-The official packages [for CentOS/Red Hat](install-rippled-on-centos-rhel-with-yum.html) and [Ubuntu or Debian](install-rippled-on-ubuntu.html) provide the script `/etc/logrotate.d/rippled` by default. You can make modifications to this as required. Your modifications will not be overwritten on package upgrades. <!-- STYLE_OVERRIDE: will -->
+The official packages [for CentOS/Red Hat](install-rippled-on-centos-rhel-with-yum.html) and [Ubuntu or Debian](install-rippled-on-ubuntu.html) provide the script <span class="code-snippet">/etc/logrotate.d/rippled</span> by default. You can make modifications to this as required. Your modifications will not be overwritten on package upgrades. <!-- STYLE_OVERRIDE: will -->
 
 **Note:** You should have only one system log rotation script per application. Please ensure that you do not have any other log rotation that handles the same directory.
 
-_The `logrotate` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">logrotate</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -106,7 +106,7 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `message` | String | On success, contains the message `The log file was closed and reopened.` |
+| <span class="code-snippet">message</span> | String | On success, contains the message <span class="code-snippet">The log file was closed and reopened.</span> |
 
 ### Possible Errors
 

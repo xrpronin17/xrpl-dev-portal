@@ -55,19 +55,19 @@ In this scenario, Salazar (the sender) holds EUR issued by ACME, and wants to de
 
 The transfer fee is represented by a setting on the [issuing address][]. The transfer fee cannot be less than 0% or more than 100% and is rounded down to the nearest 0.0000001%. The transfer fee applies to all tokens issued by the same account. If you want to have different transfer fees for different tokens, use multiple [issuing addresses][issuing address].
 
-In the [XRP Ledger protocol](protocol-reference.html), the transfer fee is specified in the `TransferRate` field, as an integer which represents the amount you must send for the recipient to get 1 billion units of the same token. A `TransferRate` of `1005000000` is equivalent to a transfer fee of 0.5%. By default, the `TransferRate` is set to no fee. The value of `TransferRate` cannot be set to less than `1000000000` ("0%" fee) or more than `2000000000` (a "100%" fee). The value `0` is special case for no fee, equivalent to `1000000000`.
+In the [XRP Ledger protocol](protocol-reference.html), the transfer fee is specified in the <span class="code-snippet">TransferRate</span> field, as an integer which represents the amount you must send for the recipient to get 1 billion units of the same token. A <span class="code-snippet">TransferRate</span> of <span class="code-snippet">1005000000</span> is equivalent to a transfer fee of 0.5%. By default, the <span class="code-snippet">TransferRate</span> is set to no fee. The value of <span class="code-snippet">TransferRate</span> cannot be set to less than <span class="code-snippet">1000000000</span> ("0%" fee) or more than <span class="code-snippet">2000000000</span> (a "100%" fee). The value <span class="code-snippet">0</span> is special case for no fee, equivalent to <span class="code-snippet">1000000000</span>.
 
-A token issuer can submit an [AccountSet transaction][] from its [issuing address][] to change the `TransferRate` for all its tokens.
+A token issuer can submit an [AccountSet transaction][] from its [issuing address][] to change the <span class="code-snippet">TransferRate</span> for all its tokens.
 
-Anyone can check an account's `TransferRate` with the [account_info method][]. If the `TransferRate` is omitted, then that indicates no fee.
+Anyone can check an account's <span class="code-snippet">TransferRate</span> with the [account_info method][]. If the <span class="code-snippet">TransferRate</span> is omitted, then that indicates no fee.
 
-**Note:** The [fix1201](known-amendments.html#fix1201) [amendment](amendments.html), introduced in `rippled` v0.80.0 and enabled on 2017-11-14, lowered the maximum transfer fee to 100% (a `TransferRate` of `2000000000`) from an effective limit of approximately 329% (based on the maximum size of a 32-bit integer). The ledger may still contain accounts with a transfer fee setting higher than 100% because transfer fees that were already set continue to apply at their stated rate.
+**Note:** The [fix1201](known-amendments.html#fix1201) [amendment](amendments.html), introduced in <span class="code-snippet">rippled</span> v0.80.0 and enabled on 2017-11-14, lowered the maximum transfer fee to 100% (a <span class="code-snippet">TransferRate</span> of <span class="code-snippet">2000000000</span>) from an effective limit of approximately 329% (based on the maximum size of a 32-bit integer). The ledger may still contain accounts with a transfer fee setting higher than 100% because transfer fees that were already set continue to apply at their stated rate.
 
 ## Client Library Support
 
-Some [client libraries](client-libraries.html) have convenience functions for getting and setting `TransferRate` functions.
+Some [client libraries](client-libraries.html) have convenience functions for getting and setting <span class="code-snippet">TransferRate</span> functions.
 
-**JavaScript:** Use `xrpl.percentToTransferRate()` to convert a percentage transfer fee from a string to the corresponding `TransferRate` value.
+**JavaScript:** Use <span class="code-snippet">xrpl.percentToTransferRate()</span> to convert a percentage transfer fee from a string to the corresponding <span class="code-snippet">TransferRate</span> value.
 
 ## See Also
 

@@ -11,7 +11,7 @@ There are several ways to run an auction, each with advantages and disadvantages
 
 ## Run the Auction Off the XRPL, Complete the Purchase on XRPL
 
-This flow is the most straightforward. Note that the `NFTokenOffer` objects can always be canceled by their creator, so it's not possible to implement a binding offer.
+This flow is the most straightforward. Note that the <span class="code-snippet">NFTokenOffer</span> objects can always be canceled by their creator, so it's not possible to implement a binding offer.
 
 1. Store your bids in a private database.
 2. You take a cut of the winning bid.
@@ -23,9 +23,9 @@ Run the auction in brokered mode, as an auction with a reserve.
 
 ![Auction in Brokered Mode with a Reserve](img/nft-auction1.png "Auction in Brokered Mode with a Reserve")
 
-1. The seller creates the NFT, then sets the auction reserve price using `NFTokenCreateOffer`, specifying the broker account as the destination.
-1. The bidders make offers using `NFTokenCreateOffer`, setting the broker account as the destination.
-1. The broker selects the winning bid, completes the sale using `NFTokenAcceptOffer`, collecting the broker fee. Then the broker cancels any losing bids using `NFTokenCancelOffer`.
+1. The seller creates the NFT, then sets the auction reserve price using <span class="code-snippet">NFTokenCreateOffer</span>, specifying the broker account as the destination.
+1. The bidders make offers using <span class="code-snippet">NFTokenCreateOffer</span>, setting the broker account as the destination.
+1. The broker selects the winning bid, completes the sale using <span class="code-snippet">NFTokenAcceptOffer</span>, collecting the broker fee. Then the broker cancels any losing bids using <span class="code-snippet">NFTokenCancelOffer</span>.
 
 **Pros:**
 
@@ -45,12 +45,12 @@ This is the most complex workflow of the three.
 
 ![Auction in Brokered Mode without a Reserve](img/nft-auction2.png "Auction in Brokered Mode without a Reserve")
 
-1. The seller creates an NFT using `NFTokenMint`.
-1. The bidders make offers using `NFTokenCreateOffer`, setting the broker as the destination.
-1. The broker selects the winning bid, subtracts the amount to be collected as a fee, then requests the seller sign a sell offer for this amount via `NFTokenCreateOffer`.
+1. The seller creates an NFT using <span class="code-snippet">NFTokenMint</span>.
+1. The bidders make offers using <span class="code-snippet">NFTokenCreateOffer</span>, setting the broker as the destination.
+1. The broker selects the winning bid, subtracts the amount to be collected as a fee, then requests the seller sign a sell offer for this amount via <span class="code-snippet">NFTokenCreateOffer</span>.
 1. The seller signs the requested offer, setting the broker as the destination.
-1. The broker completes the sale using `NFTokenAcceptOffer`, and receives the broker fee.
-1. The broker cancels any remaining bids using `NFTokenCancelOffer`.
+1. The broker completes the sale using <span class="code-snippet">NFTokenAcceptOffer</span>, and receives the broker fee.
+1. The broker cancels any remaining bids using <span class="code-snippet">NFTokenCancelOffer</span>.
 
 **Pros:**
 

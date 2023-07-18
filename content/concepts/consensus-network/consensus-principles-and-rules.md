@@ -118,7 +118,7 @@ The XRP Ledger's consensus algorithm provides a robust alternative to proof of w
     - [XRPL Consensus Mechanism Video](https://www.youtube.com/watch?v=k6VqEkqRTmk&list=PLJQ55Tj1hIVZtJ_JdTvSum2qMTsedWkNi&index=2)
 - **Tutorials:**
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
-    - [Run `rippled` as a Validator](run-rippled-as-a-validator.html)
+    - [Run <span class="code-snippet">rippled</span> as a Validator](run-rippled-as-a-validator.html)
 - **References:**
     - [Ledger Format Reference](ledger-data-formats.html)
     - [Transaction Format Reference](transaction-formats.html)

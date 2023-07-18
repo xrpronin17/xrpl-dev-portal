@@ -8,9 +8,9 @@ labels:
 # print
 [[ソース]](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/Print.cpp "Source")
 
-`print`コマンドは、さまざまな内部サブシステム（ピア、レジャークリーナー、リソースマネージャーなど）の現在の状況を返します。
+<span class="code-snippet">print</span>コマンドは、さまざまな内部サブシステム（ピア、レジャークリーナー、リソースマネージャーなど）の現在の状況を返します。
 
-*`print`要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
+*<span class="code-snippet">print</span>要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -232,7 +232,7 @@ Connecting to 127.0.0.1:5005
 
 <!-- MULTICODE_BLOCK_END -->
 
-応答は[標準フォーマット][]に従っています。結果に含まれる追加フィールドは、`rippled`サーバーの内部状態に応じて異なります。このコマンドの実行結果は、予告なく変更されることがあります。
+応答は[標準フォーマット][]に従っています。結果に含まれる追加フィールドは、<span class="code-snippet">rippled</span>サーバーの内部状態に応じて異なります。このコマンドの実行結果は、予告なく変更されることがあります。
 
 ### 考えられるエラー
 

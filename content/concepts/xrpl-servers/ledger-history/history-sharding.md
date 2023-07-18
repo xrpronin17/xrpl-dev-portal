@@ -40,7 +40,7 @@ History shards are recorded in a deterministic format, so that any two servers a
     - [Introduction to Consensus](intro-to-consensus.html)
 - **Tutorials:**
     - [Capacity Planning](capacity-planning.html)
-    - [Configure `rippled`](configure-rippled.html)
+    - [Configure <span class="code-snippet">rippled</span>](configure-rippled.html)
         - [Configure History Sharding](configure-history-sharding.html)
 - **References:**
     - [crawl_shards method][]

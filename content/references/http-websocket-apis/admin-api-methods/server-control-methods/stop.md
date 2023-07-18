@@ -10,7 +10,7 @@ labels:
 
 Gracefully shuts down the server.
 
-*The `stop` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">stop</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -85,7 +85,7 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                          |
 |:----------|:-------|:-------------------------------------|
-| `message` | String | `ripple server stopping` on success. |
+| <span class="code-snippet">message</span> | String | <span class="code-snippet">ripple server stopping</span> on success. |
 
 ### Possible Errors
 

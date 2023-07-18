@@ -8,12 +8,12 @@ labels:
 # sign
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/SignHandler.cpp "Source")
 
-The `sign` method takes a [transaction in JSON format](transaction-formats.html) and a [seed value](cryptographic-keys.html), and returns a signed binary representation of the transaction. To contribute one signature to a [multi-signed transaction](multi-signing.html), use the [sign_for method][] instead.
+The <span class="code-snippet">sign</span> method takes a [transaction in JSON format](transaction-formats.html) and a [seed value](cryptographic-keys.html), and returns a signed binary representation of the transaction. To contribute one signature to a [multi-signed transaction](multi-signing.html), use the [sign_for method][] instead.
 
 {% include '_snippets/public-signing-note.md' %}
 <!--_ -->
 
-**Caution:** Unless you run the `rippled` server yourself, you should do local signing using a [client library](client-libraries.html) instead of using this command. For more information, see [Set Up Secure Signing](set-up-secure-signing.html).
+**Caution:** Unless you run the <span class="code-snippet">rippled</span> server yourself, you should do local signing using a [client library](client-libraries.html) instead of using this command. For more information, see [Set Up Secure Signing](set-up-secure-signing.html).
 
 ## Request Format
 An example of the request format:
@@ -78,35 +78,35 @@ rippled sign s██████████████████████
 
 To sign a transaction, you must provide a secret key that can [authorize the transaction](transaction-basics.html#authorizing-transactions). Typically you provide a seed value that the server derives the secret key from. You can do this in a few ways:
 
-* Provide the seed in the `secret` field and omit the `key_type` field. This value can be formatted as an XRP Ledger [base58][] seed, RFC-1751, hexadecimal, or as a string passphrase. (secp256k1 keys only)
-* Provide a `key_type` value and exactly one of `seed`, `seed_hex`, or `passphrase`. Omit the `secret` field. (Not supported by the commandline syntax.)
+* Provide the seed in the <span class="code-snippet">secret</span> field and omit the <span class="code-snippet">key_type</span> field. This value can be formatted as an XRP Ledger [base58][] seed, RFC-1751, hexadecimal, or as a string passphrase. (secp256k1 keys only)
+* Provide a <span class="code-snippet">key_type</span> value and exactly one of <span class="code-snippet">seed</span>, <span class="code-snippet">seed_hex</span>, or <span class="code-snippet">passphrase</span>. Omit the <span class="code-snippet">secret</span> field. (Not supported by the commandline syntax.)
 
 The request includes the following parameters:
 
 | `Field`        | Type    | Description                                       |
 |:---------------|:--------|:--------------------------------------------------|
-| `tx_json`      | Object  | [Transaction definition](transaction-formats.html) in JSON format |
-| `secret`       | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it. Do not send your secret to untrusted servers or through unsecured network connections. Cannot be used with `key_type`, `seed`, `seed_hex`, or `passphrase`. |
-| `seed`         | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it. Must be in the XRP Ledger's [base58][] format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed_hex`, or `passphrase`. |
-| `seed_hex`     | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it. Must be in hexadecimal format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed`, or `passphrase`. |
-| `passphrase`   | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it, as a string passphrase. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed`, or `seed_hex`. |
-| `key_type`     | String  | _(Optional)_ The [signing algorithm](cryptographic-keys.html#signing-algorithms) of the cryptographic key pair provided. Valid types are `secp256k1` or `ed25519`. Defaults to `secp256k1`. Cannot be used with `secret`. |
-| `offline`      | Boolean | _(Optional)_ If `true`, when constructing the transaction, do not try to [automatically fill](#auto-fillable-fields) any transaction details. The default is `false`. |
-| `build_path`   | Boolean | _(Optional)_ If this field is provided, the server [auto-fills](transaction-common-fields.html#auto-fillable-fields) the `Paths` field of a [Payment transaction][] before signing. You must omit this field if the transaction is a [direct XRP payment](direct-xrp-payments.html) or if it is not a Payment-type transaction. **Caution:** The server looks for the presence or absence of this field, not its value. This behavior may change. ([Issue #3272](https://github.com/ripple/rippled/issues/3272)) |
-| `fee_mult_max` | Integer | _(Optional)_ Signing fails with the error `rpcHIGH_FEE` if the [auto-filled `Fee` value](transaction-common-fields.html#auto-fillable-fields) would be greater than the [reference transaction cost](transaction-cost.html#special-transaction-costs) × `fee_mult_max` ÷ `fee_div_max`. This field has no effect if you explicitly specify the `Fee` field of the transaction. The default is `10`. |
-| `fee_div_max`  | Integer | _(Optional)_ Signing fails with the error `rpcHIGH_FEE` if the [auto-filled `Fee` value](transaction-common-fields.html#auto-fillable-fields) would be greater than the [reference transaction cost](transaction-cost.html#special-transaction-costs) × `fee_mult_max` ÷ `fee_div_max`. This field has no effect if you explicitly specify the `Fee` field of the transaction. The default is `1`. [New in: rippled 0.30.1][] |
+| <span class="code-snippet">tx_json</span>      | Object  | [Transaction definition](transaction-formats.html) in JSON format |
+| <span class="code-snippet">secret</span>       | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it. Do not send your secret to untrusted servers or through unsecured network connections. Cannot be used with <span class="code-snippet">key_type</span>, <span class="code-snippet">seed</span>, <span class="code-snippet">seed_hex</span>, or <span class="code-snippet">passphrase</span>. |
+| <span class="code-snippet">seed</span>         | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it. Must be in the XRP Ledger's [base58][] format. If provided, you must also specify the <span class="code-snippet">key_type</span>. Cannot be used with <span class="code-snippet">secret</span>, <span class="code-snippet">seed_hex</span>, or <span class="code-snippet">passphrase</span>. |
+| <span class="code-snippet">seed_hex</span>     | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it. Must be in hexadecimal format. If provided, you must also specify the <span class="code-snippet">key_type</span>. Cannot be used with <span class="code-snippet">secret</span>, <span class="code-snippet">seed</span>, or <span class="code-snippet">passphrase</span>. |
+| <span class="code-snippet">passphrase</span>   | String  | _(Optional)_ The secret seed of the account supplying the transaction, used to sign it, as a string passphrase. If provided, you must also specify the <span class="code-snippet">key_type</span>. Cannot be used with <span class="code-snippet">secret</span>, <span class="code-snippet">seed</span>, or <span class="code-snippet">seed_hex</span>. |
+| <span class="code-snippet">key_type</span>     | String  | _(Optional)_ The [signing algorithm](cryptographic-keys.html#signing-algorithms) of the cryptographic key pair provided. Valid types are <span class="code-snippet">secp256k1</span> or <span class="code-snippet">ed25519</span>. Defaults to <span class="code-snippet">secp256k1</span>. Cannot be used with <span class="code-snippet">secret</span>. |
+| <span class="code-snippet">offline</span>      | Boolean | _(Optional)_ If <span class="code-snippet">true</span>, when constructing the transaction, do not try to [automatically fill](#auto-fillable-fields) any transaction details. The default is <span class="code-snippet">false</span>. |
+| <span class="code-snippet">build_path</span>   | Boolean | _(Optional)_ If this field is provided, the server [auto-fills](transaction-common-fields.html#auto-fillable-fields) the <span class="code-snippet">Paths</span> field of a [Payment transaction][] before signing. You must omit this field if the transaction is a [direct XRP payment](direct-xrp-payments.html) or if it is not a Payment-type transaction. **Caution:** The server looks for the presence or absence of this field, not its value. This behavior may change. ([Issue #3272](https://github.com/ripple/rippled/issues/3272)) |
+| <span class="code-snippet">fee_mult_max</span> | Integer | _(Optional)_ Signing fails with the error <span class="code-snippet">rpcHIGH_FEE</span> if the [auto-filled <span class="code-snippet">Fee</span> value](transaction-common-fields.html#auto-fillable-fields) would be greater than the [reference transaction cost](transaction-cost.html#special-transaction-costs) × <span class="code-snippet">fee_mult_max</span> ÷ <span class="code-snippet">fee_div_max</span>. This field has no effect if you explicitly specify the <span class="code-snippet">Fee</span> field of the transaction. The default is <span class="code-snippet">10</span>. |
+| <span class="code-snippet">fee_div_max</span>  | Integer | _(Optional)_ Signing fails with the error <span class="code-snippet">rpcHIGH_FEE</span> if the [auto-filled <span class="code-snippet">Fee</span> value](transaction-common-fields.html#auto-fillable-fields) would be greater than the [reference transaction cost](transaction-cost.html#special-transaction-costs) × <span class="code-snippet">fee_mult_max</span> ÷ <span class="code-snippet">fee_div_max</span>. This field has no effect if you explicitly specify the <span class="code-snippet">Fee</span> field of the transaction. The default is <span class="code-snippet">1</span>. [New in: rippled 0.30.1][] |
 
 ### Auto-Fillable Fields
 
-The server automatically tries to fill in certain fields in `tx_json` (the [Transaction object](transaction-formats.html)) automatically if you omit them. The server provides the following fields before signing, unless the request specified `offline` as `true`:
+The server automatically tries to fill in certain fields in <span class="code-snippet">tx_json</span> (the [Transaction object](transaction-formats.html)) automatically if you omit them. The server provides the following fields before signing, unless the request specified <span class="code-snippet">offline</span> as <span class="code-snippet">true</span>:
 
-* `Sequence` - The server automatically uses the next Sequence number from the sender's account information.
+* <span class="code-snippet">Sequence</span> - The server automatically uses the next Sequence number from the sender's account information.
     * **Caution:** The next sequence number for the account is not incremented until this transaction is applied. If you sign multiple transactions without submitting and waiting for the response to each one, you must manually provide the correct sequence numbers for each transaction after the first.
-* `Fee` - If you omit the `Fee` parameter, the server tries to fill in an appropriate transaction cost automatically. On the production XRP Ledger, this fails with `rpcHIGH_FEE` unless you provide an appropriate `fee_mult_max` value.
-    * The `fee_mult_max` and `fee_div_max` parameters limit how high the automatically-provided transaction cost can be, in terms of the load-scaling multiplier that gets applied to the [reference transaction cost](transaction-cost.html#reference-transaction-cost). The default settings return an error if the automatically-provided value would use greater than a 10× multiplier. However, the production XRP Ledger [typically has a 1000× load multiplier](transaction-cost.html#current-transaction-cost).
-    * The commandline syntax does not support `fee_mult_max` and `fee_div_max`. For the production XRP Ledger, you must provide a `Fee` value.
-    * **Caution:** A malicious server can specify an excessively high transaction cost, ignoring the values of `fee_mult_max` and `fee_div_max`.
-* `Paths` - For Payment-type transactions (excluding XRP-to-XRP transfers), the Paths field can be automatically filled, as if you used the [ripple_path_find method][]. Only filled if `build_path` is provided.
+* <span class="code-snippet">Fee</span> - If you omit the <span class="code-snippet">Fee</span> parameter, the server tries to fill in an appropriate transaction cost automatically. On the production XRP Ledger, this fails with <span class="code-snippet">rpcHIGH_FEE</span> unless you provide an appropriate <span class="code-snippet">fee_mult_max</span> value.
+    * The <span class="code-snippet">fee_mult_max</span> and <span class="code-snippet">fee_div_max</span> parameters limit how high the automatically-provided transaction cost can be, in terms of the load-scaling multiplier that gets applied to the [reference transaction cost](transaction-cost.html#reference-transaction-cost). The default settings return an error if the automatically-provided value would use greater than a 10× multiplier. However, the production XRP Ledger [typically has a 1000× load multiplier](transaction-cost.html#current-transaction-cost).
+    * The commandline syntax does not support <span class="code-snippet">fee_mult_max</span> and <span class="code-snippet">fee_div_max</span>. For the production XRP Ledger, you must provide a <span class="code-snippet">Fee</span> value.
+    * **Caution:** A malicious server can specify an excessively high transaction cost, ignoring the values of <span class="code-snippet">fee_mult_max</span> and <span class="code-snippet">fee_div_max</span>.
+* <span class="code-snippet">Paths</span> - For Payment-type transactions (excluding XRP-to-XRP transfers), the Paths field can be automatically filled, as if you used the [ripple_path_find method][]. Only filled if <span class="code-snippet">build_path</span> is provided.
 
 ## Response Format
 
@@ -208,8 +208,8 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `tx_blob` | String | Binary representation of the fully-qualified, signed transaction, as hex |
-| `tx_json` | Object | JSON specification of the [complete transaction](transaction-formats.html) as signed, including any fields that were automatically filled in |
+| <span class="code-snippet">tx_blob</span> | String | Binary representation of the fully-qualified, signed transaction, as hex |
+| <span class="code-snippet">tx_json</span> | Object | JSON specification of the [complete transaction](transaction-formats.html) as signed, including any fields that were automatically filled in |
 
 **Caution:** If this command results in an error messages, the message can contain a secret value provided in the request. Make sure that these errors are not visible to others.
 
@@ -220,10 +220,10 @@ The response follows the [standard format][], with a successful result containin
 ## Possible Errors
 
 * Any of the [universal error types][].
-* `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
-* `highFee` - The current load-based multiplier to the transaction cost exceeds the limit for an automatically-provided transaction cost. Either specify a higher `fee_mult_max` (at least 1000) in the request or manually provide a value in the `Fee` field of the `tx_json`.
-* `tooBusy` - The transaction did not include paths, but the server is too busy to do pathfinding right now. Does not occur if you are connected as an admin.
-* `noPath` - The transaction did not include paths, and the server was unable to find a path by which this payment can occur.
+* <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
+* <span class="code-snippet">highFee</span> - The current load-based multiplier to the transaction cost exceeds the limit for an automatically-provided transaction cost. Either specify a higher <span class="code-snippet">fee_mult_max</span> (at least 1000) in the request or manually provide a value in the <span class="code-snippet">Fee</span> field of the <span class="code-snippet">tx_json</span>.
+* <span class="code-snippet">tooBusy</span> - The transaction did not include paths, but the server is too busy to do pathfinding right now. Does not occur if you are connected as an admin.
+* <span class="code-snippet">noPath</span> - The transaction did not include paths, and the server was unable to find a path by which this payment can occur.
 
 
 <!--{# common link defs #}-->

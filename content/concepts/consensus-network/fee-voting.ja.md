@@ -10,7 +10,7 @@ labels:
 
 バリデータは、基本の[トランザクションコスト](transaction-cost.html)と[必要準備金](reserves.html)の変更について投票できます。バリデータの構成の設定がネットワークの現在の設定と異なる場合、バリデータはその設定をネットワークに定期的に公開します。定数のバリデータが変更に合意すると、変更を適用できるようになり、以後この変更が有効になります。バリデータはさまざまな理由から（特にXRPの価値の長期的な変化に適応するために）、この処理を行います。
 
-[`rippled`バリデータ](run-rippled-as-a-validator.html)のオペレーターは、`rippled.cfg`ファイルの`[voting]`スタンザでトランザクションコストと必要準備金の設定を指定できます。
+[<span class="code-snippet">rippled</span>バリデータ](run-rippled-as-a-validator.html)のオペレーターは、<span class="code-snippet">rippled.cfg</span>ファイルの<span class="code-snippet">[voting]</span>スタンザでトランザクションコストと必要準備金の設定を指定できます。
 
 **注意:** 信頼できるバリデータの合意により不十分な必要準備金が採用された場合、XRP Ledgerピアツーピアネットワークがサービス拒否（DoS）攻撃を受ける可能性があります。
 
@@ -18,13 +18,13 @@ labels:
 
 | パラメーター | 説明 | 推奨される値 |
 |-----------|-------------|-------------------|
-| `reference_fee` | リファレンストランザクション（最も安価なトランザクション）を送信するときに消却する必要があるXRPの額（ _drop_ 単位）。（1 XRP = 100万drop）実際のトランザクションコストはこの値の数倍であり、個々のサーバーの負荷に基づいて動的に調整されます。 | `10` （0.00001 XRP） |
-| `account_reserve` | アカウントの準備金に必要なXRPの最小額（ _drop_ 単位）。これは、レジャーの新しいアカウントへの資金供給のために送金できる最小額です。 | `10000000` （10 XRP） |
-| `owner_reserve` | アドレスがレジャーで所有するオブジェクト _ごと_ に必要なXRPの額（ _drop_ 単位）。 | `2000000` （2 XRP） |
+| <span class="code-snippet">reference_fee</span> | リファレンストランザクション（最も安価なトランザクション）を送信するときに消却する必要があるXRPの額（ _drop_ 単位）。（1 XRP = 100万drop）実際のトランザクションコストはこの値の数倍であり、個々のサーバーの負荷に基づいて動的に調整されます。 | <span class="code-snippet">10</span> （0.00001 XRP） |
+| <span class="code-snippet">account_reserve</span> | アカウントの準備金に必要なXRPの最小額（ _drop_ 単位）。これは、レジャーの新しいアカウントへの資金供給のために送金できる最小額です。 | <span class="code-snippet">10000000</span> （10 XRP） |
+| <span class="code-snippet">owner_reserve</span> | アドレスがレジャーで所有するオブジェクト _ごと_ に必要なXRPの額（ _drop_ 単位）。 | <span class="code-snippet">2000000</span> （2 XRP） |
 
 ## 投票プロセス
 
-256番目の各レジャーは「フラグ」レジャーと呼ばれます。（フラグレジャーは`ledger_index` [modulo](https://en.wikipedia.org/wiki/Modulo_operation) `256`が`0`になるように定義されています。）フラグレジャーの直前のレジャーでは、アカウント準備金またはトランザクションコストの設定が現行のネットワーク設定と異なる各バリデータは、そのレジャー検証とともに「投票」メッセージを配信し、バリデータが希望する値を示します。
+256番目の各レジャーは「フラグ」レジャーと呼ばれます。（フラグレジャーは<span class="code-snippet">ledger_index</span> [modulo](https://en.wikipedia.org/wiki/Modulo_operation) <span class="code-snippet">256</span>が<span class="code-snippet">0</span>になるように定義されています。）フラグレジャーの直前のレジャーでは、アカウント準備金またはトランザクションコストの設定が現行のネットワーク設定と異なる各バリデータは、そのレジャー検証とともに「投票」メッセージを配信し、バリデータが希望する値を示します。
 
 フラグレジャー自体では何も起こりませんが、バリデータは信頼する他のバリデータからの投票を受信して記録します。
 
@@ -43,6 +43,6 @@ labels:
 
 | パラメーター | 最大値（drop） | 最大値（XRP）
 |-----------|-----------------------|----|
-| `reference_fee` | 2**64 | （これまでに存在したXRP総額よりも大きい） |
-| `account_reserve` | 2^32 drop | 約4294 XRP |
-| `owner_reserve` | 2^32 drop | 約4294 XRP |
+| <span class="code-snippet">reference_fee</span> | 2**64 | （これまでに存在したXRP総額よりも大きい） |
+| <span class="code-snippet">account_reserve</span> | 2^32 drop | 約4294 XRP |
+| <span class="code-snippet">owner_reserve</span> | 2^32 drop | 約4294 XRP |

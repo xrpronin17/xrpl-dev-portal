@@ -8,11 +8,11 @@ labels:
 ---
 # レジャー
 
-XRP Ledgerは完全にオープンな共有グローバルレジャーです。個々の参加者はこのレジャーを管理する個々の機関を信頼しなくても、レジャーの整合性を信頼できます。`rippled`サーバーソフトウェアは、非常に特殊なルールによってのみ更新可能なレジャーデータベースを管理することにより、これを実現しています。各`rippled`インスタンスはレジャーの完全なコピーを保持し、`rippled`サーバーからなるピアツーピアネットワークはトランザクション候補を各サーバーに配信します。コンセンサスプロセスによって、レジャーの新しいバージョンに適用されるトランザクションが決定します。関連項目: [コンセンサスプロセス](consensus.html)。
+XRP Ledgerは完全にオープンな共有グローバルレジャーです。個々の参加者はこのレジャーを管理する個々の機関を信頼しなくても、レジャーの整合性を信頼できます。<span class="code-snippet">rippled</span>サーバーソフトウェアは、非常に特殊なルールによってのみ更新可能なレジャーデータベースを管理することにより、これを実現しています。各<span class="code-snippet">rippled</span>インスタンスはレジャーの完全なコピーを保持し、<span class="code-snippet">rippled</span>サーバーからなるピアツーピアネットワークはトランザクション候補を各サーバーに配信します。コンセンサスプロセスによって、レジャーの新しいバージョンに適用されるトランザクションが決定します。関連項目: [コンセンサスプロセス](consensus.html)。
 
 ![図: 各レジャーは、その前のレジャーバージョンにトランザクションを適用して生成されます。](img/ledger-changes.ja.png)
 
-この共有グローバルレジャーは、実際には`rippled`の内部データベースに保持されている一連の個別レジャー（レジャーバージョン）です。各レジャーバージョンには、レジャーの生成順を示す[レジャーインデックス][]が付いています。各閉鎖済みレジャーバージョンにも、レジャーの内容を示す識別用ハッシュ値があります。`rippled`インスタンスには常に、1つの処理中の「現行」オープンレジャー、コンセンサスにより承認されていないいくつかの閉鎖済みレジャー、およびコンセンサスによる検証済みの任意の数の履歴レジャーがあります。検証済みレジャーだけが、その内容が正確で変更できません。
+この共有グローバルレジャーは、実際には<span class="code-snippet">rippled</span>の内部データベースに保持されている一連の個別レジャー（レジャーバージョン）です。各レジャーバージョンには、レジャーの生成順を示す[レジャーインデックス][]が付いています。各閉鎖済みレジャーバージョンにも、レジャーの内容を示す識別用ハッシュ値があります。<span class="code-snippet">rippled</span>インスタンスには常に、1つの処理中の「現行」オープンレジャー、コンセンサスにより承認されていないいくつかの閉鎖済みレジャー、およびコンセンサスによる検証済みの任意の数の履歴レジャーがあります。検証済みレジャーだけが、その内容が正確で変更できません。
 
 1つのレジャーバージョンはさまざまな要素で構成されています:
 
@@ -25,9 +25,9 @@ XRP Ledgerは完全にオープンな共有グローバルレジャーです。�
 
 ## ツリーの形式
 
-レジャーの状態ツリーは、その名前のとおりツリー型データ構造です。状態ツリーの各オブジェクトは256ビットのオブジェクトIDで識別されます。JSONではレジャーオブジェクトのIDは`index`フィールドです。このフィールドには64文字の16進数文字列が含まれています（例: `"193C591BF62482468422313F9D3274B5927CA80B4DD3707E42015DD609E39C94"`）。状態ツリーの各オブジェクトには、オブジェクトの検索に使用できるIDが設定されています。各トランザクションには、トランザクションツリーでトランザクションを検索するときに使用できる識別用ハッシュが含まれています。レジャーオブジェクトの`index`（ID）と[レジャーの`ledger_index`（シーケンス番号）][レジャーインデックス]を混同しないでください。
+レジャーの状態ツリーは、その名前のとおりツリー型データ構造です。状態ツリーの各オブジェクトは256ビットのオブジェクトIDで識別されます。JSONではレジャーオブジェクトのIDは<span class="code-snippet">index</span>フィールドです。このフィールドには64文字の16進数文字列が含まれています（例: <span class="code-snippet">"193C591BF62482468422313F9D3274B5927CA80B4DD3707E42015DD609E39C94"</span>）。状態ツリーの各オブジェクトには、オブジェクトの検索に使用できるIDが設定されています。各トランザクションには、トランザクションツリーでトランザクションを検索するときに使用できる識別用ハッシュが含まれています。レジャーオブジェクトの<span class="code-snippet">index</span>（ID）と[レジャーの<span class="code-snippet">ledger_index</span>（シーケンス番号）][レジャーインデックス]を混同しないでください。
 
-**ヒント:** レジャーの状態ツリーのオブジェクトは「レジャーノード」と呼ばれることもあります。たとえばトランザクションメタデータは`AffectedNodes`のリストを返します。これをピアツーピアネットワークの「ノード」（サーバー）と混同しないでください。
+**ヒント:** レジャーの状態ツリーのオブジェクトは「レジャーノード」と呼ばれることもあります。たとえばトランザクションメタデータは<span class="code-snippet">AffectedNodes</span>のリストを返します。これをピアツーピアネットワークの「ノード」（サーバー）と混同しないでください。
 
 トランザクションの場合、識別用ハッシュは署名済みトランザクションの指示に基づいていますが、検索時のトランザクションオブジェクトにはトランザクションの結果とメタデータが含まれています。これは、ハッシュの生成時には反映されません。
 
@@ -35,7 +35,7 @@ XRP Ledgerは完全にオープンな共有グローバルレジャーです。�
 
 ## Open, Closed, and Validated Ledgers
 
-The `rippled` server makes a distinction between ledger versions that are _open_, _closed_, and _validated_. A server has one open ledger, any number of closed but unvalidated ledgers, and an immutable history of validated ledgers. The following table summarizes the difference:
+The <span class="code-snippet">rippled</span> server makes a distinction between ledger versions that are _open_, _closed_, and _validated_. A server has one open ledger, any number of closed but unvalidated ledgers, and an immutable history of validated ledgers. The following table summarizes the difference:
 
 | Ledger Type:                     | Open                        | Closed                                     | Validated |
 |:---------------------------------|:----------------------------|:-------------------------------------------|:--|
@@ -52,7 +52,7 @@ Thus, an open ledger is only ever used as a temporary workspace, which is a majo
 
 ## Ledger Close Times
 
-The time that a ledger version closed is recorded at the `close_time` field of the [ledger header](ledger-header.html). To make it easier for the network to reach a consensus on an exact close time, this value is rounded to a number of seconds based on the close time resolution, currently 10 seconds. If rounding would cause a ledger's close time to be the same as (or earlier than) its parent ledger's, the child ledger has its close time set to the parent's close time plus 1. This guarantees that the close times of validated ledgers are strictly increasing. <!-- STYLE_OVERRIDE: a number of -->
+The time that a ledger version closed is recorded at the <span class="code-snippet">close_time</span> field of the [ledger header](ledger-header.html). To make it easier for the network to reach a consensus on an exact close time, this value is rounded to a number of seconds based on the close time resolution, currently 10 seconds. If rounding would cause a ledger's close time to be the same as (or earlier than) its parent ledger's, the child ledger has its close time set to the parent's close time plus 1. This guarantees that the close times of validated ledgers are strictly increasing. <!-- STYLE_OVERRIDE: a number of -->
 
 Since new ledger versions usually close about every 3 to 5 seconds, these rules result in a loose pattern where ledgers' close times end in :00, :01, :02, :10, :11, :20, :21, and so on. Times ending in 2 are less common and times ending in 3 are very rare, but both occur randomly when more ledgers randomly happen to close within a 10-second window.
 

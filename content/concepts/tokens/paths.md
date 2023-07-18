@@ -35,24 +35,24 @@ In both types of steps, each intermediate address gains and loses approximately 
 
 ## Pathfinding
 
-The `rippled` API has two methods that can be used for pathfinding. The [ripple_path_find method][] does a one-time lookup of possible path sets. The [path_find method][] (WebSocket only) expands on the search with follow-up responses whenever a ledger closes or the server finds a better path.
+The <span class="code-snippet">rippled</span> API has two methods that can be used for pathfinding. The [ripple_path_find method][] does a one-time lookup of possible path sets. The [path_find method][] (WebSocket only) expands on the search with follow-up responses whenever a ledger closes or the server finds a better path.
 
-You can have `rippled` automatically fill in paths when you sign it, by including the `build_path` field in a request to the [sign method][] or [`submit` command (sign-and-submit mode)](submit.html#sign-and-submit-mode). However, we recommend pathfinding separately and confirming the results before signing, to avoid surprises.
+You can have <span class="code-snippet">rippled</span> automatically fill in paths when you sign it, by including the <span class="code-snippet">build_path</span> field in a request to the [sign method][] or [<span class="code-snippet">submit</span> command (sign-and-submit mode)](submit.html#sign-and-submit-mode). However, we recommend pathfinding separately and confirming the results before signing, to avoid surprises.
 
-**Caution:** Although `rippled` is designed to search for the cheapest paths possible, it may not always find them. Untrustworthy `rippled` instances could also be modified to change this behavior for profit. The actual cost to execute a payment along a path can change between submission and transaction execution.
+**Caution:** Although <span class="code-snippet">rippled</span> is designed to search for the cheapest paths possible, it may not always find them. Untrustworthy <span class="code-snippet">rippled</span> instances could also be modified to change this behavior for profit. The actual cost to execute a payment along a path can change between submission and transaction execution.
 
-Finding paths is a very challenging problem that changes slightly every few seconds as new ledgers are validated, so `rippled` is not designed to find the absolute best path. Still, you can find several possible paths and estimate the cost of delivering a particular amount.
+Finding paths is a very challenging problem that changes slightly every few seconds as new ledgers are validated, so <span class="code-snippet">rippled</span> is not designed to find the absolute best path. Still, you can find several possible paths and estimate the cost of delivering a particular amount.
 
 
 ## Implied Steps
 
-By convention, several steps of a path are implied by the [fields of the Payment transaction](payment.html): specifically, the `Account` (sender), `Destination` (receiver), `Amount` (currency and amount to be delivered) and `SendMax` (currency and amount to be sent, if specified). The implied steps are as follows:
+By convention, several steps of a path are implied by the [fields of the Payment transaction](payment.html): specifically, the <span class="code-snippet">Account</span> (sender), <span class="code-snippet">Destination</span> (receiver), <span class="code-snippet">Amount</span> (currency and amount to be delivered) and <span class="code-snippet">SendMax</span> (currency and amount to be sent, if specified). The implied steps are as follows:
 
-* The first step of a path is always implied to be the sender of the transaction, as defined by the transaction's `Account` field.
-* If the transaction includes a `SendMax` field with an `issuer` that is not the sender of the transaction, that issuer is implied to be the second step of the path.
-    * If `issuer` of the `SendMax` _is_ the sending address, then the path starts at the sending address, and may use any of that address's trust lines for the given currency code. See [special values for `SendMax` and `Amount`](payment.html#special-issuer-values-for-sendmax-and-amount) for details.
-* If the `Amount` field of the transaction includes an `issuer` that is not the same as the `Destination` of the transaction, that issuer is implied to be the second-to-last step of the path.
-* Finally, last step of a path is always implied to be the receiver of a transaction, as defined by the transaction's `Destination` field.
+* The first step of a path is always implied to be the sender of the transaction, as defined by the transaction's <span class="code-snippet">Account</span> field.
+* If the transaction includes a <span class="code-snippet">SendMax</span> field with an <span class="code-snippet">issuer</span> that is not the sender of the transaction, that issuer is implied to be the second step of the path.
+    * If <span class="code-snippet">issuer</span> of the <span class="code-snippet">SendMax</span> _is_ the sending address, then the path starts at the sending address, and may use any of that address's trust lines for the given currency code. See [special values for <span class="code-snippet">SendMax</span> and <span class="code-snippet">Amount</span>](payment.html#special-issuer-values-for-sendmax-and-amount) for details.
+* If the <span class="code-snippet">Amount</span> field of the transaction includes an <span class="code-snippet">issuer</span> that is not the same as the <span class="code-snippet">Destination</span> of the transaction, that issuer is implied to be the second-to-last step of the path.
+* Finally, last step of a path is always implied to be the receiver of a transaction, as defined by the transaction's <span class="code-snippet">Destination</span> field.
 
 
 ## Default Paths
@@ -62,15 +62,15 @@ In addition to explicitly specified paths, a transaction can execute along the _
 The default path could be any of the following:
 
 * If the transaction uses only one token (regardless of issuer), then the default path assumes the payment should ripple through the addresses involved. This path only works if those addresses are connected by trust lines.
-    * If `SendMax` is omitted, or the `issuer` of the `SendMax` is the sender, the default path needs a trust line from the sending `Account` to the `issuer` of the destination `Amount` to work.
-    * If the `SendMax` and `Amount` have different `issuer` values, and neither are the sender or receiver, the default path is probably not useful because it would need to ripple across a trust line between the two issuers. Ripple (the company) typically discourages issuers from trusting one another directly.
-* For cross-currency transactions, the default path uses the order book between the source currency (as specified in the `SendMax` field) and the destination currency (as specified in the `Amount` field).
+    * If <span class="code-snippet">SendMax</span> is omitted, or the <span class="code-snippet">issuer</span> of the <span class="code-snippet">SendMax</span> is the sender, the default path needs a trust line from the sending <span class="code-snippet">Account</span> to the <span class="code-snippet">issuer</span> of the destination <span class="code-snippet">Amount</span> to work.
+    * If the <span class="code-snippet">SendMax</span> and <span class="code-snippet">Amount</span> have different <span class="code-snippet">issuer</span> values, and neither are the sender or receiver, the default path is probably not useful because it would need to ripple across a trust line between the two issuers. Ripple (the company) typically discourages issuers from trusting one another directly.
+* For cross-currency transactions, the default path uses the order book between the source currency (as specified in the <span class="code-snippet">SendMax</span> field) and the destination currency (as specified in the <span class="code-snippet">Amount</span> field).
 
 The following diagram enumerates all possible default paths:
 
 {{ include_svg("img/default-paths.svg", "Diagram of default paths") }}
 
-You can use the [`tfNoDirectRipple` flag](payment.html#payment-flags) to disable the default path. In this case, the transaction can only execute using the paths explicitly included in the transaction. Traders can use this option to take arbitrage opportunities.
+You can use the [<span class="code-snippet">tfNoDirectRipple</span> flag](payment.html#payment-flags) to disable the default path. In this case, the transaction can only execute using the paths explicitly included in the transaction. Traders can use this option to take arbitrage opportunities.
 
 
 ## Path Specifications
@@ -79,28 +79,28 @@ A path set is an array. Each member of the path set is another array that repres
 
 | Field      | Value                  | Description                            |
 |:-----------|:-----------------------|:---------------------------------------|
-| `account`  | String - Address       | _(Optional)_ If present, this path step represents rippling through the specified address. MUST NOT be provided if this step specifies the `currency` or `issuer` fields. |
-| `currency` | String - Currency Code | _(Optional)_ If present, this path step represents changing currencies through an order book. The currency specified indicates the new currency. MUST NOT be provided if this step specifies the `account` field. |
-| `issuer`   | String - Address       | _(Optional)_ If present, this path step represents changing currencies and this address defines the issuer of the new currency. If omitted in a step with a non-XRP `currency`, a previous step of the path defines the issuer. If present when `currency` is omitted, indicates a path step that uses an order book between same-named currencies with different issuers. MUST be omitted if the `currency` is XRP. MUST NOT be provided if this step specifies the `account` field. |
-| `type`     | Integer                | **DEPRECATED** _(Optional)_ An indicator of which other fields are present. |
-| `type_hex` | String                 | **DEPRECATED**: _(Optional)_ A hexadecimal representation of the `type` field. |
+| <span class="code-snippet">account</span>  | String - Address       | _(Optional)_ If present, this path step represents rippling through the specified address. MUST NOT be provided if this step specifies the <span class="code-snippet">currency</span> or <span class="code-snippet">issuer</span> fields. |
+| <span class="code-snippet">currency</span> | String - Currency Code | _(Optional)_ If present, this path step represents changing currencies through an order book. The currency specified indicates the new currency. MUST NOT be provided if this step specifies the <span class="code-snippet">account</span> field. |
+| <span class="code-snippet">issuer</span>   | String - Address       | _(Optional)_ If present, this path step represents changing currencies and this address defines the issuer of the new currency. If omitted in a step with a non-XRP <span class="code-snippet">currency</span>, a previous step of the path defines the issuer. If present when <span class="code-snippet">currency</span> is omitted, indicates a path step that uses an order book between same-named currencies with different issuers. MUST be omitted if the <span class="code-snippet">currency</span> is XRP. MUST NOT be provided if this step specifies the <span class="code-snippet">account</span> field. |
+| <span class="code-snippet">type</span>     | Integer                | **DEPRECATED** _(Optional)_ An indicator of which other fields are present. |
+| <span class="code-snippet">type_hex</span> | String                 | **DEPRECATED**: _(Optional)_ A hexadecimal representation of the <span class="code-snippet">type</span> field. |
 
-In summary, the following combination of fields are valid, optionally with `type`, `type_hex`, or both:
+In summary, the following combination of fields are valid, optionally with <span class="code-snippet">type</span>, <span class="code-snippet">type_hex</span>, or both:
 
-- `account` by itself
-- `currency` by itself
-- `currency` and `issuer` as long as the `currency` is not XRP
-- `issuer` by itself
+- <span class="code-snippet">account</span> by itself
+- <span class="code-snippet">currency</span> by itself
+- <span class="code-snippet">currency</span> and <span class="code-snippet">issuer</span> as long as the <span class="code-snippet">currency</span> is not XRP
+- <span class="code-snippet">issuer</span> by itself
 
-Any other use of `account`, `currency`, and `issuer` fields in a path step is invalid.
+Any other use of <span class="code-snippet">account</span>, <span class="code-snippet">currency</span>, and <span class="code-snippet">issuer</span> fields in a path step is invalid.
 
-The `type` field, used for the binary serialization of a path set, is actually constructed through bitwise operations on a single integer. The bits are defined as follows:
+The <span class="code-snippet">type</span> field, used for the binary serialization of a path set, is actually constructed through bitwise operations on a single integer. The bits are defined as follows:
 
 | Value (Hex) | Value (Decimal) | Description |
 |-------------|-----------------|-------------|
-| `0x01`      | 1               | A change of address (rippling): the `account` field is present. |
-| `0x10`      | 16              | A change of currency: the `currency` field is present. |
-| `0x20`      | 32              | A change of issuer: the `issuer` field is present. |
+| <span class="code-snippet">0x01</span>      | 1               | A change of address (rippling): the <span class="code-snippet">account</span> field is present. |
+| <span class="code-snippet">0x10</span>      | 16              | A change of currency: the <span class="code-snippet">currency</span> field is present. |
+| <span class="code-snippet">0x20</span>      | 32              | A change of issuer: the <span class="code-snippet">issuer</span> field is present. |
 
 
 ## See Also

@@ -7,10 +7,10 @@ This airgapped XRP wallet allows users to sign a Payment transaction in a secure
 
 This code sample consists of 2 parts:
 
-- `airgapped-wallet.js` - This code should be stored in a standalone airgapped machine, it consist of features to generate a wallet, store a keypair securely, sign a transaction and share the signed transaction via QR code.
-- `relay-transaction.js` - This code could be stored in any online machine, no credentials is stored on this code other than a signed transaction which would be sent to an XRPL node for it to be validated on the ledger.
+- <span class="code-snippet">airgapped-wallet.js</span> - This code should be stored in a standalone airgapped machine, it consist of features to generate a wallet, store a keypair securely, sign a transaction and share the signed transaction via QR code.
+- <span class="code-snippet">relay-transaction.js</span> - This code could be stored in any online machine, no credentials is stored on this code other than a signed transaction which would be sent to an XRPL node for it to be validated on the ledger.
 
-Preferably, `airgapped-wallet.js` should be on a Linux machine while `relay-transaction.js` could be on any operating system.
+Preferably, <span class="code-snippet">airgapped-wallet.js</span> should be on a Linux machine while <span class="code-snippet">relay-transaction.js</span> could be on any operating system.
 
 # Security Practices
 Strongly note that an airgapped system's security is not determined by its code alone but the security practices that are being followed by an operator.
@@ -57,13 +57,13 @@ The diagram below shows you the process of submitting a transaction to the XRPL:
 ## Machine 1 Setup
 Since this machine will be airgapped, it is best to use Linux as the Operating System.
 
-1. Clone all the files under the [`airgapped-wallet`](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/js) directory
+1. Clone all the files under the [<span class="code-snippet">airgapped-wallet</span>](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/js) directory
 
-2. Import all the modules required by running: `npm install`
+2. Import all the modules required by running: <span class="code-snippet">npm install</span>
 
 3. Airgap the machine by following the security practices written [here](#security-practices).
 
-4. Run `node airgapped-wallet.js`
+4. Run <span class="code-snippet">node airgapped-wallet.js</span>
 
 5. Scan the QR code and fund the account using the [testnet faucet](https://test.bithomp.com/faucet/) 
 
@@ -85,8 +85,8 @@ You can send a message to yourself using Discord, WhatsApp or even e-mail, then 
 ## Machine 2 Setup
 This machine will be used to transmit a signed transaction blob from Machine 1, it would require internet access.
 
-1. Clone all the files under the [`airgapped-wallet`](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/js) directory
+1. Clone all the files under the [<span class="code-snippet">airgapped-wallet</span>](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/js) directory
 
-2. Import all the modules required by running `npm install`
+2. Import all the modules required by running <span class="code-snippet">npm install</span>
 
-3. Run `relay-transaction.js` and copy-and-paste the received output of Machine 1 when prompted
+3. Run <span class="code-snippet">relay-transaction.js</span> and copy-and-paste the received output of Machine 1 when prompted

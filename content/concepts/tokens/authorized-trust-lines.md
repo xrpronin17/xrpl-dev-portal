@@ -39,7 +39,7 @@ Even if you don't intend to use Authorized Trust Lines, you can enable the Requi
 
 ### Enabling Require Auth
 
-The following is an example of using a locally-hosted `rippled`'s [submit method][] to send an [AccountSet transaction][] that enables Require Auth using the `asfRequireAuth` flag. (This method works the same way regardless of whether the address is an issuing address, operational address, or standby address.)
+The following is an example of using a locally-hosted <span class="code-snippet">rippled</span>'s [submit method][] to send an [AccountSet transaction][] that enables Require Auth using the <span class="code-snippet">asfRequireAuth</span> flag. (This method works the same way regardless of whether the address is an issuing address, operational address, or standby address.)
 
 Request:
 
@@ -67,17 +67,17 @@ POST http://localhost:5005/
 
 ## Checking Whether an Account Has Require Auth Enabled
 
-To see whether an account has the Require Auth setting enabled, use the [account_info method][] to look up the account. Compare the value of the `Flags` field (in the `result.account_data` object) with the [bitwise flags defined for an AccountRoot ledger object](accountroot.html).
+To see whether an account has the Require Auth setting enabled, use the [account_info method][] to look up the account. Compare the value of the <span class="code-snippet">Flags</span> field (in the <span class="code-snippet">result.account_data</span> object) with the [bitwise flags defined for an AccountRoot ledger object](accountroot.html).
 
-If the result of the `Flags` value bitwise-AND the `lsfRequireAuth` flag value (`0x00040000`) is nonzero, then the account has Require Auth enabled. If the result is zero, then the account has Require Auth disabled.
+If the result of the <span class="code-snippet">Flags</span> value bitwise-AND the <span class="code-snippet">lsfRequireAuth</span> flag value (<span class="code-snippet">0x00040000</span>) is nonzero, then the account has Require Auth enabled. If the result is zero, then the account has Require Auth disabled.
 
 ## Authorizing Trust Lines
 
 If you are using the Authorized Trust Lines feature, others cannot hold balances you issue unless you first authorize their trust lines to you. If you issue more than one currency, you must separately authorize trust lines for each currency.
 
-To authorize a trust line, submit a [TrustSet transaction][] from your issuing address, with the user to trust as the `issuer` of the `LimitAmount`. Leave the `value` (the amount to trust them for) as **0**, and enable the [`tfSetfAuth`](trustset.html#trustset-flags) flag for the transaction.
+To authorize a trust line, submit a [TrustSet transaction][] from your issuing address, with the user to trust as the <span class="code-snippet">issuer</span> of the <span class="code-snippet">LimitAmount</span>. Leave the <span class="code-snippet">value</span> (the amount to trust them for) as **0**, and enable the [<span class="code-snippet">tfSetfAuth</span>](trustset.html#trustset-flags) flag for the transaction.
 
-The following is an example of using a locally-hosted `rippled`'s [submit method][] to send a TrustSet transaction authorizing the customer address `rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn` to hold USD issued by the address `rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW`:
+The following is an example of using a locally-hosted <span class="code-snippet">rippled</span>'s [submit method][] to send a TrustSet transaction authorizing the customer address <span class="code-snippet">rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn</span> to hold USD issued by the address <span class="code-snippet">rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW</span>:
 
 Request:
 
@@ -110,9 +110,9 @@ POST http://localhost:8088/
 
 ## Checking Whether Trust Lines Are Authorized
 
-To see whether a trust line has been authorized, use the [account_lines method][] to look up the trust line. In the request, provide the customer's address in the `account` field and the issuer's address in the `peer` field.
+To see whether a trust line has been authorized, use the [account_lines method][] to look up the trust line. In the request, provide the customer's address in the <span class="code-snippet">account</span> field and the issuer's address in the <span class="code-snippet">peer</span> field.
 
-In the response's `result.lines` array, find the object whose `currency` field indicates that it represents a trust line for the currency you want. If that object has a `peer_authorized` field with the value `true`, then the issuer (the address you used as the request's `peer` field) has authorized the trust line.
+In the response's <span class="code-snippet">result.lines</span> array, find the object whose <span class="code-snippet">currency</span> field indicates that it represents a trust line for the currency you want. If that object has a <span class="code-snippet">peer_authorized</span> field with the value <span class="code-snippet">true</span>, then the issuer (the address you used as the request's <span class="code-snippet">peer</span> field) has authorized the trust line.
 
 
 ## See Also

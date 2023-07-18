@@ -8,9 +8,9 @@ labels:
 # peer_reservations_add
 [[Source]](https://github.com/ripple/rippled/blob/4a1148eb2849513dd1e7ae080288fd47ab57a376/src/ripple/rpc/handlers/Reservations.cpp#L36 "Source")
 
-The `{{currentpage.name}}` method adds or updates a reserved slot for a specific peer server in the XRP Ledger [peer-to-peer network](peer-protocol.html). [New in: rippled 1.4.0][]
+The <span class="code-snippet">{{currentpage.name}}</span> method adds or updates a reserved slot for a specific peer server in the XRP Ledger [peer-to-peer network](peer-protocol.html). [New in: rippled 1.4.0][]
 
-_The `{{currentpage.name}}` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">{{currentpage.name}}</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 
 ### Request Format
@@ -55,8 +55,8 @@ The request includes the following parameters:
 
 | `Field`       | Type   | Description                                         |
 |:--------------|:-------|:----------------------------------------------------|
-| `public_key`  | String | The [node public key][] of the peer reservation to add a reservation for, in [base58][]. |
-| `description` | String | _(Optional)_ A custom description for the peer reservation. The server truncates descriptions longer than 64 characters when it restarts. |
+| <span class="code-snippet">public_key</span>  | String | The [node public key][] of the peer reservation to add a reservation for, in [base58][]. |
+| <span class="code-snippet">description</span> | String | _(Optional)_ A custom description for the peer reservation. The server truncates descriptions longer than 64 characters when it restarts. |
 
 
 
@@ -119,13 +119,13 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`    | Type   | Description                                            |
 |:-----------|:-------|:-------------------------------------------------------|
-| `previous` | Object | _(May be omitted)_ The previous entry for the same [node public key][], if there was already a reservation with the same node public key. This object is formatted as a **Peer Reservation Object**, as described below. |
+| <span class="code-snippet">previous</span> | Object | _(May be omitted)_ The previous entry for the same [node public key][], if there was already a reservation with the same node public key. This object is formatted as a **Peer Reservation Object**, as described below. |
 
-If there was not a previous entry for the same [node public key][], the `result` object is empty.
+If there was not a previous entry for the same [node public key][], the <span class="code-snippet">result</span> object is empty.
 
 #### Peer Reservation Object
 
-If the `previous` field is provided, it shows the previous status of this peer reservation, with the following fields:
+If the <span class="code-snippet">previous</span> field is provided, it shows the previous status of this peer reservation, with the following fields:
 
 {% include '_snippets/peer_reservation_object.md' %}
 <!--_ -->
@@ -134,9 +134,9 @@ If the `previous` field is provided, it shows the previous status of this peer r
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
-- `publicMalformed` - The `public_key` field of the request is not valid. It must be a valid node public key in [base58][] format.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
+- <span class="code-snippet">publicMalformed</span> - The <span class="code-snippet">public_key</span> field of the request is not valid. It must be a valid node public key in [base58][] format.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

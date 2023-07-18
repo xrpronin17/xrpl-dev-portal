@@ -8,9 +8,9 @@ labels:
 # download_shard
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/DownloadShard.cpp "Source")
 
-Instructs the server to download a specific [shard of historical ledger data](history-sharding.html) from an external source. Your `rippled` server must be [configured to store history shards](configure-history-sharding.html). [Updated in: rippled 1.6.0][]
+Instructs the server to download a specific [shard of historical ledger data](history-sharding.html) from an external source. Your <span class="code-snippet">rippled</span> server must be [configured to store history shards](configure-history-sharding.html). [Updated in: rippled 1.6.0][]
 
-_The `download_shard` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">download_shard</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 The external source must provide the shard as an [lz4-compressed](https://lz4.github.io/lz4/) [tar archive](https://en.wikipedia.org/wiki/Tar_(computing)) served via HTTPS. The archive must contain the shard directory and data files in NuDB format.
 
@@ -66,16 +66,16 @@ The request includes the following field:
 
 | `Field`    | Type    | Description                                           |
 |:-----------|:--------|:------------------------------------------------------|
-| `shards`   | Array   | List of Shard Descriptor objects (see below) describing shards to download and where to download them from. |
+| <span class="code-snippet">shards</span>   | Array   | List of Shard Descriptor objects (see below) describing shards to download and where to download them from. |
 
-The `validate` field is deprecated and may be removed in a future version. (The server always checks the integrity of shards when it imports them.) [Updated in: rippled 1.6.0][]
+The <span class="code-snippet">validate</span> field is deprecated and may be removed in a future version. (The server always checks the integrity of shards when it imports them.) [Updated in: rippled 1.6.0][]
 
-Each **Shard Descriptor object** in the `shards` array has the following fields:
+Each **Shard Descriptor object** in the <span class="code-snippet">shards</span> array has the following fields:
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `index` | Number | The index of the shard to retrieve. In the production XRP Ledger, the oldest shard has index 1 and contains ledgers 32750-32768. The next shard has index 2 and contains ledgers 32769-49152, and so on. |
-| `url`   | String | The URL where this shard can be downloaded. The URL must start with `http://` or `https://` and must end with `.tar.lz4` (not case-sensitive). The web server providing this download must use a valid TLS certificate signed by a trusted Certificate Authority (CA). (`rippled` uses the operating system's CA store.) [Updated in: rippled 1.7.0][] |
+| <span class="code-snippet">index</span> | Number | The index of the shard to retrieve. In the production XRP Ledger, the oldest shard has index 1 and contains ledgers 32750-32768. The next shard has index 2 and contains ledgers 32769-49152, and so on. |
+| <span class="code-snippet">url</span>   | String | The URL where this shard can be downloaded. The URL must start with `http://` or `https://` and must end with `.tar.lz4` (not case-sensitive). The web server providing this download must use a valid TLS certificate signed by a trusted Certificate Authority (CA). (<span class="code-snippet">rippled</span> uses the operating system's CA store.) [Updated in: rippled 1.7.0][] |
 
 ### Response Format
 
@@ -129,17 +129,17 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `message` | String | A message describing the actions taken in response to this request. |
+| <span class="code-snippet">message</span> | String | A message describing the actions taken in response to this request. |
 
-**Tip:** To see which shards your server has available, use the [crawl_shards method][]. Alternatively, you can look at the subfolders in your configured location for the shard store (the `path` parameter of `[shard_db]` in your `rippled.cfg`). The folders are named to match the numbers of the shards; up to one of those folders may contain a `control.txt` file indicating that the shard is incomplete.
+**Tip:** To see which shards your server has available, use the [crawl_shards method][]. Alternatively, you can look at the subfolders in your configured location for the shard store (the <span class="code-snippet">path</span> parameter of <span class="code-snippet">[shard_db]</span> in your <span class="code-snippet">rippled.cfg</span>). The folders are named to match the numbers of the shards; up to one of those folders may contain a <span class="code-snippet">control.txt</span> file indicating that the shard is incomplete.
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `notEnabled` - The server is not configured with a shard store.
-- `tooBusy` - The server is already downloading the shard, either from the peer-to-peer network or as the result of a previous `download_shard` request.
-- `invalidParams` - One or more required fields were omitted from the request, or a provided field was specified as the wrong data type.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">notEnabled</span> - The server is not configured with a shard store.
+- <span class="code-snippet">tooBusy</span> - The server is already downloading the shard, either from the peer-to-peer network or as the result of a previous <span class="code-snippet">download_shard</span> request.
+- <span class="code-snippet">invalidParams</span> - One or more required fields were omitted from the request, or a provided field was specified as the wrong data type.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 
 

@@ -9,9 +9,9 @@ labels:
 # validators
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/Validators.cpp "Source")
 
-The `validators` command returns human readable information about the current list of published and [trusted validators](intro-to-consensus.html#trust-based-validation) used by the server. [New in: rippled 0.80.1][]
+The <span class="code-snippet">validators</span> command returns human readable information about the current list of published and [trusted validators](intro-to-consensus.html#trust-based-validation) used by the server. [New in: rippled 0.80.1][]
 
-*The `validators` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">validators</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -479,28 +479,28 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`                  | Type   | Description                              |
 |:-------------------------|:-------|:-----------------------------------------|
-| `local_static_keys`      | Array  | Array of public keys for validators explicitly trusted in the config file. |
-| `publisher_lists`        | Array  | Array of **Publisher List** objects. (See below for details.) |
-| `signing_keys`           | Object | Mapping from master public key to current ephemeral public key for all currently-trusted validators. Excludes validators that don't use an ephemeral signing key. |
-| `trusted_validator_keys` | Array  | Array of master public keys of all currently trusted validators. |
-| `validation_quorum`      | Number | Minimum number of trusted validations required to validate a ledger version. Some circumstances may cause the server to require more validations. |
-| `validator_list_expires` | String | The human readable time when the current validator list expires. There are two special cases: the string `unknown` if the server has not yet loaded a published validator list, or the string `never` if the server uses a static validator list. |
+| <span class="code-snippet">local_static_keys</span>      | Array  | Array of public keys for validators explicitly trusted in the config file. |
+| <span class="code-snippet">publisher_lists</span>        | Array  | Array of **Publisher List** objects. (See below for details.) |
+| <span class="code-snippet">signing_keys</span>           | Object | Mapping from master public key to current ephemeral public key for all currently-trusted validators. Excludes validators that don't use an ephemeral signing key. |
+| <span class="code-snippet">trusted_validator_keys</span> | Array  | Array of master public keys of all currently trusted validators. |
+| <span class="code-snippet">validation_quorum</span>      | Number | Minimum number of trusted validations required to validate a ledger version. Some circumstances may cause the server to require more validations. |
+| <span class="code-snippet">validator_list_expires</span> | String | The human readable time when the current validator list expires. There are two special cases: the string <span class="code-snippet">unknown</span> if the server has not yet loaded a published validator list, or the string <span class="code-snippet">never</span> if the server uses a static validator list. |
 
-Each member of the `publisher_lists` array is a **Publisher List** object with the following fields:
+Each member of the <span class="code-snippet">publisher_lists</span> array is a **Publisher List** object with the following fields:
 
 | `Field`            | Type             | Description                          |
 |:-------------------|:-----------------|:-------------------------------------|
-| `available`        | Boolean          | If `false`, the validator keys in `list` may no longer be supported by this publisher. |
-| `expiration`       | String           | The human readable time when this published list is scheduled to expire. |
-| `list`             | Array            | Array of published validator keys in the list.   |
-| `pubkey_publisher` | String           | Ed25519 or ECDSA public key of the list publisher, as hexadecimal. |
-| `seq`              | Unsigned Integer | The sequence number of this published list. |
-| `version`          | Unsigned Integer | The version of the list format.      |
+| <span class="code-snippet">available</span>        | Boolean          | If <span class="code-snippet">false</span>, the validator keys in <span class="code-snippet">list</span> may no longer be supported by this publisher. |
+| <span class="code-snippet">expiration</span>       | String           | The human readable time when this published list is scheduled to expire. |
+| <span class="code-snippet">list</span>             | Array            | Array of published validator keys in the list.   |
+| <span class="code-snippet">pubkey_publisher</span> | String           | Ed25519 or ECDSA public key of the list publisher, as hexadecimal. |
+| <span class="code-snippet">seq</span>              | Unsigned Integer | The sequence number of this published list. |
+| <span class="code-snippet">version</span>          | Unsigned Integer | The version of the list format.      |
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

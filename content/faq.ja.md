@@ -96,7 +96,7 @@ XRP Ledgerサーバーを運用してネットワークに参加している場�
 
 いいえ。XRP Ledgerは、中央権限のないシステムであるため、正式なバリデータのオンボーディングプロセスのようなものは存在しません。
 
-推奨事項やベストプラクティスについては、[バリデータとしての`rippled`の実行](run-rippled-as-a-validator.html)を参照してください。
+推奨事項やベストプラクティスについては、[バリデータとしての<span class="code-snippet">rippled</span>の実行](run-rippled-as-a-validator.html)を参照してください。
 
 
 ## XRPの役割
@@ -122,7 +122,7 @@ Rippleは、XRP Ledgerネットワーク全体でAML(Anti-Money Laundering)フ�
 
 #### サードパーティーにより提供されたコードをマスターコードベースに受け入れる前に、Rippleではどのような確認プロセスを行っていますか?
 
-コード提供プロセスは、開発者がRippleの`rippled`リポジトリーに対してプルリクエストを出すことから始まります。このプルリクエストがあると、自動化された単体テストと統合テスト、およびそのプルリクエストによって変更されるコードについて専門知識を持つ開発者によりコードレビューが行われます。
+コード提供プロセスは、開発者がRippleの<span class="code-snippet">rippled</span>リポジトリーに対してプルリクエストを出すことから始まります。このプルリクエストがあると、自動化された単体テストと統合テスト、およびそのプルリクエストによって変更されるコードについて専門知識を持つ開発者によりコードレビューが行われます。
 
 プルリクエストが自動テストに合格し、レビュー担当者から承認されると、[リポジトリの信頼できる保守担当者](https://opensource.guide/best-practices/)によって、次のベータ版に含められるようにステージングされます。
 
@@ -130,23 +130,23 @@ Rippleは、XRP Ledgerネットワーク全体でAML(Anti-Money Laundering)フ�
 
 いいえ、RippleはXRP LedgerとXRP Ledgerネットワークを所有も管理もしていません。
 
-Rippleは、コアとなるXRP Ledgerサーバー（[`rippled`](https://github.com/ripple/rippled)）のリファレンス実装を公開し、オープンソースコードベースに貢献しているエンジニアチームを雇用しています。Rippleはまた、利用可能なソフトウェアのプリコンパイル済みバイナリーパッケージも定期的に発行しています。必要に応じて、誰でも自由に[ソースからソフトウェアをダウンロードしてコンパイル](install-rippled.html)できます。
+Rippleは、コアとなるXRP Ledgerサーバー（[<span class="code-snippet">rippled</span>](https://github.com/ripple/rippled)）のリファレンス実装を公開し、オープンソースコードベースに貢献しているエンジニアチームを雇用しています。Rippleはまた、利用可能なソフトウェアのプリコンパイル済みバイナリーパッケージも定期的に発行しています。必要に応じて、誰でも自由に[ソースからソフトウェアをダウンロードしてコンパイル](install-rippled.html)できます。
 
-XRP Ledgerと通信するためにRippleのXRP Ledgerソフトウェアを使用する必要はありません。`rippled`はオープンソースソフトウェアであり、[ISCライセンス](https://github.com/ripple/rippled/blob/develop/LICENSE.md)の条件に従う限り、誰でも使用、拡張、および変更できます。ISCライセンスは、ソフトウェアの拡張方法と適応方法を厳密に制限する他のオープンソースライセンスと比較して非常に柔軟です。
+XRP Ledgerと通信するためにRippleのXRP Ledgerソフトウェアを使用する必要はありません。<span class="code-snippet">rippled</span>はオープンソースソフトウェアであり、[ISCライセンス](https://github.com/ripple/rippled/blob/develop/LICENSE.md)の条件に従う限り、誰でも使用、拡張、および変更できます。ISCライセンスは、ソフトウェアの拡張方法と適応方法を厳密に制限する他のオープンソースライセンスと比較して非常に柔軟です。
 
 #### Rippleでは、ソフトウェアを安全にダウンロードする方法を提供していますか?
 
-`rippled`ソースコードは<https://github.com/ripple/rippled>から入手できます。ここでは、`master`、`release`、および`develop`の各ブランチのヒントに、`rippled`開発者が署名したバージョン設定コミットが常に含まれています。XRP Ledgerは、CentOS、RedHat Enterprise Linux、Fedora、Ubuntu、およびDebian Linux用のビルド済みバイナリーパッケージも提供します。これらのパッケージは不正開封防止が施されており、その真正性を確認できるようにRippleによってデジタル署名されています。最後に、リリースノートは安全なWebサイトで公開されており、リポジトリーのコミットIDと公開されているパッケージの暗号ハッシュ値が含まれています。
+<span class="code-snippet">rippled</span>ソースコードは<https://github.com/ripple/rippled>から入手できます。ここでは、<span class="code-snippet">master</span>、<span class="code-snippet">release</span>、および<span class="code-snippet">develop</span>の各ブランチのヒントに、<span class="code-snippet">rippled</span>開発者が署名したバージョン設定コミットが常に含まれています。XRP Ledgerは、CentOS、RedHat Enterprise Linux、Fedora、Ubuntu、およびDebian Linux用のビルド済みバイナリーパッケージも提供します。これらのパッケージは不正開封防止が施されており、その真正性を確認できるようにRippleによってデジタル署名されています。最後に、リリースノートは安全なWebサイトで公開されており、リポジトリーのコミットIDと公開されているパッケージの暗号ハッシュ値が含まれています。
 
 
 #### Rippleは検証用のコードベースとユーザーソフトウェア用のコードベースを区別していますか?
 
-はい。ripple-libを含むXRP Ledger用のクライアントソフトウェアには、`rippled`（検証）とは異なるコードベースおよびリポジトリーがあります。
+はい。ripple-libを含むXRP Ledger用のクライアントソフトウェアには、<span class="code-snippet">rippled</span>（検証）とは異なるコードベースおよびリポジトリーがあります。
 
 
 ## 関連項目
 
-- [`rippled`コードベース](https://github.com/ripple/rippled)
+- [<span class="code-snippet">rippled</span>コードベース](https://github.com/ripple/rippled)
 - ユーザーソフトウェアのコードベース:
       - [ripple-lib](https://github.com/XRPLF/xrpl.js)
       - [ripplecharts-frontend](https://github.com/ripple/ripplecharts-frontend)

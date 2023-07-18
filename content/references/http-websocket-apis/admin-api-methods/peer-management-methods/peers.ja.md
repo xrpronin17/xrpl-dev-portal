@@ -8,9 +8,9 @@ labels:
 # peers
 [[ソース]](https://github.com/ripple/rippled/blob/52f298f150fc1530d201d3140c80d3eaf781cb5f/src/ripple/rpc/handlers/Peers.cpp "Source")
 
-`peers`コマンドは、[ピアプロトコル](peer-protocol.html)でこのサーバーに現在接続されているその他のすべての`rippled`サーバーのリスト（各サーバーの接続状況と同期状況を含む）を返します。
+<span class="code-snippet">peers</span>コマンドは、[ピアプロトコル](peer-protocol.html)でこのサーバーに現在接続されているその他のすべての<span class="code-snippet">rippled</span>サーバーのリスト（各サーバーの接続状況と同期状況を含む）を返します。
 
-*`peers`要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
+*<span class="code-snippet">peers</span>要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -382,35 +382,35 @@ Connecting to 127.0.0.1:5005
 
 | `Field`   | 型   | 説明                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `cluster` | オブジェクト | [クラスターとして構成されている](clustering.html)場合は、同じクラスター内の他の`rippled`サーバーの概要。[新規: rippled 0.30.1][] |
-| `peers`   | 配列  | peerオブジェクトからなる配列。                                  |
+| <span class="code-snippet">cluster</span> | オブジェクト | [クラスターとして構成されている](clustering.html)場合は、同じクラスター内の他の<span class="code-snippet">rippled</span>サーバーの概要。[新規: rippled 0.30.1][] |
+| <span class="code-snippet">peers</span>   | 配列  | peerオブジェクトからなる配列。                                  |
 
-`cluster`オブジェクトの各フィールドは、該当する`rippled`サーバーの識別用キーペアの公開鍵です。（これは、[server_infoメソッド][]で当該サーバーから`pubkey_node`として返される値と同じです。）そのフィールドの内容は、以下のフィールドを持つオブジェクトです。
+<span class="code-snippet">cluster</span>オブジェクトの各フィールドは、該当する<span class="code-snippet">rippled</span>サーバーの識別用キーペアの公開鍵です。（これは、[server_infoメソッド][]で当該サーバーから<span class="code-snippet">pubkey_node</span>として返される値と同じです。）そのフィールドの内容は、以下のフィールドを持つオブジェクトです。
 
 | `Field` | 型   | 説明                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `tag`   | 文字列 | 構成ファイルで定義されているこのクラスターメンバーの表示名。 |
-| `fee`   | 数値 | （省略される場合があります）このクラスターメンバーが[トランザクションコスト](transaction-cost.html)に適用する負荷乗数。 |
-| `age`   | 数値 | このクラスターメンバーからの最終クラスターレポート以降の経過秒数。 |
+| <span class="code-snippet">tag</span>   | 文字列 | 構成ファイルで定義されているこのクラスターメンバーの表示名。 |
+| <span class="code-snippet">fee</span>   | 数値 | （省略される場合があります）このクラスターメンバーが[トランザクションコスト](transaction-cost.html)に適用する負荷乗数。 |
+| <span class="code-snippet">age</span>   | 数値 | このクラスターメンバーからの最終クラスターレポート以降の経過秒数。 |
 
-`peers`配列の各メンバーは、以下のフィールドを持つpeerオブジェクトです。
+<span class="code-snippet">peers</span>配列の各メンバーは、以下のフィールドを持つpeerオブジェクトです。
 
 | `Field`            | 型    | 説明                                   |
 |:-------------------|:--------|:----------------------------------------------|
-| `address`          | 文字列  | このピアが接続しているIPアドレスとポート。 |
-| `cluster`          | ブール値 | （省略される場合があります）`true`の場合、現在のサーバーとピアサーバーは同じ`rippled`クラスターに含まれています。 |
-| `name`             | 文字列  | （省略される場合があります）ピアが同じクラスターに含まれている場合、この名前は構成ファイルで定義されているそのピアサーバーの表示名です。 |
-| `complete_ledgers` | 文字列  | ピア`rippled`で利用可能なレジャーバージョンのシーケンス番号を示す範囲式 |
-| `inbound`          | ブール値 | （省略される場合があります）`true`の場合は、ピアはローカルサーバーに接続しています。 |
-| `latency`          | 数値  | ピアへのネットワーク遅延（ミリ秒単位） |
-| `ledger`           | 文字列  | 最後に閉鎖されたピアのレジャーのハッシュ。 |
-| `load`             | 数値  | ピアサーバーによるローカルサーバーへの負荷の測定値。この数値が大きいほど負荷が高くなります。（負荷の測定単位は正式には定義されていません。） |
-| `protocol`         | 文字列  | （省略される場合があります）ピアが使用しているプロトコルバージョン（ローカルサーバーのプロトコルバージョンと異なる場合）。 |
-| `public_key`       | 文字列  | （省略される場合があります）ピアのメッセージの整合性の検証に使用できる公開鍵。これは、検証に使用する公開鍵とは異なりますが、フォーマットは同じです。 |
-| `sanity`           | 文字列  | （省略される場合があります）このピアが現行サーバーと同じルールとレジャーシーケンスに従っているかどうか。値が`insane`の場合、ピアは並列ネットワークの一部である可能性があります。値が`unknown`の場合、現行サーバーはピアに互換性があるかどうかを把握していません。 <!-- STYLE_OVERRIDE: insane --> |
-| `status`           | 文字列  | （省略される場合があります）ピアからの最新のステータスメッセージ。`connecting`、`connected`、`monitoring`、`validating`、`shutting`のいずれかです。 |
-| `uptime`           | 数値  | `rippled`サーバーがこのピアに継続して接続していた秒数。[新規: rippled 0.30.1][] |
-| `version`          | 文字列  | （省略される場合があります）ピアサーバーの`rippled`バージョン番号 |
+| <span class="code-snippet">address</span>          | 文字列  | このピアが接続しているIPアドレスとポート。 |
+| <span class="code-snippet">cluster</span>          | ブール値 | （省略される場合があります）<span class="code-snippet">true</span>の場合、現在のサーバーとピアサーバーは同じ<span class="code-snippet">rippled</span>クラスターに含まれています。 |
+| <span class="code-snippet">name</span>             | 文字列  | （省略される場合があります）ピアが同じクラスターに含まれている場合、この名前は構成ファイルで定義されているそのピアサーバーの表示名です。 |
+| <span class="code-snippet">complete_ledgers</span> | 文字列  | ピア<span class="code-snippet">rippled</span>で利用可能なレジャーバージョンのシーケンス番号を示す範囲式 |
+| <span class="code-snippet">inbound</span>          | ブール値 | （省略される場合があります）<span class="code-snippet">true</span>の場合は、ピアはローカルサーバーに接続しています。 |
+| <span class="code-snippet">latency</span>          | 数値  | ピアへのネットワーク遅延（ミリ秒単位） |
+| <span class="code-snippet">ledger</span>           | 文字列  | 最後に閉鎖されたピアのレジャーのハッシュ。 |
+| <span class="code-snippet">load</span>             | 数値  | ピアサーバーによるローカルサーバーへの負荷の測定値。この数値が大きいほど負荷が高くなります。（負荷の測定単位は正式には定義されていません。） |
+| <span class="code-snippet">protocol</span>         | 文字列  | （省略される場合があります）ピアが使用しているプロトコルバージョン（ローカルサーバーのプロトコルバージョンと異なる場合）。 |
+| <span class="code-snippet">public_key</span>       | 文字列  | （省略される場合があります）ピアのメッセージの整合性の検証に使用できる公開鍵。これは、検証に使用する公開鍵とは異なりますが、フォーマットは同じです。 |
+| <span class="code-snippet">sanity</span>           | 文字列  | （省略される場合があります）このピアが現行サーバーと同じルールとレジャーシーケンスに従っているかどうか。値が<span class="code-snippet">insane</span>の場合、ピアは並列ネットワークの一部である可能性があります。値が<span class="code-snippet">unknown</span>の場合、現行サーバーはピアに互換性があるかどうかを把握していません。 <!-- STYLE_OVERRIDE: insane --> |
+| <span class="code-snippet">status</span>           | 文字列  | （省略される場合があります）ピアからの最新のステータスメッセージ。<span class="code-snippet">connecting</span>、<span class="code-snippet">connected</span>、<span class="code-snippet">monitoring</span>、<span class="code-snippet">validating</span>、<span class="code-snippet">shutting</span>のいずれかです。 |
+| <span class="code-snippet">uptime</span>           | 数値  | <span class="code-snippet">rippled</span>サーバーがこのピアに継続して接続していた秒数。[新規: rippled 0.30.1][] |
+| <span class="code-snippet">version</span>          | 文字列  | （省略される場合があります）ピアサーバーの<span class="code-snippet">rippled</span>バージョン番号 |
 
 ### 考えられるエラー
 

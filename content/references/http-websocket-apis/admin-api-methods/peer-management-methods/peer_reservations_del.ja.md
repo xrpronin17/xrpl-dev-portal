@@ -9,9 +9,9 @@ labels:
 
 [[ソース]](https://github.com/ripple/rippled/blob/4a1148eb2849513dd1e7ae080288fd47ab57a376/src/ripple/rpc/handlers/Reservations.cpp#L89 "Source")
 
-`{{currentpage.name}}`メソッドは、特定の[ピアリザベーション][]を削除します（存在する場合）。[新規: rippled 1.4.0][]
+<span class="code-snippet">{{currentpage.name}}</span>メソッドは、特定の[ピアリザベーション][]を削除します（存在する場合）。[新規: rippled 1.4.0][]
 
-_`{{currentpage.name}}`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">{{currentpage.name}}</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 **注記:** ピアリザベーションを削除しても、対応するピアが接続されている場合、そのピアは自動的に切断されません。
 
@@ -55,7 +55,7 @@ rippled {{currentpage.name}} n9Jt8awsPzWLjBCNKVEEDQnw4bQEPjezfcQ4gttD1UzbLT1FoG9
 
 | `Field`     | 型                        | 説明                               |
 |:------------|:--------------------------|:-----------------------------------|
-| `public_key` | 文字列 | 削除する[ピアリザベーション][]の[ノード公開鍵][]（[base58][]フォーマット） |
+| <span class="code-snippet">public_key</span> | 文字列 | 削除する[ピアリザベーション][]の[ノード公開鍵][]（[base58][]フォーマット） |
 
 
 ### 応答フォーマット
@@ -117,13 +117,13 @@ Connecting to 127.0.0.1:5005
 
 | `Field` | 型     | 説明                                                      |
 |:--------|:-------|:----------------------------------------------------------|
-| `previous` | オブジェクト | _（省略される場合があります）_ 削除する前のピアリザベーションの最後のステータスを伴った、**ピアリザベーションオブジェクト**。このフィールドは、ピアリザベーションが正常に削除された場合、必ず表示されます。 |
+| <span class="code-snippet">previous</span> | オブジェクト | _（省略される場合があります）_ 削除する前のピアリザベーションの最後のステータスを伴った、**ピアリザベーションオブジェクト**。このフィールドは、ピアリザベーションが正常に削除された場合、必ず表示されます。 |
 
-**注記:** 指定された予約が存在しなかった場合は、このコマンドによって、成功を示す空の結果オブジェクトが返されます。この場合、`previous`フィールドは省略されます。
+**注記:** 指定された予約が存在しなかった場合は、このコマンドによって、成功を示す空の結果オブジェクトが返されます。この場合、<span class="code-snippet">previous</span>フィールドは省略されます。
 
 #### ピアリザベーションオブジェクト
 
-`previous`フィールドが指定されている場合は、このピアリザベーションの以前のステータスが次のフィールドとともに表示されます。
+<span class="code-snippet">previous</span>フィールドが指定されている場合は、このピアリザベーションの以前のステータスが次のフィールドとともに表示されます。
 
 {% include '_snippets/peer_reservation_object.ja.md' %}
 <!--_ -->
@@ -131,8 +131,8 @@ Connecting to 127.0.0.1:5005
 ### 考えられるエラー
 
 - いずれかの[汎用エラータイプ][]。
-- `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
-- `publicMalformed` - 要求の`public_key`フィールドが無効です。[base58][]フォーマットの有効なノード公開鍵である必要があります。
+- <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+- <span class="code-snippet">publicMalformed</span> - 要求の<span class="code-snippet">public_key</span>フィールドが無効です。[base58][]フォーマットの有効なノード公開鍵である必要があります。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

@@ -8,7 +8,7 @@ template: pagetype-category.html.jinja
 
 There are two main types of server software that power the XRP Ledger:
 
-- The core server, `rippled`, runs the the peer-to-peer network which processes transactions and reaches a consensus on their outcome.
+- The core server, <span class="code-snippet">rippled</span>, runs the the peer-to-peer network which processes transactions and reaches a consensus on their outcome.
 - The API server, [Clio](the-clio-server.html), provides a powerful interface for fetching or querying data from the ledger.
 
 Anyone can run instances of one or both of these types of servers based on their needs.

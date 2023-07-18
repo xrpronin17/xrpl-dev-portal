@@ -9,9 +9,9 @@ labels:
 # validators
 [[ソース]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/Validators.cpp "Source")
 
-`validators`コマンドは、サーバーが使用する公開済みの信頼できるバリデータの最新リストに関する情報を、人間が読み取れる形式で返します。[新規: rippled 0.80.1][]
+<span class="code-snippet">validators</span>コマンドは、サーバーが使用する公開済みの信頼できるバリデータの最新リストに関する情報を、人間が読み取れる形式で返します。[新規: rippled 0.80.1][]
 
-*`validators`要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
+*<span class="code-snippet">validators</span>要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -164,23 +164,23 @@ Connecting to 127.0.0.1:5005
 
 | `Field`                  | 型   | 説明                              |
 |:-------------------------|:-------|:-----------------------------------------|
-| `listed_static_keys`     | 配列  | 信頼リストに常に追加可能なバリデータの公開鍵の配列。 |
-| `publisher_lists`        | 配列  | パブリッシャーリストオブジェクトの配列。         |
-| `signing_keys`           | オブジェクト | バリデータマニフェストを使用している登録済みバリデータのマスター公開鍵から、現在の署名キーへのマッピング。 |
-| `trusted_validator_keys` | 配列  | 現在信頼されているバリデータの公開鍵の配列。 |
-| `validation_quorum`      | 数値 | 1つのレジャーバージョンの検証に最低限必要となる信頼できる検証の数。状況によっては、サーバーがさらに検証を要求する場合があります。 |
-| `validator_list_expires` | 文字列 | 人間が読み取れる形式での現在のバリデータリストの有効期限、文字列`unknown`（サーバーが公開済みバリデータリストを読み込む必要がある場合）、または文字列`never`（サーバーが静的なバリデータリストを使用している場合）のいずれか。 |
+| <span class="code-snippet">listed_static_keys</span>     | 配列  | 信頼リストに常に追加可能なバリデータの公開鍵の配列。 |
+| <span class="code-snippet">publisher_lists</span>        | 配列  | パブリッシャーリストオブジェクトの配列。         |
+| <span class="code-snippet">signing_keys</span>           | オブジェクト | バリデータマニフェストを使用している登録済みバリデータのマスター公開鍵から、現在の署名キーへのマッピング。 |
+| <span class="code-snippet">trusted_validator_keys</span> | 配列  | 現在信頼されているバリデータの公開鍵の配列。 |
+| <span class="code-snippet">validation_quorum</span>      | 数値 | 1つのレジャーバージョンの検証に最低限必要となる信頼できる検証の数。状況によっては、サーバーがさらに検証を要求する場合があります。 |
+| <span class="code-snippet">validator_list_expires</span> | 文字列 | 人間が読み取れる形式での現在のバリデータリストの有効期限、文字列<span class="code-snippet">unknown</span>（サーバーが公開済みバリデータリストを読み込む必要がある場合）、または文字列<span class="code-snippet">never</span>（サーバーが静的なバリデータリストを使用している場合）のいずれか。 |
 
 `publisher_lists`配列の各メンバーは、以下のフィールドを有するオブジェクトです。
 
-| `Field`            | 型             | 説明                          |
+| <span class="code-snippet">Field</span>            | 型             | 説明                          |
 |:-------------------|:-----------------|:-------------------------------------|
-| `available`        | ブール値          | `false`の場合、`list`内のバリデータキーはこのパブリッシャーによりサポートされていない可能性があります。 |
-| `expiration`       | 文字列           | この公開済みリストの有効期限を人間が読み取れる形式で示します。 |
-| `list`             | 配列            | 公開済みバリデータキーからなる配列。   |
-| `pubkey_publisher` | 文字列           | リストパブリッシャーのEd25519またはECDSA公開鍵（16進数）。 |
-| `seq`              | 符号なし整数 | 公開済みリストのシーケンス番号。 |
-| `version`          | 符号なし整数 | リストフォーマットのバージョン。      |
+| <span class="code-snippet">available</span>        | ブール値          | <span class="code-snippet">false</span>の場合、<span class="code-snippet">list</span>内のバリデータキーはこのパブリッシャーによりサポートされていない可能性があります。 |
+| <span class="code-snippet">expiration</span>       | 文字列           | この公開済みリストの有効期限を人間が読み取れる形式で示します。 |
+| <span class="code-snippet">list</span>             | 配列            | 公開済みバリデータキーからなる配列。   |
+| <span class="code-snippet">pubkey_publisher</span> | 文字列           | リストパブリッシャーのEd25519またはECDSA公開鍵（16進数）。 |
+| <span class="code-snippet">seq</span>              | 符号なし整数 | 公開済みリストのシーケンス番号。 |
+| <span class="code-snippet">version</span>          | 符号なし整数 | リストフォーマットのバージョン。      |
 
 ### 考えられるエラー
 

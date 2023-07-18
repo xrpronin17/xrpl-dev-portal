@@ -9,11 +9,11 @@ labels:
 # feature
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/Feature1.cpp "Source")
 
-The `feature` command returns information about [amendments](amendments.html) this server knows about, including whether they are enabled and whether the server is voting in favor of those amendments in the [amendment process](amendments.html#amendment-process). [New in: rippled 0.31.0][]
+The <span class="code-snippet">feature</span> command returns information about [amendments](amendments.html) this server knows about, including whether they are enabled and whether the server is voting in favor of those amendments in the [amendment process](amendments.html#amendment-process). [New in: rippled 0.31.0][]
 
-You can use the `feature` command to configure the server to vote against or in favor of an amendment. This change persists even if you restart the server. [Updated in: rippled 1.7.0][]
+You can use the <span class="code-snippet">feature</span> command to configure the server to vote against or in favor of an amendment. This change persists even if you restart the server. [Updated in: rippled 1.7.0][]
 
-_The `feature` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">feature</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -67,10 +67,10 @@ The request includes the following parameters:
 
 | `Field`   | Type    | Description                                            |
 |:----------|:--------|:-------------------------------------------------------|
-| `feature` | String  | _(Optional)_ The unique ID of an amendment, as hexadecimal; or the short name of the amendment. If provided, limits the response to one amendment. Otherwise, the response lists all amendments. |
-| `vetoed`  | Boolean | _(Optional; ignored unless `feature` also specified)_ If `true`, instructs the server to vote against the amendment specified by `feature`. If false, instructs the server to vote in favor of the amendment. On the commandline, use 'accept' or 'reject rather than 'true' or 'false'. You cannot vote in favor of an amendment that is marked as _obsolete_ in the server's source code. [Updated in: rippled 1.11.0][] |
+| <span class="code-snippet">feature</span> | String  | _(Optional)_ The unique ID of an amendment, as hexadecimal; or the short name of the amendment. If provided, limits the response to one amendment. Otherwise, the response lists all amendments. |
+| <span class="code-snippet">vetoed</span>  | Boolean | _(Optional; ignored unless <span class="code-snippet">feature</span> also specified)_ If <span class="code-snippet">true</span>, instructs the server to vote against the amendment specified by <span class="code-snippet">feature</span>. If false, instructs the server to vote in favor of the amendment. On the commandline, use 'accept' or 'reject rather than 'true' or 'false'. You cannot vote in favor of an amendment that is marked as _obsolete_ in the server's source code. [Updated in: rippled 1.11.0][] |
 
-**Note:** You can configure your server to vote in favor of a new amendment, even if the server does not currently know how to apply that amendment, by specifying the amendment ID in the `feature` field. For example, you might want to do this if you plan to upgrade soon to a new `rippled` version that _does_ support the amendment.
+**Note:** You can configure your server to vote in favor of a new amendment, even if the server does not currently know how to apply that amendment, by specifying the amendment ID in the <span class="code-snippet">feature</span> field. For example, you might want to do this if you plan to upgrade soon to a new <span class="code-snippet">rippled</span> version that _does_ support the amendment.
 
 ### Response Format
 
@@ -181,22 +181,22 @@ Connecting to 127.0.0.1:5005
 
 <!-- MULTICODE_BLOCK_END -->
 
-The response follows the [standard format][], with a successful result containing **a map of amendments** as a JSON object. The keys of the object are amendment IDs. The values for each key are _amendment objects_ that describe the status of the amendment with that ID. If the request specified a `feature`, the map contains only the requested amendment object, after applying any changes from the request. Each amendment object has the following fields:
+The response follows the [standard format][], with a successful result containing **a map of amendments** as a JSON object. The keys of the object are amendment IDs. The values for each key are _amendment objects_ that describe the status of the amendment with that ID. If the request specified a <span class="code-snippet">feature</span>, the map contains only the requested amendment object, after applying any changes from the request. Each amendment object has the following fields:
 
 | `Field`     | Type    | Description                                          |
 |:------------|:--------|:-----------------------------------------------------|
-| `enabled`   | Boolean | Whether this amendment is currently enabled in the latest ledger. |
-| `name`      | String  | (May be omitted) The human-readable name for this amendment, if known. |
-| `supported` | Boolean | Whether the server knows how to apply this amendment. If this field is set to `false` (the server does not know how to apply this amendment) and `enabled` is set to `true` (this amendment is enabled in the latest ledger), this amendment may cause your server to be [amendment blocked](amendments.html#amendment-blocked-servers). |
-| `vetoed`    | Boolean or String | For most amendments, this is a boolean value indicating whether the server has been instructed to vote against this amendment. For amendments that are marked as obsolete in the code, this is the string `Obsolete` instead. [Updated in: rippled 1.11.0][] |
+| <span class="code-snippet">enabled</span>   | Boolean | Whether this amendment is currently enabled in the latest ledger. |
+| <span class="code-snippet">name</span>      | String  | (May be omitted) The human-readable name for this amendment, if known. |
+| <span class="code-snippet">supported</span> | Boolean | Whether the server knows how to apply this amendment. If this field is set to <span class="code-snippet">false</span> (the server does not know how to apply this amendment) and <span class="code-snippet">enabled</span> is set to <span class="code-snippet">true</span> (this amendment is enabled in the latest ledger), this amendment may cause your server to be [amendment blocked](amendments.html#amendment-blocked-servers). |
+| <span class="code-snippet">vetoed</span>    | Boolean or String | For most amendments, this is a boolean value indicating whether the server has been instructed to vote against this amendment. For amendments that are marked as obsolete in the code, this is the string <span class="code-snippet">Obsolete</span> instead. [Updated in: rippled 1.11.0][] |
 
-**Caution:** The `name` for an amendment does not strictly indicate what that amendment does. The name is not guaranteed to be unique or consistent across servers.
+**Caution:** The <span class="code-snippet">name</span> for an amendment does not strictly indicate what that amendment does. The name is not guaranteed to be unique or consistent across servers.
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `badFeature` - The `feature` specified was invalidly formatted, or the server does not know an amendment with that name.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">badFeature</span> - The <span class="code-snippet">feature</span> specified was invalidly formatted, or the server does not know an amendment with that name.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

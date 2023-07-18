@@ -37,7 +37,7 @@ D = A × ( e ^ (t ÷ τ) )
 
 To convert between display amounts and ledger amounts, you can use the following steps:
 
-1. Calculate the value of `( e ^ (t ÷ τ) )`. We call this number the "demurrage coefficient". The demurrage coefficient is always relative to a specific time, such as the current time.
+1. Calculate the value of <span class="code-snippet">( e ^ (t ÷ τ) )</span>. We call this number the "demurrage coefficient". The demurrage coefficient is always relative to a specific time, such as the current time.
 2. Apply it to the amount to convert:
     - To convert ledger values to display values, multiply by the demurrage coefficient.
     - To convert display values to ledger values, divide by the demurrage coefficient.
@@ -50,12 +50,12 @@ Rather than using the [standard currency code format](currency-formats.html#curr
 
 ![Demurraging Currency Code Format](img/demurrage-currency-code-format.png)
 
-1. The first 8 bits must be `0x01`.
+1. The first 8 bits must be <span class="code-snippet">0x01</span>.
 2. The next 24 bits represent 3 characters of ASCII.
     This is expected to be an ISO 4217 code. It supports the same characters as the standard format's ASCII characters.
-3. The next 24 bits MUST be all `0`s.
+3. The next 24 bits MUST be all <span class="code-snippet">0</span>s.
 4. The next 64 bits are the interest rate of the currency, represented as "[e-folding time](http://en.wikipedia.org/wiki/E-folding)" in an IEEE 754 double format.
-5. The next 24 bits are reserved and should be all `0`s.
+5. The next 24 bits are reserved and should be all <span class="code-snippet">0</span>s.
 
 ### Calculating e-folding Time
 
@@ -86,7 +86,7 @@ Demurrage was supported in ripple-lib versions **0.7.37** through **0.12.9**. De
 
 The following code samples show how to use compatible versions of ripple-lib to convert between ledger values and display values. Also see the [Ripple Demurrage Calculator](https://ripple.github.io/ripple-demurrage-tool/).
 
-To convert from a display value to a ledger value, use `Amount.from_human()`:
+To convert from a display value to a ledger value, use <span class="code-snippet">Amount.from_human()</span>:
 
 ```js
 // create an Amount object for the display amount of the demurring currency

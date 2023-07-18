@@ -8,9 +8,9 @@ labels:
 # fetch_info
 [[Source]](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/FetchInfo.cpp "Source")
 
-The `fetch_info` command returns information about objects that this server is currently fetching from the network, and how many peers have that information. It can also be used to reset current fetches.
+The <span class="code-snippet">fetch_info</span> command returns information about objects that this server is currently fetching from the network, and how many peers have that information. It can also be used to reset current fetches.
 
-_The `fetch_info` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">fetch_info</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -53,7 +53,7 @@ The request includes the following parameters:
 
 | `Field` | Type    | Description                                              |
 |:--------|:--------|:---------------------------------------------------------|
-| `clear` | Boolean | If `true`, reset current fetches. Otherwise, only get status of fetches in progress. |
+| <span class="code-snippet">clear</span> | Boolean | If <span class="code-snippet">true</span>, reset current fetches. Otherwise, only get status of fetches in progress. |
 
 ### Response Format
 
@@ -146,23 +146,23 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `info`  | Object | Map of objects being fetched and the status of that object being fetched. A ledger being fetched may be identified by its [ledger index][]; ledgers and other objects being fetched may also be identified by their hashes. |
+| <span class="code-snippet">info</span>  | Object | Map of objects being fetched and the status of that object being fetched. A ledger being fetched may be identified by its [ledger index][]; ledgers and other objects being fetched may also be identified by their hashes. |
 
 The fields describing a fetch in progress are subject to change without notice. The following fields may be included:
 
 | `Field`               | Type                    | Description                |
 |:----------------------|:------------------------|:---------------------------|
-| `hash`                | String                  | The hash of the item being fetched. |
-| `have_header`         | Boolean                 | For a ledger, whether this server has already obtained the ledger's header section. |
-| `have_transactions`   | Boolean                 | For a ledger, whether this server has already obtained the transaction section of that ledger. |
-| `needed_state_hashes` | Array of (Hash) Strings | The hash values of state objects still needed from this item. If more than 16 are needed, the response contains only the first 16. |
-| `peers`               | Number                  | The number of peers who have this item available. |
-| `timeouts`            | Number                  | The number of times that fetching this item has resulted in a timeout (2.5 seconds). |
+| <span class="code-snippet">hash</span>                | String                  | The hash of the item being fetched. |
+| <span class="code-snippet">have_header</span>         | Boolean                 | For a ledger, whether this server has already obtained the ledger's header section. |
+| <span class="code-snippet">have_transactions</span>   | Boolean                 | For a ledger, whether this server has already obtained the transaction section of that ledger. |
+| <span class="code-snippet">needed_state_hashes</span> | Array of (Hash) Strings | The hash values of state objects still needed from this item. If more than 16 are needed, the response contains only the first 16. |
+| <span class="code-snippet">peers</span>               | Number                  | The number of peers who have this item available. |
+| <span class="code-snippet">timeouts</span>            | Number                  | The number of times that fetching this item has resulted in a timeout (2.5 seconds). |
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

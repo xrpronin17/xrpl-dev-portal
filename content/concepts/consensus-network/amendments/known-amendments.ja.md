@@ -109,9 +109,9 @@ labels:
 
 送信者と受信者は、換金前であればいつでもCheckを取り消すことができます。Checkには有効期限を設定できます。有効期限が過ぎた後は換金できなくなり、誰でもそのCheckを取り消すことができます。
 
-新たに導入するトランザクションタイプは次の3つです。CheckCreate、CheckCancel、CheckCash。また、新しいレジャーオブジェクトタイプはCheckです。新たに追加するトランザクション結果コード`tecEXPIRED`は、有効期限が過去の日時であるCheckを作成しようとすると発生します。
+新たに導入するトランザクションタイプは次の3つです。CheckCreate、CheckCancel、CheckCash。また、新しいレジャーオブジェクトタイプはCheckです。新たに追加するトランザクション結果コード<span class="code-snippet">tecEXPIRED</span>は、有効期限が過去の日時であるCheckを作成しようとすると発生します。
 
-この修正はまた、有効期限が過去の日時であるオファーを作成しようとすると、OfferCreateトランザクションが`tecEXPIRED`を返すように変更しています。この修正を行わない場合、OfferCreateの有効期限が過去の日時であっても`tesSUCCESS`が返されますが、オファーの作成や実行は行われません。
+この修正はまた、有効期限が過去の日時であるオファーを作成しようとすると、OfferCreateトランザクションが<span class="code-snippet">tecEXPIRED</span>を返すように変更しています。この修正を行わない場合、OfferCreateの有効期限が過去の日時であっても<span class="code-snippet">tesSUCCESS</span>が返されますが、オファーの作成や実行は行われません。
 
 ## CryptoConditions
 [CryptoConditions]: #cryptoconditions
@@ -137,7 +137,7 @@ labels:
 
 [EscrowCreate][]トランザクションと[EscrowFinish][]トランザクションで使用するために、公式の[Crypto-Conditions仕様](https://tools.ietf.org/html/draft-thomas-crypto-conditions-03)から数種類のCrypto-Conditionsを導入するものでした。
 
-しかし、この修正は実装が完了する前に`rippled` v0.60.0に追加されました。その結果、このAmendment IDは、ほとんど何もしない不完全なコードを参照することになりました。他のcrypto-conditionsのサポートを追加するために既存のAmendmentを変更すると、すでにリリースされたソフトウェアにある古いバージョンの修正案との衝突が発生します。将来のリリースで追加の暗号条件のサポートが追加される場合、新しい別のAmendment IDを使用する必要があります。
+しかし、この修正は実装が完了する前に<span class="code-snippet">rippled</span> v0.60.0に追加されました。その結果、このAmendment IDは、ほとんど何もしない不完全なコードを参照することになりました。他のcrypto-conditionsのサポートを追加するために既存のAmendmentを変更すると、すでにリリースされたソフトウェアにある古いバージョンの修正案との衝突が発生します。将来のリリースで追加の暗号条件のサポートが追加される場合、新しい別のAmendment IDを使用する必要があります。
 
 ## DeletableAccounts
 [DeletableAccounts]: #deletableaccounts
@@ -151,9 +151,9 @@ labels:
 
 [アカウント](accounts.html)を削除できるようになります。
 
-この修正を適用しない場合、新しいアカウントは`Sequence`番号が必ず1で始まります。また、レジャーの状態データからアカウントを削除できません。
+この修正を適用しない場合、新しいアカウントは<span class="code-snippet">Sequence</span>番号が必ず1で始まります。また、レジャーの状態データからアカウントを削除できません。
 
-この修正を適用した場合、新しいアカウントは、そのアカウントが作成された[レジャーのインデックス][レジャーインデックス]に一致する`Sequence`番号に等しい`Sequence`番号で始まります。この変更により、一度削除され、その後再作成されたアカウントが、古いトランザクションを再度実行しないように保護することができます。新しい`AccountDelete`トランザクションタイプを追加すると、アカウントと、そのアカウントがレジャーに所有する特定のオブジェクトが削除されます。ただし、特定の種類のオブジェクトはこの方法で削除できないため、そのようなオブジェクトに関連付けられているアカウントは削除できません。また、現行のレジャーインデックスから256を引いた値がアカウントの現行`Sequence`番号より低い場合も、アカウントは削除できません。この修正に関する詳しい解説については、[XRP Community Standards Draft 7](https://github.com/XRPLF/XRPL-Standards/issues/8)を参照してください。
+この修正を適用した場合、新しいアカウントは、そのアカウントが作成された[レジャーのインデックス][レジャーインデックス]に一致する<span class="code-snippet">Sequence</span>番号に等しい<span class="code-snippet">Sequence</span>番号で始まります。この変更により、一度削除され、その後再作成されたアカウントが、古いトランザクションを再度実行しないように保護することができます。新しい<span class="code-snippet">AccountDelete</span>トランザクションタイプを追加すると、アカウントと、そのアカウントがレジャーに所有する特定のオブジェクトが削除されます。ただし、特定の種類のオブジェクトはこの方法で削除できないため、そのようなオブジェクトに関連付けられているアカウントは削除できません。また、現行のレジャーインデックスから256を引いた値がアカウントの現行<span class="code-snippet">Sequence</span>番号より低い場合も、アカウントは削除できません。この修正に関する詳しい解説については、[XRP Community Standards Draft 7](https://github.com/XRPLF/XRPL-Standards/issues/8)を参照してください。
 
 ## DepositAuth
 [DepositAuth]: #depositauth
@@ -165,11 +165,11 @@ labels:
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | いいえ |
 
-新しいアカウントフラグ`DepositAuth`を追加します。これにより、他のアカウントから送信されたトランザクションに係る入金が厳密に拒否されます。企業はこのフラグを使用することで、あらゆる送金人からの送金を受け入れる前に規則に準拠して適切に対処することができます。
+新しいアカウントフラグ<span class="code-snippet">DepositAuth</span>を追加します。これにより、他のアカウントから送信されたトランザクションに係る入金が厳密に拒否されます。企業はこのフラグを使用することで、あらゆる送金人からの送金を受け入れる前に規則に準拠して適切に対処することができます。
 
 支払先のアカウントのこのフラグが有効になっている場合、支払いがXRPでなされるか、発行済み通貨でなされるかにかかわらず、Paymentトランザクションは失敗となります。アカウントが支払先である場合、支払先アカウント自体から上記のトランザクションが送信されなければ、EscrowFinishトランザクションとPaymentChannelClaimトランザクションは失敗します。[Checks][] amendmentが有効である場合、CheckCashトランザクションを送信することによってXRPまたは発行済み通貨をアカウントで受け取ることができます。
 
-例外として、`DepositAuth`が有効になっているアカウントでは、現在のXRP残高がアカウントの準備金を下回る場合、少額のXRP（[アカウント準備金](reserves.html)の最低額以下）のPaymentトランザクションを受け取ることができます。
+例外として、<span class="code-snippet">DepositAuth</span>が有効になっているアカウントでは、現在のXRP残高がアカウントの準備金を下回る場合、少額のXRP（[アカウント準備金](reserves.html)の最低額以下）のPaymentトランザクションを受け取ることができます。
 
 また、EscrowCreateトランザクションとPaymentChannelCreateトランザクションで誤ってDisallowXRPフラグを適用してしまうバグも修正します。これは強制力のない勧告フラグとするものです。（レジャー自体にDisallowXRPフラグを適用しないことで、[アカウント準備金](reserves.html)を満たし[トランザクションコスト](transaction-cost.html)を支払うのに必要なXRPを、アカウントが引き続き受け取ることができます。）
 
@@ -185,7 +185,7 @@ labels:
 
 [Deposit Authorization](depositauth.html)のユーザーに特定の送信者を事前承認する手段を提供して、承認された送信者が支払いを直接送信できるようにします。
 
-事前承認の追加または削除のために新しいトランザクションタイプDepositPreauthを、あるアカウントから別のアカウントへの事前承認の追跡のためにDepositPreauthレジャーオブジェクトタイプを追加します。JSON-RPCコマンド`deposit_authorized`を追加します。これは、アカウントが別のアカウントへ支払いを直接送金することが承認されているかどうかを問い合わせるためのものです。
+事前承認の追加または削除のために新しいトランザクションタイプDepositPreauthを、あるアカウントから別のアカウントへの事前承認の追跡のためにDepositPreauthレジャーオブジェクトタイプを追加します。JSON-RPCコマンド<span class="code-snippet">deposit_authorized</span>を追加します。これは、アカウントが別のアカウントへ支払いを直接送金することが承認されているかどうかを問い合わせるためのものです。
 
 また、アカウントにDeposit Authorizationが必要な場合、アカウントから自身への異なる通貨間での支払いの動作も変更します。この修正を行わない場合、これらの支払いはコードtecNO_PERMISSIONにて常に失敗します。この修正を行う場合、これらの支払いはDeposit Authorization無効時と同様に成功します。
 
@@ -209,7 +209,7 @@ Checks、Payment Channels、NFTokenOffer、およびトラストラインを自�
 - asfDisallowIncomingNFTOffer
 - asfDisallowIncomingTrustline
 
-対応するオブジェクトタイプを作成する前に、これらのフラグの状態をチェックするようにトランザクション処理を変更します。宛先アカウントがそのフラグを有効にしている場合、トランザクションはエラーコード`tecNO_PERMISSION`で失敗します。
+対応するオブジェクトタイプを作成する前に、これらのフラグの状態をチェックするようにトランザクション処理を変更します。宛先アカウントがそのフラグを有効にしている場合、トランザクションはエラーコード<span class="code-snippet">tecNO_PERMISSION</span>で失敗します。
 
 この修正が適用されない場合、どのアカウントでも、任意のオブジェクトの宛先としてこれらのオブジェクトを作成することができます。これは通常問題はないものの、後でアカウントを削除する際に妨げになったり、詐欺の一部として使用される可能性があります。
 
@@ -224,16 +224,16 @@ Checks、Payment Channels、NFTokenOffer、およびトラストラインを自�
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | はい |
 
-トランザクション処理にサニティーチェックを追加して、所定の条件が常に満たされるようにします。これにより、トランザクション処理時のバグを防ぐ独立した追加のレイヤーができます。このレイヤーがなければXRP Ledgerが脆弱なものとなり悪用される可能性が生じます。`rippled`の将来バージョンでは、Amendmentを追加せずに不変性チェックをさらに追加する予定です。
+トランザクション処理にサニティーチェックを追加して、所定の条件が常に満たされるようにします。これにより、トランザクション処理時のバグを防ぐ独立した追加のレイヤーができます。このレイヤーがなければXRP Ledgerが脆弱なものとなり悪用される可能性が生じます。<span class="code-snippet">rippled</span>の将来バージョンでは、Amendmentを追加せずに不変性チェックをさらに追加する予定です。
 
-2つの新しいトランザクションエラーコード、`tecINVARIANT_FAILED`と`tefINVARIANT_FAILED`を導入します。新しいチェックを追加するためにトランザクション処理を変更します。
+2つの新しいトランザクションエラーコード、<span class="code-snippet">tecINVARIANT_FAILED</span>と<span class="code-snippet">tefINVARIANT_FAILED</span>を導入します。新しいチェックを追加するためにトランザクション処理を変更します。
 
 不変性チェックの例:
 
 - トランザクションによって消却されたXRPの合計額は、[トランザクションコスト](transaction-cost.html)と正確に一致していなければなりません。
 - XRPは作成できません。
-- [レジャー内の`AccountRoot`オブジェクト](accountroot.html)は、[DeletableAccounts](#deletableaccounts)が有効でない限り削除できません。（関連項目: [アカウントの削除](accounts.html#アカウントの削除)）
-- [レジャー内のオブジェクト](ledger-object-types.html)のタイプは変更できません。（`LedgerEntryType`フィールドは変更できません。）
+- [レジャー内の<span class="code-snippet">AccountRoot</span>オブジェクト](accountroot.html)は、[DeletableAccounts](#deletableaccounts)が有効でない限り削除できません。（関連項目: [アカウントの削除](accounts.html#アカウントの削除)）
+- [レジャー内のオブジェクト](ledger-object-types.html)のタイプは変更できません。（<span class="code-snippet">LedgerEntryType</span>フィールドは変更できません。）
 - XRPにトラストラインはありません。
 
 ## Escrow
@@ -263,9 +263,9 @@ XRP Ledger内のEscrowにXRPの「仮払い」機能を提供します。これ�
 
 この修正により、署名者リストの最大サイズが拡大され、各署名者にオプションのデータを関連付けることができるようになりました。追加データは署名者を特定するために使用でき、スマートコントラクトや、大規模な組織で誰が鍵を管理しているかを特定するのに便利です。例えば、IPv6アドレスやハードウェアセキュリティモジュール（HSM）の識別子を保存することができます。
 
-この修正が適用されない場合、署名者リストの最大サイズは8人で、各署名者には`Account`と`SignerWeight`の2つのフィールドが存在します。
+この修正が適用されない場合、署名者リストの最大サイズは8人で、各署名者には<span class="code-snippet">Account</span>と<span class="code-snippet">SignerWeight</span>の2つのフィールドが存在します。
 
-この修正により、[SignerListオブジェクト][]の最大サイズは32エントリになります。さらに、各`SignerEntry`オブジェクトは、任意のデータを含む256ビットの`WalletLocator`フィールドを含むことができます。この修正により、[SignerListSetトランザクション][]もそれに応じて変更されます。
+この修正により、[SignerListオブジェクト][]の最大サイズは32エントリになります。さらに、各<span class="code-snippet">SignerEntry</span>オブジェクトは、任意のデータを含む256ビットの<span class="code-snippet">WalletLocator</span>フィールドを含むことができます。この修正により、[SignerListSetトランザクション][]もそれに応じて変更されます。
 
 ## FeeEscalation
 [FeeEscalation]: #feeescalation
@@ -279,14 +279,14 @@ XRP Ledger内のEscrowにXRPの「仮払い」機能を提供します。これ�
 
 提案されたトランザクションに[トランザクションコスト](transaction-cost.html)を適用する方法を変更します。トランザクションコストの高いトランザクションの優先順位が高くなるよう、コンセンサスプロセスを変更します。
 
-この修正により、前のコンセンサスラウンドに含められなかったトランザクションに固定サイズのトランザクションキューが導入されます。コンセンサスネットワーク内の`rippled`サーバーに重い負荷が課されている場合、トランザクションコストの低いトランザクションは後のレジャーのキューに入れられます。各コンセンサスラウンドでは、トランザクションコスト（`Fee`値）が高いキューのトランザクションが優先され、コンセンサスネットワークで処理できる限りのトランザクションが含められます。トランザクションキューが一杯になると、トランザクションコストが最も低いトランザクションから順にキューから完全に除外されます。
+この修正により、前のコンセンサスラウンドに含められなかったトランザクションに固定サイズのトランザクションキューが導入されます。コンセンサスネットワーク内の<span class="code-snippet">rippled</span>サーバーに重い負荷が課されている場合、トランザクションコストの低いトランザクションは後のレジャーのキューに入れられます。各コンセンサスラウンドでは、トランザクションコスト（<span class="code-snippet">Fee</span>値）が高いキューのトランザクションが優先され、コンセンサスネットワークで処理できる限りのトランザクションが含められます。トランザクションキューが一杯になると、トランザクションコストが最も低いトランザクションから順にキューから完全に除外されます。
 
 コンセンサスネットワークに重い負荷がかかる一方で、正規のユーザーは高めのトランザクションコストを支払い、トランザクションを確実に処理することができます。この状況は、未処理の低コストのトランザクションが完全に処理または除外されるまで続きます。
 
 1つのトランザクションは、以下のいずれかが発生するまでキュー内に残ります。
 
 * 検証済みレジャーに適用される（成功か失敗かには関係ありません）
-* 無効になる（例えば、[`LastLedgerSequence`](transaction-common-fields.html)によって有効期限切れとなる）
+* 無効になる（例えば、[<span class="code-snippet">LastLedgerSequence</span>](transaction-common-fields.html)によって有効期限切れとなる）
 * キュー内にトランザクションコストの高いトランザクションがたくさんあるため除外される
 
 ## fix1201
@@ -299,9 +299,9 @@ XRP Ledger内のEscrowにXRPの「仮払い」機能を提供します。これ�
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | はい |
 
-[送金手数料](transfer-fees.html)に限度を正しく導入し、100%の料金にします。これは、`TransferRate`値の最大値である`2000000000`を表します。（この場合の100%の料金とは、送信する1ユニットごとに2ユニットの発行済み通貨を送信する必要があることを意味します。）この修正を行わない場合、有効な限度は`TransferRate`値の2<sup>32</sup>-1、つまり約329%の料金となります。
+[送金手数料](transfer-fees.html)に限度を正しく導入し、100%の料金にします。これは、<span class="code-snippet">TransferRate</span>値の最大値である<span class="code-snippet">2000000000</span>を表します。（この場合の100%の料金とは、送信する1ユニットごとに2ユニットの発行済み通貨を送信する必要があることを意味します。）この修正を行わない場合、有効な限度は<span class="code-snippet">TransferRate</span>値の2<sup>32</sup>-1、つまり約329%の料金となります。
 
-この修正を行う場合、[AccountSet][]トランザクションの`TransferRate`を`2000000000`より高く設定すると、トランザクションは結果コード`temBAD_TRANSFER_RATE`にて失敗します。以前のルールに従って高い値が設定されている既存のすべての`TransferRate`には、そのまま高い率が適用されます。
+この修正を行う場合、[AccountSet][]トランザクションの<span class="code-snippet">TransferRate</span>を<span class="code-snippet">2000000000</span>より高く設定すると、トランザクションは結果コード<span class="code-snippet">temBAD_TRANSFER_RATE</span>にて失敗します。以前のルールに従って高い値が設定されている既存のすべての<span class="code-snippet">TransferRate</span>には、そのまま高い率が適用されます。
 
 ## fix1368
 [fix1368]: #fix1368
@@ -339,9 +339,9 @@ fix1373 Amendmenによりこの問題は修正されるため、正しく作成�
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | はい |
 
-一部の無効な[PaymentChannelClaim][]トランザクションが、不正確なエラーコードで失敗するトランザクション処理のバグを修正します。この修正を行わない場合、トランザクションの結果コードは`tec`クラスとなりますが、レジャーに入力されず、[トランザクションコスト](transaction-cost.html)は支払われません。
+一部の無効な[PaymentChannelClaim][]トランザクションが、不正確なエラーコードで失敗するトランザクション処理のバグを修正します。この修正を行わない場合、トランザクションの結果コードは<span class="code-snippet">tec</span>クラスとなりますが、レジャーに入力されず、[トランザクションコスト](transaction-cost.html)は支払われません。
 
-この修正により、トランザクションは適切な結果コード`temBAD_AMOUNT`にて失敗します。
+この修正により、トランザクションは適切な結果コード<span class="code-snippet">temBAD_AMOUNT</span>にて失敗します。
 
 ## fix1513
 [fix1513]: #fix1513
@@ -353,9 +353,9 @@ fix1373 Amendmenによりこの問題は修正されるため、正しく作成�
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | いいえ |
 
-`FeeEscalation` Amendmentが行われると、新しい`STAmountCalcSwitchovers`コードが使用されないトランザクション処理のバグを修正します。
+<span class="code-snippet">FeeEscalation</span> Amendmentが行われると、新しい<span class="code-snippet">STAmountCalcSwitchovers</span>コードが使用されないトランザクション処理のバグを修正します。
 
-この修正により、新しい`STAmountCalcSwitchovers`コードが適用されるため、計算の違いによってトランザクション処理に若干の変更を生じる場合があります。金額の四捨五入のやり方が異なり、その結果、オファーが異なる順序で実行される場合があります。
+この修正により、新しい<span class="code-snippet">STAmountCalcSwitchovers</span>コードが適用されるため、計算の違いによってトランザクション処理に若干の変更を生じる場合があります。金額の四捨五入のやり方が異なり、その結果、オファーが異なる順序で実行される場合があります。
 
 ## fix1515
 [fix1515]: #fix1515
@@ -387,7 +387,7 @@ Paymentトランザクションがオファーを処理していく方法を変�
 
 支払先アカウント別の追跡機能を[Escrow](escrow.html)に追加します。この修正を行わない場合、保留中のEscrowは送信者別にしか追跡できません。この修正により、[account_objectsメソッド][]を使用して支払先アドレスごとに保留中のEscrowを調べることができます。ただし、この修正が有効になる前に作成された保留中のEscrowを除きます。また、この修正では、[EscrowCreateトランザクション][]を支払先のトランザクション履歴に表示することができます。これは[account_txメソッド][]による表示と同様です。
 
-この修正により、新しいEscrowが送信者と受信者両方の[所有者ディレクトリー](directorynode.html)に追加されます。また、[Escrowレジャーオブジェクト](escrow-object.html)に新しい`DestinationNode`フィールドも追加され、支払先の所有者ディレクトリのどのページにEscrowがあるかを表示します。
+この修正により、新しいEscrowが送信者と受信者両方の[所有者ディレクトリー](directorynode.html)に追加されます。また、[Escrowレジャーオブジェクト](escrow-object.html)に新しい<span class="code-snippet">DestinationNode</span>フィールドも追加され、支払先の所有者ディレクトリのどのページにEscrowがあるかを表示します。
 
 ## fix1528
 [fix1528]: #fix1528
@@ -434,7 +434,7 @@ Paymentトランザクションがオファーを処理していく方法を変�
 
 以下のようにEscrowの問題を修正します。
 
-- [EscrowCreateトランザクション][]に`Condition`フィールドまたは`FinishAfter`フィールド（またはその両方）が必要となるように変更します。この修正以前に作成された、`Condition`や`FinishAfter`のいずれも持たないEscrowは、`CancelAfter`時間より前ならいつでも誰でも終了できます。
+- [EscrowCreateトランザクション][]に<span class="code-snippet">Condition</span>フィールドまたは<span class="code-snippet">FinishAfter</span>フィールド（またはその両方）が必要となるように変更します。この修正以前に作成された、<span class="code-snippet">Condition</span>や<span class="code-snippet">FinishAfter</span>のいずれも持たないEscrowは、<span class="code-snippet">CancelAfter</span>時間より前ならいつでも誰でも終了できます。
 - 時間ベースのEscrowが特定の状況下で終了されるのを誤って妨げる欠陥を修正します。
 
 ## fix1578
@@ -449,8 +449,8 @@ Paymentトランザクションがオファーを処理していく方法を変�
 
 以下の2つのトランザクションタイプから返される結果コードを変更します。
 
-- [OfferCreateトランザクション][]を変更して、オファーが`tfFillOrKill`フラグを使用していて中止された場合に、新しい結果コード`tecKILLED`が返されるようにします。この修正を行わない場合、オファーは中止されますが、トランザクション結果は`tesSUCCESS`になります。
-- [TrustSetトランザクション][]を変更して、トラストラインがマイナス残高であるため、[NoRippleフラグ](rippling.html#norippleフラグ)を有効にしようとしてもできない場合に、`tecNO_PERMISSION`で失敗するようにします。この修正を行わない場合、トランザクションでNoRippleフラグを有効にできなくても、トランザクション結果は`tesSUCCESS`になります。
+- [OfferCreateトランザクション][]を変更して、オファーが<span class="code-snippet">tfFillOrKill</span>フラグを使用していて中止された場合に、新しい結果コード<span class="code-snippet">tecKILLED</span>が返されるようにします。この修正を行わない場合、オファーは中止されますが、トランザクション結果は<span class="code-snippet">tesSUCCESS</span>になります。
+- [TrustSetトランザクション][]を変更して、トラストラインがマイナス残高であるため、[NoRippleフラグ](rippling.html#norippleフラグ)を有効にしようとしてもできない場合に、<span class="code-snippet">tecNO_PERMISSION</span>で失敗するようにします。この修正を行わない場合、トランザクションでNoRippleフラグを有効にできなくても、トランザクション結果は<span class="code-snippet">tesSUCCESS</span>になります。
 
 ## fix1623
 [fix1623]: #fix1623
@@ -464,9 +464,9 @@ Paymentトランザクションがオファーを処理していく方法を変�
 
 変動金額で換金されたCheckCashトランザクションのメタデータに送金額を追加します。（[Checks](#checks) Amendmentが有効でないかぎり効果がありません。）
 
-この修正を行うと、トランザクション処理にて変動金額の[CheckCashトランザクション][]のメタデータに`DeliveredAmount`フィールドが追加されます（`DeliverMin`フィールドを使用します）。この変更はレジャーデータに書き込まれるため、この修正を行わずにトランザクションを処理した場合とは異なるレジャーハッシュとなります。これは実際に送信される金額には影響しません。また、この修正を有効にすると、[txメソッド][]と[account_txメソッド][]によってCheckCashトランザクションの[`delivered_amount`フィールド](transaction-metadata.html#delivered_amount)が返されます。（`delivered_amount`フィールドはトランザクションの検索時に計算されるものであり、レジャーに書き込まれるデータの一部ではありません。）
+この修正を行うと、トランザクション処理にて変動金額の[CheckCashトランザクション][]のメタデータに<span class="code-snippet">DeliveredAmount</span>フィールドが追加されます（<span class="code-snippet">DeliverMin</span>フィールドを使用します）。この変更はレジャーデータに書き込まれるため、この修正を行わずにトランザクションを処理した場合とは異なるレジャーハッシュとなります。これは実際に送信される金額には影響しません。また、この修正を有効にすると、[txメソッド][]と[account_txメソッド][]によってCheckCashトランザクションの[<span class="code-snippet">delivered_amount</span>フィールド](transaction-metadata.html#delivered_amount)が返されます。（<span class="code-snippet">delivered_amount</span>フィールドはトランザクションの検索時に計算されるものであり、レジャーに書き込まれるデータの一部ではありません。）
 
-fix1623 Amendmentは、固定金額の[CheckCashトランザクション][]（`Amount`フィールドを使用）またはその他のトランザクションタイプには影響しません。
+fix1623 Amendmentは、固定金額の[CheckCashトランザクション][]（<span class="code-snippet">Amount</span>フィールドを使用）またはその他のトランザクションタイプには影響しません。
 
 
 ## fix1781
@@ -483,7 +483,7 @@ fix1623 Amendmentは、固定金額の[CheckCashトランザクション][]（`A
 
 この修正が適用されない場合、[支払いパス](paths.html)の入力がXRPで、パスの中間ステップでもXRPが出力されるようなパスが存在し得ます。これは「ループ」決済であり、前方と後方で実行すると異なる結果になる可能性があるため、決済エンジンはこのようなパスを禁止しています。
 
-この修正が適用された場合、これらの支払いは、代わりに[結果コード`temBAD_PATH_LOOP`](tem-codes.html)で失敗します。
+この修正が適用された場合、これらの支払いは、代わりに[結果コード<span class="code-snippet">temBAD_PATH_LOOP</span>](tem-codes.html)で失敗します。
 
 
 ## fixAmendmentMajorityCalc
@@ -511,7 +511,7 @@ fix1623 Amendmentは、固定金額の[CheckCashトランザクション][]（`A
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | いいえ |
 
-Checksトランザクションがアカウントのメタデータに影響を及ぼす方法を変更し、Checksが受信アカウントの[アカウント](accounts.html)履歴に適切に追加されるようにします。（具体的には、受信アカウントの[AccountRootオブジェクト](accountroot.html)の`PreviousTxnID`フィールドと`PreviousTxnLedgerSeq`フィールドを更新します。これは、アカウントと、アカウントが所有するオブジェクトに影響を及ぼしたトランザクションの「スレッド」を追跡するために使用できます。）
+Checksトランザクションがアカウントのメタデータに影響を及ぼす方法を変更し、Checksが受信アカウントの[アカウント](accounts.html)履歴に適切に追加されるようにします。（具体的には、受信アカウントの[AccountRootオブジェクト](accountroot.html)の<span class="code-snippet">PreviousTxnID</span>フィールドと<span class="code-snippet">PreviousTxnLedgerSeq</span>フィールドを更新します。これは、アカウントと、アカウントが所有するオブジェクトに影響を及ぼしたトランザクションの「スレッド」を追跡するために使用できます。）
 
 この修正を適用しない場合、Checksトランザクション（[CheckCreate][]、[CheckCash][]、および[CheckCancel][]）は送信者のアカウント履歴のみを更新します。この修正を適用した場合、これらのトランザクションは、送信アカウントにも受信アカウントにも影響します。この修正は、[Checks Amendment](#checks)も有効でないかぎり効果がありません。
 
@@ -529,7 +529,7 @@ Checksトランザクションがアカウントのメタデータに影響を�
 
 この修正を適用しない場合、ユーザーは、レギュラーキーがマスターキーと一致するように設定し、その後マスターキーを無効にすることで、意図せずアカウントを「ブラックホール」にしてしまうおそれがあります。ネットワークは、マスターキーペアとレギュラーキーペアの両方で署名されたトランザクションを拒否します。コードは、トランザクションが現在有効なレギュラーキーで署名されていると認識する前に、無効なマスターキーで署名されていると解釈するためです。
 
-この修正を有効にした場合、SetRegularKeyトランザクションはレギュラーキーがマスターキーに一致するよう設定できないため、そのようなトランザクションでは、トランザクションコードが`temBAD_REGKEY`になります。また、この修正により、署名検証コードが変更されるため、レギュラーキーがマスターキーに一致するよう_すでに_設定しているアカウントは、そのキーペアを使用して正常にトランザクションを送信できます。
+この修正を有効にした場合、SetRegularKeyトランザクションはレギュラーキーがマスターキーに一致するよう設定できないため、そのようなトランザクションでは、トランザクションコードが<span class="code-snippet">temBAD_REGKEY</span>になります。また、この修正により、署名検証コードが変更されるため、レギュラーキーがマスターキーに一致するよう_すでに_設定しているアカウントは、そのキーペアを使用して正常にトランザクションを送信できます。
 
 
 ## fixNFTokenDirV1
@@ -542,7 +542,7 @@ Checksトランザクションがアカウントのメタデータに影響を�
 | デフォルトの投票(最新の安定版) | いいえ |
 | Amendment前の機能は廃止? | いいえ |
 
-この修正では、`NFToken`オブジェクトがどの`NFTokenPage`に属するかを判断する際に、いくつかの特定のケースで発生した境界値判定エラーが修正されました。また、`NFTokenPage`の不変性チェックの制約を調整し、特定のエラーケースが`tecINVARIANT_FAILED`エラーコードで失敗する代わりに、`tecNO_SUITABLE_TOKEN_PAGE`などの適切なエラーコードで失敗するようにしました。
+この修正では、<span class="code-snippet">NFToken</span>オブジェクトがどの<span class="code-snippet">NFTokenPage</span>に属するかを判断する際に、いくつかの特定のケースで発生した境界値判定エラーが修正されました。また、<span class="code-snippet">NFTokenPage</span>の不変性チェックの制約を調整し、特定のエラーケースが<span class="code-snippet">tecINVARIANT_FAILED</span>エラーコードで失敗する代わりに、<span class="code-snippet">tecNO_SUITABLE_TOKEN_PAGE</span>などの適切なエラーコードで失敗するようにしました。
 
 この修正は、[NonFungibleTokensV1][] Amendmentが有効でない限り、何の効果もありません。この修正は、その効果が[NonFungibleTokensV1_1][]の一部として含まれているため、廃止されました。
 
@@ -572,11 +572,11 @@ Checksトランザクションがアカウントのメタデータに影響を�
 | デフォルトの投票(最新の安定版) | いいえ |
 | Amendment前の機能は廃止? | いいえ |
 
-`fixNonFungibleTokensV1_2` Amendment は、プルリクエストプロセスを通じて個別に feature/nft-fixes にマージされたバグ修正の組み合わせです。
+<span class="code-snippet">fixNonFungibleTokensV1_2</span> Amendment は、プルリクエストプロセスを通じて個別に feature/nft-fixes にマージされたバグ修正の組み合わせです。
 
 **バーン不可能なNFTの修正**
 
-現在、NFTは500以上のオファーがあるとバーンすることができません。この制限を取り除くため、この修正では、NFTを焼却する際にちょうど500個のオファーを削除し、残りのオファーはそのままにします。これにより、発行者アカウントが`lsfBurnable`フラグを有効にしたNFTを、オファー数が多いために焼却できない問題が解決されます。
+現在、NFTは500以上のオファーがあるとバーンすることができません。この制限を取り除くため、この修正では、NFTを焼却する際にちょうど500個のオファーを削除し、残りのオファーはそのままにします。これにより、発行者アカウントが<span class="code-snippet">lsfBurnable</span>フラグを有効にしたNFTを、オファー数が多いために焼却できない問題が解決されます。
 
 参考: [PR 4346](https://github.com/XRPLF/rippled/pull/4346).
 
@@ -643,11 +643,11 @@ NFTオファーに宛先を設定した場合、その宛先のみが仲介で�
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | いいえ |
 
-このフラグを使用した発行者に対するDoS攻撃から保護するために、[非代替性トークン](non-fungible-tokens.html)の`tfTrustLine`設定を削除します。このフラグを有効にすると、`tfTrustLine`フラグを有効にした[NFTokenMintトランザクション](nftokenmint.html)は無効とみなされ、コンセンサスによって検証されません。したがって、`NFToken`オブジェクトはこのフラグを使用してミントをすることができません。
+このフラグを使用した発行者に対するDoS攻撃から保護するために、[非代替性トークン](non-fungible-tokens.html)の<span class="code-snippet">tfTrustLine</span>設定を削除します。このフラグを有効にすると、<span class="code-snippet">tfTrustLine</span>フラグを有効にした[NFTokenMintトランザクション](nftokenmint.html)は無効とみなされ、コンセンサスによって検証されません。したがって、<span class="code-snippet">NFToken</span>オブジェクトはこのフラグを使用してミントをすることができません。
 
 この修正が適用されない場合、攻撃者は意味のない新しい代替可能トークンを作り、そのトークンとNFTを売買することで、発行者に紐づく多数の無駄なトラストラインを作り、発行者の準備金を増加させることができます。
 
-この修正は、すでにミントされた`NFToken`オブジェクトのコードを変更するものではありません。NonFungibleTokensV1_1がすでに有効になっているテストネットワークでは、`tfTrustLine`フラグが有効なNFTokenをすでにミントしている発行者は、fixRemoveNFTokenAutoTrustLine Amendmentの有効後も脆弱性があることを意味しています。
+この修正は、すでにミントされた<span class="code-snippet">NFToken</span>オブジェクトのコードを変更するものではありません。NonFungibleTokensV1_1がすでに有効になっているテストネットワークでは、<span class="code-snippet">tfTrustLine</span>フラグが有効なNFTokenをすでにミントしている発行者は、fixRemoveNFTokenAutoTrustLine Amendmentの有効後も脆弱性があることを意味しています。
 
 この修正は、[NonFungibleTokensV1][]または [NonFungibleTokensV1_1][]が有効になっていない限り、影響を及ぼしません。
 
@@ -711,7 +711,7 @@ XRP Ledger内にドライオファーを残す可能性がある[オートブリ
 | デフォルトの投票(最新の安定版) | いいえ |
 | Amendment前の機能は廃止? | いいえ |
 
-この修正により、古いバグにより作成されたアカウントから自身へのトラストラインが2つ削除されます（いずれも2013-05-07のもの）。この修正が有効になると、IDが`2F8F21EFCAFD7ACFB07D5BB04F0D2E18587820C7611305BB674A64EAB0FA71E1`と`326035D5C0560A9DA8636545DD5A1B0DFCFF63E68D491B5522B767BB00564B1A`のトラストラインが存在していれば削除します。削除後、この修正は他に何もしません。
+この修正により、古いバグにより作成されたアカウントから自身へのトラストラインが2つ削除されます（いずれも2013-05-07のもの）。この修正が有効になると、IDが<span class="code-snippet">2F8F21EFCAFD7ACFB07D5BB04F0D2E18587820C7611305BB674A64EAB0FA71E1</span>と<span class="code-snippet">326035D5C0560A9DA8636545DD5A1B0DFCFF63E68D491B5522B767BB00564B1A</span>のトラストラインが存在していれば削除します。削除後、この修正は他に何もしません。
 
 これらのトラストラインを持たないテストネットワークでは、この修正はは何の影響も及ぼしません。
 
@@ -728,7 +728,7 @@ XRP Ledger内にドライオファーを残す可能性がある[オートブリ
 
 
 10進浮動小数点演算のコードを簡略化し、統合します。場合によっては、以前のコードよりも精度が若干向上し、最下位桁が以前のコードで計算したときと異なる計算結果になることがあります。この計算結果の違いにより、オファーのランキングや複数の異なるパスを使用する支払い処理など、精密な計算が使用される他のエッジケースにおいて違いが生じる場合があります。
-この修正が適用されない場合、コードは引き続き`STAmount`と`IOUAmount`オブジェクトに対して別々の計算を使用し、[自動マーケットメーカー(XLS-30d)](https://github.com/XRPLF/XRPL-Standards/discussions/78)は計算のために新しい3つめの計算方法を使用します。
+この修正が適用されない場合、コードは引き続き<span class="code-snippet">STAmount</span>と<span class="code-snippet">IOUAmount</span>オブジェクトに対して別々の計算を使用し、[自動マーケットメーカー(XLS-30d)](https://github.com/XRPLF/XRPL-Standards/discussions/78)は計算のために新しい3つめの計算方法を使用します。
 
 
 ## Flow
@@ -811,7 +811,7 @@ XRP Ledgerの分散型取引所において、オファーの掛け合わせの�
 | デフォルトの投票(最新の安定版) | いいえ |
 | Amendment前の機能は廃止? | いいえ |
 
-オファーが`tfImmediateOrCancel`を使用し、トランザクション処理で資金を移動せずにオファーを終了した場合、トランザクションは`tesSUCCESS`ではなく結果コード`tecKILLED`を使用するようにOfferCreateトランザクションを変更します。Offerが少額でも資金を交換した場合、トランザクションは引き続き`tesSUCCESS`を使用します。トランザクションの処理自体には変更はありません（例えば、トランザクション処理中に台帳に表示された期限切れのオファーや未入金のオファーをクリーンアップするかどうかという点など）。
+オファーが<span class="code-snippet">tfImmediateOrCancel</span>を使用し、トランザクション処理で資金を移動せずにオファーを終了した場合、トランザクションは<span class="code-snippet">tesSUCCESS</span>ではなく結果コード<span class="code-snippet">tecKILLED</span>を使用するようにOfferCreateトランザクションを変更します。Offerが少額でも資金を交換した場合、トランザクションは引き続き<span class="code-snippet">tesSUCCESS</span>を使用します。トランザクションの処理自体には変更はありません（例えば、トランザクション処理中に台帳に表示された期限切れのオファーや未入金のオファーをクリーンアップするかどうかという点など）。
 
 この修正が適用されない場合、資金の移動に失敗した「Immediate or Cancel」注文は、結果コード「tesSUCCESS」を返し、そのトランザクションが事実上何もしなかったため、混乱する可能性を残します。
 
@@ -826,21 +826,21 @@ XRP Ledgerの分散型取引所において、オファーの掛け合わせの�
 | デフォルトの投票(最新の安定版) | はい |
 | Amendment前の機能は廃止? | はい |
 
-トランザクションの承認方法として[マルチシグ](multi-signing.html)を導入します。[`SignerList`レジャーオブジェクトタイプ](signerlist.html)と[`SignerListSet`トランザクションタイプ](signerlistset.html)を作成します。省略可能な`Signers`フィールドをすべてのトランザクションタイプに追加します。一部のトランザクション結果コードを変更します。
+トランザクションの承認方法として[マルチシグ](multi-signing.html)を導入します。[<span class="code-snippet">SignerList</span>レジャーオブジェクトタイプ](signerlist.html)と[<span class="code-snippet">SignerListSet</span>トランザクションタイプ](signerlistset.html)を作成します。省略可能な<span class="code-snippet">Signers</span>フィールドをすべてのトランザクションタイプに追加します。一部のトランザクション結果コードを変更します。
 
 この修正により、マルチシグのアドレスからトランザクションを承認できる署名者のリストをそのアドレスに保持できるようになります。このリストには定数があり、1から8で重み付けされた署名者が記載されています。これにより、「5人のうち任意の3人」や「Aの署名とその他任意の2人の署名」などの多様な設定が可能になります。
 
 署名者は資金供給のあるアドレスでも資金供給のないアドレスでも可能です。署名者リストのうち資金供給のあるアドレスは、レギュラーキー（定義済みの場合）またはマスターキー（無効でない場合）を使用して署名できます。資金供給のないアドレスは、マスターキーを使用して署名できます。マルチシグトランザクションは、レギュラーキーで署名されたトランザクションと同じ権限を持ちます。
 
-SignerListを持つアドレスは、レギュラーキーが定義されていなくてもマスターキーを無効にすることができます。また、SignerListを持つアドレスは、マスターキーが無効な場合でもレギュラーキーを削除することができます。`tecMASTER_DISABLED`トランザクション結果コードは`tecNO_ALTERNATIVE_KEY`に名前が変更されます。`tecNO_REGULAR_KEY`トランザクション結果コードは廃止となり、`tecNO_ALTERNATIVE_KEY`に代わります。さらに、この修正は以下の新しい[トランザクション結果コード](transaction-results.html)を追加します。
+SignerListを持つアドレスは、レギュラーキーが定義されていなくてもマスターキーを無効にすることができます。また、SignerListを持つアドレスは、マスターキーが無効な場合でもレギュラーキーを削除することができます。<span class="code-snippet">tecMASTER_DISABLED</span>トランザクション結果コードは<span class="code-snippet">tecNO_ALTERNATIVE_KEY</span>に名前が変更されます。<span class="code-snippet">tecNO_REGULAR_KEY</span>トランザクション結果コードは廃止となり、<span class="code-snippet">tecNO_ALTERNATIVE_KEY</span>に代わります。さらに、この修正は以下の新しい[トランザクション結果コード](transaction-results.html)を追加します。
 
-* `temBAD_SIGNER`
-* `temBAD_QUORUM`
-* `temBAD_WEIGHT`
-* `tefBAD_SIGNATURE`
-* `tefBAD_QUORUM`
-* `tefNOT_MULTI_SIGNING`
-* `tefBAD_AUTH_MASTER`
+* <span class="code-snippet">temBAD_SIGNER</span>
+* <span class="code-snippet">temBAD_QUORUM</span>
+* <span class="code-snippet">temBAD_WEIGHT</span>
+* <span class="code-snippet">tefBAD_SIGNATURE</span>
+* <span class="code-snippet">tefBAD_QUORUM</span>
+* <span class="code-snippet">tefNOT_MULTI_SIGNING</span>
+* <span class="code-snippet">tefBAD_AUTH_MASTER</span>
 
 
 ## MultiSignReserve
@@ -885,7 +885,7 @@ XRP Ledgerアカウントが[マルチシグ](multi-signing.html) SignerListを�
 
 非代替性トークンのネイティブサポートを追加します。標準規格案: [XLS-20d](https://github.com/XRPLF/XRPL-Standards/discussions/46)。
 
-**注意:** この修正には、台帳に`tecINVARIANT_FAILED`エラーが表示される問題を含む、いくつかの既知の問題が存在します。これは[NonFungibleTokensV1_1 Amendment][]に置き換えられました。
+**注意:** この修正には、台帳に<span class="code-snippet">tecINVARIANT_FAILED</span>エラーが表示される問題を含む、いくつかの既知の問題が存在します。これは[NonFungibleTokensV1_1 Amendment][]に置き換えられました。
 
 この修正では、新たに5種類のトランザクションが追加されます。
 
@@ -900,9 +900,9 @@ XRP Ledgerアカウントが[マルチシグ](multi-signing.html) SignerListを�
 - [NFTokenOffer object][]
 - [NFTokenPage object][]
 
-さらに、[AccountRootオブジェクト][]型を変更し、`MintedNFTokens`、`BurnedNFTokens`、`NFTokenMinter`の3つの新しい任意のフィールドを追加しています。
+さらに、[AccountRootオブジェクト][]型を変更し、<span class="code-snippet">MintedNFTokens</span>、<span class="code-snippet">BurnedNFTokens</span>、<span class="code-snippet">NFTokenMinter</span>の3つの新しい任意のフィールドを追加しています。
 
-また、[AccountSetトランザクション][]を変更し、`NFTokenMinter`フィールドを設定できるようにしました。
+また、[AccountSetトランザクション][]を変更し、<span class="code-snippet">NFTokenMinter</span>フィールドを設定できるようにしました。
 
 
 ## NonFungibleTokensV1_1
@@ -956,7 +956,7 @@ XRP Ledgerアカウントが[マルチシグ](multi-signing.html) SignerListを�
 
 XRPの「Payment Channel」を作成します。Payment Channelは、2名の当事者間で一方向の繰り返しの支払い、またはそれに伴う一時的な貸付を容易に行えるようにするツールです。Rippleは、この機能が[Interledger Protocol](https://interledger.org/)に役立つと期待しています。ある当事者がPayment Channelを作成し、そのチャンネル内に有効期限を事前に設定してXRPをいくらか確保します。次に、レジャー外部の安全な通信を介して、送信者は「クレーム」メッセージを受信者に送信できます。受信者は有効期限の終了前にクレームメッセージを清算することも、支払いが必要ない場合は清算しないことも選択できます。受信者は、クレームを実際にネットワークに分散させてコンセンサスプロセスで清算されるのを待たなくとも、請求を個々に確認してから、有効期限内であれば多数の少額クレームをまとめて後で清算することができます。
 
-新たに作成するトランザクションタイプは次の3つです。[PaymentChannelCreate][]、[PaymentChannelClaim][]、[PaymentChannelFund][]。新たに作成するレジャーオブジェクトタイプは[PayChannel](paychannel.html)です。レジャー外のデータ構造`Claim`を定義し、ChannelClaimトランザクションに使用します。新たに作成する`rippled` APIメソッドは次のとおりです。[`channel_authorize`](channel_authorize.html) （署名されたクレームを作成します）、[`channel_verify`](channel_verify.html)（署名されたクレームを検証します）、[`account_channels`](account_channels.html)（アカウントに関連するチャンネルをリストを作成します）。
+新たに作成するトランザクションタイプは次の3つです。[PaymentChannelCreate][]、[PaymentChannelClaim][]、[PaymentChannelFund][]。新たに作成するレジャーオブジェクトタイプは[PayChannel](paychannel.html)です。レジャー外のデータ構造<span class="code-snippet">Claim</span>を定義し、ChannelClaimトランザクションに使用します。新たに作成する<span class="code-snippet">rippled</span> APIメソッドは次のとおりです。[<span class="code-snippet">channel_authorize</span>](channel_authorize.html) （署名されたクレームを作成します）、[<span class="code-snippet">channel_verify</span>](channel_verify.html)（署名されたクレームを検証します）、[<span class="code-snippet">account_channels</span>](account_channels.html)（アカウントに関連するチャンネルをリストを作成します）。
 
 詳細は、[Payment Channelsのチュートリアル](use-payment-channels.html)を参照してください。
 
@@ -976,7 +976,7 @@ XRP Ledgerプロトコルの署名要件を変更し、いかなる場合にも�
 
 この修正により、単独署名のトランザクションは展性になりません。(署名者が必要以上の署名を提供した場合、[マルチシグのトランザクションはまだ展性であるかもしれません](transaction-malleability.html#マルチシグの展性))。すべてのトランザクションは、tfFullyCanonicalSigフラグに関係なく、署名の完全な正規の形式を使用する必要があります。完全に正規化された署名を作成しない署名ユーティリティはサポートされていません。Ripple社が提供するすべての署名ユーティリティは、少なくとも2014年以降、完全に正規化された署名のみを提供するようになっています。
 
-詳しくは、[`rippled` issue #3042](https://github.com/ripple/rippled/issues/3042)を参照してください。
+詳しくは、[<span class="code-snippet">rippled</span> issue #3042](https://github.com/ripple/rippled/issues/3042)を参照してください。
 
 
 ## SHAMapV2
@@ -988,7 +988,7 @@ XRP Ledgerプロトコルの署名要件を変更し、いかなる場合にも�
 | ステータス     | 廃止 |
 | Amendment前の機能は廃止? | いいえ |
 
-`rippled`がレジャーを表示する際に使用するハッシュツリー構造を変更します。新しい構造は以前のバージョンよりもコンパクトで効率的です。この修正はレジャーハッシュの計算方法が変わりますが、その他にユーザーに与える影響はありません。
+<span class="code-snippet">rippled</span>がレジャーを表示する際に使用するハッシュツリー構造を変更します。新しい構造は以前のバージョンよりもコンパクトで効率的です。この修正はレジャーハッシュの計算方法が変わりますが、その他にユーザーに与える影響はありません。
 
 この修正が適用されると、ネットワークでハッシュツリー構造への変更を計算している間、XRP Ledgerはしばらく使用できなくなります。
 
@@ -1004,7 +1004,7 @@ XRP Ledgerプロトコルの署名要件を変更し、いかなる場合にも�
 
 [DirectoryNodeレジャーオブジェクト](directorynode.html)内の項目をソートして、削除されるべき所有者ディレクトリのページが場合によっては削除されないというバグを修正します。
 
-**警告:** このが適用されていない旧バージョンの`rippled`は、新しいルールでソートされたDirectoryNodeによって機能が停止するおそれがあります。この問題を回避するには、`rippled`バージョン0.80.0以降に[アップグレード](install-rippled.html)してください。
+**警告:** このが適用されていない旧バージョンの<span class="code-snippet">rippled</span>は、新しいルールでソートされたDirectoryNodeによって機能が停止するおそれがあります。この問題を回避するには、<span class="code-snippet">rippled</span>バージョン0.80.0以降に[アップグレード](install-rippled.html)してください。
 
 ## SusPay
 [SusPay]: #suspay
@@ -1056,7 +1056,7 @@ XRP Ledgerプロトコルの署名要件を変更し、いかなる場合にも�
 
 オーダーブック内で[オファー](offers.html#オファーのライフサイクル)をランク付けする方法を変更して、通貨発行者がオファーを為替レートでランク付けする際に考慮する有効桁数を設定できるようにします。この修正により、オファーの交換レートが設定された有効桁数に丸められるため、同じ交換レートを持つオファーが増加します。この修正の目的は、以前のオファーよりもランク付けを高くするには、価格面で意味のある改善をしなければならないようにすることです。主要な発行者がこれを採用すれば、既存のオファーよりわずかなパーセンテージだけ上回るオファーでレジャーを攻撃しようとするスパムが低減します。また、よりバラツキの少ない為替レートでオファーをグループ化できるため、レジャー内のオーダーブックを効率的に保管できます。
 
-アカウントに`TickSize`フィールドを追加します。このフィールドは[AccountSetトランザクションタイプ](accountset.html)を使用して設定できます。通貨発行者が`TickSize`フィールドを設定すれば、発行者の通貨を取引するオファーの為替レート（資金の入出金率）がXRP Ledgerによって丸められ、丸められた為替レートに合わせてオファーの金額が調整されます。トランザクションにて1つの通貨にのみ`TickSize`が設定されていれば、その有効桁数が適用されます。異なる`TickSize`値が設定された2つの通貨を取引する場合は、有効桁数が最も小さい`TickSize`が適用されます。XRPに`TickSize`は設定されません。
+アカウントに<span class="code-snippet">TickSize</span>フィールドを追加します。このフィールドは[AccountSetトランザクションタイプ](accountset.html)を使用して設定できます。通貨発行者が<span class="code-snippet">TickSize</span>フィールドを設定すれば、発行者の通貨を取引するオファーの為替レート（資金の入出金率）がXRP Ledgerによって丸められ、丸められた為替レートに合わせてオファーの金額が調整されます。トランザクションにて1つの通貨にのみ<span class="code-snippet">TickSize</span>が設定されていれば、その有効桁数が適用されます。異なる<span class="code-snippet">TickSize</span>値が設定された2つの通貨を取引する場合は、有効桁数が最も小さい<span class="code-snippet">TickSize</span>が適用されます。XRPに<span class="code-snippet">TickSize</span>は設定されません。
 
 ## TrustSetAuth
 [TrustSetAuth]: #trustsetauth
@@ -1070,7 +1070,7 @@ XRP Ledgerプロトコルの署名要件を変更し、いかなる場合にも�
 
 [承認されたトラストライン](authorized-trust-lines.html)を使用する場合に、会計関係の事前承認（ゼロバランストラストライン）を許可します。
 
-この修正が適用されれば、[`tfSetfAuth`を有効にした](trustset.html#trustsetのフラグ)`TrustSet`トランザクションにおいて、`RippleState`ノードの他のすべての値をデフォルト状態にしたままでも、新しい[`RippleState`レジャーオブジェクト](ripplestate.html)を作成できます。新しい`RippleState`ノードでは、トランザクションの送信者が低いノードと見なされるか高いノードと見なされるかに応じて、[`lsfLowAuth`フラグまたは`lsfHighAuth`フラグ](ripplestate.html#ripplestateのフラグ)が有効になります。トランザクションの送信者は、[asfRequireAuthフラグを有効](accountset.html#accountsetのフラグ)にして[AccountSetトランザクション](accountset.html)を送信することで、事前に[`lsfRequireAuth`](accountroot.html#accountrootのフラグ)を有効にしておく必要があります。
+この修正が適用されれば、[<span class="code-snippet">tfSetfAuth</span>を有効にした](trustset.html#trustsetのフラグ)<span class="code-snippet">TrustSet</span>トランザクションにおいて、<span class="code-snippet">RippleState</span>ノードの他のすべての値をデフォルト状態にしたままでも、新しい[<span class="code-snippet">RippleState</span>レジャーオブジェクト](ripplestate.html)を作成できます。新しい<span class="code-snippet">RippleState</span>ノードでは、トランザクションの送信者が低いノードと見なされるか高いノードと見なされるかに応じて、[<span class="code-snippet">lsfLowAuth</span>フラグまたは<span class="code-snippet">lsfHighAuth</span>フラグ](ripplestate.html#ripplestateのフラグ)が有効になります。トランザクションの送信者は、[asfRequireAuthフラグを有効](accountset.html#accountsetのフラグ)にして[AccountSetトランザクション](accountset.html)を送信することで、事前に[<span class="code-snippet">lsfRequireAuth</span>](accountroot.html#accountrootのフラグ)を有効にしておく必要があります。
 
 ## XRPFees
 [XRPFees]: #xrpfees
@@ -1085,8 +1085,8 @@ XRP Ledgerプロトコルの署名要件を変更し、いかなる場合にも�
 トランザクションコストの計算を簡素化し、「手数料単位」で間接的に計算し、結果をXRPに変換するのではなく、直接XRPを使用するようにしました。プロトコルや台帳データにおける「手数料単位」のインスタンスを全て変更し、XRPの代わりにdropsを使用するように修正します。修正には以下を含みます。
 
 - Fee Votingプロトコルを更新し、XRPのdropsを使用するように変更します。
-- FeeSettingsの台帳の項目タイプを変更します。`BaseFee`、`ReferenceFeeUnits`、`ReserveBase`、`ReserveIncrement`フィールドを`BaseFeeDrops`、`ReserveBaseDrops`、`ReserveIncrementDrops`に置き換えます。
-- SetFee トランザクションタイプを変更します。`BaseFee`、`ReferenceFeeUnits`、`ReserveBase`、`ReserveIncrement`フィールドを`BaseFeeDrops`、`ReserveBaseDrops`、`ReserveIncrementDrops`に置き換えます。
+- FeeSettingsの台帳の項目タイプを変更します。<span class="code-snippet">BaseFee</span>、<span class="code-snippet">ReferenceFeeUnits</span>、<span class="code-snippet">ReserveBase</span>、<span class="code-snippet">ReserveIncrement</span>フィールドを<span class="code-snippet">BaseFeeDrops</span>、<span class="code-snippet">ReserveBaseDrops</span>、<span class="code-snippet">ReserveIncrementDrops</span>に置き換えます。
+- SetFee トランザクションタイプを変更します。<span class="code-snippet">BaseFee</span>、<span class="code-snippet">ReferenceFeeUnits</span>、<span class="code-snippet">ReserveBase</span>、<span class="code-snippet">ReserveIncrement</span>フィールドを<span class="code-snippet">BaseFeeDrops</span>、<span class="code-snippet">ReserveBaseDrops</span>、<span class="code-snippet">ReserveIncrementDrops</span>に置き換えます。
 
 このAmendment がなければ、トランザクションの形式と台帳の項目は同一です。
 

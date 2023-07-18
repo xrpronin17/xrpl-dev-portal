@@ -17,11 +17,11 @@ Your account must set aside a base reserve, currently 10 XRP. The base reserve X
 
 For each object you own on the XRP Ledger, there is an owner reserve, currently 2 XRP. This is to discourage users from spamming the ledger with unnecessary data, and to encourage them to clean up any data that is no longer necessary. The owner reserve amount is subject to change. See [Base Reserve and Owner Reserve](reserves.html#base-reserve-and-owner-reserve).
 
-For NFTs, the _object_ does not refer to the individual NFTs, but to the `NFTokenPage` objects owned by the account. `NFTokenPage` objects can store up to 32 NFTs.
+For NFTs, the _object_ does not refer to the individual NFTs, but to the <span class="code-snippet">NFTokenPage</span> objects owned by the account. <span class="code-snippet">NFTokenPage</span> objects can store up to 32 NFTs.
 
-However, NFTs are not packed into pages to minimize space used. If you have 64 NFTs, it's not necessarily true that you have only 2 `NFTokenPage` objects.
+However, NFTs are not packed into pages to minimize space used. If you have 64 NFTs, it's not necessarily true that you have only 2 <span class="code-snippet">NFTokenPage</span> objects.
 
-A good rule of thumb is to assume, on average, that each `NFTokenPage` stores 24 NFTs.
+A good rule of thumb is to assume, on average, that each <span class="code-snippet">NFTokenPage</span> stores 24 NFTs.
 Therefore, you can estimate the reserve requirements for minting or owning _N_ NFTs as (24N)/2, or 1/12 of one XRP per NFT.
 
 The following table provides examples of how much the total owner reserve might be, depending on the number of NFTs owned and the number of pages holding them.
@@ -33,17 +33,17 @@ The following table provides examples of how much the total owner reserve might 
 | 200	        | 14 XRP	  | 18 XRP	     | 26 XRP     |
 | 1000	      | 64 XRP	  | 84 XRP	     | 126 XRP    |
 
-## `NFTokenOffer` Reserve
+## <span class="code-snippet">NFTokenOffer</span> Reserve
 
-Each `NFTokenOffer` object costs the account placing the offer one incremental reserve. As of this writing, the incremental reserve is 2 XRP. The reserve can be recovered by cancelling the offer. The reserve is also recovered if the offer is accepted, which removes the offer from the XRP Ledger.
+Each <span class="code-snippet">NFTokenOffer</span> object costs the account placing the offer one incremental reserve. As of this writing, the incremental reserve is 2 XRP. The reserve can be recovered by cancelling the offer. The reserve is also recovered if the offer is accepted, which removes the offer from the XRP Ledger.
 
-**Tip** After you sell an NFT, as a courtesy, cancel any stale `NFTokenOffer` objects on behalf of your bidders to give them back their reserve. You can do this with [NFTokenCancelOffer](nftokencanceloffer.html) transactions.
+**Tip** After you sell an NFT, as a courtesy, cancel any stale <span class="code-snippet">NFTokenOffer</span> objects on behalf of your bidders to give them back their reserve. You can do this with [NFTokenCancelOffer](nftokencanceloffer.html) transactions.
 
 ## Practical Considerations
 
 When minting, holding, and offering to buy and sell NFTs, the reserve requirements can add up quickly. This can result in your account going below the reserve requirement during a transaction. Going below the requirement can limit your ability to trade on the XRPL. See [Going Below the Reserve Requirement](reserves.html#going-below-the-reserve-requirement).
 
-If you create a new account, mint an NFT, and create an `NFTokenSellOffer` on the XRP Ledger, that requires a minimum reserve of 14 XRP.
+If you create a new account, mint an NFT, and create an <span class="code-snippet">NFTokenSellOffer</span> on the XRP Ledger, that requires a minimum reserve of 14 XRP.
 
 | Reserve Type        | Amount  |
 |:--------------------|--------:|
@@ -55,7 +55,7 @@ If you create a new account, mint an NFT, and create an `NFTokenSellOffer` on th
 
 **Note** While not a reserve requirement, keep in mind that you would want to have at least 1 XRP above your reserves to cover the trivial fee for each transaction in the mint and sell process (typically 12 drops, or .000012 XRP).
 
-If you were to mint 200 NFTs and create an `NFTokenSellOffer`for each, that would require as much as 436 XRP held in reserve.
+If you were to mint 200 NFTs and create an <span class="code-snippet">NFTokenSellOffer</span>for each, that would require as much as 436 XRP held in reserve.
 
 | Reserve Type        | Amount  |
 |:--------------------|--------:|

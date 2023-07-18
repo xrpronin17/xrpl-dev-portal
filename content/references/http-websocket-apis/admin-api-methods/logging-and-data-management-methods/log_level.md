@@ -8,9 +8,9 @@ labels:
 # log_level
 [[Source]](https://github.com/ripple/rippled/blob/155fcdbcd0b4927152892c8c8be01d9cf62bed68/src/ripple/rpc/handlers/LogLevel.cpp "Source")
 
-The `log_level` command changes the `rippled` server's logging verbosity, or returns the current logging level for each category (called a _partition_) of log messages.
+The <span class="code-snippet">log_level</span> command changes the <span class="code-snippet">rippled</span> server's logging verbosity, or returns the current logging level for each category (called a _partition_) of log messages.
 
-_The `log_level` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">log_level</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -41,8 +41,8 @@ The request includes the following parameters:
 
 | `Field`     | Type   | Description                                           |
 |:------------|:-------|:------------------------------------------------------|
-| `severity`  | String | _(Optional)_ What level of verbosity to set logging at. Valid values are, in order from least to most verbose: `fatal`, `error`, `warn`, `info`, `debug`, and `trace`. If omitted, return current log verbosity for all categories. |
-| `partition` | String | _(Optional)_ Ignored unless `severity` is provided. Which logging category to modify. If omitted, or if provided with the value `base`, set logging level for all categories. |
+| <span class="code-snippet">severity</span>  | String | _(Optional)_ What level of verbosity to set logging at. Valid values are, in order from least to most verbose: <span class="code-snippet">fatal</span>, <span class="code-snippet">error</span>, <span class="code-snippet">warn</span>, <span class="code-snippet">info</span>, <span class="code-snippet">debug</span>, and <span class="code-snippet">trace</span>. If omitted, return current log verbosity for all categories. |
+| <span class="code-snippet">partition</span> | String | _(Optional)_ Ignored unless <span class="code-snippet">severity</span> is provided. Which logging category to modify. If omitted, or if provided with the value <span class="code-snippet">base</span>, set logging level for all categories. |
 
 ### Response Format
 
@@ -130,18 +130,18 @@ Connecting to 127.0.0.1:5005
 
 <!-- MULTICODE_BLOCK_END -->
 
-The response follows the [standard format][]. The response format depends on whether the request specified a `severity`. If it did, the log level is changed and a successful result contains no additional fields.
+The response follows the [standard format][]. The response format depends on whether the request specified a <span class="code-snippet">severity</span>. If it did, the log level is changed and a successful result contains no additional fields.
 
 Otherwise, the response contains the following field:
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `level` | Object | The current log levels of each category. This list of categories is subject to change without notice in future releases. You can use the field names as values to `partition` in requests to this command. |
+| <span class="code-snippet">level</span> | Object | The current log levels of each category. This list of categories is subject to change without notice in future releases. You can use the field names as values to <span class="code-snippet">partition</span> in requests to this command. |
 
 ### Possible Errors
 
 * Any of the [universal error types][].
-* `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
+* <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

@@ -37,7 +37,7 @@ XRP Ledger上のステーブルコインと認可トラストラインの使用�
 
 ### RequireAuthの有効化
 
-以下は、ローカルでホストされている`rippled`の[submitメソッド][]を使って、`asfRequireAuth`フラグを使ってRequire Authを有効にする[AccountSetトランザクション][]を送信する例です。（このメソッドは、アドレスが発行アドレス、運用アドレス、スタンバイアドレスのいずれであっても同様に機能します。）
+以下は、ローカルでホストされている<span class="code-snippet">rippled</span>の[submitメソッド][]を使って、<span class="code-snippet">asfRequireAuth</span>フラグを使ってRequire Authを有効にする[AccountSetトランザクション][]を送信する例です。（このメソッドは、アドレスが発行アドレス、運用アドレス、スタンバイアドレスのいずれであっても同様に機能します。）
 
 リクエスト:
 
@@ -65,17 +65,17 @@ POST http://localhost:5005/
 
 ## アカウントのRequireAuthの有効化の確認
 
-アカウントのRequireAuth設定の有効化の状態を確認するには、[account_infoメソッド][]を使用してアカウントを調べます。`Flags`フィールド（`result.account_data`オブジェクト）の値を、[AccountRootレジャーオブジェクトのビット単位フラグ](accountroot.html)と比較します。
+アカウントのRequireAuth設定の有効化の状態を確認するには、[account_infoメソッド][]を使用してアカウントを調べます。<span class="code-snippet">Flags</span>フィールド（<span class="code-snippet">result.account_data</span>オブジェクト）の値を、[AccountRootレジャーオブジェクトのビット単位フラグ](accountroot.html)と比較します。
 
-`Flags`値と`lsfRequireAuth`フラグ値（`0x00040000`）のビット単位のANDの結果がゼロ以外の場合、アカウントではRequireAuthが有効になっています。結果がゼロの場合、アカウントではRequireAuthが無効になっています。
+<span class="code-snippet">Flags</span>値と<span class="code-snippet">lsfRequireAuth</span>フラグ値（<span class="code-snippet">0x00040000</span>）のビット単位のANDの結果がゼロ以外の場合、アカウントではRequireAuthが有効になっています。結果がゼロの場合、アカウントではRequireAuthが無効になっています。
 
 ## トラストラインの認可
 
 認可トラストライン機能を使用している場合、他のアカウントからのトラストラインを認可しなければ、これらの他のアカウントはあなたが発行する残高を保有できません。複数のトークンを発行する場合には、各通貨のトラストラインを個別に認可する必要があります。
 
-トラストラインを認可するには、`LimitAmount`の`issuer`として信頼するユーザーを指定して、発行アドレスから[TrustSetトランザクション][]を送信します。`value`（信頼する額）を**0**のままにし、トランザクションの[tfSetfAuth](trustset.html#trustsetのフラグ)フラグを有効にします。
+トラストラインを認可するには、<span class="code-snippet">LimitAmount</span>の<span class="code-snippet">issuer</span>として信頼するユーザーを指定して、発行アドレスから[TrustSetトランザクション][]を送信します。<span class="code-snippet">value</span>（信頼する額）を**0**のままにし、トランザクションの[tfSetfAuth](trustset.html#trustsetのフラグ)フラグを有効にします。
 
-以下は、ローカルでホストされている`rippled`の[submitメソッド][]を使用して、顧客アドレス`rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn`がアドレス`rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW`で発行したUSDを持つことを認可するTrustSetトランザクションを送信する例です。
+以下は、ローカルでホストされている<span class="code-snippet">rippled</span>の[submitメソッド][]を使用して、顧客アドレス<span class="code-snippet">rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn</span>がアドレス<span class="code-snippet">rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW</span>で発行したUSDを持つことを認可するTrustSetトランザクションを送信する例です。
 
 リクエスト:
 
@@ -107,9 +107,9 @@ POST http://localhost:8088/
 
 ## トラストラインの認可状況の確認
 
-トラストラインの認可状況を確認するには、[account_linesメソッド][]を使用してトラストラインを調べます。レスポンスの`account`フィールドに顧客のアドレスを指定し、`peer`フィールドに発行者のアドレスを指定します。
+トラストラインの認可状況を確認するには、[account_linesメソッド][]を使用してトラストラインを調べます。レスポンスの<span class="code-snippet">account</span>フィールドに顧客のアドレスを指定し、<span class="code-snippet">peer</span>フィールドに発行者のアドレスを指定します。
 
-応答の`result.lines`配列で、必要とする通貨のトラストラインを表している`currency`フィールドを持つオブジェクトを見つけます。そのオブジェクトの`peer_authorized`フィールドに値`true`が設定されている場合は、発行者（レスポンスの`peer`フィールドとして使用したアドレス）によりそのトラストラインが承認されています。
+応答の<span class="code-snippet">result.lines</span>配列で、必要とする通貨のトラストラインを表している<span class="code-snippet">currency</span>フィールドを持つオブジェクトを見つけます。そのオブジェクトの<span class="code-snippet">peer_authorized</span>フィールドに値<span class="code-snippet">true</span>が設定されている場合は、発行者（レスポンスの<span class="code-snippet">peer</span>フィールドとして使用したアドレス）によりそのトラストラインが承認されています。
 
 ## 関連項目
 

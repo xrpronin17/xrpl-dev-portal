@@ -9,13 +9,13 @@ labels:
 # validation_create
 [[Source]](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/ValidationCreate.cpp "Source")
 
-Use the `validation_create` command to generate [cryptographic keys a `rippled` server can use to identify itself to the network](peer-protocol.html#node-key-pair). Similar to the [wallet_propose method][], this method only generates a set of keys in the proper format. It does not any makes changes to the XRP Ledger data or server configuration.
+Use the <span class="code-snippet">validation_create</span> command to generate [cryptographic keys a <span class="code-snippet">rippled</span> server can use to identify itself to the network](peer-protocol.html#node-key-pair). Similar to the [wallet_propose method][], this method only generates a set of keys in the proper format. It does not any makes changes to the XRP Ledger data or server configuration.
 
-_The `validation_create` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">validation_create</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 You can configure your server to use the generated key pair to sign validations (validation key pair) or regular peer-to-peer communications ([node key pair](peer-protocol.html#node-key-pair)).
 
-**Tip:** For configuring a robust validator, you should use the `validator-keys` tool (included in the `rippled` RPM) to generate validator tokens (which can be rotated) with an offline master key. For more information, see [Validator Setup](run-rippled-as-a-validator.html#3-enable-validation-on-your-rippled-server).
+**Tip:** For configuring a robust validator, you should use the <span class="code-snippet">validator-keys</span> tool (included in the <span class="code-snippet">rippled</span> RPM) to generate validator tokens (which can be rotated) with an offline master key. For more information, see [Validator Setup](run-rippled-as-a-validator.html#3-enable-validation-on-your-rippled-server).
 
 
 ### Request Format
@@ -59,9 +59,9 @@ The request includes the following parameters:
 
 | `Field`  | Type   | Description                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `secret` | String | _(Optional)_ Use this value as a seed to generate the credentials. The same secret always generates the same credentials. You can provide the seed in [RFC-1751](https://tools.ietf.org/html/rfc1751) format or the XRP Ledger's [base58][] format. If omitted, generate a random seed. |
+| <span class="code-snippet">secret</span> | String | _(Optional)_ Use this value as a seed to generate the credentials. The same secret always generates the same credentials. You can provide the seed in [RFC-1751](https://tools.ietf.org/html/rfc1751) format or the XRP Ledger's [base58][] format. If omitted, generate a random seed. |
 
-**Note:** The security of your validator depends on the entropy of your seed. Do not use a secret value for real business purposes unless it is generated with a strong source of randomness. Ripple recommends omitting the `secret` when generating new credentials for the first time.
+**Note:** The security of your validator depends on the entropy of your seed. Do not use a secret value for real business purposes unless it is generated with a strong source of randomness. Ripple recommends omitting the <span class="code-snippet">secret</span> when generating new credentials for the first time.
 
 ### Response Format
 
@@ -104,14 +104,14 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`                 | Type   | Description                               |
 |:------------------------|:-------|:------------------------------------------|
-| `validation_key`        | String | The secret key for these validation credentials, in [RFC-1751](https://tools.ietf.org/html/rfc1751) format. |
-| `validation_public_key` | String | The public key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
-| `validation_seed`       | String | The secret key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
+| <span class="code-snippet">validation_key</span>        | String | The secret key for these validation credentials, in [RFC-1751](https://tools.ietf.org/html/rfc1751) format. |
+| <span class="code-snippet">validation_public_key</span> | String | The public key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
+| <span class="code-snippet">validation_seed</span>       | String | The secret key for these validation credentials, in the XRP Ledger's [base58][] encoded string format. |
 
 ### Possible Errors
 
 * Any of the [universal error types][].
-* `badSeed` - The request provided an invalid seed value. This usually means that the seed value appears to be a valid string of a different format, such as an account address or validation public key.
+* <span class="code-snippet">badSeed</span> - The request provided an invalid seed value. This usually means that the seed value appears to be a valid string of a different format, such as an account address or validation public key.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

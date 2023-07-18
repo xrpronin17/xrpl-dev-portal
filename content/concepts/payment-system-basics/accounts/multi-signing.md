@@ -60,14 +60,14 @@ There might be a scenario where you create a multi-signing list as a "backup pla
 
 To successfully submit a multi-signed transaction, you must do all of the following:
 
-* The address sending the transaction (specified in the `Account` field) must have a [`SignerList` object in the ledger](signerlist.html). For instructions on how to do this, see [Set Up Multi-Signing](set-up-multi-signing.html).
-* The transaction must include the `SigningPubKey` field as an empty string.
-* The transaction must include a [`Signers` field](transaction-common-fields.html#signers-field) containing an array of signatures.
-* The signatures present in the `Signers` array must match signers defined in the `SignerList`.
-* For the provided signatures, the total weight associated with those signers must be equal or greater than the quorum for the `SignerList`.
-* The [transaction cost](transaction-cost.html) (specified in the `Fee` field) must be at least (N+1) times the normal transaction cost, where N is the number of signatures provided.
+* The address sending the transaction (specified in the <span class="code-snippet">Account</span> field) must have a [<span class="code-snippet">SignerList</span> object in the ledger](signerlist.html). For instructions on how to do this, see [Set Up Multi-Signing](set-up-multi-signing.html).
+* The transaction must include the <span class="code-snippet">SigningPubKey</span> field as an empty string.
+* The transaction must include a [<span class="code-snippet">Signers</span> field](transaction-common-fields.html#signers-field) containing an array of signatures.
+* The signatures present in the <span class="code-snippet">Signers</span> array must match signers defined in the <span class="code-snippet">SignerList</span>.
+* For the provided signatures, the total weight associated with those signers must be equal or greater than the quorum for the <span class="code-snippet">SignerList</span>.
+* The [transaction cost](transaction-cost.html) (specified in the <span class="code-snippet">Fee</span> field) must be at least (N+1) times the normal transaction cost, where N is the number of signatures provided.
 * All fields of the transaction must be defined before collecting signatures. You cannot [auto-fill](transaction-common-fields.html#auto-fillable-fields) any fields.
-* If presented in binary form, the `Signers` array must be sorted based on the numeric value of the signer addresses, with the lowest value first. (If submitted as JSON, the [submit_multisigned method][] handles this automatically.)
+* If presented in binary form, the <span class="code-snippet">Signers</span> array must be sorted based on the numeric value of the signer addresses, with the lowest value first. (If submitted as JSON, the [submit_multisigned method][] handles this automatically.)
 
 ## See Also
 

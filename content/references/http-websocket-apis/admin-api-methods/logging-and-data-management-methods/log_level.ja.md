@@ -8,9 +8,9 @@ labels:
 # log_level
 [[ソース]](https://github.com/ripple/rippled/blob/155fcdbcd0b4927152892c8c8be01d9cf62bed68/src/ripple/rpc/handlers/LogLevel.cpp "Source")
 
-`log_level`コマンドは`rippled`サーバーのログ詳細レベルを変更するか、各ログメッセージカテゴリー（_パーティション_）の現在のログレベルを返します。
+<span class="code-snippet">log_level</span>コマンドは<span class="code-snippet">rippled</span>サーバーのログ詳細レベルを変更するか、各ログメッセージカテゴリー（_パーティション_）の現在のログレベルを返します。
 
-_`log_level`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">log_level</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -41,8 +41,8 @@ rippled log_level PathRequest debug
 
 | `Field`     | 型   | 説明                                           |
 |:------------|:-------|:------------------------------------------------------|
-| `severity`  | 文字列 | _（省略可）_ 設定するログの詳細レベル。以下に、有効な値を詳細レベルの低いものから順に示します。`fatal`、`error`、`warn`、`info`、`debug`、および`trace`。省略すると、すべてのカテゴリーの現在のログ詳細レベルが返されます。 |
-| `partition` | 文字列 | _（省略可）_`severity`が指定されていない場合は無視されます。変更するログカテゴリー。省略されている場合、または`base`の値が指定されている場合は、すべてのカテゴリーのログレベルを設定します。 |
+| <span class="code-snippet">severity</span>  | 文字列 | _（省略可）_ 設定するログの詳細レベル。以下に、有効な値を詳細レベルの低いものから順に示します。<span class="code-snippet">fatal</span>、<span class="code-snippet">error</span>、<span class="code-snippet">warn</span>、<span class="code-snippet">info</span>、<span class="code-snippet">debug</span>、および<span class="code-snippet">trace</span>。省略すると、すべてのカテゴリーの現在のログ詳細レベルが返されます。 |
+| <span class="code-snippet">partition</span> | 文字列 | _（省略可）_<span class="code-snippet">severity</span>が指定されていない場合は無視されます。変更するログカテゴリー。省略されている場合、または<span class="code-snippet">base</span>の値が指定されている場合は、すべてのカテゴリーのログレベルを設定します。 |
 
 ### 応答フォーマット
 
@@ -130,18 +130,18 @@ Connecting to 127.0.0.1:5005
 
 <!-- MULTICODE_BLOCK_END -->
 
-応答は[標準フォーマット][]に従っています。応答フォーマットは、要求に`severity`が指定されているかどうかに応じて異なります。指定されていた場合はログレベルが変更され、成功した場合の結果には追加フィールドが含まれません。
+応答は[標準フォーマット][]に従っています。応答フォーマットは、要求に<span class="code-snippet">severity</span>が指定されているかどうかに応じて異なります。指定されていた場合はログレベルが変更され、成功した場合の結果には追加フィールドが含まれません。
 
 それ以外の場合、要求には以下のフィールドが含まれます。
 
 | `Field` | 型   | 説明                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `level` | オブジェクト | 各カテゴリーの現在のログレベル。このカテゴリーリストは、今後のリリースで予告なく変更される場合があります。このコマンドに対する要求で、フィールド名を`partition`の値として使用できます。 |
+| <span class="code-snippet">level</span> | オブジェクト | 各カテゴリーの現在のログレベル。このカテゴリーリストは、今後のリリースで予告なく変更される場合があります。このコマンドに対する要求で、フィールド名を<span class="code-snippet">partition</span>の値として使用できます。 |
 
 ### 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
-* `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+* <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

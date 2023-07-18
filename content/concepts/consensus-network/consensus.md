@@ -50,19 +50,19 @@ _Figure 3: Transactions Applied to Ledger Version_
 
 The set of transactions included in a ledger instance are recorded in that ledger and allow audits of the XRP Ledger history. If an account balance is different in ledger N+1 than it was in ledger N, then ledger N+1 contains the transaction(s) responsible for the change.
 
-Transactions that appear in a validated ledger may have succeeded in changing the ledger, or may have been processed without doing the requested action. Successful transactions have the **`tesSUCCESS`** [result code](transaction-results.html) which indicates the requested changes are applied to the ledger. Failed transactions in the ledger have **`tec`** class result codes.<a href="#footnote_1" id="from_footnote_1"><sup>1</sup></a>
+Transactions that appear in a validated ledger may have succeeded in changing the ledger, or may have been processed without doing the requested action. Successful transactions have the **<span class="code-snippet">tesSUCCESS</span>** [result code](transaction-results.html) which indicates the requested changes are applied to the ledger. Failed transactions in the ledger have **<span class="code-snippet">tec</span>** class result codes.<a href="#footnote_1" id="from_footnote_1"><sup>1</sup></a>
 
-All transactions included in a ledger destroy some XRP as a [transaction cost](transaction-cost.html), regardless of whether they had a **`tes`** or **`tec`** code. The exact amount of XRP to destroy is defined by the signed transaction instructions.
+All transactions included in a ledger destroy some XRP as a [transaction cost](transaction-cost.html), regardless of whether they had a **<span class="code-snippet">tes</span>** or **<span class="code-snippet">tec</span>** code. The exact amount of XRP to destroy is defined by the signed transaction instructions.
 
-There are other classes of result codes besides **`tes`** and **`tec`**. Any other classes of result code indicate provisional failures returned by API calls. Only **`tes`** and **`tec`** codes appear in ledgers. Transactions that are not included in ledgers cannot have any effect on the ledger state (including XRP balances), but transitions that provisionally failed may still end up succeeding.
+There are other classes of result codes besides **<span class="code-snippet">tes</span>** and **<span class="code-snippet">tec</span>**. Any other classes of result code indicate provisional failures returned by API calls. Only **<span class="code-snippet">tes</span>** and **<span class="code-snippet">tec</span>** codes appear in ledgers. Transactions that are not included in ledgers cannot have any effect on the ledger state (including XRP balances), but transitions that provisionally failed may still end up succeeding.
 
 When working with [XRP Ledger APIs](http-websocket-apis.html), applications must distinguish between candidate transactions proposed for inclusion in a ledger versus validated transactions which are included in a validated ledger. Only transaction results found in a validated ledger are immutable. A candidate transaction may eventually be included in a validated ledger, or it may not.
 
-Important: Some [`rippled` APIs](http-websocket-apis.html) provide provisional results, based on candidate transactions <a href="#footnote_2" id="from_footnote_2"><sup>2</sup></a>. Applications should never rely on provisional results to determine the final outcome of a transaction. The only way to know with certainty that a transaction finally succeeded is to check the status of the transaction until it is both in a validated ledger and has result code `tesSUCCESS`. If the transaction is in a validated ledger with any other result code, it has failed. If the ledger specified in a transaction’s [`LastLedgerSequence`](transaction-common-fields.html) has been validated, yet the transaction does not appear in that ledger or any before it, then that transaction has failed and can never appear in any ledger. An outcome is final only for transactions that appear in a validated ledger or can never appear because of `LastLedgerSequence` restrictions as explained later in this document.
+Important: Some [<span class="code-snippet">rippled</span> APIs](http-websocket-apis.html) provide provisional results, based on candidate transactions <a href="#footnote_2" id="from_footnote_2"><sup>2</sup></a>. Applications should never rely on provisional results to determine the final outcome of a transaction. The only way to know with certainty that a transaction finally succeeded is to check the status of the transaction until it is both in a validated ledger and has result code <span class="code-snippet">tesSUCCESS</span>. If the transaction is in a validated ledger with any other result code, it has failed. If the ledger specified in a transaction’s [<span class="code-snippet">LastLedgerSequence</span>](transaction-common-fields.html) has been validated, yet the transaction does not appear in that ledger or any before it, then that transaction has failed and can never appear in any ledger. An outcome is final only for transactions that appear in a validated ledger or can never appear because of <span class="code-snippet">LastLedgerSequence</span> restrictions as explained later in this document.
 
 ## The XRP Ledger Protocol – Consensus and Validation
 
-The peer-to-peer XRP Ledger network consists of many independent XRP Ledger servers (typically running [`rippled`](xrpl-servers.html)) that accept and process transactions. Client applications sign and send transactions to XRP Ledger servers, which relay these candidate transactions throughout the network for processing. Examples of client applications include mobile and web wallets, gateways to financial institutions, and electronic trading platforms.
+The peer-to-peer XRP Ledger network consists of many independent XRP Ledger servers (typically running [<span class="code-snippet">rippled</span>](xrpl-servers.html)) that accept and process transactions. Client applications sign and send transactions to XRP Ledger servers, which relay these candidate transactions throughout the network for processing. Examples of client applications include mobile and web wallets, gateways to financial institutions, and electronic trading platforms.
 
 {{ include_svg("img/xrp-ledger-network.svg", "Figure 4: Participants in the XRP Ledger Protocol") }}
 
@@ -110,7 +110,7 @@ When the consensus process completes, each server independently computes a new l
 
 3. Process each transaction according to its instructions, in order. Update the ledger's state data accordingly.
 
-    If the transaction cannot be successfully executed, include the transaction with a [`tec`-class result code](tec-codes.html).<a href="#footnote_1" id="from_footnote_1"><sup>1</sup></a>
+    If the transaction cannot be successfully executed, include the transaction with a [<span class="code-snippet">tec</span>-class result code](tec-codes.html).<a href="#footnote_1" id="from_footnote_1"><sup>1</sup></a>
 
     For certain "retriable" transaction failures, instead move the transaction to the end of the canonical order to be retried after other transactions in the same ledger version have executed.
 
@@ -157,18 +157,18 @@ The lifecycle of a single transaction is as follows:
     - If a consensus round fails, the consensus process repeats until it succeeds.
 - The validated ledger includes the transaction and its effects on the ledger state.
 
-Applications should only rely on information in validated ledgers, not on the provisional results of candidate transactions. Some [`rippled` APIs](http-websocket-apis.html) initially return provisional results for transactions. The results of a transaction become immutable only when that transaction is included in a validated ledger, or the transaction includes `LastLedgerSequence` and does not appear in any validated ledger with that ledger index or lower.
+Applications should only rely on information in validated ledgers, not on the provisional results of candidate transactions. Some [<span class="code-snippet">rippled</span> APIs](http-websocket-apis.html) initially return provisional results for transactions. The results of a transaction become immutable only when that transaction is included in a validated ledger, or the transaction includes <span class="code-snippet">LastLedgerSequence</span> and does not appear in any validated ledger with that ledger index or lower.
 
 Best practices for applications submitting transactions include:
 
-- Use the `LastLedgerSequence` parameter to ensure that transactions validate or fail in a deterministic and prompt fashion.
+- Use the <span class="code-snippet">LastLedgerSequence</span> parameter to ensure that transactions validate or fail in a deterministic and prompt fashion.
 - Check the results of transactions in validated ledgers.
-    - Until a ledger containing the transaction is validated, or `LastLedgerSequence` has passed, results are provisional.
-    - Transactions with result code **`tesSUCCESS`** and `"validated": true` have immutably succeeded.
-    - Transactions with other result codes and `"validated": true` have immutably failed.
-    - Transactions that fail to appear in any validated ledger up to and including the validated ledger identified by the transaction’s `LastLedgerSequence` have immutably failed.
+    - Until a ledger containing the transaction is validated, or <span class="code-snippet">LastLedgerSequence</span> has passed, results are provisional.
+    - Transactions with result code **<span class="code-snippet">tesSUCCESS</span>** and <span class="code-snippet">"validated": true</span> have immutably succeeded.
+    - Transactions with other result codes and <span class="code-snippet">"validated": true</span> have immutably failed.
+    - Transactions that fail to appear in any validated ledger up to and including the validated ledger identified by the transaction’s <span class="code-snippet">LastLedgerSequence</span> have immutably failed.
         - Take care to use a server with a continuous ledger history to detect this case <a href="#footnote_10" id="from_footnote_10"><sup>10</sup></a>.
-    - It may be necessary to check the status of a transaction repeatedly until the ledger identified by `LastLedgerSequence` is validated.
+    - It may be necessary to check the status of a transaction repeatedly until the ledger identified by <span class="code-snippet">LastLedgerSequence</span> is validated.
 
 ## See Also
 
@@ -178,7 +178,7 @@ Best practices for applications submitting transactions include:
     - [The Consensus Mechanism (YouTube)](https://www.youtube.com/watch?v=k6VqEkqRTmk&list=PLJQ55Tj1hIVZtJ_JdTvSum2qMTsedWkNi&index=2)
 - **Tutorials:**
     - [Reliable Transaction Submission](reliable-transaction-submission.html)
-    - [Run `rippled` as a Validator](run-rippled-as-a-validator.html)
+    - [Run <span class="code-snippet">rippled</span> as a Validator](run-rippled-as-a-validator.html)
 - **References:**
     - [Ledger Format Reference](ledger-data-formats.html)
     - [Transaction Format Reference](transaction-formats.html)
@@ -192,9 +192,9 @@ Best practices for applications submitting transactions include:
 
 ## Footnotes
 
-<a href="#from_footnote_1" id="footnote_1"><sup>1</sup></a> – Transactions with [**tec** result codes](tec-codes.html) do not perform the requested action, but do have effects on the ledger. To prevent abuse of the network and to pay for the cost of distributing the transaction, they destroy the XRP [transaction cost](transaction-cost.html). To not block other transactions submitted by the same sender around the same time, they increment the sending account's [sequence number](basic-data-types.html#account-sequence). Transactions with `tec`-class results sometimes also perform maintenance such as deleting expired objects or unfunded trade offers.
+<a href="#from_footnote_1" id="footnote_1"><sup>1</sup></a> – Transactions with [**tec** result codes](tec-codes.html) do not perform the requested action, but do have effects on the ledger. To prevent abuse of the network and to pay for the cost of distributing the transaction, they destroy the XRP [transaction cost](transaction-cost.html). To not block other transactions submitted by the same sender around the same time, they increment the sending account's [sequence number](basic-data-types.html#account-sequence). Transactions with <span class="code-snippet">tec</span>-class results sometimes also perform maintenance such as deleting expired objects or unfunded trade offers.
 
-<a href="#from_footnote_2" id="footnote_2"><sup>2</sup></a> – For example, consider a scenario where Alice has $100, and sends all of it to Bob. If an application first submits that payment transaction, then immediately after checks Alice’s balance, the API returns $0. This value is based on the provisional result of a candidate transaction. There are circumstances in which the payment fails and Alice’s balance remains $100 (or, due to other transactions, become some other amount). The only way to know with certainty that Alice’s payment to Bob succeeded is to check the status of the transaction until it is both in a validated ledger and has result code **`tesSUCCESS`**. If the transaction is in a validated ledger with any other result code, the payment has failed.
+<a href="#from_footnote_2" id="footnote_2"><sup>2</sup></a> – For example, consider a scenario where Alice has $100, and sends all of it to Bob. If an application first submits that payment transaction, then immediately after checks Alice’s balance, the API returns $0. This value is based on the provisional result of a candidate transaction. There are circumstances in which the payment fails and Alice’s balance remains $100 (or, due to other transactions, become some other amount). The only way to know with certainty that Alice’s payment to Bob succeeded is to check the status of the transaction until it is both in a validated ledger and has result code **<span class="code-snippet">tesSUCCESS</span>**. If the transaction is in a validated ledger with any other result code, the payment has failed.
 
 <a href="#from_footnote_3" id="footnote_3"><sup>3</sup></a> – Strictly speaking, validators are a subset of tracking servers. They provide the same features and additionally send "validation" messages. Tracking servers may be further categorized by whether they keep full vs. partial ledger history.
 
@@ -210,7 +210,7 @@ Best practices for applications submitting transactions include:
 
 <a href="#from_footnote_9" id="footnote_9"><sup>9</sup></a> – In practice, the XRP Ledger runs more efficiently by starting a new round of consensus concurrently, before validation has completed.
 
-<a href="#from_footnote_10" id="footnote_10"><sup>10</sup></a> – A `rippled` server can respond to API requests even without a complete ledger history. Interruptions in service or network connectivity can lead to missing ledgers, or gaps, in the server’s ledger history. Over time, if configured to, `rippled` fills in gaps in its history. When testing for missing transactions, it is important to verify against a server with continuous complete ledgers from the time the transaction was submitted until its `LastLedgerSequence`. Use the [server_info method][] to determine which ledgers are available to a particular server.
+<a href="#from_footnote_10" id="footnote_10"><sup>10</sup></a> – A <span class="code-snippet">rippled</span> server can respond to API requests even without a complete ledger history. Interruptions in service or network connectivity can lead to missing ledgers, or gaps, in the server’s ledger history. Over time, if configured to, <span class="code-snippet">rippled</span> fills in gaps in its history. When testing for missing transactions, it is important to verify against a server with continuous complete ledgers from the time the transaction was submitted until its <span class="code-snippet">LastLedgerSequence</span>. Use the [server_info method][] to determine which ledgers are available to a particular server.
 
 
 <!--{# common link defs #}-->

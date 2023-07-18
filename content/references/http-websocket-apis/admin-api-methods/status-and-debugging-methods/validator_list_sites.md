@@ -9,9 +9,9 @@ labels:
 # validator_list_sites
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/ValidatorListSites.cpp "Source")
 
-The `validator_list_sites` command returns status information of sites serving validator lists. [New in: rippled 0.80.1][]
+The <span class="code-snippet">validator_list_sites</span> command returns status information of sites serving validator lists. [New in: rippled 0.80.1][]
 
-*The `validator_list_sites` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">validator_list_sites</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -123,34 +123,34 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`           | Type  | Description                      |
 |:------------------|:------|----------------------------------|
-| `validator_sites` | Array | Array of validator site objects. |
+| <span class="code-snippet">validator_sites</span> | Array | Array of validator site objects. |
 
-Each member of the `validator_sites` field array is an object with the following fields:
+Each member of the <span class="code-snippet">validator_sites</span> field array is an object with the following fields:
 
 | `Field`                | Type             | Description                     |
 |:-----------------------|:-----------------|:--------------------------------|
-| `last_refresh_status`  | String           | If present, shows the status of the most recent refresh of the site. If missing, the site has not yet been successfully queried. See **Site Status Values** below for possible states and their meanings. |
-| `last_refresh_time`    | String           | Human readable time when the site was last queried. If missing, the site has not yet been successfully queried. |
-| `refresh_interval_min` | Unsigned Integer | The number of minutes between refresh attempts. |
-| `uri`                  | String           | The URI of the site. |
+| <span class="code-snippet">last_refresh_status</span>  | String           | If present, shows the status of the most recent refresh of the site. If missing, the site has not yet been successfully queried. See **Site Status Values** below for possible states and their meanings. |
+| <span class="code-snippet">last_refresh_time</span>    | String           | Human readable time when the site was last queried. If missing, the site has not yet been successfully queried. |
+| <span class="code-snippet">refresh_interval_min</span> | Unsigned Integer | The number of minutes between refresh attempts. |
+| <span class="code-snippet">uri</span>                  | String           | The URI of the site. |
 
 #### Site Status Values
 
-The `last_refresh_status` field can have the following values:
+The <span class="code-snippet">last_refresh_status</span> field can have the following values:
 
 | Value                 | Meaning                                              |
 |:----------------------|:-----------------------------------------------------|
-| `accepted`            | The site provided a valid list, which your server is now using. |
-| `same_sequence`       | The site provided a list with the same sequence number as your existing list, so your server continued using its existing list. |
-| `unsupported_version` | The site provided a list, but your server does not support the list format version number in the list. You might need to [update `rippled`](install-rippled.html) to a newer software version. |
-| `untrusted`           | The site provided a list from the site that is signed by a cryptographic key pair your server is not configured to trust. You may want to check for typos in your `validators.txt` file and check to see if the list publisher changed their cryptographic keys. |
-| `stale`               | The site provided a list with a lower sequence number than the list your server is already using. |
-| `invalid`             | The site provided a list or signature that was not validly formed. |
+| <span class="code-snippet">accepted</span>            | The site provided a valid list, which your server is now using. |
+| <span class="code-snippet">same_sequence</span>       | The site provided a list with the same sequence number as your existing list, so your server continued using its existing list. |
+| <span class="code-snippet">unsupported_version</span> | The site provided a list, but your server does not support the list format version number in the list. You might need to [update <span class="code-snippet">rippled</span>](install-rippled.html) to a newer software version. |
+| <span class="code-snippet">untrusted</span>           | The site provided a list from the site that is signed by a cryptographic key pair your server is not configured to trust. You may want to check for typos in your <span class="code-snippet">validators.txt</span> file and check to see if the list publisher changed their cryptographic keys. |
+| <span class="code-snippet">stale</span>               | The site provided a list with a lower sequence number than the list your server is already using. |
+| <span class="code-snippet">invalid</span>             | The site provided a list or signature that was not validly formed. |
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

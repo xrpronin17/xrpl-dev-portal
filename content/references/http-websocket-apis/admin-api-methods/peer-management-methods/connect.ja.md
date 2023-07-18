@@ -8,9 +8,9 @@ labels:
 # connect
 [[ソース]](https://github.com/ripple/rippled/blob/a61ffab3f9010d8accfaa98aa3cacc7d38e74121/src/ripple/rpc/handlers/Connect.cpp "Source")
 
-`connect`コマンドは、`rippled`サーバーを特定のピア`rippled`サーバーに強制的に接続します。
+<span class="code-snippet">connect</span>コマンドは、<span class="code-snippet">rippled</span>サーバーを特定のピア<span class="code-snippet">rippled</span>サーバーに強制的に接続します。
 
-*`connect`要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
+*<span class="code-snippet">connect</span>要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -55,8 +55,8 @@ rippled connect 192.170.145.88 51235
 
 | `Field` | 型   | 説明                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `ip`    | 文字列 | 接続するサーバーのIPアドレス。                    |
-| `port`  | 数値 | _（省略可）_ 接続時に使用するポート番号。デフォルトでは**2459**です。 [新規: rippled 1.6.0][] |
+| <span class="code-snippet">ip</span>    | 文字列 | 接続するサーバーのIPアドレス。                    |
+| <span class="code-snippet">port</span>  | 数値 | _（省略可）_ 接続時に使用するポート番号。デフォルトでは**2459**です。 [新規: rippled 1.6.0][] |
 
 ### 応答フォーマット
 
@@ -95,12 +95,12 @@ Connecting to 127.0.0.1:5005
 
 | `Field`   | 型   | 説明                                            |
 |:----------|:-------|:-------------------------------------------------------|
-| `message` | 文字列 | コマンドが成功した場合の値は`connecting`。 |
+| <span class="code-snippet">message</span> | 文字列 | コマンドが成功した場合の値は<span class="code-snippet">connecting</span>。 |
 
 ### 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
-* `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+* <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
 * スタンドアロンモードでは接続できません - スタンドアロンモードではネットワーク関連のコマンドが無効にされています。
 
 <!--{# common link defs #}-->

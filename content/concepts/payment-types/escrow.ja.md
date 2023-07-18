@@ -22,7 +22,7 @@ Escrowは、XRP建ての条件付き送金決済を可能にするXRP Ledgerの�
 
 **ステップ2:** このトランザクションの処理完了後に、エスクローに預託されたXRPを保持する[Escrowオブジェクト](escrow-object.html)がXRP Ledgerに作成されます。このオブジェクトには、オブジェクトを作成したトランザクションにより定義されたEscrowのプロパティーが含まれています。このEscrowに終了時刻が設定されている場合、この時刻まではXRPには誰もアクセスできません。
 
-**ステップ3:** 受取人またはその他のXRP Ledgerアドレスが[EscrowFinishトランザクション][]を送信し、XRPが送金されます。正しい条件が満たされると、レジャーのEscrowオブジェクトは消却され、XRPが指定受取人に入金されます。EscrowにCrypto-conditionが指定されている場合、このトランザクションにはその条件に対するフルフィルメントが含まれている必要があります。Escrowの有効期限がすでに切れている場合、EscrowFinishトランザクションはコード[`tecNO_PERMISSION`](tec-codes.html)で失敗します。
+**ステップ3:** 受取人またはその他のXRP Ledgerアドレスが[EscrowFinishトランザクション][]を送信し、XRPが送金されます。正しい条件が満たされると、レジャーのEscrowオブジェクトは消却され、XRPが指定受取人に入金されます。EscrowにCrypto-conditionが指定されている場合、このトランザクションにはその条件に対するフルフィルメントが含まれている必要があります。Escrowの有効期限がすでに切れている場合、EscrowFinishトランザクションはコード[<span class="code-snippet">tecNO_PERMISSION</span>](tec-codes.html)で失敗します。
 
 ### 有効期限切れの例
 
@@ -57,13 +57,13 @@ Escrowは、少量の大口決済に適した大きな保証を提供してい�
 
 [![Escrowの状態がHeld → Ready/Conditionally Ready → Expiredと遷移する様子を示す状態遷移図](img/escrow-states.ja.png)](img/escrow-states.ja.png)
 
-この図は、Escrowの「Finish-after」時刻（`FinishAfter`フィールド）、Crypto-condition（`Condition`フィールド）、および有効期限（`CancelAfter`フィールド）の3通りの組み合わせの3つの例を示します。
+この図は、Escrowの「Finish-after」時刻（<span class="code-snippet">FinishAfter</span>フィールド）、Crypto-condition（<span class="code-snippet">Condition</span>フィールド）、および有効期限（<span class="code-snippet">CancelAfter</span>フィールド）の3通りの組み合わせの3つの例を示します。
 
-- **時間ベースのEscrow（左）:** Finish-after時刻のみが設定されているEscrowは、**Held**状態で作成されます。指定の時刻が経過すると**Ready**になり、誰でもこのEscrowを終了できるようになります。Escrowに有効期限が設定されており、その時刻になるまでに誰もEscrowを終了しないと、そのEscrowは**Expired**になります。Expired状態では、Escrowを終了できなくなり、誰でもEscrowをキャンセルできるようになります。Escrowに`CancelAfter`フィールドが設定されていない場合、Escrowが期限切れになることがないため、キャンセルできません。
+- **時間ベースのEscrow（左）:** Finish-after時刻のみが設定されているEscrowは、**Held**状態で作成されます。指定の時刻が経過すると**Ready**になり、誰でもこのEscrowを終了できるようになります。Escrowに有効期限が設定されており、その時刻になるまでに誰もEscrowを終了しないと、そのEscrowは**Expired**になります。Expired状態では、Escrowを終了できなくなり、誰でもEscrowをキャンセルできるようになります。Escrowに<span class="code-snippet">CancelAfter</span>フィールドが設定されていない場合、Escrowが期限切れになることがないため、キャンセルできません。
 
-- **コンビネーションEscrow（中央）:** EscrowでCrypto-condition（`Condition`フィールド） _および_ 「Finish-after」時刻（`FinishAfter` フィールド）の両方が指定されている場合、Finish-after時刻が経過するまでEscrowは**Held**状態です。その後**Conditionally Ready**になり、Crypto-conditionに対し正しいフルフィルメントを提供すればEscrowを終了できます。Escrowに有効期限（`CancelAfter`フィールド）が設定されており、その時刻になるまでに誰もEscrowを終了しないと、そのEscrowは**Expired**になります。Expired状態では、Escrowを終了できなくなり、誰でもEscrowをキャンセルできるようになります。Escrowに`CancelAfter`フィールドが設定されていない場合、Escrowが期限切れになることがないため、キャンセルできません。
+- **コンビネーションEscrow（中央）:** EscrowでCrypto-condition（<span class="code-snippet">Condition</span>フィールド） _および_ 「Finish-after」時刻（<span class="code-snippet">FinishAfter</span> フィールド）の両方が指定されている場合、Finish-after時刻が経過するまでEscrowは**Held**状態です。その後**Conditionally Ready**になり、Crypto-conditionに対し正しいフルフィルメントを提供すればEscrowを終了できます。Escrowに有効期限（<span class="code-snippet">CancelAfter</span>フィールド）が設定されており、その時刻になるまでに誰もEscrowを終了しないと、そのEscrowは**Expired**になります。Expired状態では、Escrowを終了できなくなり、誰でもEscrowをキャンセルできるようになります。Escrowに<span class="code-snippet">CancelAfter</span>フィールドが設定されていない場合、Escrowが期限切れになることがないため、キャンセルできません。
 
-- **条件付きEscrow（右）:** EscrowでCrypto-condition（`Condition`フィールド）が指定されており、Finish-after時刻が指定されていない場合、Escrowは作成時点で即時に**Conditionally Ready**になります。この時点では、Crypto-conditionに対する正しいフルフィルメントを提供した人だけがEscrowを終了できます。有効期限（`CancelAfter`フィールド）までに終了されなかったEscrowは**Expired**になります。（Finish-after時刻が設定されていないEscrowには、有効期限が設定されている _必要があります_ 。）Expired状態では、Escrowを終了できなくなり、誰でもEscrowをキャンセルできるようになります。
+- **条件付きEscrow（右）:** EscrowでCrypto-condition（<span class="code-snippet">Condition</span>フィールド）が指定されており、Finish-after時刻が指定されていない場合、Escrowは作成時点で即時に**Conditionally Ready**になります。この時点では、Crypto-conditionに対する正しいフルフィルメントを提供した人だけがEscrowを終了できます。有効期限（<span class="code-snippet">CancelAfter</span>フィールド）までに終了されなかったEscrowは**Expired**になります。（Finish-after時刻が設定されていないEscrowには、有効期限が設定されている _必要があります_ 。）Expired状態では、Escrowを終了できなくなり、誰でもEscrowをキャンセルできるようになります。
 
 
 
@@ -71,7 +71,7 @@ Escrowは、少量の大口決済に適した大きな保証を提供してい�
 
 条件付き決済は、2017-03-31以降XRP Ledgerコンセンサスプロトコルに対する[「Escrow」Amendment](known-amendments.html#escrow)により利用可能になりました。同機能の以前のバージョンは、2016年に「Suspended Payments」（SusPay）という名称で[XRP Ledger Testnet](xrp-testnet-faucet.html)で利用可能になりました。
 
-[スタンドアロンモード](rippled-server-modes.html#スタンドアロンモード)でのテストの際には、Amendmentのステータスに関係なく、Escrow機能をローカルで強制的に有効にできます。次のスタンザを`rippled.cfg`に追加してください。
+[スタンドアロンモード](rippled-server-modes.html#スタンドアロンモード)でのテストの際には、Amendmentのステータスに関係なく、Escrow機能をローカルで強制的に有効にできます。次のスタンザを<span class="code-snippet">rippled.cfg</span>に追加してください。
 
     [features]
     Escrow
@@ -88,7 +88,7 @@ Escrowが時間のみによってロックされており、Crypto-conditionが�
 
 **注記:** 上記の式は、トランザクションのリファレンスコストがXRPの10 dropであることを前提としています。
 
-[手数料投票](fee-voting.html)により`reference_fee`の値が変更される場合、この式は新しいリファレンスコストに基づいてスケーリングされます。フルフィルメントのあるEscrowFinishトランザクションの公式は次のとおりです。
+[手数料投票](fee-voting.html)により<span class="code-snippet">reference_fee</span>の値が変更される場合、この式は新しいリファレンスコストに基づいてスケーリングされます。フルフィルメントのあるEscrowFinishトランザクションの公式は次のとおりです。
 
 ```
 reference_fee * (signer_count + 33 + (fulfillment_bytes / 16))

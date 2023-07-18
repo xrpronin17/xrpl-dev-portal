@@ -8,7 +8,7 @@ labels:
 # sign_for
 [[Source]](https://github.com/ripple/rippled/blob/release/src/ripple/rpc/handlers/SignFor.cpp "Source")
 
-The `sign_for` command provides one signature for a [multi-signed transaction](multi-signing.html).
+The <span class="code-snippet">sign_for</span> command provides one signature for a [multi-signed transaction](multi-signing.html).
 
 {% include '_snippets/public-signing-note.md' %}
 <!--_ -->
@@ -96,18 +96,18 @@ The request includes the following parameters:
 
 | `Field`      | Type                 | Description                            |
 |:-------------|:---------------------|:---------------------------------------|
-| `account`    | String - [Address][] | The address which is providing the signature. |
-| `tx_json`    | Object               | The [Transaction](transaction-formats.html) to sign. Unlike using the [sign method][], all fields of the transaction must be provided, including `Fee` and `Sequence`. The transaction must include the field `SigningPubKey` with an empty string as the value. The object may optionally contain a `Signers` array with previously-collected signatures. |
-| `secret`       | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it. Do not send your secret to untrusted servers or through unsecured network connections. Cannot be used with `key_type`, `seed`, `seed_hex`, or `passphrase`. |
-| `seed`         | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it. Must be in the XRP Ledger's [base58][] format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed_hex`, or `passphrase`. |
-| `seed_hex`     | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it. Must be in hexadecimal format. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed`, or `passphrase`. |
-| `passphrase`   | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it, as a string passphrase. If provided, you must also specify the `key_type`. Cannot be used with `secret`, `seed`, or `seed_hex`. |
-| `key_type`     | String  | _(Optional)_ Type of cryptographic key provided in this request. Valid types are `secp256k1` or `ed25519`. Defaults to `secp256k1`. Cannot be used with `secret`. **Caution:** Ed25519 support is experimental. |
+| <span class="code-snippet">account</span>    | String - [Address][] | The address which is providing the signature. |
+| <span class="code-snippet">tx_json</span>    | Object               | The [Transaction](transaction-formats.html) to sign. Unlike using the [sign method][], all fields of the transaction must be provided, including <span class="code-snippet">Fee</span> and <span class="code-snippet">Sequence</span>. The transaction must include the field <span class="code-snippet">SigningPubKey</span> with an empty string as the value. The object may optionally contain a <span class="code-snippet">Signers</span> array with previously-collected signatures. |
+| <span class="code-snippet">secret</span>       | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it. Do not send your secret to untrusted servers or through unsecured network connections. Cannot be used with <span class="code-snippet">key_type</span>, <span class="code-snippet">seed</span>, <span class="code-snippet">seed_hex</span>, or <span class="code-snippet">passphrase</span>. |
+| <span class="code-snippet">seed</span>         | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it. Must be in the XRP Ledger's [base58][] format. If provided, you must also specify the <span class="code-snippet">key_type</span>. Cannot be used with <span class="code-snippet">secret</span>, <span class="code-snippet">seed_hex</span>, or <span class="code-snippet">passphrase</span>. |
+| <span class="code-snippet">seed_hex</span>     | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it. Must be in hexadecimal format. If provided, you must also specify the <span class="code-snippet">key_type</span>. Cannot be used with <span class="code-snippet">secret</span>, <span class="code-snippet">seed</span>, or <span class="code-snippet">passphrase</span>. |
+| <span class="code-snippet">passphrase</span>   | String  | _(Optional)_ Secret key of the account supplying the transaction, used to sign it, as a string passphrase. If provided, you must also specify the <span class="code-snippet">key_type</span>. Cannot be used with <span class="code-snippet">secret</span>, <span class="code-snippet">seed</span>, or <span class="code-snippet">seed_hex</span>. |
+| <span class="code-snippet">key_type</span>     | String  | _(Optional)_ Type of cryptographic key provided in this request. Valid types are <span class="code-snippet">secp256k1</span> or <span class="code-snippet">ed25519</span>. Defaults to <span class="code-snippet">secp256k1</span>. Cannot be used with <span class="code-snippet">secret</span>. **Caution:** Ed25519 support is experimental. |
 
 You must provide **exactly 1 field** with the secret key, which can be either of the following:
 
-* Provide a `secret` value and omit the `key_type` field. This value can be formatted as an XRP Ledger [base58][] seed, RFC-1751, hexadecimal, or as a string passphrase. (secp256k1 keys only)
-* Provide a `key_type` value and exactly one of `seed`, `seed_hex`, or `passphrase`. Omit the `secret` field. (Not supported by the commandline syntax.)
+* Provide a <span class="code-snippet">secret</span> value and omit the <span class="code-snippet">key_type</span> field. This value can be formatted as an XRP Ledger [base58][] seed, RFC-1751, hexadecimal, or as a string passphrase. (secp256k1 keys only)
+* Provide a <span class="code-snippet">key_type</span> value and exactly one of <span class="code-snippet">seed</span>, <span class="code-snippet">seed_hex</span>, or <span class="code-snippet">passphrase</span>. Omit the <span class="code-snippet">secret</span> field. (Not supported by the commandline syntax.)
 
 ## Response Format
 
@@ -230,17 +230,17 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `tx_blob` | String | Hexadecimal representation of the signed transaction, including the newly-added signature. If it has enough signatures, you can [submit this string using the `submit` method](submit.html#submit-only-mode). |
-| `tx_json` | Object | The [transaction specification](transaction-formats.html) in JSON format, with the newly-added signature in the `Signers` array. If it has enough signatures, you can submit this object using the [submit_multisigned method][]. |
+| <span class="code-snippet">tx_blob</span> | String | Hexadecimal representation of the signed transaction, including the newly-added signature. If it has enough signatures, you can [submit this string using the <span class="code-snippet">submit</span> method](submit.html#submit-only-mode). |
+| <span class="code-snippet">tx_json</span> | Object | The [transaction specification](transaction-formats.html) in JSON format, with the newly-added signature in the <span class="code-snippet">Signers</span> array. If it has enough signatures, you can submit this object using the [submit_multisigned method][]. |
 
 ## Possible Errors
 
 * Any of the [universal error types][].
-* `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
-* `srcActNotFound` - If the `Account` from the transaction is not a funded address in the ledger.
-* `srcActMalformed` - If the signing address (`account` field) from the request is not validly formed.
-* `badSeed` - The seed value supplied was invalidly-formatted.
-* `badSecret` - The secret value supplied was invalidly-formatted.
+* <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
+* <span class="code-snippet">srcActNotFound</span> - If the <span class="code-snippet">Account</span> from the transaction is not a funded address in the ledger.
+* <span class="code-snippet">srcActMalformed</span> - If the signing address (<span class="code-snippet">account</span> field) from the request is not validly formed.
+* <span class="code-snippet">badSeed</span> - The seed value supplied was invalidly-formatted.
+* <span class="code-snippet">badSecret</span> - The secret value supplied was invalidly-formatted.
 
 
 {% include '_snippets/rippled_versions.md' %}

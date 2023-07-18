@@ -7,12 +7,12 @@ labels:
 ---
 # Contribute Code to the XRP Ledger
 
-The software that powers the XRP Ledger is open source. Anyone can download, modify, extend, or explore it. If you want to contribute code, it's important to work with the community to define the specifications of your changes and test the code before adding it to `rippled`.
+The software that powers the XRP Ledger is open source. Anyone can download, modify, extend, or explore it. If you want to contribute code, it's important to work with the community to define the specifications of your changes and test the code before adding it to <span class="code-snippet">rippled</span>.
 
 
 ## XRP Ledger Standards
 
-Changes to `rippled` are tracked by an XRP Ledger Standard (XLS), a document that identifies and details the specifications of a change. Before committing to development, you must start a discussion in the [XRPL-Standards repo](https://github.com/XRPLF/XRPL-Standards/discussions). This provides the community a chance to discuss and provide feedback about your change.
+Changes to <span class="code-snippet">rippled</span> are tracked by an XRP Ledger Standard (XLS), a document that identifies and details the specifications of a change. Before committing to development, you must start a discussion in the [XRPL-Standards repo](https://github.com/XRPLF/XRPL-Standards/discussions). This provides the community a chance to discuss and provide feedback about your change.
 
 **Note:** Bug fixes don't require an XLS, but may require an amendment.
 
@@ -39,34 +39,34 @@ Implementing code as an amendment requires you to add the amendment to these fil
 
 - **Feature.cpp**:
 
-  `Supported` parameter should be set to `no` until development is complete.
+  <span class="code-snippet">Supported</span> parameter should be set to <span class="code-snippet">no</span> until development is complete.
 
-  `DefaultVote` parameter should be set to `yes` for bug fixes; everything else defaults to `no`.
+  <span class="code-snippet">DefaultVote</span> parameter should be set to <span class="code-snippet">yes</span> for bug fixes; everything else defaults to <span class="code-snippet">no</span>.
 
-- **Feature.h**: Increment the `numFeatures` counter and declare an `extern uint256 const` variable.
+- **Feature.h**: Increment the <span class="code-snippet">numFeatures</span> counter and declare an <span class="code-snippet">extern uint256 const</span> variable.
 
 
 ## Coding and Deployment
 
 The general development path breaks down as follows:
 
-1. Create a fork or branch in the [`rippled` repository](https://github.com/XRPLF/rippled) to develop your code.
+1. Create a fork or branch in the [<span class="code-snippet">rippled</span> repository](https://github.com/XRPLF/rippled) to develop your code.
 
-    **Tip:** If you're not sure where to start, _Dev Null Productions_ provides a detailed and thorough [`rippled` Source Code Guide](https://xrpintel.com/source).
+    **Tip:** If you're not sure where to start, _Dev Null Productions_ provides a detailed and thorough [<span class="code-snippet">rippled</span> Source Code Guide](https://xrpintel.com/source).
 
 2. Run unit and integration tests. Running a server in _stand-alone mode_ is useful for testing your changes in an isolated environment, but you may want to stand up a private network for extensive changes.
 
-3. Create a pull request on `XRPLF:develop`.
+3. Create a pull request on <span class="code-snippet">XRPLF:develop</span>.
 
-    **Note for Amendments:** Update the `Supported` paramter to `yes` in **Feature.cpp**.
+    **Note for Amendments:** Update the <span class="code-snippet">Supported</span> paramter to <span class="code-snippet">yes</span> in **Feature.cpp**.
 
-4. After the pull request is approved by XRP Ledger maintainers, your code is merged into `develop` and additional testing can be done on Devnet.
+4. After the pull request is approved by XRP Ledger maintainers, your code is merged into <span class="code-snippet">develop</span> and additional testing can be done on Devnet.
 
     **Note for Amendments:**
-    - The `DefaultVote` parameter is now locked.
+    - The <span class="code-snippet">DefaultVote</span> parameter is now locked.
     - If problems are found with the amendment, you must restart the process of making fixes and submitting a new PR. You can change the default vote in the new PR.
 
-5. On a quarterly basis, a release candidate is built from approved PRs on `develop`. The package is deployed to Testnet and a few nodes on Mainnet. If no issues are found with the release candidate, the code is merged into `master` and nodes on Mainnet can upgrade to this build.
+5. On a quarterly basis, a release candidate is built from approved PRs on <span class="code-snippet">develop</span>. The package is deployed to Testnet and a few nodes on Mainnet. If no issues are found with the release candidate, the code is merged into <span class="code-snippet">master</span> and nodes on Mainnet can upgrade to this build.
 
 6. New amendments go through the consensus process and validators vote on whether to enable them.
 

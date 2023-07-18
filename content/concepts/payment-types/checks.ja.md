@@ -38,7 +38,7 @@ XRP Ledger Checksは、XRP Ledgerに固有の問題も解決できます。た�
 
 **課題:** [BSA、KYC、AML、CFT](become-an-xrp-ledger-gateway.html#compliance-guidelines)などの規制に準拠するにあたり、金融機関は受領する資金の送金元に関する文書を提出する必要があります。違法な資金移動を防止するため、これらの規制は金融機関に対して、処理済のすべての支払いについて、その送金元と送金先を開示するよう義務付けています。XRP Ledgerの性質上、誰でもXRPを（および該当する場合には発行済み通貨を）XRP Ledger上の金融機関のアカウントに送金することができます。金融機関のコンプライアンス部門では、このような不審な支払いへの対応にかかるコスト（罰金の可能性を含む）の増大と処理の遅れが生じます。
 
-**解決策:** 金融機関は各自のXRP Ledgerのアカウントで、[`AccountSet`トランザクションの`asfDepositAuth`フラグを設定](accountset.html)することにより、[Deposit Authorization](depositauth.html)を有効にできます。これにより、アカウントはPaymentトランザクションを受領できなくなります。Deposit Authorizationが有効なアカウントは、Escrow、Payment Channel、またはChecksでのみ資金を受領できます。Deposit Authorizationが有効な場合、Checksが最もシンプルで使いやすく、柔軟な資金移動手段となります。
+**解決策:** 金融機関は各自のXRP Ledgerのアカウントで、[<span class="code-snippet">AccountSet</span>トランザクションの<span class="code-snippet">asfDepositAuth</span>フラグを設定](accountset.html)することにより、[Deposit Authorization](depositauth.html)を有効にできます。これにより、アカウントはPaymentトランザクションを受領できなくなります。Deposit Authorizationが有効なアカウントは、Escrow、Payment Channel、またはChecksでのみ資金を受領できます。Deposit Authorizationが有効な場合、Checksが最もシンプルで使いやすく、柔軟な資金移動手段となります。
 
 
 ## 使用法
@@ -49,16 +49,16 @@ Checksの一般的なライフサイクルを以下で説明します。
 
 [![Checkのフローチャート（換金に成功した場合）](img/checks-happy-path.ja.png)](img/checks-happy-path.ja.png)
 
-**ステップ1:** Checkを作成するため、送金元が[CheckCreate][]トランザクションを送信し、受取人（`Destination`）、有効期限（`Expiration`）、および送金元アカウントからの引き落とし限度額（`SendMax`）を指定します。
+**ステップ1:** Checkを作成するため、送金元が[CheckCreate][]トランザクションを送信し、受取人（<span class="code-snippet">Destination</span>）、有効期限（<span class="code-snippet">Expiration</span>）、および送金元アカウントからの引き落とし限度額（<span class="code-snippet">SendMax</span>）を指定します。
 
 
 **ステップ2:** CheckCreateトランザクションの処理が完了すると、XRP Ledgerに[Checkオブジェクト](check.html)が作成されます。このオブジェクトには、オブジェクトを作成したトランザクションにより定義されたCheckのプロパティーが含まれています。有効期限前にこのオブジェクトを変更できるのは、送金元（[CheckCancel][]トランザクションで取り消す）と受取人（取り消すかまたは換金する）だけです。有効期限の経過後は、誰でもCheckを取り消すことができます。
 
 **ステップ3:** Checkを換金するため、受取人が[CheckCash][]トランザクションを送信します。受取人には次の2つのCheck換金オプションがあります。
 
-* `Amount` — 受取人はこのオプションを使用して換金する正確な額を指定できます。これは、送金元が想定される[送金手数料](transfer-fees.html)をCheckの額に上乗せし、受取人は請求書やその他の契約に記載されている指定された額のみ受け取れるようにする場合に役立ちます。
+* <span class="code-snippet">Amount</span> — 受取人はこのオプションを使用して換金する正確な額を指定できます。これは、送金元が想定される[送金手数料](transfer-fees.html)をCheckの額に上乗せし、受取人は請求書やその他の契約に記載されている指定された額のみ受け取れるようにする場合に役立ちます。
 
-* `DeliverMin` — 受取人はこのオプションを使用してCheckから受領する最小額を指定できます。受取人がこのオプションを使用する場合、`rippled`は可能な限り多くの送金を試み、少なくともこの額以上を送金します。受取人に入金できる額がこの額よりも少ない場合には、このトランザクションは失敗します。
+* <span class="code-snippet">DeliverMin</span> — 受取人はこのオプションを使用してCheckから受領する最小額を指定できます。受取人がこのオプションを使用する場合、<span class="code-snippet">rippled</span>は可能な限り多くの送金を試み、少なくともこの額以上を送金します。受取人に入金できる額がこの額よりも少ない場合には、このトランザクションは失敗します。
 
 送金元にCheckの裏付けとなる資金が十分あり、有効期限が経過してなければ、資金は送金元のアカウントから引き落とされ、受取人のアカウントに入金され、Checkオブジェクトは消却されます。
 

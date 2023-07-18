@@ -17,7 +17,7 @@ The peer protocol is the main mode of communication between servers in the XRP L
 - Requesting ledger data from historical ledgers, or providing that data.
 - Proposing a set of transactions for consensus, or sharing the calculated outcome of applying a consensus transaction set.
 
-To set up a peer-to-peer connection, one server connects to another using HTTPS and requests an [HTTP upgrade](https://tools.ietf.org/html/rfc7230#section-6.7) to switch to the `XRPL/2.0` protocol (formerly `RTXP/1.2`). (For more information, see the [Overlay Network](https://github.com/ripple/rippled/blob/96bbabbd2ece106779bb544aa0e4ce174e99fdf6/src/ripple/overlay/README.md#handshake) article in the [`rippled` repository](https://github.com/ripple/rippled).)
+To set up a peer-to-peer connection, one server connects to another using HTTPS and requests an [HTTP upgrade](https://tools.ietf.org/html/rfc7230#section-6.7) to switch to the <span class="code-snippet">XRPL/2.0</span> protocol (formerly <span class="code-snippet">RTXP/1.2</span>). (For more information, see the [Overlay Network](https://github.com/ripple/rippled/blob/96bbabbd2ece106779bb544aa0e4ce174e99fdf6/src/ripple/overlay/README.md#handshake) article in the [<span class="code-snippet">rippled</span> repository](https://github.com/ripple/rippled).)
 
 ## Peer Discovery
 
@@ -32,11 +32,11 @@ For certain high-value servers (such as important [validators](rippled-server-mo
 
 ## Peer Protocol Port
 
-To participate in the XRP Ledger, `rippled` servers connect to arbitrary peers using the peer protocol. (All peers are treated as untrusted, unless they are [clustered](clustering.html) with the current server.)
+To participate in the XRP Ledger, <span class="code-snippet">rippled</span> servers connect to arbitrary peers using the peer protocol. (All peers are treated as untrusted, unless they are [clustered](clustering.html) with the current server.)
 
-Ideally, the server should be able to send _and_ receive connections on the peer port. You should [forward the port used for the peer protocol through your firewall](forward-ports-for-peering.html) to the `rippled` server.
+Ideally, the server should be able to send _and_ receive connections on the peer port. You should [forward the port used for the peer protocol through your firewall](forward-ports-for-peering.html) to the <span class="code-snippet">rippled</span> server.
 
-IANA [has assigned port **2459**](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=2459) for the XRP Ledger peer protocol, but for compatibility with legacy systems, the [default `rippled` config file](https://github.com/ripple/rippled/blob/master/cfg/rippled-example.cfg) listens for incoming peer protocol connections on **port 51235** on all network interfaces. If you run a server, you can configure which port(s) your server listens on using the `rippled.cfg` file.
+IANA [has assigned port **2459**](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=2459) for the XRP Ledger peer protocol, but for compatibility with legacy systems, the [default <span class="code-snippet">rippled</span> config file](https://github.com/ripple/rippled/blob/master/cfg/rippled-example.cfg) listens for incoming peer protocol connections on **port 51235** on all network interfaces. If you run a server, you can configure which port(s) your server listens on using the <span class="code-snippet">rippled.cfg</span> file.
 
 Example:
 
@@ -53,19 +53,19 @@ The peer protocol port also serves [special peer port methods](peer-port-methods
 
 When a server first starts up, it generates a _node key pair_ to use to identify itself in peer protocol communications. The server uses its key to sign all its peer protocol communications. This makes it possible to reliably identify and verify the integrity of messages from another server in the peer-to-peer network even if that server's messages are being relayed by untrusted peers.
 
-The node key pair is saved in the database and reused when the server restarts. If you delete the server's databases, it creates a new node key pair, effectively coming online with a different identity. To reuse the same key pair even if the databases are deleted, you can configure the server with a `[node_seed]` stanza. To generate a value suitable for use in the `[node_seed]` stanza, use the [validation_create method][].
+The node key pair is saved in the database and reused when the server restarts. If you delete the server's databases, it creates a new node key pair, effectively coming online with a different identity. To reuse the same key pair even if the databases are deleted, you can configure the server with a <span class="code-snippet">[node_seed]</span> stanza. To generate a value suitable for use in the <span class="code-snippet">[node_seed]</span> stanza, use the [validation_create method][].
 
-The node key pair also identifies other servers for purposes of [clustering](clustering.html) or [reserving peer slots](#fixed-peers-and-peer-reservations). If you have a cluster of servers, you should configure each server in the cluster with a unique `[node_seed]` setting. For more information on setting up a cluster, see [Cluster `rippled` Servers](cluster-rippled-servers.html).
+The node key pair also identifies other servers for purposes of [clustering](clustering.html) or [reserving peer slots](#fixed-peers-and-peer-reservations). If you have a cluster of servers, you should configure each server in the cluster with a unique <span class="code-snippet">[node_seed]</span> setting. For more information on setting up a cluster, see [Cluster <span class="code-snippet">rippled</span> Servers](cluster-rippled-servers.html).
 
 
 ## Fixed Peers and Peer Reservations
 
-Normally, a `rippled` server attempts to maintain a healthy number of peers, and automatically connects to untrusted peers up to a maximum number. You can configure a `rippled` server to remain connected to specific peer servers in several ways:
+Normally, a <span class="code-snippet">rippled</span> server attempts to maintain a healthy number of peers, and automatically connects to untrusted peers up to a maximum number. You can configure a <span class="code-snippet">rippled</span> server to remain connected to specific peer servers in several ways:
 
-- Use **Fixed Peers** to remain always connected to specific other peers based on their IP addresses. This only works if the peers have fixed IP addresses. Use the `[ips_fixed]` config stanza to configure fixed peers. This is a necessary part of [clustering](clustering.html) or [private peers](#private-peers). Fixed peers are defined in the config file, so changes only apply after restarting the server. Fixed peers are most useful for keeping servers connected if those servers are run by the same person or organization.
+- Use **Fixed Peers** to remain always connected to specific other peers based on their IP addresses. This only works if the peers have fixed IP addresses. Use the <span class="code-snippet">[ips_fixed]</span> config stanza to configure fixed peers. This is a necessary part of [clustering](clustering.html) or [private peers](#private-peers). Fixed peers are defined in the config file, so changes only apply after restarting the server. Fixed peers are most useful for keeping servers connected if those servers are run by the same person or organization.
 - Use **Peer Reservations** to prioritize specific peers. If your server has a peer reservation for a specific peer, then your server always accepts connection requests from that peer even if your server is already at its maximum number of connected peers. (This can cause your server to go _over_ the maximum number of peers.) You identify a reserved peer by its [node key pair](#node-key-pair), so you can do this even for peers with variable IP addresses. Peer reservations are configured through admin commands and saved in the server databases, so they can be adjusted while the server is online and are saved across restarts. Peer reservations are most useful for connecting servers run by different people or organizations. [New in: rippled 1.4.0][] <!-- STYLE_OVERRIDE: prioritize -->
 
-In the following cases, a `rippled` server does not connect to untrusted peers:
+In the following cases, a <span class="code-snippet">rippled</span> server does not connect to untrusted peers:
 
 - If the server is configured as a [private peer](#private-peers), it connects _only_ to its fixed peers.
 - If the server is running in [stand-alone mode][] it does not connect to _any_ peers.
@@ -73,7 +73,7 @@ In the following cases, a `rippled` server does not connect to untrusted peers:
 
 ## Private Peers
 
-You can configure a `rippled` server to act as a "private" server to keep its IP address hidden from the general public. This can be a useful precaution against denial of service attacks and intrusion attempts on important `rippled` servers such as trusted validators. To participate in the peer-to-peer network, a private server must be configured to connect to at least one non-private server, which relays its messages to the rest of the network.
+You can configure a <span class="code-snippet">rippled</span> server to act as a "private" server to keep its IP address hidden from the general public. This can be a useful precaution against denial of service attacks and intrusion attempts on important <span class="code-snippet">rippled</span> servers such as trusted validators. To participate in the peer-to-peer network, a private server must be configured to connect to at least one non-private server, which relays its messages to the rest of the network.
 
 **Caution:** If you configure a private server without any [fixed peers](#fixed-peers-and-peer-reservations), the server cannot connect to the network, so it cannot know network state, broadcast transactions, or participate in the consensus process.
 
@@ -89,10 +89,10 @@ Configuring a server as a private server has several effects:
 
 ### Pros and Cons of Peering Configurations
 
-To be part of the XRP Ledger, a `rippled` server must be connected to the rest of the open peer-to-peer network. Roughly speaking, there are three categories of configurations for how a `rippled` server connects to the network:
+To be part of the XRP Ledger, a <span class="code-snippet">rippled</span> server must be connected to the rest of the open peer-to-peer network. Roughly speaking, there are three categories of configurations for how a <span class="code-snippet">rippled</span> server connects to the network:
 
 - Using **discovered peers**. The server connects to any untrusted servers it finds and stays connected as long as those servers behave appropriately. (For example, they don't request too much data, their network connections are stable, and they appear to be following the same [network](parallel-networks.html).) This is the default.
-- As a **private server using proxies** run by the same person or organization. The proxies are stock `rippled` servers (also connected to discovered peers) that maintain a fixed peering connection with the private server.
+- As a **private server using proxies** run by the same person or organization. The proxies are stock <span class="code-snippet">rippled</span> servers (also connected to discovered peers) that maintain a fixed peering connection with the private server.
 - As a **private server using public hubs**. This is similar to using proxies, but it relies on specific third parties.
 
 The pros and cons of each configuration are as follows:
@@ -110,7 +110,7 @@ The pros and cons of each configuration are as follows:
     <li><p>Lowers the possibility of disconnecting from the network because your server can replace disconnected peers with new ones.</p></li>
   </ul></td>
   <td><ul>
-    <li><p>Doesn't allow you to select your server's peers, which means that you have no idea whether your peers may decide to act maliciously. Although `rippled` servers are designed to protect against malicious peers, there is always a risk that malicious peers could exploit software flaws to affect your server.</p></li>
+    <li><p>Doesn't allow you to select your server's peers, which means that you have no idea whether your peers may decide to act maliciously. Although <span class="code-snippet">rippled</span> servers are designed to protect against malicious peers, there is always a risk that malicious peers could exploit software flaws to affect your server.</p></li>
     <li><p>Your server's peers may disconnect or change often.</p></li>
   </ul></td>
 </tr>
@@ -145,7 +145,7 @@ The pros and cons of each configuration are as follows:
 
 ### Configuring a Private Server
 
-To configure your server as a private server, set the `[peer_private]` setting to `1` in the config file. For detailed instructions, see [Configure a Private Server](configure-a-private-server.html).
+To configure your server as a private server, set the <span class="code-snippet">[peer_private]</span> setting to <span class="code-snippet">1</span> in the config file. For detailed instructions, see [Configure a Private Server](configure-a-private-server.html).
 
 
 ## See Also

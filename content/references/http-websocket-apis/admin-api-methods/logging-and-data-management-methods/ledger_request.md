@@ -8,9 +8,9 @@ labels:
 # ledger_request
 [[Source]](https://github.com/ripple/rippled/blob/e980e69eca9ea843d200773eb1f43abe3848f1a0/src/ripple/rpc/handlers/LedgerRequest.cpp "Source")
 
-The `ledger_request` command tells server to fetch a specific ledger version from its connected peers. This only works if one of the server's immediately-connected peers has that ledger. You may need to run the command several times to completely fetch a ledger.
+The <span class="code-snippet">ledger_request</span> command tells server to fetch a specific ledger version from its connected peers. This only works if one of the server's immediately-connected peers has that ledger. You may need to run the command several times to completely fetch a ledger.
 
-*The `ledger_request` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">ledger_request</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -39,16 +39,16 @@ The request includes the following parameters:
 
 | `Field`        | Type   | Description                                        |
 |:---------------|:-------|:---------------------------------------------------|
-| `ledger_index` | Number | _(Optional)_ Retrieve the specified ledger by its [Ledger Index][]. |
-| `ledger_hash`  | String | _(Optional)_ Retrieve the specified ledger by its identifying [Hash][]. |
+| <span class="code-snippet">ledger_index</span> | Number | _(Optional)_ Retrieve the specified ledger by its [Ledger Index][]. |
+| <span class="code-snippet">ledger_hash</span>  | String | _(Optional)_ Retrieve the specified ledger by its identifying [Hash][]. |
 
-You must provide either `ledger_index` or `ledger_hash` but not both.
+You must provide either <span class="code-snippet">ledger_index</span> or <span class="code-snippet">ledger_hash</span> but not both.
 
 ### Response Format
 
-The response follows the [standard format][]. However, the request returns a failure response if it does not have the specified ledger _even if it successfully instructed the `rippled` server to start retrieving the ledger_.
+The response follows the [standard format][]. However, the request returns a failure response if it does not have the specified ledger _even if it successfully instructed the <span class="code-snippet">rippled</span> server to start retrieving the ledger_.
 
-**Note:** To retrieve a ledger, the rippled server must have a direct peer with that ledger in its history. If none of the peers have the requested ledger, you can use the [connect method][] or the `fixed_ips` section of the config file to add Ripple's full-history server at `s2.ripple.com` and then make the `ledger_request` request again.
+**Note:** To retrieve a ledger, the rippled server must have a direct peer with that ledger in its history. If none of the peers have the requested ledger, you can use the [connect method][] or the <span class="code-snippet">fixed_ips</span> section of the config file to add Ripple's full-history server at <span class="code-snippet">s2.ripple.com</span> and then make the <span class="code-snippet">ledger_request</span> request again.
 
 A failure response indicates the status of fetching the ledger. A successful response contains the information for the ledger in a similar format to the [ledger method][].
 
@@ -162,31 +162,31 @@ Connecting to 127.0.0.1:5005
 
 The three possible response formats are as follows:
 
-1. When returning a `lgrNotFound` error, the response has a field, `acquiring` with a [Ledger Request Object](#ledger-request-object) indicating the progress of fetching the ledger from the peer-to-peer network.
+1. When returning a <span class="code-snippet">lgrNotFound</span> error, the response has a field, <span class="code-snippet">acquiring</span> with a [Ledger Request Object](#ledger-request-object) indicating the progress of fetching the ledger from the peer-to-peer network.
 2. When the response shows the server is currently fetching the ledger, the body of the result is a [Ledger Request Object](#ledger-request-object) indicating the progress of fetching the ledger from the peer-to-peer network.
 3. When the ledger is fully available, the response is a representation of the [ledger header](ledger-header.html).
 
 ### Ledger Request Object
 
-When the server is in the progress of fetching a ledger, but has not yet finished, the `rippled` server returns a ledger request object indicating its progress towards fetching the ledger. This object has the following fields:
+When the server is in the progress of fetching a ledger, but has not yet finished, the <span class="code-snippet">rippled</span> server returns a ledger request object indicating its progress towards fetching the ledger. This object has the following fields:
 
 | `Field`                     | Type             | Description                 |
 |:----------------------------|:-----------------|:----------------------------|
-| `hash`                      | String           | (May be omitted) The [Hash][] of the requested ledger, if the server knows it. |
-| `have_header`               | Boolean          | Whether the server has the header section of the requested ledger. |
-| `have_state`                | Boolean          | (May be omitted) Whether the server has the [account-state section](ledgers.html#tree-format) of the requested ledger. |
-| `have_transactions`         | Boolean          | (May be omitted) Whether the server has the transaction section of the requested ledger. |
-| `needed_state_hashes`       | Array of Strings | (May be omitted) Up to 16 hashes of objects in the [state tree](ledgers.html#tree-format) that the server still needs to retrieve. |
-| `needed_transaction_hashes` | Array of Strings | (May be omitted) Up to 16 hashes of objects in the transaction tree that the server still needs to retrieve. |
-| `peers`                     | Number           | How many peers the server is querying to find this ledger. |
-| `timeouts`                  | Number           | Number of times fetching this ledger has timed out so far. |
+| <span class="code-snippet">hash</span>                      | String           | (May be omitted) The [Hash][] of the requested ledger, if the server knows it. |
+| <span class="code-snippet">have_header</span>               | Boolean          | Whether the server has the header section of the requested ledger. |
+| <span class="code-snippet">have_state</span>                | Boolean          | (May be omitted) Whether the server has the [account-state section](ledgers.html#tree-format) of the requested ledger. |
+| <span class="code-snippet">have_transactions</span>         | Boolean          | (May be omitted) Whether the server has the transaction section of the requested ledger. |
+| <span class="code-snippet">needed_state_hashes</span>       | Array of Strings | (May be omitted) Up to 16 hashes of objects in the [state tree](ledgers.html#tree-format) that the server still needs to retrieve. |
+| <span class="code-snippet">needed_transaction_hashes</span> | Array of Strings | (May be omitted) Up to 16 hashes of objects in the transaction tree that the server still needs to retrieve. |
+| <span class="code-snippet">peers</span>                     | Number           | How many peers the server is querying to find this ledger. |
+| <span class="code-snippet">timeouts</span>                  | Number           | Number of times fetching this ledger has timed out so far. |
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing. This error can also occur if you specify a ledger index equal or higher than the current in-progress ledger.
-- `lgrNotFound` - If the ledger is not yet available. This indicates that the server has started fetching the ledger, although it may fail if none of its connected peers have the requested ledger. (Previously, this error used the code `ledgerNotFound` instead.) [Updated in: rippled 0.30.1][]
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing. This error can also occur if you specify a ledger index equal or higher than the current in-progress ledger.
+- <span class="code-snippet">lgrNotFound</span> - If the ledger is not yet available. This indicates that the server has started fetching the ledger, although it may fail if none of its connected peers have the requested ledger. (Previously, this error used the code <span class="code-snippet">ledgerNotFound</span> instead.) [Updated in: rippled 0.30.1][]
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

@@ -12,7 +12,7 @@ labels:
 
 ## 認可Minterの割り当て
 
-認可Minterを`AccountSet`トランザクションで設定します。
+認可Minterを<span class="code-snippet">AccountSet</span>トランザクションで設定します。
 
 ``` json
 tx_json = {
@@ -23,13 +23,13 @@ tx_json = {
 }
 ```
 
-`NFTokenMinter` 同じXRP Ledgerインスタンス上のアカウントのIDです。`asfAuthorizedNFTokenMinter`フラグは`NFTokenMinter`に指定するアカウントが`Account`の代理としてNFTをMintすることを許可します。
+<span class="code-snippet">NFTokenMinter</span> 同じXRP Ledgerインスタンス上のアカウントのIDです。<span class="code-snippet">asfAuthorizedNFTokenMinter</span>フラグは<span class="code-snippet">NFTokenMinter</span>に指定するアカウントが<span class="code-snippet">Account</span>の代理としてNFTをMintすることを許可します。
 
-*注記*: `asfAuthorizedNFTokenMinter`フラグは`AccountSet`トランザクションでのみ使用されます。これは、トランザクションがAccountRoot上のNFTokenMinterフィールドの存在または値に影響を与えるかどうかを示します。実際、AccountRootには対応するフラグはありません。
+*注記*: <span class="code-snippet">asfAuthorizedNFTokenMinter</span>フラグは<span class="code-snippet">AccountSet</span>トランザクションでのみ使用されます。これは、トランザクションがAccountRoot上のNFTokenMinterフィールドの存在または値に影響を与えるかどうかを示します。実際、AccountRootには対応するフラグはありません。
 
 ## 認可Minterの割り当て解除
 
-認可Minterを削除するには、`AccountSet`トランザクションを使用して、`asfAuthorizedNFTokenMinter`フラグをクリアしてください。
+認可Minterを削除するには、<span class="code-snippet">AccountSet</span>トランザクションを使用して、<span class="code-snippet">asfAuthorizedNFTokenMinter</span>フラグをクリアしてください。
 
 ``` json
 tx_json = {
@@ -41,7 +41,7 @@ tx_json = {
 
 ## 他のアカウントのNFTをMintする
 
-標準的な `NFTokenMint` トランザクションを使用して、別のアカウントのNFTをMintすることができます。違いは、`Issuer`フィールド、つまりNFTをMintするアカウントのIDを含める必要があることです。
+標準的な <span class="code-snippet">NFTokenMint</span> トランザクションを使用して、別のアカウントのNFTをMintすることができます。違いは、<span class="code-snippet">Issuer</span>フィールド、つまりNFTをMintするアカウントのIDを含める必要があることです。
 
 ```json
 const transactionBlob = {
@@ -55,5 +55,5 @@ const transactionBlob = {
 }
 ```
 
-NFTの所有者がNFTを売却した場合、取引手数料（売却額に対する割合）が`Issuer`に指定したアカウントに送金されまれます。
+NFTの所有者がNFTを売却した場合、取引手数料（売却額に対する割合）が<span class="code-snippet">Issuer</span>に指定したアカウントに送金されまれます。
 

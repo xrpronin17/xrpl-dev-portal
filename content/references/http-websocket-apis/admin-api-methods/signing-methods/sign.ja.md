@@ -8,12 +8,12 @@ labels:
 # sign
 [[ソース]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/SignHandler.cpp "ソース")
 
-`sign`メソッドは[JSONフォーマットのトランザクション](transaction-formats.html)と[シード値](cryptographic-keys.html)を受け取り、トランザクションの署名済みバイナリー表現を返します。[マルチシグトランザクション](multi-signing.html)に署名を付与する場合は、代わりに[sign_forメソッド][]を使用します。
+<span class="code-snippet">sign</span>メソッドは[JSONフォーマットのトランザクション](transaction-formats.html)と[シード値](cryptographic-keys.html)を受け取り、トランザクションの署名済みバイナリー表現を返します。[マルチシグトランザクション](multi-signing.html)に署名を付与する場合は、代わりに[sign_forメソッド][]を使用します。
 
 {% include '_snippets/public-signing-note.md' %}
 <!--_ -->
 
-**注意:** 独自の`rippled`サーバーを運用している場合を除き、このコマンドを使用するのではなく、[クライアントライブラリ](client-libraries.html)を実行してください。詳細については[安全な署名の設定](set-up-secure-signing.html)を参照してください。 
+**注意:** 独自の<span class="code-snippet">rippled</span>サーバーを運用している場合を除き、このコマンドを使用するのではなく、[クライアントライブラリ](client-libraries.html)を実行してください。詳細については[安全な署名の設定](set-up-secure-signing.html)を参照してください。 
 
 ## 要求フォーマット
 要求フォーマットの例:
@@ -78,35 +78,35 @@ rippled sign s██████████████████████
 
 トランザクションに署名するには、[トランザクションを承認](transaction-basics.html#トランザクションの承認)できるシークレットキーを提供する必要があります。通常、サーバーが秘密鍵を取得するシード値を提供します。これを行うには、以下の方法があります。
 
-* `secret`フィールドにシードを指定し、`key_type`フィールドを省略します。この値は、XRP Ledgerの[base58][]シード、RFC-1751、16進値のフォーマットで記述するか、文字列パスフレーズとして記述します（secp256k1キーのみ）。
-* `key_type`値と、`seed`、`seed_hex`、または`passphrase`のいずれか1つを提供します。`secret`フィールドは省略します。（コマンドライン構文ではサポートされません）。
+* <span class="code-snippet">secret</span>フィールドにシードを指定し、<span class="code-snippet">key_type</span>フィールドを省略します。この値は、XRP Ledgerの[base58][]シード、RFC-1751、16進値のフォーマットで記述するか、文字列パスフレーズとして記述します（secp256k1キーのみ）。
+* <span class="code-snippet">key_type</span>値と、<span class="code-snippet">seed</span>、<span class="code-snippet">seed_hex</span>、または<span class="code-snippet">passphrase</span>のいずれか1つを提供します。<span class="code-snippet">secret</span>フィールドは省略します。（コマンドライン構文ではサポートされません）。
 
 要求には以下のパラメーターが含まれます。
 
 | `Field`        | 型      | 説明                                              |
 |:---------------|:--------|:--------------------------------------------------|
-| `tx_json` | オブジェクト | JSONフォーマットの[トランザクション定義](transaction-formats.html) |
-| `secret` | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。トランザクションへの署名に使用されます。信頼できないサーバーに対して、またはセキュリティが確保されていないネットワーク接続を通じて機密情報を送信しないでください。`key_type`、`seed`、`seed_hex`、`passphrase`と同時に使用することはできません。 |
-| `seed` | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。トランザクションへの署名に使用されます。XRP Ledgerの[base58][]フォーマットにする必要があります。指定する場合は、`key_type`も指定する必要があります。`secret`、`seed_hex`、`passphrase`と同時に使用することはできません。 |
-| `seed_hex` | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。トランザクションへの署名に使用されます。16進フォーマットにする必要があります。指定する場合は、`key_type`も指定する必要があります。`secret`、`seed`、`passphrase`と同時に使用することはできません。 |
-| `passphrase` | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。文字列パスフレーズとして、トランザクションへの署名に使用されます。指定する場合は、`key_type`も指定する必要があります。`secret`、`seed`、`seed_hex`と同時に使用することはできません。 |
-| `key_type` | 文字列 | _（省略可）_ 指定された暗号化キーペアの[署名アルゴリズム](cryptographic-keys.html#署名アルゴリズム)。有効な種類は、`secp256k1`または`ed25519`です。デフォルトは`secp256k1`です。`secret`と同時に使用することはできません。 |
-| `offline` | ブール値 | _（省略可）_ `true`の場合は、トランザクションの生成時に、トランザクションの詳細を[自動入力](#自動入力可能なフィールド)しないでください。デフォルトは`false`です。 |
-| `build_path` | ブール値 | _（省略可）_ Payment型のトランザクションに対して指定した場合、署名前に`Paths`フィールドが自動で入力されます。**注意:** サーバーは、このフィールドの値ではなく、このフィールドが存在するかどうかを調べます。この動作は変更される可能性があります。 |
-| `fee_mult_max` | 整数 | _（省略可）_[自動的に提供される`Fee`フィールド](transaction-common-fields.html#自動入力可能なフィールド)の上限値を設定します。現在の[トランザクションコストの負荷の乗数](transaction-cost.html#ローカル負荷コスト)が（`fee_mult_max` ÷ `fee_div_max`）よりも大きい場合、署名は`rpcHIGH_FEE`エラーで失敗します。トランザクションの`Fee`フィールド（[トランザクションコスト](transaction-cost.html)）を指定した場合は無視されます。デフォルトは`10`です。 |
-| `fee_div_max` | 整数 | _（省略可）_ 現在の[トランザクションコストの負荷の乗数](transaction-cost.html#ローカル負荷コスト)が（`fee_mult_max` ÷ `fee_div_max`）よりも大きい場合、署名は`rpcHIGH_FEE`エラーで失敗します。トランザクションの`Fee`フィールド（[トランザクションコスト](transaction-cost.html)）を指定した場合は無視されます。デフォルトは`1`です。[新規: rippled 0.30.1][] |
+| <span class="code-snippet">tx_json</span> | オブジェクト | JSONフォーマットの[トランザクション定義](transaction-formats.html) |
+| <span class="code-snippet">secret</span> | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。トランザクションへの署名に使用されます。信頼できないサーバーに対して、またはセキュリティが確保されていないネットワーク接続を通じて機密情報を送信しないでください。<span class="code-snippet">key_type</span>、<span class="code-snippet">seed</span>、<span class="code-snippet">seed_hex</span>、<span class="code-snippet">passphrase</span>と同時に使用することはできません。 |
+| <span class="code-snippet">seed</span> | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。トランザクションへの署名に使用されます。XRP Ledgerの[base58][]フォーマットにする必要があります。指定する場合は、<span class="code-snippet">key_type</span>も指定する必要があります。<span class="code-snippet">secret</span>、<span class="code-snippet">seed_hex</span>、<span class="code-snippet">passphrase</span>と同時に使用することはできません。 |
+| <span class="code-snippet">seed_hex</span> | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。トランザクションへの署名に使用されます。16進フォーマットにする必要があります。指定する場合は、<span class="code-snippet">key_type</span>も指定する必要があります。<span class="code-snippet">secret</span>、<span class="code-snippet">seed</span>、<span class="code-snippet">passphrase</span>と同時に使用することはできません。 |
+| <span class="code-snippet">passphrase</span> | 文字列 | _（省略可）_ トランザクションを提供するアカウントの秘密シード。文字列パスフレーズとして、トランザクションへの署名に使用されます。指定する場合は、<span class="code-snippet">key_type</span>も指定する必要があります。<span class="code-snippet">secret</span>、<span class="code-snippet">seed</span>、<span class="code-snippet">seed_hex</span>と同時に使用することはできません。 |
+| <span class="code-snippet">key_type</span> | 文字列 | _（省略可）_ 指定された暗号化キーペアの[署名アルゴリズム](cryptographic-keys.html#署名アルゴリズム)。有効な種類は、<span class="code-snippet">secp256k1</span>または<span class="code-snippet">ed25519</span>です。デフォルトは<span class="code-snippet">secp256k1</span>です。<span class="code-snippet">secret</span>と同時に使用することはできません。 |
+| <span class="code-snippet">offline</span> | ブール値 | _（省略可）_ <span class="code-snippet">true</span>の場合は、トランザクションの生成時に、トランザクションの詳細を[自動入力](#自動入力可能なフィールド)しないでください。デフォルトは<span class="code-snippet">false</span>です。 |
+| <span class="code-snippet">build_path</span> | ブール値 | _（省略可）_ Payment型のトランザクションに対して指定した場合、署名前に<span class="code-snippet">Paths</span>フィールドが自動で入力されます。**注意:** サーバーは、このフィールドの値ではなく、このフィールドが存在するかどうかを調べます。この動作は変更される可能性があります。 |
+| <span class="code-snippet">fee_mult_max</span> | 整数 | _（省略可）_[自動的に提供される<span class="code-snippet">Fee</span>フィールド](transaction-common-fields.html#自動入力可能なフィールド)の上限値を設定します。現在の[トランザクションコストの負荷の乗数](transaction-cost.html#ローカル負荷コスト)が（<span class="code-snippet">fee_mult_max</span> ÷ <span class="code-snippet">fee_div_max</span>）よりも大きい場合、署名は<span class="code-snippet">rpcHIGH_FEE</span>エラーで失敗します。トランザクションの<span class="code-snippet">Fee</span>フィールド（[トランザクションコスト](transaction-cost.html)）を指定した場合は無視されます。デフォルトは<span class="code-snippet">10</span>です。 |
+| <span class="code-snippet">fee_div_max</span> | 整数 | _（省略可）_ 現在の[トランザクションコストの負荷の乗数](transaction-cost.html#ローカル負荷コスト)が（<span class="code-snippet">fee_mult_max</span> ÷ <span class="code-snippet">fee_div_max</span>）よりも大きい場合、署名は<span class="code-snippet">rpcHIGH_FEE</span>エラーで失敗します。トランザクションの<span class="code-snippet">Fee</span>フィールド（[トランザクションコスト](transaction-cost.html)）を指定した場合は無視されます。デフォルトは<span class="code-snippet">1</span>です。[新規: rippled 0.30.1][] |
 
 ### 自動入力可能なフィールド
 
-`tx_json`（[トランザクションオブジェクト](transaction-formats.html)）の特定のフィールドを省略すると、サーバーは自動的に入力しようとします。要求の`offline`を`true`と指定しない限り、サーバーは署名前に以下のフィールドを提供します。
+<span class="code-snippet">tx_json</span>（[トランザクションオブジェクト](transaction-formats.html)）の特定のフィールドを省略すると、サーバーは自動的に入力しようとします。要求の<span class="code-snippet">offline</span>を<span class="code-snippet">true</span>と指定しない限り、サーバーは署名前に以下のフィールドを提供します。
 
-* `Sequence` - サーバーは、送信者のアカウント情報にある次のシーケンス番号を自動的に使用します。
+* <span class="code-snippet">Sequence</span> - サーバーは、送信者のアカウント情報にある次のシーケンス番号を自動的に使用します。
   * **注意:** アカウントの次のシーケンス番号は、このトランザクションが適用されるまで増分されません。トランザクションの送信および個々のトランザクションへの応答を待たずに複数のトランザクションに署名する場合は、最初のトランザクション以降の各トランザクションについて、正しいシーケンス番号を手動で提供する必要があります。
-* `Fee` - `Fee`パラメーターを省略した場合、サーバーは適切なトランザクションコストを自動的に入力しようとします。本番環境のXRP Ledgerでは、適切な`fee_mult_max`値を提供しない限り、この処理は`rpcHIGH_FEE`エラーで失敗します。
-  * `fee_mult_max`パラメーターと`fee_div_max`パラメーターは、[リファレンストランザクションコスト](transaction-cost.html#referenceトランザクションコスト)に適用される負荷スケーリング乗数によって、自動的に提供されるトランザクションコストの上限値を設定します。デフォルト設定では、自動的に提供される値が10×の乗数より大きい場合、エラーが返されます。ただし、本番環境のXRP Ledgerでは、[1000×の負荷乗数を使用することが一般的](transaction-cost.html#現在のトランザクションコスト)です。
-  * コマンドライン構文では、`fee_mult_max`および`fee_div_max`はサポートされません。本番環境のXRP Ledgerの場合は、`Fee`値を提供する必要があります。
-  * **注意:** 悪意のあるサーバーは、`fee_mult_max`や`fee_div_max`の値を無視して、きわめて大きなトランザクションコストを指定するおそれがあります。
-* `Paths` - Payment型のトランザクションの場合（XRP間の移動を除く）、Pathsフィールドは、[ripple_path_findメソッド][]を使用した場合と同様に自動的に入力できます。`build_path`を指定した場合のみ入力されます。
+* <span class="code-snippet">Fee</span> - <span class="code-snippet">Fee</span>パラメーターを省略した場合、サーバーは適切なトランザクションコストを自動的に入力しようとします。本番環境のXRP Ledgerでは、適切な<span class="code-snippet">fee_mult_max</span>値を提供しない限り、この処理は<span class="code-snippet">rpcHIGH_FEE</span>エラーで失敗します。
+  * <span class="code-snippet">fee_mult_max</span>パラメーターと<span class="code-snippet">fee_div_max</span>パラメーターは、[リファレンストランザクションコスト](transaction-cost.html#referenceトランザクションコスト)に適用される負荷スケーリング乗数によって、自動的に提供されるトランザクションコストの上限値を設定します。デフォルト設定では、自動的に提供される値が10×の乗数より大きい場合、エラーが返されます。ただし、本番環境のXRP Ledgerでは、[1000×の負荷乗数を使用することが一般的](transaction-cost.html#現在のトランザクションコスト)です。
+  * コマンドライン構文では、<span class="code-snippet">fee_mult_max</span>および<span class="code-snippet">fee_div_max</span>はサポートされません。本番環境のXRP Ledgerの場合は、<span class="code-snippet">Fee</span>値を提供する必要があります。
+  * **注意:** 悪意のあるサーバーは、<span class="code-snippet">fee_mult_max</span>や<span class="code-snippet">fee_div_max</span>の値を無視して、きわめて大きなトランザクションコストを指定するおそれがあります。
+* <span class="code-snippet">Paths</span> - Payment型のトランザクションの場合（XRP間の移動を除く）、Pathsフィールドは、[ripple_path_findメソッド][]を使用した場合と同様に自動的に入力できます。<span class="code-snippet">build_path</span>を指定した場合のみ入力されます。
 
 ## 応答フォーマット
 
@@ -208,8 +208,8 @@ Connecting to 127.0.0.1:5005
 
 | `Field`   | 型     | 説明                                                    |
 |:----------|:-------|:--------------------------------------------------------|
-| `tx_blob` | 文字列 | 正しく作成された署名済みトランザクションの16進バイナリー表現 |
-| `tx_json` | オブジェクト | 自動的に入力されたフィールドを含む、署名済み[トランザクション全体](transaction-formats.html)のJSON仕様 |
+| <span class="code-snippet">tx_blob</span> | 文字列 | 正しく作成された署名済みトランザクションの16進バイナリー表現 |
+| <span class="code-snippet">tx_json</span> | オブジェクト | 自動的に入力されたフィールドを含む、署名済み[トランザクション全体](transaction-formats.html)のJSON仕様 |
 
 **注意:** このコマンドの結果としてエラーメッセージが表示された場合は、要求で指定されたシークレット値がメッセージの中に含まれている可能性があります。これらのエラーが他者から見えない状態であることを確認してください。
 
@@ -220,10 +220,10 @@ Connecting to 127.0.0.1:5005
 ## 考えられるエラー
 
 * いずれかの[汎用エラータイプ][]。
-* `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
-* `highFee` - トランザクションコストに適用される現在の負荷乗数が、自動的に提供されるトランザクションコストの上限を超えています。要求で指定する`fee_mult_max`を大きくするか（1000以上）、`tx_json`の`Fee`フィールドに値を手動で指定します。
-* `tooBusy` - トランザクションにパスが含まれていませんが、サーバーがビジーであるため、パス検出処理をすぐに実行できません。管理者として接続している場合は発生しません。
-* `noPath` - トランザクションにパスが含まれておらず、サーバーは、このペイメントの発生経路となるパスを検出できませんでした。
+* <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+* <span class="code-snippet">highFee</span> - トランザクションコストに適用される現在の負荷乗数が、自動的に提供されるトランザクションコストの上限を超えています。要求で指定する<span class="code-snippet">fee_mult_max</span>を大きくするか（1000以上）、<span class="code-snippet">tx_json</span>の<span class="code-snippet">Fee</span>フィールドに値を手動で指定します。
+* <span class="code-snippet">tooBusy</span> - トランザクションにパスが含まれていませんが、サーバーがビジーであるため、パス検出処理をすぐに実行できません。管理者として接続している場合は発生しません。
+* <span class="code-snippet">noPath</span> - トランザクションにパスが含まれておらず、サーバーは、このペイメントの発生経路となるパスを検出できませんでした。
 
 
 {% include '_snippets/rippled_versions.md' %}

@@ -24,9 +24,9 @@ TestnetとDevnetはそれぞれ独自にテスト用XRPを提供しています�
 
 ## 並列ネットワークとコンセンサス
 
-使用するネットワークを定義する`rippled`の設定はありません。その代わり、信頼するバリデータのコンセンサスに基づいてどのレジャーを正しいレジャーとして受け入れるかを把握します。`rippled`インスタンスからなる異なるコンセンサスグループが、同じグループの他のメンバーだけを信頼する場合、各グループは引き続き並列ネットワークとして機能します。悪意のあるコンピューターや不適切に動作するコンピューターが両方のネットワークに接続している場合でも、各ネットワークのメンバーが、定数設定を超えて別のネットワークのメンバーを信頼するように設定されていない限り、コンセンサスプロセスに混乱は生じません。
+使用するネットワークを定義する<span class="code-snippet">rippled</span>の設定はありません。その代わり、信頼するバリデータのコンセンサスに基づいてどのレジャーを正しいレジャーとして受け入れるかを把握します。<span class="code-snippet">rippled</span>インスタンスからなる異なるコンセンサスグループが、同じグループの他のメンバーだけを信頼する場合、各グループは引き続き並列ネットワークとして機能します。悪意のあるコンピューターや不適切に動作するコンピューターが両方のネットワークに接続している場合でも、各ネットワークのメンバーが、定数設定を超えて別のネットワークのメンバーを信頼するように設定されていない限り、コンセンサスプロセスに混乱は生じません。
 
-Rippleでは、TestnetとDevnetでメインサーバーを運用しています。[独自の`rippled`サーバーをTestnetに接続](connect-your-rippled-to-the-xrp-test-net.html)していただくことも可能です。TestnetとDevnetでは、多様で検閲耐性のあるバリデータのセットが使用されていません。そのため、RippleはTestnetやDevnetを定期的にリセットできます。
+Rippleでは、TestnetとDevnetでメインサーバーを運用しています。[独自の<span class="code-snippet">rippled</span>サーバーをTestnetに接続](connect-your-rippled-to-the-xrp-test-net.html)していただくことも可能です。TestnetとDevnetでは、多様で検閲耐性のあるバリデータのセットが使用されていません。そのため、RippleはTestnetやDevnetを定期的にリセットできます。
 
 
 ## 関連項目
@@ -37,7 +37,7 @@ Rippleでは、TestnetとDevnetでメインサーバーを運用しています�
   - [コンセンサスについて](intro-to-consensus.html)
   - [Amendment](amendments.html)
 - **チュートリアル:**
-  - [XRP Testnetへの`rippled`の接続](connect-your-rippled-to-the-xrp-test-net.html)
+  - [XRP Testnetへの<span class="code-snippet">rippled</span>の接続](connect-your-rippled-to-the-xrp-test-net.html)
   - [スタンドアロンモードでのrippledの使用](use-stand-alone-mode.html)
 - **リファレンス:**
   - [Server_infoメソッド][]

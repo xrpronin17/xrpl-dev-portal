@@ -52,22 +52,22 @@ rippled account_info r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59 validated strict
 
 ## WebSocket Format  
 
-After you open a WebSocket to the `rippled` server, you can send commands as a [JSON](https://en.wikipedia.org/wiki/JSON) object with the following fields:
+After you open a WebSocket to the <span class="code-snippet">rippled</span> server, you can send commands as a [JSON](https://en.wikipedia.org/wiki/JSON) object with the following fields:
 
 | Field               | Type      | Description                                |
 |:--------------------|:----------|:-------------------------------------------|
-| `command`           | String    | The name of the [API method](public-api-methods.html). |
-| `id`                | (Various) | _(Optional)_ A unique value to identify this request. The response to this request uses the same `id` field. This way, even if responses arrive out of order, you know which request prompted which response. |
-| `api_version`       | Number    | _(Optional)_ The API version to use. If omitted, use version 1. For details, see [API Versioning](#api-versioning). [New in: rippled 1.5.0][] |
+| <span class="code-snippet">command</span>           | String    | The name of the [API method](public-api-methods.html). |
+| <span class="code-snippet">id</span>                | (Various) | _(Optional)_ A unique value to identify this request. The response to this request uses the same <span class="code-snippet">id</span> field. This way, even if responses arrive out of order, you know which request prompted which response. |
+| <span class="code-snippet">api_version</span>       | Number    | _(Optional)_ The API version to use. If omitted, use version 1. For details, see [API Versioning](#api-versioning). [New in: rippled 1.5.0][] |
 | (Method Parameters) | (Various) | Provide any parameters to the method at the top level. |
 
 See [Response Formatting](response-formatting.html) for the response from the server.
 
 ## JSON-RPC Format
 
-To make a JSON-RPC request, send an HTTP **POST** request to the root path (`/`) on the port and IP where the `rippled` server is listening for JSON-RPC connections. You can use HTTP/1.0 or HTTP/1.1. If you use HTTPS, you should use TLS version 1.2. For security reasons, `rippled` _does not support_ SSL version 3 or earlier.
+To make a JSON-RPC request, send an HTTP **POST** request to the root path (<span class="code-snippet">/</span>) on the port and IP where the <span class="code-snippet">rippled</span> server is listening for JSON-RPC connections. You can use HTTP/1.0 or HTTP/1.1. If you use HTTPS, you should use TLS version 1.2. For security reasons, <span class="code-snippet">rippled</span> _does not support_ SSL version 3 or earlier.
 
-Always include a `Content-Type` header with the value `application/json`.
+Always include a <span class="code-snippet">Content-Type</span> header with the value <span class="code-snippet">application/json</span>.
 
 If you plan on making multiple requests, use [Keep-Alives](http://tools.ietf.org/html/rfc7230#section-6.3) so that you do not have to close and re-open the connection in between requests. <!-- SPELLING_IGNORE: alives -->
 
@@ -76,14 +76,14 @@ Send request body as a [JSON](https://en.wikipedia.org/wiki/JSON) object with th
 
 | Field               | Type      | Description                                |
 |:--------------------|:----------|:-------------------------------------------|
-| `method`            | String    | The name of the [API method](public-api-methods.html). |
-| `params`            | Array     | _(Optional)_ A **one-item array** containing a nested JSON object with the parameters to this method. You may omit this field if the method does not require any parameters. |
+| <span class="code-snippet">method</span>            | String    | The name of the [API method](public-api-methods.html). |
+| <span class="code-snippet">params</span>            | Array     | _(Optional)_ A **one-item array** containing a nested JSON object with the parameters to this method. You may omit this field if the method does not require any parameters. |
 
-The object inside the `params` array can contain the following fields:
+The object inside the <span class="code-snippet">params</span> array can contain the following fields:
 
 | Field               | Type      | Description                                |
 |:--------------------|:----------|:-------------------------------------------|
-| `api_version`       | Number    | _(Optional)_ The API version to use. If omitted, use version 1. For details, see [API Versioning](#api-versioning). [New in: rippled 1.5.0][] |
+| <span class="code-snippet">api_version</span>       | Number    | _(Optional)_ The API version to use. If omitted, use version 1. For details, see [API Versioning](#api-versioning). [New in: rippled 1.5.0][] |
 | (Method Parameters) | (Various) | Provide any parameters to the method here. |
 
 See [Response Formatting](response-formatting.html) for the response from the server.
@@ -96,13 +96,13 @@ The commandline calls JSON-RPC, so its responses always match the JSON-RPC [resp
 
 The commandline always uses the latest [API version](#api-versioning).
 
-**Caution:** The commandline interface is intended for administrative purposes only and is _not a supported API_. New versions of `rippled` may introduce breaking changes to the commandline API without warning!
+**Caution:** The commandline interface is intended for administrative purposes only and is _not a supported API_. New versions of <span class="code-snippet">rippled</span> may introduce breaking changes to the commandline API without warning!
 
 ## API Versioning
 
-The `rippled` server uses a single integer to identify the API version to use. The first API version is `1`; currently, this is the only version of the `rippled` API. (There is no API version 0.) [New in: rippled 1.5.0][]
+The <span class="code-snippet">rippled</span> server uses a single integer to identify the API version to use. The first API version is <span class="code-snippet">1</span>; currently, this is the only version of the <span class="code-snippet">rippled</span> API. (There is no API version 0.) [New in: rippled 1.5.0][]
 
-Future versions of `rippled` that introduce breaking changes will introduce a new API version number, such as `2`. The server will support a range of API versions, which it reports in the `version` API method. <!-- STYLE_OVERRIDE: will --> <!-- TODO: add a link when `version` method is documented. --> <!-- Uncomment when multiple API versions exist: Separate API requests can use different API versions even on the same persistent connection. For example, if you connect WebSocket to a server that supports API versions 1 and 2, you can make a server_info request using API version 2 and then make another server_info request using API version 1 from the same connection. -->
+Future versions of <span class="code-snippet">rippled</span> that introduce breaking changes will introduce a new API version number, such as <span class="code-snippet">2</span>. The server will support a range of API versions, which it reports in the <span class="code-snippet">version</span> API method. <!-- STYLE_OVERRIDE: will --> <!-- TODO: add a link when `version` method is documented. --> <!-- Uncomment when multiple API versions exist: Separate API requests can use different API versions even on the same persistent connection. For example, if you connect WebSocket to a server that supports API versions 1 and 2, you can make a server_info request using API version 2 and then make another server_info request using API version 1 from the same connection. -->
 
 ### Breaking Changes
 
@@ -115,11 +115,11 @@ The following types of changes are **breaking changes**:
 - Removing or renaming an API method.
 - Changing the behavior of an API function visible to existing clients.
 - The following types of breaking changes only apply to the gRPC API:
-    - Changing a `proto` field number.
+    - Changing a <span class="code-snippet">proto</span> field number.
     - Removing or renaming an enum or enum value.
-    - Adding or removing fields from a `oneof`.
-    - Splitting or merging a `oneof`.
-    - Changing whether a message field is `optional`, `repeated`, or `required`.
+    - Adding or removing fields from a <span class="code-snippet">oneof</span>.
+    - Splitting or merging a <span class="code-snippet">oneof</span>.
+    - Changing whether a message field is <span class="code-snippet">optional</span>, <span class="code-snippet">repeated</span>, or <span class="code-snippet">required</span>.
     - Changing the stream value of a request or response.
     - Deleting or renaming a package or service.
 

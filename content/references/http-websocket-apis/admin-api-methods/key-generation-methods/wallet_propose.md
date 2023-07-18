@@ -9,9 +9,9 @@ labels:
 # wallet_propose
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/WalletPropose.cpp "Source")
 
-Use the `wallet_propose` method to generate a key pair and XRP Ledger address. This command only generates key and address values, and does not affect the XRP Ledger itself in any way. To become a funded address stored in the ledger, the address must [receive a Payment transaction](accounts.html#creating-accounts) that provides enough XRP to meet the [reserve requirement](reserves.html).
+Use the <span class="code-snippet">wallet_propose</span> method to generate a key pair and XRP Ledger address. This command only generates key and address values, and does not affect the XRP Ledger itself in any way. To become a funded address stored in the ledger, the address must [receive a Payment transaction](accounts.html#creating-accounts) that provides enough XRP to meet the [reserve requirement](reserves.html).
 
-*The `wallet_propose` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!* (This command is restricted to protect against people sniffing network traffic for account secrets, since admin commands are not usually transmitted over the outside network.)
+*The <span class="code-snippet">wallet_propose</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!* (This command is restricted to protect against people sniffing network traffic for account secrets, since admin commands are not usually transmitted over the outside network.)
 
 [Updated in: rippled 0.31.0][]
 
@@ -80,12 +80,12 @@ The request can contain the following parameters:
 
 | `Field`      | Type   | Description                                          |
 |:-------------|:-------|:-----------------------------------------------------|
-| `key_type`   | String |Which [signing algorithm](cryptographic-keys.html#signing-algorithms) to use to derive this key pair. Valid values are `ed25519` and `secp256k1` (all lower case). The default is `secp256k1`. |
-| `passphrase` | String | _(Optional)_ Generate a key pair and address from this seed value. This value can be formatted in [hexadecimal][], the XRP Ledger's [base58][] format, [RFC-1751][], or as an arbitrary string. Cannot be used with `seed` or `seed_hex`. |
-| `seed`       | String | _(Optional)_ Generate the key pair and address from this seed value in the XRP Ledger's [base58][]-encoded format. Cannot be used with `passphrase` or `seed_hex`. |
-| `seed_hex`   | String | _(Optional)_ Generate the key pair and address from this seed value in [hexadecimal][] format. Cannot be used with `passphrase` or `seed`. |
+| <span class="code-snippet">key_type</span>   | String |Which [signing algorithm](cryptographic-keys.html#signing-algorithms) to use to derive this key pair. Valid values are <span class="code-snippet">ed25519</span> and <span class="code-snippet">secp256k1</span> (all lower case). The default is <span class="code-snippet">secp256k1</span>. |
+| <span class="code-snippet">passphrase</span> | String | _(Optional)_ Generate a key pair and address from this seed value. This value can be formatted in [hexadecimal][], the XRP Ledger's [base58][] format, [RFC-1751][], or as an arbitrary string. Cannot be used with <span class="code-snippet">seed</span> or <span class="code-snippet">seed_hex</span>. |
+| <span class="code-snippet">seed</span>       | String | _(Optional)_ Generate the key pair and address from this seed value in the XRP Ledger's [base58][]-encoded format. Cannot be used with <span class="code-snippet">passphrase</span> or <span class="code-snippet">seed_hex</span>. |
+| <span class="code-snippet">seed_hex</span>   | String | _(Optional)_ Generate the key pair and address from this seed value in [hexadecimal][] format. Cannot be used with <span class="code-snippet">passphrase</span> or <span class="code-snippet">seed</span>. |
 
-You must provide **at most one** of the following fields: `passphrase`, `seed`, or `seed_hex`. If you omit all three, `rippled` uses a random seed.
+You must provide **at most one** of the following fields: <span class="code-snippet">passphrase</span>, <span class="code-snippet">seed</span>, or <span class="code-snippet">seed_hex</span>. If you omit all three, <span class="code-snippet">rippled</span> uses a random seed.
 
 **Note:** The commandline version of this command cannot generate [Ed25519](https://ed25519.cr.yp.to/) keys.
 
@@ -96,14 +96,14 @@ For most cases, you should use a seed value generated from a strong source of ra
 Cases where you would specify a known seed include:
 
 * Re-calculating your address when you only know the seed associated with that address
-* Testing `rippled` functionality
+* Testing <span class="code-snippet">rippled</span> functionality
 
 If you do specify a seed, you can specify it in any of the following formats:
 
-* As a secret key string in the XRP Ledger's [base58][] format. Example: `snoPBrXtMeMyMHUVTgbuqAfg1SUTb`.
-* As an [RFC-1751][] format string (secp256k1 key pairs only). Example: `I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE`.
-* As a 128-bit [hexadecimal][] string. Example: `DEDCE9CE67B451D852FD4E846FCDE31C`.
-* An arbitrary string to use as a seed value. For example: `masterpassphrase`.
+* As a secret key string in the XRP Ledger's [base58][] format. Example: <span class="code-snippet">snoPBrXtMeMyMHUVTgbuqAfg1SUTb</span>.
+* As an [RFC-1751][] format string (secp256k1 key pairs only). Example: <span class="code-snippet">I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE</span>.
+* As a 128-bit [hexadecimal][] string. Example: <span class="code-snippet">DEDCE9CE67B451D852FD4E846FCDE31C</span>.
+* An arbitrary string to use as a seed value. For example: <span class="code-snippet">masterpassphrase</span>.
 
 [RFC-1751]: https://tools.ietf.org/html/rfc1751
 [hexadecimal]: https://en.wikipedia.org/wiki/Hexadecimal

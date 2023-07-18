@@ -9,9 +9,9 @@ labels:
 # consensus_info
 [[ソース]](https://github.com/ripple/rippled/blob/a61ffab3f9010d8accfaa98aa3cacc7d38e74121/src/ripple/rpc/handlers/ConsensusInfo.cpp "Source")
 
-`consensus_info`メソッドは、デバッグのための[コンセンサスプロセス](consensus.html)に関する情報を返します。
+<span class="code-snippet">consensus_info</span>メソッドは、デバッグのための[コンセンサスプロセス](consensus.html)に関する情報を返します。
 
-_`consensus_info`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">consensus_info</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -214,22 +214,22 @@ Connecting to 127.0.0.1:5005
 
 | `Field` | 型   | 説明                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `info`  | オブジェクト | コンセンサスのデバッグで役立つ可能性のある情報。この出力は、予告なく変更される可能性があります。 |
+| <span class="code-snippet">info</span>  | オブジェクト | コンセンサスのデバッグで役立つ可能性のある情報。この出力は、予告なく変更される可能性があります。 |
 
-`info`オブジェクトに含まれる可能性のあるフィールドについて以下に簡単に説明します。
+<span class="code-snippet">info</span>オブジェクトに含まれる可能性のあるフィールドについて以下に簡単に説明します。
 
 | `Field`          | 型    | 説明                                     |
 |:-----------------|:--------|:------------------------------------------------|
-| `ledger_seq`     | 数値  | 現在コンセンサスプロセスにあるレジャーのシーケンス番号。 |
-| `our_position`   | オブジェクト  | コンセンサスプロセスにあるレジャーについてサーバーが予期する内容。 |
-| `peer_positions` | オブジェクト  | コンセンサスプロセスにあるピアと各ピアが提案するレジャーバージョンのマップ。 |
-| `proposers`      | 数値  | このコンセンサスプロセスに参加している信頼できるバリデータの数。信頼できるバリデータは、このサーバー構成に応じて異なります。 |
-| `synched`        | ブール値 | このサーバー自体が、自分がネットワークと同期中であるとみなしているかどうか。 |
-| `state`          | 文字列  | 現在進行中のコンセンサスプロセスの部分: `open`、`consensus`、`finished`、または`accepted`。 |
+| <span class="code-snippet">ledger_seq</span>     | 数値  | 現在コンセンサスプロセスにあるレジャーのシーケンス番号。 |
+| <span class="code-snippet">our_position</span>   | オブジェクト  | コンセンサスプロセスにあるレジャーについてサーバーが予期する内容。 |
+| <span class="code-snippet">peer_positions</span> | オブジェクト  | コンセンサスプロセスにあるピアと各ピアが提案するレジャーバージョンのマップ。 |
+| <span class="code-snippet">proposers</span>      | 数値  | このコンセンサスプロセスに参加している信頼できるバリデータの数。信頼できるバリデータは、このサーバー構成に応じて異なります。 |
+| <span class="code-snippet">synched</span>        | ブール値 | このサーバー自体が、自分がネットワークと同期中であるとみなしているかどうか。 |
+| <span class="code-snippet">state</span>          | 文字列  | 現在進行中のコンセンサスプロセスの部分: <span class="code-snippet">open</span>、<span class="code-snippet">consensus</span>、<span class="code-snippet">finished</span>、または<span class="code-snippet">accepted</span>。 |
 
-`info`の唯一のフィールドが`"consensus": "none"`である最小限の結果となることもありますが、これは正常です。これは、サーバーがコンセンサスラウンドの合間にあることを示します。
+<span class="code-snippet">info</span>の唯一のフィールドが<span class="code-snippet">"consensus": "none"</span>である最小限の結果となることもありますが、これは正常です。これは、サーバーがコンセンサスラウンドの合間にあることを示します。
 
-`consensus_info`コマンドを短い間隔で連続して数回実行すると、このコマンドの結果が大きく変化することがあります。
+<span class="code-snippet">consensus_info</span>コマンドを短い間隔で連続して数回実行すると、このコマンドの結果が大きく変化することがあります。
 
 
 ### 考えられるエラー

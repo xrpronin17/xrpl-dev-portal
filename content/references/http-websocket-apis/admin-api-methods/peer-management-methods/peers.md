@@ -8,9 +8,9 @@ labels:
 # peers
 [[Source]](https://github.com/ripple/rippled/blob/52f298f150fc1530d201d3140c80d3eaf781cb5f/src/ripple/rpc/handlers/Peers.cpp "Source")
 
-The `peers` command returns a list of all other `rippled` servers currently connected to this one over the [Peer Protocol](peer-protocol.html), including information on their connection and sync status.
+The <span class="code-snippet">peers</span> command returns a list of all other <span class="code-snippet">rippled</span> servers currently connected to this one over the [Peer Protocol](peer-protocol.html), including information on their connection and sync status.
 
-*The `peers` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">peers</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -371,52 +371,52 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `cluster` | Object | Summary of other `rippled` servers in the same cluster, if [configured as a cluster](clustering.html). [New in: rippled 0.30.1][] |
-| `peers`   | Array  | Array of peer objects.                                  |
+| <span class="code-snippet">cluster</span> | Object | Summary of other <span class="code-snippet">rippled</span> servers in the same cluster, if [configured as a cluster](clustering.html). [New in: rippled 0.30.1][] |
+| <span class="code-snippet">peers</span>   | Array  | Array of peer objects.                                  |
 
-Each field of the `cluster` object is the public key of that `rippled` server's identifying key pair. (This is the same value that that server returns as `pubkey_node` in the [server_info method][].) The contents of that field are an object with the following fields:
+Each field of the <span class="code-snippet">cluster</span> object is the public key of that <span class="code-snippet">rippled</span> server's identifying key pair. (This is the same value that that server returns as <span class="code-snippet">pubkey_node</span> in the [server_info method][].) The contents of that field are an object with the following fields:
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `tag`   | String | The display name for this cluster member as defined in the config file. |
-| `fee`   | Number | _(May be omitted)_ The load multiplier this cluster member is applying to the [transaction cost](transaction-cost.html) |
-| `age`   | Number | The number of seconds since the last cluster report from this cluster member. |
+| <span class="code-snippet">tag</span>   | String | The display name for this cluster member as defined in the config file. |
+| <span class="code-snippet">fee</span>   | Number | _(May be omitted)_ The load multiplier this cluster member is applying to the [transaction cost](transaction-cost.html) |
+| <span class="code-snippet">age</span>   | Number | The number of seconds since the last cluster report from this cluster member. |
 
-Each member of the `peers` array is a peer object with the following fields:
-
-| `Field`            | Type    | Description                                   |
-|:-------------------|:--------|:----------------------------------------------|
-| `address`          | String  | The IP address and port where this peer is connected |
-| `cluster`          | Boolean | _(May be omitted)_ If `true`, the current server and the peer server are part of the same `rippled` cluster. |
-| `name`             | String  | _(May be omitted)_ If the peer is part of the same cluster, this is the display name for that server as defined in the config file. |
-| `complete_ledgers` | String  | Range expression indicating the [ledger indexes][ledger index] of the ledger versions the peer `rippled` server has available |
-| `inbound`          | Boolean | _(May be omitted)_ If `true`, the peer is connecting to the local server. |
-| `latency`          | Number  | The network latency to the peer (in milliseconds) |
-| `ledger`           | String  | The identifying [hash][Hash] of the peer's most recently closed ledger |
-| `load`             | Number  | A measure of the amount of load the peer server is putting on the local server. Larger numbers indicate more load. (The units by which load is measured are not formally defined.) |
-| `protocol`         | String  | _(May be omitted)_ The protocol version that the peer is using, if not the same as the local server. |
-| `metrics`          | Object  | Details on the amount of data sent to and received from this peer. See the description of the `metrics` object below for details. [New in: rippled 1.4.0][] |
-| `public_key`       | String  | _(May be omitted)_ A public key that can be used to verify the integrity of the peer's messages. This is not the same key that is used for validations, but it follows the same format. |
-| `sanity`           | String  | _(May be omitted)_ Whether this peer is following the same rules and ledger history as the current server. A value of `insane` probably indicates that the peer is part of a [parallel network](parallel-networks.html). The value `unknown` indicates that the current server is unsure whether the peer is compatible. <!-- STYLE_OVERRIDE: insane --> |
-| `status`           | String  | _(May be omitted)_ The most recent status message from the peer. Could be `connecting`, `connected`, `monitoring`, `validating`, or `shutting`. |
-| `uptime`           | Number  | The number of seconds that your `rippled` server has been continuously connected to this peer. [New in: rippled 0.30.1][] |
-| `version`          | string  | _(May be omitted)_ The `rippled` version number of the peer server |
-
-The `metrics` object contains the following fields:
+Each member of the <span class="code-snippet">peers</span> array is a peer object with the following fields:
 
 | `Field`            | Type    | Description                                   |
 |:-------------------|:--------|:----------------------------------------------|
-| `avg_bps_recv`     | String  | The average bytes per second of data received from this peer. |
-| `avg_bps_sent`     | String  | The average bytes per second of data sent to this peer. |
-| `total_bytes_recv` | String  | The total number of bytes of data received from this peer. |
-| `total_bytes_sent` | String  | The total number of bytes of data sent to this peer. |
+| <span class="code-snippet">address</span>          | String  | The IP address and port where this peer is connected |
+| <span class="code-snippet">cluster</span>          | Boolean | _(May be omitted)_ If <span class="code-snippet">true</span>, the current server and the peer server are part of the same <span class="code-snippet">rippled</span> cluster. |
+| <span class="code-snippet">name</span>             | String  | _(May be omitted)_ If the peer is part of the same cluster, this is the display name for that server as defined in the config file. |
+| <span class="code-snippet">complete_ledgers</span> | String  | Range expression indicating the [ledger indexes][ledger index] of the ledger versions the peer <span class="code-snippet">rippled</span> server has available |
+| <span class="code-snippet">inbound</span>          | Boolean | _(May be omitted)_ If <span class="code-snippet">true</span>, the peer is connecting to the local server. |
+| <span class="code-snippet">latency</span>          | Number  | The network latency to the peer (in milliseconds) |
+| <span class="code-snippet">ledger</span>           | String  | The identifying [hash][Hash] of the peer's most recently closed ledger |
+| <span class="code-snippet">load</span>             | Number  | A measure of the amount of load the peer server is putting on the local server. Larger numbers indicate more load. (The units by which load is measured are not formally defined.) |
+| <span class="code-snippet">protocol</span>         | String  | _(May be omitted)_ The protocol version that the peer is using, if not the same as the local server. |
+| <span class="code-snippet">metrics</span>          | Object  | Details on the amount of data sent to and received from this peer. See the description of the <span class="code-snippet">metrics</span> object below for details. [New in: rippled 1.4.0][] |
+| <span class="code-snippet">public_key</span>       | String  | _(May be omitted)_ A public key that can be used to verify the integrity of the peer's messages. This is not the same key that is used for validations, but it follows the same format. |
+| <span class="code-snippet">sanity</span>           | String  | _(May be omitted)_ Whether this peer is following the same rules and ledger history as the current server. A value of <span class="code-snippet">insane</span> probably indicates that the peer is part of a [parallel network](parallel-networks.html). The value <span class="code-snippet">unknown</span> indicates that the current server is unsure whether the peer is compatible. <!-- STYLE_OVERRIDE: insane --> |
+| <span class="code-snippet">status</span>           | String  | _(May be omitted)_ The most recent status message from the peer. Could be <span class="code-snippet">connecting</span>, <span class="code-snippet">connected</span>, <span class="code-snippet">monitoring</span>, <span class="code-snippet">validating</span>, or <span class="code-snippet">shutting</span>. |
+| <span class="code-snippet">uptime</span>           | Number  | The number of seconds that your <span class="code-snippet">rippled</span> server has been continuously connected to this peer. [New in: rippled 0.30.1][] |
+| <span class="code-snippet">version</span>          | string  | _(May be omitted)_ The <span class="code-snippet">rippled</span> version number of the peer server |
 
-**Note:** All of the fields in the `metrics` object are 64-bit unsigned integers serialized to string format so that they do not lose precision in JSON encoding/decoding.
+The <span class="code-snippet">metrics</span> object contains the following fields:
+
+| `Field`            | Type    | Description                                   |
+|:-------------------|:--------|:----------------------------------------------|
+| <span class="code-snippet">avg_bps_recv</span>     | String  | The average bytes per second of data received from this peer. |
+| <span class="code-snippet">avg_bps_sent</span>     | String  | The average bytes per second of data sent to this peer. |
+| <span class="code-snippet">total_bytes_recv</span> | String  | The total number of bytes of data received from this peer. |
+| <span class="code-snippet">total_bytes_sent</span> | String  | The total number of bytes of data sent to this peer. |
+
+**Note:** All of the fields in the <span class="code-snippet">metrics</span> object are 64-bit unsigned integers serialized to string format so that they do not lose precision in JSON encoding/decoding.
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

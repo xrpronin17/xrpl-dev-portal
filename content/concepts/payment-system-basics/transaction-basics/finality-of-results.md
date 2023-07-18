@@ -10,23 +10,23 @@ labels:
 
 The order in which transactions apply to the consensus [ledger](ledgers.html) is not final until a ledger is closed and the exact transaction set is approved by the [consensus process](intro-to-consensus.html). A transaction that succeeded initially could still fail, and a transaction that failed initially could still succeed. Additionally, a transaction that was rejected by the consensus process in one round could achieve consensus in a later round.
 
-A validated ledger can include successful transactions (`tes` result codes) as well as failed transactions (`tec` result codes). No transaction with any other result is included in a ledger.
+A validated ledger can include successful transactions (<span class="code-snippet">tes</span> result codes) as well as failed transactions (<span class="code-snippet">tec</span> result codes). No transaction with any other result is included in a ledger.
 
 For any other result code, it can be difficult to determine if the result is final. The following table summarizes when a transaction's outcome is final, based on the result code from submitting the transaction:
 
 | Result Code     | Finality                                                   |
 |:----------------|:-----------------------------------------------------------|
-| `tesSUCCESS`    | Final when included in a validated ledger                  |
-| Any `tec` code  | Final when included in a validated ledger                  |
-| Any `tem` code  | Final unless the protocol changes to make the transaction valid |
-| `tefPAST_SEQ`   | Final when another transaction with the same sequence number is included in a validated ledger |
-| `tefMAX_LEDGER` | Final when a validated ledger has a [ledger index][Ledger Index] higher than the transaction's `LastLedgerSequence` field, and no validated ledger includes the transaction |
+| <span class="code-snippet">tesSUCCESS</span>    | Final when included in a validated ledger                  |
+| Any <span class="code-snippet">tec</span> code  | Final when included in a validated ledger                  |
+| Any <span class="code-snippet">tem</span> code  | Final unless the protocol changes to make the transaction valid |
+| <span class="code-snippet">tefPAST_SEQ</span>   | Final when another transaction with the same sequence number is included in a validated ledger |
+| <span class="code-snippet">tefMAX_LEDGER</span> | Final when a validated ledger has a [ledger index][Ledger Index] higher than the transaction's <span class="code-snippet">LastLedgerSequence</span> field, and no validated ledger includes the transaction |
 
 Any other transaction result is potentially not final. In that case, the transaction could still succeed or fail later, especially if conditions change such that the transaction is no longer prevented from applying. For example, trying to send a non-XRP currency to an account that does not exist yet would fail, but it could succeed if another transaction sends enough XRP to create the destination account. A server might even store a temporarily-failed, signed transaction and then successfully apply it later without asking first.
 
 ## How can non-final results change?
 
-When you initially submit a transaction, the `rippled` server tentatively applies that transaction to its current open ledger, then returns the tentative [transaction results](transaction-results.html) from doing so. However, the transaction's final result may be very different than its tentative results, for several reasons:
+When you initially submit a transaction, the <span class="code-snippet">rippled</span> server tentatively applies that transaction to its current open ledger, then returns the tentative [transaction results](transaction-results.html) from doing so. However, the transaction's final result may be very different than its tentative results, for several reasons:
 
 - The transaction may be delayed until a later ledger version, or may never be included in a validated ledger. For the most part, the XRP Ledger follows a principle that all valid transactions should be processed as soon as possible. However, there are exceptions, including:
 
@@ -36,7 +36,7 @@ When you initially submit a transaction, the `rippled` server tentatively applie
 
     - To protect the network from spam, all transactions must destroy a [transaction cost](transaction-cost.html) in XRP to be relayed throughout the XRP Ledger peer-to-peer network. If heavy load on the peer-to-peer network causes the transaction cost to increase, a transaction that tentatively succeeded may not get relayed to enough servers to achieve a consensus, or may be [queued](transaction-queue.html) for later.
 
-    - Temporary internet outages or delays may prevent a proposed transaction from being successfully relayed before the transaction's intended expiration, as set by the `LastLedgerSequence` field. (If the transaction does not have an expiration, then it remains valid and could succeed any amount of time later, which can be undesirable in its own way. See [Reliable Transaction Submission](reliable-transaction-submission.html) for details.)
+    - Temporary internet outages or delays may prevent a proposed transaction from being successfully relayed before the transaction's intended expiration, as set by the <span class="code-snippet">LastLedgerSequence</span> field. (If the transaction does not have an expiration, then it remains valid and could succeed any amount of time later, which can be undesirable in its own way. See [Reliable Transaction Submission](reliable-transaction-submission.html) for details.)
 
     - Combinations of two or more of these factors can also occur.
 

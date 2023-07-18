@@ -26,9 +26,9 @@ Each altnet has its own separate supply of test XRP, which is [given away for fr
 
 ## Parallel Networks and Consensus
 
-The main factor in determining which network a server follows is its configured UNL—the list of validators it trusts not to collude. Each server uses its configured UNL to know which ledger to accept as the truth. When different consensus groups of `rippled` instances only trust other members of the same group, each group continues as a parallel network. Even if malicious or misbehaving computers connect to both networks, the consensus process avoids confusion as long as the members of each network are not configured to trust members of another network in excess of their quorum settings.
+The main factor in determining which network a server follows is its configured UNL—the list of validators it trusts not to collude. Each server uses its configured UNL to know which ledger to accept as the truth. When different consensus groups of <span class="code-snippet">rippled</span> instances only trust other members of the same group, each group continues as a parallel network. Even if malicious or misbehaving computers connect to both networks, the consensus process avoids confusion as long as the members of each network are not configured to trust members of another network in excess of their quorum settings.
 
-Ripple runs the main servers in the Testnet and Devnet; you can also [connect your own `rippled` server to these networks](connect-your-rippled-to-the-xrp-test-net.html). The Testnet and Devnet do not use diverse, censorship-resistant sets of validators. This makes it possible for Ripple to reset the Testnet or Devnet at any time.
+Ripple runs the main servers in the Testnet and Devnet; you can also [connect your own <span class="code-snippet">rippled</span> server to these networks](connect-your-rippled-to-the-xrp-test-net.html). The Testnet and Devnet do not use diverse, censorship-resistant sets of validators. This makes it possible for Ripple to reset the Testnet or Devnet at any time.
 
 
 ## See Also
@@ -39,7 +39,7 @@ Ripple runs the main servers in the Testnet and Devnet; you can also [connect yo
     - [Introduction to Consensus](intro-to-consensus.html)
     - [Amendments](amendments.html)
 - **Tutorials:**
-    - [Connect Your `rippled` to the XRP Testnet](connect-your-rippled-to-the-xrp-test-net.html)
+    - [Connect Your <span class="code-snippet">rippled</span> to the XRP Testnet](connect-your-rippled-to-the-xrp-test-net.html)
     - [Use rippled in Stand-Alone Mode](use-stand-alone-mode.html)
 - **References:**
     - [server_info method][]

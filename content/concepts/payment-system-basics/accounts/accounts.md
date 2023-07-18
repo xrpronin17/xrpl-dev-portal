@@ -10,7 +10,7 @@ labels:
 
 An "Account" in the XRP Ledger represents a holder of XRP and a sender of [transactions](transaction-formats.html). The core elements of an account are:
 
-- An identifying **address**, such as `rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn`. (This is a "classic address", as opposed to the [X-Address format](#addresses).)
+- An identifying **address**, such as <span class="code-snippet">rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn</span>. (This is a "classic address", as opposed to the [X-Address format](#addresses).)
 - An **XRP balance**. Some of this XRP is set aside for the [Reserve](reserves.html).
 - A **sequence number**, which helps make sure any transactions this account sends are applied in the correct order and only once each. To execute a transaction, the transaction's sequence number and its sender's sequence number must match. Then, as part of applying the transaction, the account's sequence number increases by 1. (See also: [Basic Data Types: Account Sequence](basic-data-types.html#account-sequence).)
 - A **history of transactions** that affected this account and its balances.
@@ -57,11 +57,11 @@ Some addresses have special meaning, or historical uses, in the XRP Ledger. In m
 
 | Address                       | Name | Meaning | Black Hole? |
 |-------------------------------|------|---------|-------------|
-| `rrrrrrrrrrrrrrrrrrrrrhoLvTp` | ACCOUNT\_ZERO | An address that is the XRP Ledger's [base58][] encoding of the value `0`. In peer-to-peer communications, `rippled` uses this address as the issuer for XRP. | Yes |
-| `rrrrrrrrrrrrrrrrrrrrBZbvji`  | ACCOUNT\_ONE | An address that is the XRP Ledger's [base58][] encoding of the value `1`. In the ledger, [RippleState entries](ripplestate.html) use this address as a placeholder for the issuer of a trust line balance. | Yes |
-| `rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh` | The genesis account | When `rippled` starts a new genesis ledger from scratch (for example, in stand-alone mode), this account holds all the XRP. This address is generated from the seed value `masterpassphrase` which is [hard-coded](https://github.com/ripple/rippled/blob/94ed5b3a53077d815ad0dd65d490c8d37a147361/src/ripple/app/ledger/Ledger.cpp#L184). | No |
-| `rrrrrrrrrrrrrrrrrNAMEtxvNvQ` | Ripple Name reservation black-hole | In the past, Ripple asked users to send XRP to this account to reserve Ripple Names.| Yes |
-| `rrrrrrrrrrrrrrrrrrrn5RM1rHd` | NaN Address | Previous versions of [ripple-lib](https://github.com/XRPLF/xrpl.js) generated this address when encoding the value [NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) using the XRP Ledger's [base58][] string encoding format. | Yes |
+| <span class="code-snippet">rrrrrrrrrrrrrrrrrrrrrhoLvTp</span> | ACCOUNT\_ZERO | An address that is the XRP Ledger's [base58][] encoding of the value <span class="code-snippet">0</span>. In peer-to-peer communications, <span class="code-snippet">rippled</span> uses this address as the issuer for XRP. | Yes |
+| <span class="code-snippet">rrrrrrrrrrrrrrrrrrrrBZbvji</span>  | ACCOUNT\_ONE | An address that is the XRP Ledger's [base58][] encoding of the value <span class="code-snippet">1</span>. In the ledger, [RippleState entries](ripplestate.html) use this address as a placeholder for the issuer of a trust line balance. | Yes |
+| <span class="code-snippet">rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh</span> | The genesis account | When <span class="code-snippet">rippled</span> starts a new genesis ledger from scratch (for example, in stand-alone mode), this account holds all the XRP. This address is generated from the seed value <span class="code-snippet">masterpassphrase</span> which is [hard-coded](https://github.com/ripple/rippled/blob/94ed5b3a53077d815ad0dd65d490c8d37a147361/src/ripple/app/ledger/Ledger.cpp#L184). | No |
+| <span class="code-snippet">rrrrrrrrrrrrrrrrrNAMEtxvNvQ</span> | Ripple Name reservation black-hole | In the past, Ripple asked users to send XRP to this account to reserve Ripple Names.| Yes |
+| <span class="code-snippet">rrrrrrrrrrrrrrrrrrrn5RM1rHd</span> | NaN Address | Previous versions of [ripple-lib](https://github.com/XRPLF/xrpl.js) generated this address when encoding the value [NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) using the XRP Ledger's [base58][] string encoding format. | Yes |
 
 
 ## Deletion of Accounts
@@ -70,18 +70,18 @@ The [DeletableAccounts amendment](known-amendments.html#deletableaccounts) (enab
 
 To be deleted, an account must meet the following requirements:
 
-- The account's `Sequence` number plus 256 must be less than the current [Ledger Index][].
+- The account's <span class="code-snippet">Sequence</span> number plus 256 must be less than the current [Ledger Index][].
 - The account must not be linked to any of the following types of [ledger objects](ledger-object-types.html) (as a sender or receiver):
-    - `Escrow`
-    - `PayChannel`
-    - `RippleState`
-    - `Check`
+    - <span class="code-snippet">Escrow</span>
+    - <span class="code-snippet">PayChannel</span>
+    - <span class="code-snippet">RippleState</span>
+    - <span class="code-snippet">Check</span>
 - The account must own fewer than 1000 objects in the ledger.
 - The [AccountDelete transaction][] must pay a special [transaction cost][] equal to at least the [owner reserve](reserves.html) for one item (currently 2 XRP).
 
 After an account has been deleted, it can be re-created in the ledger through the normal method of [creating accounts](#creating-accounts). An account that has been deleted and re-created is no different than an account that has been created for the first time.
 
-**Warning:** The [AccountDelete transaction][]'s transaction cost always applies when the transaction is included in a validated ledger, even if the transaction failed because the account does not meet the requirements to be deleted. To greatly reduce the chances of paying the high transaction cost if the account cannot be deleted, [submit the transaction](submit.html) with `fail_hard` enabled.
+**Warning:** The [AccountDelete transaction][]'s transaction cost always applies when the transaction is included in a validated ledger, even if the transaction failed because the account does not meet the requirements to be deleted. To greatly reduce the chances of paying the high transaction cost if the account cannot be deleted, [submit the transaction](submit.html) with <span class="code-snippet">fail_hard</span> enabled.
 
 Unlike Bitcoin and many other cryptocurrencies, each new version of the XRP Ledger's public ledger chain contains the full state of the ledger, which increases in size with each new account. For that reason, you should not create new XRP Ledger accounts unless necessary. You can recover some of an account's 10 XRP [reserve](reserves.html) by deleting the account, but you must still destroy at least 2 XRP to do so.
 
@@ -92,19 +92,19 @@ Institutions who send and receive value on behalf of many users can use [**Sourc
 
 ## Transaction History
 
-In the XRP Ledger, transaction history is tracked by a "thread" of transactions linked by a transaction's identifying hash and the ledger index. The `AccountRoot` ledger object has the identifying hash and ledger of the transaction that most recently modified it; the metadata of that transaction includes the previous state of the `AccountRoot` node, so it is possible to iterate through the history of a single account this way. This transaction history includes any transactions that modify the `AccountRoot` node directly, including:
+In the XRP Ledger, transaction history is tracked by a "thread" of transactions linked by a transaction's identifying hash and the ledger index. The <span class="code-snippet">AccountRoot</span> ledger object has the identifying hash and ledger of the transaction that most recently modified it; the metadata of that transaction includes the previous state of the <span class="code-snippet">AccountRoot</span> node, so it is possible to iterate through the history of a single account this way. This transaction history includes any transactions that modify the <span class="code-snippet">AccountRoot</span> node directly, including:
 
-- Transactions sent by the account, because they modify the account's `Sequence` number. These transactions also modify the account's XRP balance because of the [transaction cost](transaction-cost.html).
+- Transactions sent by the account, because they modify the account's <span class="code-snippet">Sequence</span> number. These transactions also modify the account's XRP balance because of the [transaction cost](transaction-cost.html).
 - Transactions that modified the account's XRP balance, including incoming [Payment transactions][] and other types of transactions such as [PaymentChannelClaim][] and [EscrowFinish][].
 
 The _conceptual_ transaction history of an account also includes transactions that modified the account's owned objects and non-XRP balances. These objects are separate ledger objects, each with their own thread of transactions that affected them. If you have an account's full ledger history, you can follow it forward to find the ledger objects created or modified by it. A "complete" transaction history includes the history of objects owned by a transaction, such as:
 
-- `RippleState` objects (Trust Lines) connected to the account.
-- `DirectoryNode` objects, especially the owner directory tracking the account's owned objects.
-- `Offer` objects, representing the account's outstanding currency-exchange orders in the decentralized exchange
-- `PayChannel` objects, representing asynchronous payment channels to and from the account
-- `Escrow` objects, representing held payments to or from the account that are locked by time or a crypto-condition.
-- `SignerList` objects, representing lists of addresses that can authorize transactions for the account by [multi-signing](multi-signing.html).
+- <span class="code-snippet">RippleState</span> objects (Trust Lines) connected to the account.
+- <span class="code-snippet">DirectoryNode</span> objects, especially the owner directory tracking the account's owned objects.
+- <span class="code-snippet">Offer</span> objects, representing the account's outstanding currency-exchange orders in the decentralized exchange
+- <span class="code-snippet">PayChannel</span> objects, representing asynchronous payment channels to and from the account
+- <span class="code-snippet">Escrow</span> objects, representing held payments to or from the account that are locked by time or a crypto-condition.
+- <span class="code-snippet">SignerList</span> objects, representing lists of addresses that can authorize transactions for the account by [multi-signing](multi-signing.html).
 
 For more information on each of these objects, see the [Ledger Format Reference](ledger-data-formats.html).
 
@@ -115,13 +115,13 @@ For more information on each of these objects, see the [Ledger Format Reference]
 
 [[Source]](https://github.com/ripple/rippled/blob/35fa20a110e3d43ffc1e9e664fc9017b6f2747ae/src/ripple/protocol/impl/AccountID.cpp#L109-L140 "Source")
 
-XRP Ledger addresses are encoded using [base58][] with the _dictionary_ `rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz`. Since the XRP Ledger encodes several types of keys with base58, it prefixes the encoded data with a one-byte "type prefix" (also called a "version prefix") to distinguish them. The type prefix causes addresses to usually start with different letters in base58 format.
+XRP Ledger addresses are encoded using [base58][] with the _dictionary_ <span class="code-snippet">rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz</span>. Since the XRP Ledger encodes several types of keys with base58, it prefixes the encoded data with a one-byte "type prefix" (also called a "version prefix") to distinguish them. The type prefix causes addresses to usually start with different letters in base58 format.
 
 The following diagram shows the relationship between keys and addresses:
 
 {{ include_svg("img/address-encoding.svg", "Master Public Key + Type Prefix → Account ID + Checksum → Address") }}
 
-The formula for calculating an XRP Ledger address from a public key is as follows. For the complete example code, see [`encode_address.js`](https://github.com/XRPLF/xrpl-dev-portal/blob/master/content/_code-samples/address_encoding/js/encode_address.js). For the process of deriving a public key from a passphrase or seed value, see [Key Derivation](cryptographic-keys.html#key-derivation).
+The formula for calculating an XRP Ledger address from a public key is as follows. For the complete example code, see [<span class="code-snippet">encode_address.js</span>](https://github.com/XRPLF/xrpl-dev-portal/blob/master/content/_code-samples/address_encoding/js/encode_address.js). For the process of deriving a public key from a passphrase or seed value, see [Key Derivation](cryptographic-keys.html#key-derivation).
 
 1. Import required algorithms: SHA-256, RIPEMD160, and base58. Set the dictionary for base58.
 
@@ -134,7 +134,7 @@ The formula for calculating an XRP Ledger address from a public key is as follow
         assert(crypto.getHashes().includes('sha256'));
         assert(crypto.getHashes().includes('ripemd160'));
 
-2. Start with a 33-byte ECDSA secp256k1 public key, or a 32-byte Ed25519 public key. For Ed25519 keys, prefix the key with the byte `0xED`.
+2. Start with a 33-byte ECDSA secp256k1 public key, or a 32-byte Ed25519 public key. For Ed25519 keys, prefix the key with the byte <span class="code-snippet">0xED</span>.
 
         const pubkey_hex =
           'ED9434799226374926EDA3B54B1B461B4ABF7237962EAE18528FEA67595397FA32';

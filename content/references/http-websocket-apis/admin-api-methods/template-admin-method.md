@@ -8,9 +8,9 @@ labels:
 # TODO_method_name
 [[Source]](TODO_URL "Source")
 
-The `{{currentpage.name}}` method TODO_description.
+The <span class="code-snippet">{{currentpage.name}}</span> method TODO_description.
 
-_The `{{currentpage.name}}` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">{{currentpage.name}}</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 
 ### Request Format

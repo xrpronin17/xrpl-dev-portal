@@ -5,17 +5,17 @@ blurb: WebSocket、JSON-RPC、コマンドラインインターフェイスの�
 ---
 # 応答フォーマット
 
-`rippled` APIからの応答のフォーマットは、メソッドが呼び出されたインターフェイス（WebSocket、JSON-RPC、コマンドライン）に応じて多少異なります。コマンドラインインターフェイスがJSON-RPCを呼び出すため、コマンドラインインターフェイスとJSON-RPCインターフェイスは同じフォーマットを使用します。
+<span class="code-snippet">rippled</span> APIからの応答のフォーマットは、メソッドが呼び出されたインターフェイス（WebSocket、JSON-RPC、コマンドライン）に応じて多少異なります。コマンドラインインターフェイスがJSON-RPCを呼び出すため、コマンドラインインターフェイスとJSON-RPCインターフェイスは同じフォーマットを使用します。
 
 成功した場合の応答に含まれるフィールドは、以下の通りです。
 
 | `Field`         | 型     | 説明                                     |
 |:----------------|:---------|:------------------------------------------------|
-| `id`            | （場合により異なる） | （WebSocketのみ）この応答の要求元となった要求で指定されているID。 |
-| `status`        | 文字列   | （WebSocketのみ）値が`success`である場合、要求がサーバーによって正常に受信され、理解されたことを示します。 |
-| `result.status` | 文字列   | （JSON-RPCおよびコマンドライン）値が`success`である場合、要求がサーバーによって正常に受信され、理解されたことを示します。 |
-| `type`          | 文字列   | （WebSocketのみ）値が`response`の場合、コマンドに対する正常な応答であることを示します。[非同期の通知](subscribe.html)では、`ledgerClosed`や`transaction`など異なる値が使用されます。 |
-| `result`        | オブジェクト   | クエリーの結果。内容はコマンドによって異なります。 |
+| <span class="code-snippet">id</span>            | （場合により異なる） | （WebSocketのみ）この応答の要求元となった要求で指定されているID。 |
+| <span class="code-snippet">status</span>        | 文字列   | （WebSocketのみ）値が<span class="code-snippet">success</span>である場合、要求がサーバーによって正常に受信され、理解されたことを示します。 |
+| <span class="code-snippet">result.status</span> | 文字列   | （JSON-RPCおよびコマンドライン）値が<span class="code-snippet">success</span>である場合、要求がサーバーによって正常に受信され、理解されたことを示します。 |
+| <span class="code-snippet">type</span>          | 文字列   | （WebSocketのみ）値が<span class="code-snippet">response</span>の場合、コマンドに対する正常な応答であることを示します。[非同期の通知](subscribe.html)では、<span class="code-snippet">ledgerClosed</span>や<span class="code-snippet">transaction</span>など異なる値が使用されます。 |
+| <span class="code-snippet">result</span>        | オブジェクト   | クエリーの結果。内容はコマンドによって異なります。 |
 
 
 ## 成功した場合の応答の例

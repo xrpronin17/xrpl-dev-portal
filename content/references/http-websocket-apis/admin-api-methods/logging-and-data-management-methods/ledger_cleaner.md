@@ -8,9 +8,9 @@ labels:
 # ledger_cleaner
 [[Source]](https://github.com/ripple/rippled/blob/df54b47cd0957a31837493cd69e4d9aade0b5055/src/ripple/rpc/handlers/LedgerCleaner.cpp "Source")
 
-The `ledger_cleaner` command controls the [Ledger Cleaner](https://github.com/ripple/rippled/blob/f313caaa73b0ac89e793195dcc2a5001786f916f/src/ripple/app/ledger/README.md#the-ledger-cleaner), an asynchronous maintenance process that can find and repair corruption in `rippled`'s database of ledgers.
+The <span class="code-snippet">ledger_cleaner</span> command controls the [Ledger Cleaner](https://github.com/ripple/rippled/blob/f313caaa73b0ac89e793195dcc2a5001786f916f/src/ripple/app/ledger/README.md#the-ledger-cleaner), an asynchronous maintenance process that can find and repair corruption in <span class="code-snippet">rippled</span>'s database of ledgers.
 
-_The `ledger_cleaner` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">ledger_cleaner</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -34,13 +34,13 @@ The request includes the following parameters:
 
 | `Field`       | Type                      | Description                      |
 |:--------------|:--------------------------|:---------------------------------|
-| `ledger`      | Number - [Ledger Index][] | _(Optional)_ If provided, check and correct the specified ledger only. |
-| `max_ledger`  | Number - [Ledger Index][] | _(Optional)_ Configure the ledger cleaner to check ledgers with ledger indexes equal or lower than this. |
-| `min_ledger`  | Number - [Ledger Index][] | _(Optional)_ Configure the ledger cleaner to check ledgers with ledger indexes equal or higher than this. |
-| `full`        | Boolean                   | _(Optional)_ If true, fix ledger state objects and transactions in the specified ledger(s). Defaults to false. Automatically set to `true` if `ledger` is provided. |
-| `fix_txns`    | Boolean                   | _(Optional)_ If true, correct transaction in the specified ledger(s). Overrides `full` if provided. |
-| `check_nodes` | Boolean                   | _(Optional)_ If true, correct ledger state objects in the specified ledger(s). Overrides `full` if provided. |
-| `stop`        | Boolean                   | _(Optional)_ If true, disable the ledger cleaner. |
+| <span class="code-snippet">ledger</span>      | Number - [Ledger Index][] | _(Optional)_ If provided, check and correct the specified ledger only. |
+| <span class="code-snippet">max_ledger</span>  | Number - [Ledger Index][] | _(Optional)_ Configure the ledger cleaner to check ledgers with ledger indexes equal or lower than this. |
+| <span class="code-snippet">min_ledger</span>  | Number - [Ledger Index][] | _(Optional)_ Configure the ledger cleaner to check ledgers with ledger indexes equal or higher than this. |
+| <span class="code-snippet">full</span>        | Boolean                   | _(Optional)_ If true, fix ledger state objects and transactions in the specified ledger(s). Defaults to false. Automatically set to <span class="code-snippet">true</span> if <span class="code-snippet">ledger</span> is provided. |
+| <span class="code-snippet">fix_txns</span>    | Boolean                   | _(Optional)_ If true, correct transaction in the specified ledger(s). Overrides <span class="code-snippet">full</span> if provided. |
+| <span class="code-snippet">check_nodes</span> | Boolean                   | _(Optional)_ If true, correct ledger state objects in the specified ledger(s). Overrides <span class="code-snippet">full</span> if provided. |
+| <span class="code-snippet">stop</span>        | Boolean                   | _(Optional)_ If true, disable the ledger cleaner. |
 
 ### Response Format
 
@@ -68,12 +68,12 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                      |
 |:----------|:-------|:---------------------------------|
-| `message` | String | `Cleaner configured` on success. |
+| <span class="code-snippet">message</span> | String | <span class="code-snippet">Cleaner configured</span> on success. |
 
 ### Possible Errors
 
 * Any of the [universal error types][].
-* `internal` if one the parameters is specified incorrectly. (This is a bug; the intended error code is `invalidParams`.)
+* <span class="code-snippet">internal</span> if one the parameters is specified incorrectly. (This is a bug; the intended error code is <span class="code-snippet">invalidParams</span>.)
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

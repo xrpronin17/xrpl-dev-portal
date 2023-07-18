@@ -32,7 +32,7 @@ To receive money from [Payment transactions][] when you have Deposit Authorizati
 To get the full effect of Deposit Authorization, Ripple recommends also doing the following:
 
 - Always maintain an XRP balance higher than the minimum [reserve requirement](reserves.html).
-- Keep the Default Ripple flag in its default (disabled) state. Do not enable [rippling](rippling.html) on any trust lines. When sending [TrustSet transactions][], always use the [`tfSetNoRipple` flag](trustset.html).
+- Keep the Default Ripple flag in its default (disabled) state. Do not enable [rippling](rippling.html) on any trust lines. When sending [TrustSet transactions][], always use the [<span class="code-snippet">tfSetNoRipple</span> flag](trustset.html).
 - Do not place [Offers](offercreate.html). It is impossible to know in advance which matching offers will be consumed to execute such a trade. <!-- STYLE_OVERRIDE: will -->
 
 ## Precise Semantics
@@ -41,7 +41,7 @@ An account with Deposit Authorization enabled:
 
 - **Cannot** be the destination of [Payment transactions][], with **the following exceptions**:
     - If the destination has [preauthorized](#preauthorization) the sender of the Payment. _(Added by the [DepositPreauth amendment][])_
-    - If the account's XRP balance is equal to or below the minimum account [reserve requirement](reserves.html), it can be the destination of an XRP Payment whose `Amount` is equal or less than the minimum account reserve (currently 10 XRP). This is to prevent an account from becoming "stuck" by being unable to send transactions but also unable to receive XRP. The account's owner reserve does not matter for this case.
+    - If the account's XRP balance is equal to or below the minimum account [reserve requirement](reserves.html), it can be the destination of an XRP Payment whose <span class="code-snippet">Amount</span> is equal or less than the minimum account reserve (currently 10 XRP). This is to prevent an account from becoming "stuck" by being unable to send transactions but also unable to receive XRP. The account's owner reserve does not matter for this case.
 - Can receive XRP from [PaymentChannelClaim transactions][] **only in the following cases**:
     - The sender of the PaymentChannelClaim transaction is the destination of the payment channel.
     - The destination of the PaymentChannelClaim transaction has [preauthorized](#preauthorization) the sender of the PaymentChannelClaim. _(Added by the [DepositPreauth amendment][])_
@@ -65,13 +65,13 @@ The following table summarizes whether a transaction type can deposit money with
 
 ## Enabling or Disabling Deposit Authorization
 
-An account can enable deposit authorization by sending an [AccountSet transaction][] with the `SetFlag` field set to the `asfDepositAuth` value (9). The account can disable deposit authorization by sending an [AccountSet transaction][] with the `ClearFlag` field set to the `asfDepositAuth` value (9). For more information on AccountSet flags, see [AccountSet flags](accountset.html).
+An account can enable deposit authorization by sending an [AccountSet transaction][] with the <span class="code-snippet">SetFlag</span> field set to the <span class="code-snippet">asfDepositAuth</span> value (9). The account can disable deposit authorization by sending an [AccountSet transaction][] with the <span class="code-snippet">ClearFlag</span> field set to the <span class="code-snippet">asfDepositAuth</span> value (9). For more information on AccountSet flags, see [AccountSet flags](accountset.html).
 
 ## Checking Whether an Account Has DepositAuth Enabled
 
-To see whether an account has Deposit Authorization enabled, use the [account_info method][] to look up the account. Compare the value of the `Flags` field (in the `result.account_data` object) with the [bitwise flags defined for an AccountRoot ledger object](accountroot.html).
+To see whether an account has Deposit Authorization enabled, use the [account_info method][] to look up the account. Compare the value of the <span class="code-snippet">Flags</span> field (in the <span class="code-snippet">result.account_data</span> object) with the [bitwise flags defined for an AccountRoot ledger object](accountroot.html).
 
-If the result of the `Flags` value bitwise-AND the `lsfDepositAuth` flag value (`0x01000000`) is nonzero, then the account has DepositAuth enabled. If the result is zero, then the account has DepositAuth disabled.
+If the result of the <span class="code-snippet">Flags</span> value bitwise-AND the <span class="code-snippet">lsfDepositAuth</span> flag value (<span class="code-snippet">0x01000000</span>) is nonzero, then the account has DepositAuth enabled. If the result is zero, then the account has DepositAuth disabled.
 
 ## Preauthorization
 
@@ -81,7 +81,7 @@ Accounts with DepositAuth enabled can _preauthorize_ certain senders, to allow p
 
 Preauthorization is currency-agnostic. You cannot preauthorize accounts for specific currencies only.
 
-To preauthorize a particular sender, send a [DepositPreauth transaction][] with the address of another account to preauthorize in the `Authorize` field. To revoke preauthorization, provide the other account's address in the `Unauthorize` field instead. Specify your own address in the `Account` field as usual. You can preauthorize or unauthorize accounts even if you do not currently have DepositAuth enabled; the preauthorization status you set for other accounts is saved, but has no effect unless you enable DepositAuth. An account cannot preauthorize itself. Preauthorizations are one-directional, and have no effect on payments going the opposite direction.
+To preauthorize a particular sender, send a [DepositPreauth transaction][] with the address of another account to preauthorize in the <span class="code-snippet">Authorize</span> field. To revoke preauthorization, provide the other account's address in the <span class="code-snippet">Unauthorize</span> field instead. Specify your own address in the <span class="code-snippet">Account</span> field as usual. You can preauthorize or unauthorize accounts even if you do not currently have DepositAuth enabled; the preauthorization status you set for other accounts is saved, but has no effect unless you enable DepositAuth. An account cannot preauthorize itself. Preauthorizations are one-directional, and have no effect on payments going the opposite direction.
 
 Preauthorizing another account adds a [DepositPreauth object](depositpreauth-object.html) to the ledger, which increases the [owner reserve](reserves.html#owner-reserves) of the account providing the authorization. If the account revokes this preauthorization, doing so removes the object and decreases the owner reserve.
 
@@ -105,10 +105,10 @@ You can use the [deposit_authorized method][] to see if an account is authorized
 
 - The [DepositPreauth transaction][] reference.
 - The [DepositPreauth ledger object type](depositpreauth-object.html).
-- The [deposit_authorized method][] of the [`rippled` API](http-websocket-apis.html).
-- The [Authorized Trust Lines](authorized-trust-lines.html) feature (`RequireAuth` flag) limits which counterparties can hold non-XRP currencies issued by an account.
-- The `DisallowXRP` flag indicates that an account should not receive XRP. This is a softer protection than Deposit Authorization, and is not enforced by the XRP Ledger. (Client applications should honor this flag or at least warn about it.)
-- The `RequireDest` flag indicates that an account can only receive currency amounts if the sending transaction specifies a [Destination Tag](become-an-xrp-ledger-gateway.html#source-and-destination-tags). This protects users from forgetting to indicate the purpose of a payment, but does not protect recipients from unknown senders, who can make up arbitrary destination tags.
+- The [deposit_authorized method][] of the [<span class="code-snippet">rippled</span> API](http-websocket-apis.html).
+- The [Authorized Trust Lines](authorized-trust-lines.html) feature (<span class="code-snippet">RequireAuth</span> flag) limits which counterparties can hold non-XRP currencies issued by an account.
+- The <span class="code-snippet">DisallowXRP</span> flag indicates that an account should not receive XRP. This is a softer protection than Deposit Authorization, and is not enforced by the XRP Ledger. (Client applications should honor this flag or at least warn about it.)
+- The <span class="code-snippet">RequireDest</span> flag indicates that an account can only receive currency amounts if the sending transaction specifies a [Destination Tag](become-an-xrp-ledger-gateway.html#source-and-destination-tags). This protects users from forgetting to indicate the purpose of a payment, but does not protect recipients from unknown senders, who can make up arbitrary destination tags.
 - [Partial Payments](partial-payments.html) provide a way for accounts to return unwanted payments while subtracting [transfer fees](transfer-fees.html) and exchange rates from the amount delivered instead of adding them to the amount sent.
 <!--{# TODO: Add link to "check for authorization" tutorial DOC-1684 #}-->
 

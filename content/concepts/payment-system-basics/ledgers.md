@@ -8,11 +8,11 @@ labels:
 ---
 # Ledgers
 
-The XRP Ledger is a shared, global ledger that is open to all. Individual participants can trust the integrity of the ledger without having to trust any single institution to manage it. The `rippled` server software accomplishes this by managing a ledger database that can only be updated according to very specific rules. Each instance of `rippled` keeps a full copy of the ledger, and the peer-to-peer network of `rippled` servers distributes candidate transactions among themselves. The consensus process determines which transactions get applied to each new version of the ledger. See also: [The Consensus Process](consensus.html).
+The XRP Ledger is a shared, global ledger that is open to all. Individual participants can trust the integrity of the ledger without having to trust any single institution to manage it. The <span class="code-snippet">rippled</span> server software accomplishes this by managing a ledger database that can only be updated according to very specific rules. Each instance of <span class="code-snippet">rippled</span> keeps a full copy of the ledger, and the peer-to-peer network of <span class="code-snippet">rippled</span> servers distributes candidate transactions among themselves. The consensus process determines which transactions get applied to each new version of the ledger. See also: [The Consensus Process](consensus.html).
 
 {{ include_svg("img/ledger-changes.svg", "Diagram: Each ledger is the result of applying transactions to the previous ledger version.") }}
 
-The shared global ledger is actually a series of individual ledgers, or ledger versions, which `rippled` keeps in its internal database. Every ledger version has a [Ledger Index][] which identifies the order in which ledgers occur. Each closed ledger version also has an identifying hash value, which uniquely identifies the contents of that ledger. At any given time, a `rippled` instance has an in-progress "current" open ledger, plus some number of closed ledgers that have not yet been approved by consensus, and any number of historical ledgers that have been validated by consensus. Only the validated ledgers are certain to be correct and immutable.
+The shared global ledger is actually a series of individual ledgers, or ledger versions, which <span class="code-snippet">rippled</span> keeps in its internal database. Every ledger version has a [Ledger Index][] which identifies the order in which ledgers occur. Each closed ledger version also has an identifying hash value, which uniquely identifies the contents of that ledger. At any given time, a <span class="code-snippet">rippled</span> instance has an in-progress "current" open ledger, plus some number of closed ledgers that have not yet been approved by consensus, and any number of historical ledgers that have been validated by consensus. Only the validated ledgers are certain to be correct and immutable.
 
 A single ledger version consists of several parts:
 
@@ -25,15 +25,15 @@ A single ledger version consists of several parts:
 
 ## Tree Format
 
-As its name might suggest, a ledger's state tree is a tree data structure. Each object in the state tree is identified by a 256-bit object ID. In JSON, a ledger object's ID is the `index` field, which contains a 64-character hexadecimal string like `"193C591BF62482468422313F9D3274B5927CA80B4DD3707E42015DD609E39C94"`. Every object in the state tree has an ID that you can use to look up that object; every transaction has an identifying hash that you can use to look up the transaction in the transaction tree. Do not confuse the `index` (ID) of a ledger object with the [`ledger_index` (sequence number) of a ledger][Ledger Index].
+As its name might suggest, a ledger's state tree is a tree data structure. Each object in the state tree is identified by a 256-bit object ID. In JSON, a ledger object's ID is the <span class="code-snippet">index</span> field, which contains a 64-character hexadecimal string like <span class="code-snippet">"193C591BF62482468422313F9D3274B5927CA80B4DD3707E42015DD609E39C94"</span>. Every object in the state tree has an ID that you can use to look up that object; every transaction has an identifying hash that you can use to look up the transaction in the transaction tree. Do not confuse the <span class="code-snippet">index</span> (ID) of a ledger object with the [<span class="code-snippet">ledger_index</span> (sequence number) of a ledger][Ledger Index].
 
-**Tip:** Sometimes, an object in the ledger's state tree is called a "ledger node". For example, transaction metadata returns a list of `AffectedNodes`. Do not confuse this with a "node" (server) in the peer-to-peer network.
+**Tip:** Sometimes, an object in the ledger's state tree is called a "ledger node". For example, transaction metadata returns a list of <span class="code-snippet">AffectedNodes</span>. Do not confuse this with a "node" (server) in the peer-to-peer network.
 
 In the case of transactions, the identifying hash is based on the signed transaction instructions, but the contents of the transaction object when you look it up also contain the results and metadata of the transaction, which are not taken into account when generating the hash.
 
 ## Open, Closed, and Validated Ledgers
 
-The `rippled` server makes a distinction between ledger versions that are _open_, _closed_, and _validated_. A server has one open ledger, any number of closed but unvalidated ledgers, and an immutable history of validated ledgers. The following table summarizes the difference:
+The <span class="code-snippet">rippled</span> server makes a distinction between ledger versions that are _open_, _closed_, and _validated_. A server has one open ledger, any number of closed but unvalidated ledgers, and an immutable history of validated ledgers. The following table summarizes the difference:
 
 | Ledger Type:                     | Open                        | Closed                                     | Validated |
 |:---------------------------------|:----------------------------|:-------------------------------------------|:--|
@@ -50,7 +50,7 @@ Thus, an open ledger is only ever used as a temporary workspace, which is a majo
 
 ## Ledger Close Times
 
-The time that a ledger version closed is recorded at the `close_time` field of the [ledger header](ledger-header.html). To make it easier for the network to reach a consensus on an exact close time, this value is rounded to a number of seconds based on the close time resolution, currently 10 seconds. If rounding would cause a ledger's close time to be the same as (or earlier than) its parent ledger's, the child ledger has its close time set to the parent's close time plus 1. This guarantees that the close times of validated ledgers are strictly increasing. <!-- STYLE_OVERRIDE: a number of -->
+The time that a ledger version closed is recorded at the <span class="code-snippet">close_time</span> field of the [ledger header](ledger-header.html). To make it easier for the network to reach a consensus on an exact close time, this value is rounded to a number of seconds based on the close time resolution, currently 10 seconds. If rounding would cause a ledger's close time to be the same as (or earlier than) its parent ledger's, the child ledger has its close time set to the parent's close time plus 1. This guarantees that the close times of validated ledgers are strictly increasing. <!-- STYLE_OVERRIDE: a number of -->
 
 Since new ledger versions usually close about every 3 to 5 seconds, these rules result in a loose pattern where ledgers' close times end in :00, :01, :02, :10, :11, :20, :21, and so on. Times ending in 2 are less common and times ending in 3 are very rare, but both occur randomly when more ledgers randomly happen to close within a 10-second window.
 

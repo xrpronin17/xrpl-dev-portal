@@ -8,9 +8,9 @@ labels:
 # ledger_accept
 [[ソース]](https://github.com/ripple/rippled/blob/a61ffab3f9010d8accfaa98aa3cacc7d38e74121/src/ripple/rpc/handlers/LedgerAccept.cpp "Source")
 
-`ledger_accept`メソッドは、サーバーが現在処理中のレジャーを強制的に終了し、次のレジャー番号に進むようにします。このメソッドはテスト専用であり、`rippled`サーバーがスタンドアロンモードで実行されている場合にのみ使用できます。
+<span class="code-snippet">ledger_accept</span>メソッドは、サーバーが現在処理中のレジャーを強制的に終了し、次のレジャー番号に進むようにします。このメソッドはテスト専用であり、<span class="code-snippet">rippled</span>サーバーがスタンドアロンモードで実行されている場合にのみ使用できます。
 
-*`ledger_accept`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
+*<span class="code-snippet">ledger_accept</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
 
 ### 要求フォーマット
 
@@ -56,14 +56,14 @@ rippled ledger_accept
 
 | `Field`                | 型             | 説明                      |
 |:-----------------------|:-----------------|:---------------------------------|
-| `ledger_current_index` | 符号なし整数 | 新規に作成される「現行」レジャーインデックス |
+| <span class="code-snippet">ledger_current_index</span> | 符号なし整数 | 新規に作成される「現行」レジャーインデックス |
 
-**注記:** レジャーを閉鎖すると、`rippled`がそのレジャーのトランザクションの正規順序を決定してリプレイします。これにより、以前に現行レジャーに暫定的に適用されていたトランザクションの結果が変化することがあります。
+**注記:** レジャーを閉鎖すると、<span class="code-snippet">rippled</span>がそのレジャーのトランザクションの正規順序を決定してリプレイします。これにより、以前に現行レジャーに暫定的に適用されていたトランザクションの結果が変化することがあります。
 
 ### 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
-* `notStandAlone` - `rippled`サーバーが現在スタンドアロンモードで実行されていない場合。
+* <span class="code-snippet">notStandAlone</span> - <span class="code-snippet">rippled</span>サーバーが現在スタンドアロンモードで実行されていない場合。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

@@ -9,9 +9,9 @@ labels:
 
 [New in: rippled 1.2.0][]
 
-The XRP Ledger is designed to be censorship resistant. In support of this design, the XRP Ledger provides an automated transaction censorship detector that is available on all `rippled` servers, enabling all participants to see if censorship is affecting the network.
+The XRP Ledger is designed to be censorship resistant. In support of this design, the XRP Ledger provides an automated transaction censorship detector that is available on all <span class="code-snippet">rippled</span> servers, enabling all participants to see if censorship is affecting the network.
 
-While a `rippled` server is in sync with the network, the detector tracks all transactions that should have been accepted in the last round of [consensus](intro-to-consensus.html) and included in the last validated ledger. The detector issues log messages of increasing severity when it sees transactions that have not been included in a validated ledger after several rounds of consensus.
+While a <span class="code-snippet">rippled</span> server is in sync with the network, the detector tracks all transactions that should have been accepted in the last round of [consensus](intro-to-consensus.html) and included in the last validated ledger. The detector issues log messages of increasing severity when it sees transactions that have not been included in a validated ledger after several rounds of consensus.
 
 
 
@@ -27,7 +27,7 @@ At a high-level, here’s how the transaction censorship detector works:
 
     For as long as the transaction remains in the tracker, the detector continues to issue a warning message in the log every 15 ledgers, for up to five warning messages. After the fifth warning message, the detector issues a final [error message](#example-error-message) in the log and then stops issuing warning and error messages.
 
-    If you see these messages in your `rippled` server log, you should investigate why other servers are failing to include the transaction, starting with the assumption that the cause is more likely to be a [false positive](#potential-false-positives) (innocent bug) than malicious censorship.
+    If you see these messages in your <span class="code-snippet">rippled</span> server log, you should investigate why other servers are failing to include the transaction, starting with the assumption that the cause is more likely to be a [false positive](#potential-false-positives) (innocent bug) than malicious censorship.
 
 
 

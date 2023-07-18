@@ -9,7 +9,7 @@ labels:
 
 An important and intentional feature of the XRP Ledger is that a [transaction](transaction-basics.html)'s outcome is [final](finality-of-results.html) as soon as it has been incorporated in a [ledger version](ledgers.html) that is validated by the [consensus process](consensus.html).
 
-If a transaction has _not_ yet been included in a validated ledger, it may be possible to effectively cancel it by sending another transaction from the same sending address with the same `Sequence` value. If you do not want the replacement transaction to do anything, send an [AccountSet transaction][] with no options.
+If a transaction has _not_ yet been included in a validated ledger, it may be possible to effectively cancel it by sending another transaction from the same sending address with the same <span class="code-snippet">Sequence</span> value. If you do not want the replacement transaction to do anything, send an [AccountSet transaction][] with no options.
 
 **Caution:** There is no guaranteed way to cancel a valid transaction after it has been distributed to the network. The process described here may or may not work depending on factors including how busy the network is, the network topology, and the [transaction cost](transaction-cost.html) of the proposed transaction.
 

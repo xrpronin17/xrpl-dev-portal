@@ -8,9 +8,9 @@ labels:
 # peer_reservations_del
 [[Source]](https://github.com/ripple/rippled/blob/4a1148eb2849513dd1e7ae080288fd47ab57a376/src/ripple/rpc/handlers/Reservations.cpp#L89 "Source")
 
-The `{{currentpage.name}}` method removes a specific [peer reservation][], if one exists. [New in: rippled 1.4.0][]
+The <span class="code-snippet">{{currentpage.name}}</span> method removes a specific [peer reservation][], if one exists. [New in: rippled 1.4.0][]
 
-_The `{{currentpage.name}}` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">{{currentpage.name}}</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 **Note:** Removing a peer reservation does not automatically disconnect the corresponding peer, if that peer is connected.
 
@@ -54,7 +54,7 @@ The request includes the following parameter:
 
 | `Field`     | Type                      | Description                        |
 |:------------|:--------------------------|:-----------------------------------|
-| `public_key` | String | The [node public key][] of the [peer reservation][] to remove, in [base58][] format. |
+| <span class="code-snippet">public_key</span> | String | The [node public key][] of the [peer reservation][] to remove, in [base58][] format. |
 
 
 ### Response Format
@@ -116,13 +116,13 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `previous` | Object | _(May be omitted)_ A **peer reservation object** with the last state of the peer reservation before deleting it. This field is always provided if a peer reservation was successfully deleted. |
+| <span class="code-snippet">previous</span> | Object | _(May be omitted)_ A **peer reservation object** with the last state of the peer reservation before deleting it. This field is always provided if a peer reservation was successfully deleted. |
 
-**Note:** If the specified reservation did not exist, this command returns success with an empty result object. In this case, the `previous` field is omitted.
+**Note:** If the specified reservation did not exist, this command returns success with an empty result object. In this case, the <span class="code-snippet">previous</span> field is omitted.
 
 #### Peer Reservation Object
 
-If the `previous` field is provided, it shows the previous status of this peer reservation, with the following fields:
+If the <span class="code-snippet">previous</span> field is provided, it shows the previous status of this peer reservation, with the following fields:
 
 {% include '_snippets/peer_reservation_object.md' %}
 <!--_ -->
@@ -130,9 +130,9 @@ If the `previous` field is provided, it shows the previous status of this peer r
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
-- `publicMalformed` - The `public_key` field of the request is not valid. It must be a valid node public key in [base58][] format.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
+- <span class="code-snippet">publicMalformed</span> - The <span class="code-snippet">public_key</span> field of the request is not valid. It must be a valid node public key in [base58][] format.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

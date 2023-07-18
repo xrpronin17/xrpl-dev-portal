@@ -8,9 +8,9 @@ labels:
 # get_counts
 [[Source]](https://github.com/ripple/rippled/blob/c7118a183a660648aa88a3546a6b2c5bce858440/src/ripple/rpc/handlers/GetCounts.cpp "Source")
 
-The `get_counts` command provides various stats about the health of the server, mostly the number of objects of different types that it currently holds in memory.
+The <span class="code-snippet">get_counts</span> command provides various stats about the health of the server, mostly the number of objects of different types that it currently holds in memory.
 
-_The `get_counts` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">get_counts</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 An example of the request format:
@@ -53,7 +53,7 @@ The request includes the following parameters:
 
 | `Field`     | Type                      | Description                        |
 |:------------|:--------------------------|:-----------------------------------|
-| `min_count` | Number (Unsigned Integer) | Only return fields with a value at least this high. |
+| <span class="code-snippet">min_count</span> | Number (Unsigned Integer) | Only return fields with a value at least this high. |
 
 ### Response Format
 
@@ -144,16 +144,16 @@ The response follows the [standard format][]. The list of fields contained in th
 
 | `Field`       | Type   | Description                                         |
 |:--------------|:-------|:----------------------------------------------------|
-| `Transaction` | Number | The number of `Transaction` objects in memory       |
-| `Ledger`      | Number | The number of ledgers in memory                     |
-| `uptime`      | String | The amount of time this server has been running uninterrupted. |
+| <span class="code-snippet">Transaction</span> | Number | The number of <span class="code-snippet">Transaction</span> objects in memory       |
+| <span class="code-snippet">Ledger</span>      | Number | The number of ledgers in memory                     |
+| <span class="code-snippet">uptime</span>      | String | The amount of time this server has been running uninterrupted. |
 
 For most other entries, the value indicates the number of objects of that type currently in memory.
 
 ### Possible Errors
 
 * Any of the [universal error types][].
-* `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
+* <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

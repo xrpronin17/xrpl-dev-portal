@@ -10,7 +10,7 @@ labels:
 
 サーバーのグレースフルシャットダウンを行います。
 
-_`stop`要求は、権限のないユーザーは実行できない*[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">stop</span>要求は、権限のないユーザーは実行できない*[管理メソッド](admin-api-methods.html)です。_
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -84,7 +84,7 @@ Connecting to 127.0.0.1:5005
 
 | `Field`   | 型   | 説明                          |
 |:----------|:-------|:-------------------------------------|
-| `message` | 文字列 | `ripple server stopping` : 正常終了の場合。 |
+| <span class="code-snippet">message</span> | 文字列 | <span class="code-snippet">ripple server stopping</span> : 正常終了の場合。 |
 
 ### 考えられるエラー
 

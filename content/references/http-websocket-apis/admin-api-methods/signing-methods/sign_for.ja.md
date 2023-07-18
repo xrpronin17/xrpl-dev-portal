@@ -8,7 +8,7 @@ labels:
 # sign_for
 [[ソース]](https://github.com/ripple/rippled/blob/release/src/ripple/rpc/handlers/SignFor.cpp "Source")
 
-`sign_for`コマンドは、[マルチシグトランザクション](multi-signing.html)の署名を1つ提供します。
+<span class="code-snippet">sign_for</span>コマンドは、[マルチシグトランザクション](multi-signing.html)の署名を1つ提供します。
 
 {% include '_snippets/public-signing-note.md' %}
 <!--_ -->
@@ -96,18 +96,18 @@ rippled sign_for rsA2LpzuawewSBQXkiju3YQTMzW13pAAdW s█████████
 
 | `Field`      | 型                   | 説明                                   |
 |:-------------|:---------------------|:---------------------------------------|
-| `account`    | 文字列 - [アドレス][] | 署名を提供するアドレス。 |
-| `tx_json`    | オブジェクト               | 署名する[トランザクション](transaction-formats.html)。[signメソッド][]を使用する場合とは異なり、トランザクションのすべてのフィールド（`Fee`と`Sequence`を含む）を指定する必要があります。トランザクションに、空の文字列を値として指定した`SigningPubKey`フィールドを含める必要があります。このオブジェクトには、以前に収集した署名を持つ`Signers`配列を必要に応じて含めることができます。 |
-| `secret`       | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。トランザクションへの署名に使用されます。信頼できないサーバーに対して、またはセキュリティが確保されていないネットワーク接続を通じて機密情報を送信しないでください。`key_type`、`seed`、`seed_hex`、`passphrase`と同時に使用することはできません。 |
-| `seed`         | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。トランザクションへの署名に使用されます。XRP Ledgerの[base58][]フォーマットにする必要があります。指定する場合は、`key_type`も指定する必要があります。`secret`、`seed_hex`、`passphrase`と同時に使用することはできません。 |
-| `seed_hex`     | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。トランザクションへの署名に使用されます。16進フォーマットにする必要があります。指定する場合は、`key_type`も指定する必要があります。`secret`、`seed`、`passphrase`と同時に使用することはできません。 |
-| `passphrase`   | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。文字列パスフレーズとして、トランザクションへの署名に使用されます。指定する場合は、`key_type`も指定する必要があります。`secret`、`seed`、`seed_hex`と同時に使用することはできません。 |
-| `key_type`     | 文字列  | _（省略可）_ この要求で提供する暗号鍵の種類。有効な種類は、`secp256k1`または`ed25519`です。デフォルトでは`secp256k1`です。`secret`と同時に使用することはできません。**注意:** Ed25519のサポートは実験的な機能です。 |
+| <span class="code-snippet">account</span>    | 文字列 - [アドレス][] | 署名を提供するアドレス。 |
+| <span class="code-snippet">tx_json</span>    | オブジェクト               | 署名する[トランザクション](transaction-formats.html)。[signメソッド][]を使用する場合とは異なり、トランザクションのすべてのフィールド（<span class="code-snippet">Fee</span>と<span class="code-snippet">Sequence</span>を含む）を指定する必要があります。トランザクションに、空の文字列を値として指定した<span class="code-snippet">SigningPubKey</span>フィールドを含める必要があります。このオブジェクトには、以前に収集した署名を持つ<span class="code-snippet">Signers</span>配列を必要に応じて含めることができます。 |
+| <span class="code-snippet">secret</span>       | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。トランザクションへの署名に使用されます。信頼できないサーバーに対して、またはセキュリティが確保されていないネットワーク接続を通じて機密情報を送信しないでください。<span class="code-snippet">key_type</span>、<span class="code-snippet">seed</span>、<span class="code-snippet">seed_hex</span>、<span class="code-snippet">passphrase</span>と同時に使用することはできません。 |
+| <span class="code-snippet">seed</span>         | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。トランザクションへの署名に使用されます。XRP Ledgerの[base58][]フォーマットにする必要があります。指定する場合は、<span class="code-snippet">key_type</span>も指定する必要があります。<span class="code-snippet">secret</span>、<span class="code-snippet">seed_hex</span>、<span class="code-snippet">passphrase</span>と同時に使用することはできません。 |
+| <span class="code-snippet">seed_hex</span>     | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。トランザクションへの署名に使用されます。16進フォーマットにする必要があります。指定する場合は、<span class="code-snippet">key_type</span>も指定する必要があります。<span class="code-snippet">secret</span>、<span class="code-snippet">seed</span>、<span class="code-snippet">passphrase</span>と同時に使用することはできません。 |
+| <span class="code-snippet">passphrase</span>   | 文字列  | _（省略可）_ トランザクションを提供するアカウントのシークレットキー。文字列パスフレーズとして、トランザクションへの署名に使用されます。指定する場合は、<span class="code-snippet">key_type</span>も指定する必要があります。<span class="code-snippet">secret</span>、<span class="code-snippet">seed</span>、<span class="code-snippet">seed_hex</span>と同時に使用することはできません。 |
+| <span class="code-snippet">key_type</span>     | 文字列  | _（省略可）_ この要求で提供する暗号鍵の種類。有効な種類は、<span class="code-snippet">secp256k1</span>または<span class="code-snippet">ed25519</span>です。デフォルトでは<span class="code-snippet">secp256k1</span>です。<span class="code-snippet">secret</span>と同時に使用することはできません。**注意:** Ed25519のサポートは実験的な機能です。 |
 
 シークレットキーを指定した**1つのフィールドのみ**を指定する必要があります。次のいずれかになります。
 
-* `secret`値を指定し、`key_type`フィールドを省略します。この値は、XRP Ledgerの[base58][]シード、RFC-1751、16進値のフォーマットで記述するか、文字列パスフレーズとして記述します（secp256k1キーのみ）。
-* `key_type`値と、`seed`、`seed_hex`、または`passphrase`のいずれか1つを提供します。`secret`フィールドは省略します。（コマンドライン構文ではサポートされません。）
+* <span class="code-snippet">secret</span>値を指定し、<span class="code-snippet">key_type</span>フィールドを省略します。この値は、XRP Ledgerの[base58][]シード、RFC-1751、16進値のフォーマットで記述するか、文字列パスフレーズとして記述します（secp256k1キーのみ）。
+* <span class="code-snippet">key_type</span>値と、<span class="code-snippet">seed</span>、<span class="code-snippet">seed_hex</span>、または<span class="code-snippet">passphrase</span>のいずれか1つを提供します。<span class="code-snippet">secret</span>フィールドは省略します。（コマンドライン構文ではサポートされません。）
 
 ## 応答フォーマット
 
@@ -229,17 +229,17 @@ Connecting to 127.0.0.1:5005
 
 | `Field`   | 型     | 説明                                                    |
 |:----------|:-------|:--------------------------------------------------------|
-| `tx_blob` | 文字列 | 新規に追加した署名を含む署名済みトランザクションの16進数表記。トランザクションに十分な数の署名がある場合には、[`submit`メソッドを使用してこの文字列を送信](submit.html#送信専用モード)できます。 |
-| `tx_json` | オブジェクト | 新規に追加された署名を含む`Signers`配列を持つ[トランザクションの指定](transaction-formats.html)（JSONフォーマット） 。トランザクションに十分な数の署名がある場合には、[submit_multisignedメソッド][]を使用してこのオブジェクトを送信できます。 |
+| <span class="code-snippet">tx_blob</span> | 文字列 | 新規に追加した署名を含む署名済みトランザクションの16進数表記。トランザクションに十分な数の署名がある場合には、[<span class="code-snippet">submit</span>メソッドを使用してこの文字列を送信](submit.html#送信専用モード)できます。 |
+| <span class="code-snippet">tx_json</span> | オブジェクト | 新規に追加された署名を含む<span class="code-snippet">Signers</span>配列を持つ[トランザクションの指定](transaction-formats.html)（JSONフォーマット） 。トランザクションに十分な数の署名がある場合には、[submit_multisignedメソッド][]を使用してこのオブジェクトを送信できます。 |
 
 ## 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
-* `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
-* `srcActNotFound` - トランザクションの`Account`が、レジャーの資金供給のあるアドレスではない場合。
-* `srcActMalformed` - 要求の署名アドレス（`account`フィールド）の形式が無効である場合。
-* `badSeed` - 指定されたシード値のフォーマットが正しくありません。
-* `badSecret` - 指定されたシークレット値のフォーマットが正しくありません。
+* <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+* <span class="code-snippet">srcActNotFound</span> - トランザクションの<span class="code-snippet">Account</span>が、レジャーの資金供給のあるアドレスではない場合。
+* <span class="code-snippet">srcActMalformed</span> - 要求の署名アドレス（<span class="code-snippet">account</span>フィールド）の形式が無効である場合。
+* <span class="code-snippet">badSeed</span> - 指定されたシード値のフォーマットが正しくありません。
+* <span class="code-snippet">badSecret</span> - 指定されたシークレット値のフォーマットが正しくありません。
 
 
 {% include '_snippets/rippled_versions.md' %}

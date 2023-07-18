@@ -38,7 +38,7 @@ XRP Ledger Checks also solve a problem that is unique to the XRP Ledger: they al
 
 **Problem:** To comply with regulations like [BSA, KYC, AML, and CFT](become-an-xrp-ledger-gateway.html#compliance-guidelines), financial institutions must provide documentation about the source of funds they receive. Such regulations seek to prevent the illicit transfer of funds by requiring institutions to know the source and destination of all payments processed by the institution. Because of the nature of the XRP Ledger, anyone could potentially send XRP (and, under the right circumstances, tokens) to an institution's account on the XRP Ledger. Dealing with such unwanted payments adds significant cost and time delays to these institutions' compliance departments, including potential fines or penalties. <!-- SPELLING_IGNORE: cft -->
 
-**Solution:** Institutions can enable [Deposit Authorization](depositauth.html) on their XRP Ledger accounts by [setting the `asfDepositAuth` flag in an `AccountSet` transaction](accountset.html). This makes the account unable to receive Payment transactions. Accounts with Deposit Authorization enabled can only receive funds through Escrow, Payment Channels, or Checks. Checks are the most straightforward, familiar, and flexible way to transfer funds if Deposit Authorization is enabled.
+**Solution:** Institutions can enable [Deposit Authorization](depositauth.html) on their XRP Ledger accounts by [setting the <span class="code-snippet">asfDepositAuth</span> flag in an <span class="code-snippet">AccountSet</span> transaction](accountset.html). This makes the account unable to receive Payment transactions. Accounts with Deposit Authorization enabled can only receive funds through Escrow, Payment Channels, or Checks. Checks are the most straightforward, familiar, and flexible way to transfer funds if Deposit Authorization is enabled.
 
 
 ## Usage
@@ -49,16 +49,16 @@ Checks typically have the lifecycle described below.
 
 [![Check flow diagram (successful cashing)](img/checks-happy-path.png)](img/checks-happy-path.png)
 
-**Step 1:** To create a Check, the sender submits a [CheckCreate][] transaction and specifies the recipient (`Destination`), expiration time (`Expiration`), and maximum amount that may be debited from the sender's account (`SendMax`).
+**Step 1:** To create a Check, the sender submits a [CheckCreate][] transaction and specifies the recipient (<span class="code-snippet">Destination</span>), expiration time (<span class="code-snippet">Expiration</span>), and maximum amount that may be debited from the sender's account (<span class="code-snippet">SendMax</span>).
 
 
 **Step 2:** After the CheckCreate transaction is processed, a [Check object](check.html) is created on the XRP Ledger. This object contains the properties of the Check as defined by the transaction that created it. The object can only be modified by the sender (by canceling it with a [CheckCancel][] transaction) or recipient (by canceling it or cashing it) before the expiration time passes. After the expiration time, anyone may cancel the Check.
 
 **Step 3:** To cash the check, the recipient submits a [CheckCash][] transaction. The recipient has two options for cashing the check:
 
-* `Amount` — The recipient can use this option to specify an exact amount to cash. This may be useful for cases where the sender has padded the check to cover possible [transfer fees](transfer-fees.html) and the recipient wants to accept the exact amount on an invoice or other contract.
+* <span class="code-snippet">Amount</span> — The recipient can use this option to specify an exact amount to cash. This may be useful for cases where the sender has padded the check to cover possible [transfer fees](transfer-fees.html) and the recipient wants to accept the exact amount on an invoice or other contract.
 
-* `DeliverMin` — The recipient can use this option to specify the minimum amount they are willing to receive from the Check. If the recipient uses this option, the XRP Ledger attempts to deliver as much as possible and always delivers at least this amount. The transaction fails if the amount that can be credited to the recipient is not at least the requested amount.
+* <span class="code-snippet">DeliverMin</span> — The recipient can use this option to specify the minimum amount they are willing to receive from the Check. If the recipient uses this option, the XRP Ledger attempts to deliver as much as possible and always delivers at least this amount. The transaction fails if the amount that can be credited to the recipient is not at least the requested amount.
 
 If the sender has enough funds to cover the Check and the expiration time has not passed, the funds are debited from the sender's account and credited to the recipient's account, and the Check object is destroyed.
 

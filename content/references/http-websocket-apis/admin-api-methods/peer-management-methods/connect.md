@@ -8,9 +8,9 @@ labels:
 # connect
 [[Source]](https://github.com/ripple/rippled/blob/a61ffab3f9010d8accfaa98aa3cacc7d38e74121/src/ripple/rpc/handlers/Connect.cpp "Source")
 
-The `connect` command forces the `rippled` server to connect to a specific peer `rippled` server.
+The <span class="code-snippet">connect</span> command forces the <span class="code-snippet">rippled</span> server to connect to a specific peer <span class="code-snippet">rippled</span> server.
 
-*The `connect` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">connect</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -55,8 +55,8 @@ The request includes the following parameters:
 
 | `Field` | Type   | Description                                               |
 |:--------|:-------|:----------------------------------------------------------|
-| `ip`    | String | IP address of the server to connect to                    |
-| `port`  | Number | _(Optional)_ Port number to use when connecting. The default is **2459**. [Updated in: rippled 1.6.0][] |
+| <span class="code-snippet">ip</span>    | String | IP address of the server to connect to                    |
+| <span class="code-snippet">port</span>  | Number | _(Optional)_ Port number to use when connecting. The default is **2459**. [Updated in: rippled 1.6.0][] |
 
 ### Response Format
 
@@ -95,14 +95,14 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                            |
 |:----------|:-------|:-------------------------------------------------------|
-| `message` | String | The value `connecting`, if the command was successful. |
+| <span class="code-snippet">message</span> | String | The value <span class="code-snippet">connecting</span>, if the command was successful. |
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
+- <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
 - Cannot connect in stand-alone mode - Network-related commands are disabled in stand-alone mode.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

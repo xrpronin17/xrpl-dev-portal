@@ -8,9 +8,9 @@ labels:
 # can_delete
 [[Source]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/CanDelete.cpp "Source")
 
-The `can_delete` method informs the `rippled` server of the latest ledger version which may be deleted when using [online deletion with advisory deletion enabled](online-deletion.html#advisory-deletion). If advisory deletion is not enabled, this method does nothing.
+The <span class="code-snippet">can_delete</span> method informs the <span class="code-snippet">rippled</span> server of the latest ledger version which may be deleted when using [online deletion with advisory deletion enabled](online-deletion.html#advisory-deletion). If advisory deletion is not enabled, this method does nothing.
 
-_The `can_delete` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">can_delete</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 ### Request Format
 
@@ -52,9 +52,10 @@ rippled can_delete 11320417
 
 The request accepts the following parameter:
 
-| `Field`      | Type              | Description                               |
-|:-------------|:------------------|:------------------------------------------|
-| `can_delete` | String or Integer | _(Optional)_ The [Ledger Index][] of the maximum ledger version to allow to be deleted. The special case `never` disables online deletion. The special case `always` enables automatic online deletion as if advisory deletion was disabled. The special case `now` allows online deletion one time at the next validated ledger that meets or exceeds the configured `online_delete` value. If omitted, the server makes no changes (but still replies with the current `can_delete` value). |
+| `Field`      | Type    | Description                                         |
+|:-------------|:--------|:----------------------------------------------------|
+| <span class="code-snippet">can_delete</span> | String or Integer | _(Optional)_ The [Ledger Index][] of the maximum ledger version to allow to be deleted. The special case <span class="code-snippet">never</span> disables <span class="code-snippet">online deletion</span>. The special case <span class="code-snippet">always</span> enables automatic <span class="code-snippet">online deletion</span> as if advisory deletion was disabled. The special case now allows <span class="code-snippet">online deletion</span> one time at the next validated ledger that meets or exceeds the configured <span class="code-snippet">online_delete</span> value. If omitted, the server makes no changes (but still replies with the current <span class="code-snippet">can_delete</span> value).
+
 
 ### Response Format
 
@@ -62,18 +63,18 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`      | Type    | Description                                         |
 |:-------------|:--------|:----------------------------------------------------|
-| `can_delete` | Integer | The maximum ledger index that may be removed by the online deletion routine. |
+| <span class="code-snippet">can_delete</span> | Integer | The maximum ledger index that may be removed by the online deletion routine. |
 
-Use this command with no parameter to query the existing `can_delete` setting.
+Use this command with no parameter to query the existing <span class="code-snippet">can_delete</span> setting.
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
-- `lgrNotFound` - The ledger specified by the `can_delete` field of the request does not exist, or it does exist but the server does not have it.
-- `notEnabled` - If either online deletion or advisory deletion are not enabled in the server's configuration.
-- `notReady` - The server is not ready to run online deletion at the moment. This usually means the server has recently started up and has not yet acquired a validated ledger.
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
+- <span class="code-snippet">lgrNotFound</span> - The ledger specified by the <span class="code-snippet">can_delete</span> field of the request does not exist, or it does exist but the server does not have it.
+- <span class="code-snippet">notEnabled</span> - If either online deletion or advisory deletion are not enabled in the server's configuration.
+- <span class="code-snippet">notReady</span> - The server is not ready to run online deletion at the moment. This usually means the server has recently started up and has not yet acquired a validated ledger.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 ## See Also
 

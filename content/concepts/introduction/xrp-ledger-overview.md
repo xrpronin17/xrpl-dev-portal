@@ -66,7 +66,7 @@ The supply of XRP available to the general public _does_ change due to a few fac
 ## Responsible Software Governance
 [Responsible Software Governance]: #responsible-software-governance
 
-Any piece of software can only be as good as the developers who code and manage it. Ripple employs a team of world-class engineers dedicated full-time to maintaining and improving the XRP Ledger software, especially the core server, `rippled`. The [source code for `rippled`](https://github.com/ripple/rippled/) is available to the public with a permissive open-source license, as are many other parts of the XRP Ledger ecosystem. Ripple engineers follow best practices for software engineering, including:
+Any piece of software can only be as good as the developers who code and manage it. Ripple employs a team of world-class engineers dedicated full-time to maintaining and improving the XRP Ledger software, especially the core server, <span class="code-snippet">rippled</span>. The [source code for <span class="code-snippet">rippled</span>](https://github.com/ripple/rippled/) is available to the public with a permissive open-source license, as are many other parts of the XRP Ledger ecosystem. Ripple engineers follow best practices for software engineering, including:
 
 - A famously strict and thorough code review process
 - Comprehensive code coverage and unit tests

@@ -8,9 +8,9 @@ labels:
 # peer_reservations_list
 [[ソース]](https://github.com/ripple/rippled/blob/4a1148eb2849513dd1e7ae080288fd47ab57a376/src/ripple/rpc/handlers/Reservations.cpp#L116 "Source")
 
-`{{currentpage.name}}`メソッドは、[ピアリザベーション][]を一覧表示します。[新規: rippled 1.4.0][]
+<span class="code-snippet">{{currentpage.name}}</span>メソッドは、[ピアリザベーション][]を一覧表示します。[新規: rippled 1.4.0][]
 
-_`{{currentpage.name}}`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">{{currentpage.name}}</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 
 ### 要求フォーマット
@@ -122,11 +122,11 @@ Loading: "/etc/rippled.cfg"
 
 | `Field`        | 型    | 説明                                                |
 |:---------------|:------|:----------------------------------------------------|
-| `reservations` | 配列 | 既存の[ピアリザベーション][]のリスト。各メンバーはピアリザベーションオブジェクトです。詳細は以下のとおりです。 |
+| <span class="code-snippet">reservations</span> | 配列 | 既存の[ピアリザベーション][]のリスト。各メンバーはピアリザベーションオブジェクトです。詳細は以下のとおりです。 |
 
 #### ピアリザベーションオブジェクト
 
-`reservations`配列の各メンバーは、1つの[ピアリザベーション][]を表すJSONオブジェクトです。このオブジェクトのフィールドを次に示します。
+<span class="code-snippet">reservations</span>配列の各メンバーは、1つの[ピアリザベーション][]を表すJSONオブジェクトです。このオブジェクトのフィールドを次に示します。
 
 {% include '_snippets/peer_reservation_object.ja.md' %}
 <!--_ -->

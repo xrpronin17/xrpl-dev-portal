@@ -10,7 +10,7 @@ labels:
 
 Validators can vote for changes to basic [transaction cost](transaction-cost.html) as well as [reserve requirements](reserves.html). If the preferences in a validator's configuration are different than the network's current settings, the validator expresses its preferences to the network periodically. If a quorum of validators agrees on a change, they can apply a change that takes effect thereafter. Validators may do this for various reasons, especially to adjust to long-term changes in the value of XRP.
 
-Operators of [`rippled` validators](run-rippled-as-a-validator.html) can set their preferences for the transaction cost and reserve requirements in the `[voting]` stanza of the `rippled.cfg` file.
+Operators of [<span class="code-snippet">rippled</span> validators](run-rippled-as-a-validator.html) can set their preferences for the transaction cost and reserve requirements in the <span class="code-snippet">[voting]</span> stanza of the <span class="code-snippet">rippled.cfg</span> file.
 
 **Caution:** Insufficient requirements, if adopted by a consensus of trusted validators, could expose the XRP Ledger peer-to-peer network to denial-of-service attacks.
 
@@ -18,13 +18,13 @@ The parameters you can set are as follows:
 
 | Parameter | Description | Recommended Value |
 |-----------|-------------|-------------------|
-| `reference_fee` | Amount of XRP, in _drops_ (1 XRP = 1 million drops.), that must be destroyed to send the reference transaction, the cheapest possible transaction. The actual transaction cost is a multiple of this value, scaled dynamically based on the load of individual servers. | `10` (0.00001 XRP) |
-| `account_reserve` | Minimum amount of XRP, in _drops_, that an account must have on reserve. This is the smallest amount that can be sent to fund a new account in the ledger. | `10000000` (10 XRP) |
-| `owner_reserve` | How much more XRP, in _drops_, that an address must hold for _each_ object it owns in the ledger. | `2000000` (2 XRP) |
+| <span class="code-snippet">reference_fee</span> | Amount of XRP, in _drops_ (1 XRP = 1 million drops.), that must be destroyed to send the reference transaction, the cheapest possible transaction. The actual transaction cost is a multiple of this value, scaled dynamically based on the load of individual servers. | <span class="code-snippet">10</span> (0.00001 XRP) |
+| <span class="code-snippet">account_reserve</span> | Minimum amount of XRP, in _drops_, that an account must have on reserve. This is the smallest amount that can be sent to fund a new account in the ledger. | <span class="code-snippet">10000000</span> (10 XRP) |
+| <span class="code-snippet">owner_reserve</span> | How much more XRP, in _drops_, that an address must hold for _each_ object it owns in the ledger. | <span class="code-snippet">2000000</span> (2 XRP) |
 
 ## Voting Process
 
-Every 256th ledger is called a "flag" ledger. (A flag ledger is defined such that the `ledger_index` [modulo](https://en.wikipedia.org/wiki/Modulo_operation) `256` is equal to `0`.) In the ledger immediately before the flag ledger, each validator whose account reserve or transaction cost preferences are different than the current network setting distributes a "vote" message alongside its ledger validation, indicating the values that validator prefers.
+Every 256th ledger is called a "flag" ledger. (A flag ledger is defined such that the <span class="code-snippet">ledger_index</span> [modulo](https://en.wikipedia.org/wiki/Modulo_operation) <span class="code-snippet">256</span> is equal to <span class="code-snippet">0</span>.) In the ledger immediately before the flag ledger, each validator whose account reserve or transaction cost preferences are different than the current network setting distributes a "vote" message alongside its ledger validation, indicating the values that validator prefers.
 
 In the flag ledger itself, nothing happens, but validators receive and take note of the votes from other validators they trust.
 
@@ -43,9 +43,9 @@ The maximum possible values for the fees are limited by the internal data types 
 
 | Parameter | Maximum Value (drops) | Maximum Value (XRP)
 |-----------|-----------------------|----|
-| `reference_fee` | 2<sup>64</sup> | (More XRP than has ever existed.) |
-| `account_reserve` | 2<sup>32</sup> drops | Approximately 4294 XRP |
-| `owner_reserve` | 2<sup>32</sup> drops | Approximately 4294 XRP |
+| <span class="code-snippet">reference_fee</span> | 2<sup>64</sup> | (More XRP than has ever existed.) |
+| <span class="code-snippet">account_reserve</span> | 2<sup>32</sup> drops | Approximately 4294 XRP |
+| <span class="code-snippet">owner_reserve</span> | 2<sup>32</sup> drops | Approximately 4294 XRP |
 
 
 ## See Also
@@ -56,7 +56,7 @@ The maximum possible values for the fees are limited by the internal data types 
     - [Reserves](reserves.html)
     - [Transaction Queue](transaction-queue.html)
 - **Tutorials:**
-    - [Configure `rippled`](configure-rippled.html)
+    - [Configure <span class="code-snippet">rippled</span>](configure-rippled.html)
 - **References:**
     - [fee method][]
     - [server_info method][]

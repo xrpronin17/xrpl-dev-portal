@@ -8,9 +8,9 @@ labels:
 # peer_reservations_list
 [[Source]](https://github.com/ripple/rippled/blob/4a1148eb2849513dd1e7ae080288fd47ab57a376/src/ripple/rpc/handlers/Reservations.cpp#L116 "Source")
 
-The `{{currentpage.name}}` method lists [peer reservations][]. [New in: rippled 1.4.0][]
+The <span class="code-snippet">{{currentpage.name}}</span> method lists [peer reservations][]. [New in: rippled 1.4.0][]
 
-_The `{{currentpage.name}}` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">{{currentpage.name}}</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 
 ### Request Format
@@ -122,11 +122,11 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`        | Type  | Description                                         |
 |:---------------|:------|:----------------------------------------------------|
-| `reservations` | Array | List of existing [peer reservations][]. Each member is a peer reservation object, as described below. |
+| <span class="code-snippet">reservations</span> | Array | List of existing [peer reservations][]. Each member is a peer reservation object, as described below. |
 
 #### Peer Reservation Object
 
-Each member of the `reservations` array is a JSON object describing one [peer reservation][]. This object has the following fields:
+Each member of the <span class="code-snippet">reservations</span> array is a JSON object describing one [peer reservation][]. This object has the following fields:
 
 {% include '_snippets/peer_reservation_object.md' %}
 <!--_ -->
@@ -134,7 +134,7 @@ Each member of the `reservations` array is a JSON object describing one [peer re
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `reportingUnsupported` - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
+- <span class="code-snippet">reportingUnsupported</span> - ([Reporting Mode][] servers only) This method is not available in Reporting Mode.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

@@ -7,8 +7,8 @@ Follow the steps below to get started:
 1. [Node.js](https://nodejs.org/en/download/) (v10.15.3 or higher)
 2. Install [Yarn](https://yarnpkg.com/en/docs/install) (v1.17.3 or higher) or [NPM](https://www.npmjs.com/get-npm) (v6.4.1 or higher)
 3. Add your Seed, Client, and specify testnet/mainnet in .env file. Example .env file is provided in the repo.
-4. Run `yarn install` or `npm install` to install dependencies
-5. Start the app with `yarn dev` or `npm dev`
+4. Run <span class="code-snippet">yarn install</span> or <span class="code-snippet">npm install</span> to install dependencies
+5. Start the app with <span class="code-snippet">yarn dev</span> or <span class="code-snippet">npm dev</span>
 
 # Goals
 

@@ -8,9 +8,9 @@ labels:
 # node_to_shard
 [[Source]](https://github.com/ripple/rippled/blob/develop/src/ripple/rpc/handlers/NodeToShard.cpp "Source")
 
-The `{{currentpage.name}}` method manages copying data from the ledger store to the [shard store](history-sharding.html). It can start, stop, or check the status of copying the data.
+The <span class="code-snippet">{{currentpage.name}}</span> method manages copying data from the ledger store to the [shard store](history-sharding.html). It can start, stop, or check the status of copying the data.
 
-_The `{{currentpage.name}}` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
+_The <span class="code-snippet">{{currentpage.name}}</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users._
 
 
 ### Request Format
@@ -52,7 +52,7 @@ The request includes the following parameters:
 
 | `Field`  | Type   | Description                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `action` | String | Either `start`, `stop` or `status` depending on what action to take. |
+| <span class="code-snippet">action</span> | String | Either <span class="code-snippet">start</span>, <span class="code-snippet">stop</span> or <span class="code-snippet">status</span> depending on what action to take. |
 
 
 ### Response Format
@@ -106,15 +106,15 @@ The response follows the [standard format][], with a successful result containin
 
 | `Field`   | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `message` | String | A human-readable message indicating the action taken in response to the command. |
+| <span class="code-snippet">message</span> | String | A human-readable message indicating the action taken in response to the command. |
 
 
 ### Possible Errors
 
 - Any of the [universal error types][].
-- `internal` - If you attempt an invalid operation like checking the status of a copy when one isn't running.
-- `notEnabled` - If the server is not configured to store [history shards](history-sharding.html).
-- `invalidParams` - One or more fields are specified incorrectly, or one or more required fields are missing.
+- <span class="code-snippet">internal</span> - If you attempt an invalid operation like checking the status of a copy when one isn't running.
+- <span class="code-snippet">notEnabled</span> - If the server is not configured to store [history shards](history-sharding.html).
+- <span class="code-snippet">invalidParams</span> - One or more fields are specified incorrectly, or one or more required fields are missing.
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

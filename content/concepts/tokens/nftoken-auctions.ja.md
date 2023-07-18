@@ -11,7 +11,7 @@ labels:
 
 ## XRPL外でオークションを行い、XRPL上で取引を成立させる
 
-このフローが最もわかりやすいと思います。`NFTokenOffer`オブジェクトは常にその作成者によってキャンセルされる可能性があるため、拘束力のあるオファーを実装することはできないことに注意してください。
+このフローが最もわかりやすいと思います。<span class="code-snippet">NFTokenOffer</span>オブジェクトは常にその作成者によってキャンセルされる可能性があるため、拘束力のあるオファーを実装することはできないことに注意してください。
 
 1. 入札内容を非公開のデータベースに保存します。
 2. 落札額の一部を手数料として徴収します。
@@ -23,9 +23,9 @@ labels:
 
 ![ブローカー方式で最低落札価格ありのオークション](img/nft-auction1.png "ブローカー方式で最低落札価格ありのオークション")
 
-1. 売り手はNFTを作成し，`NFTokenCreateOffer`を用い，ブローカーアカウントを宛先に設定して，オークションの最低落札価格を設定します。
-1. 入札者は`NFTokenCreateOffer`を使ってオファーを出し、ブローカーアカウントを宛先として設定します。
-1. ブローカーは落札した入札を選択し、`NFTokenAcceptOffer`を使用して取引を成立させ、ブローカー手数料を徴収します。その後、ブローカーは`NFTokenCancelOffer`を使って競り負けた入札をキャンセルします。
+1. 売り手はNFTを作成し，<span class="code-snippet">NFTokenCreateOffer</span>を用い，ブローカーアカウントを宛先に設定して，オークションの最低落札価格を設定します。
+1. 入札者は<span class="code-snippet">NFTokenCreateOffer</span>を使ってオファーを出し、ブローカーアカウントを宛先として設定します。
+1. ブローカーは落札した入札を選択し、<span class="code-snippet">NFTokenAcceptOffer</span>を使用して取引を成立させ、ブローカー手数料を徴収します。その後、ブローカーは<span class="code-snippet">NFTokenCancelOffer</span>を使って競り負けた入札をキャンセルします。
 
 **長所:**
 
@@ -45,12 +45,12 @@ labels:
 
 ![ブローカー方式で最低落札価格なしのオークション](img/nft-auction2.png "ブローカー方式で最低落札価格なしのオークション")
 
-1. 売り手は`NFTokenMint`を使用してNFTを作成します。
-1. 入札者は`NFTokenCreateOffer`を使って、ブローカーを宛先としてオファーを出します。
-1. ブローカーは落札者を選択し、手数料として徴収する金額を差し引いた後、`NFTokenCreateOffer`を介してこの金額で売却のための署名を売り手に要求します。
+1. 売り手は<span class="code-snippet">NFTokenMint</span>を使用してNFTを作成します。
+1. 入札者は<span class="code-snippet">NFTokenCreateOffer</span>を使って、ブローカーを宛先としてオファーを出します。
+1. ブローカーは落札者を選択し、手数料として徴収する金額を差し引いた後、<span class="code-snippet">NFTokenCreateOffer</span>を介してこの金額で売却のための署名を売り手に要求します。
 1. 売り手は要求されたオファーに署名し、宛先としてブローカーを設定します。
-1. ブローカーは`NFTokenAcceptOffer`を使って取引を完了させ、ブローカー手数料を受け取ります。
-1. ブローカーは`NFTokenCancelOffer`を使って競り負けた入札をキャンセルします。
+1. ブローカーは<span class="code-snippet">NFTokenAcceptOffer</span>を使って取引を完了させ、ブローカー手数料を受け取ります。
+1. ブローカーは<span class="code-snippet">NFTokenCancelOffer</span>を使って競り負けた入札をキャンセルします。
 
 **長所:**
 

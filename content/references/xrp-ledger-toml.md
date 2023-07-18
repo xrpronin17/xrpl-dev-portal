@@ -16,9 +16,9 @@ curated_anchors:
 ---
 # xrp-ledger.toml File
 
-If you run an XRP Ledger validator or use the XRP Ledger for your business, you can provide information about your usage of the XRP Ledger to the world in a machine-readable **`xrp-ledger.toml`** file. Scripts and applications can use the information contained in your `xrp-ledger.toml` file to better understand and represent you in the XRP Ledger. In some cases, humans may also find it useful to read the same file.
+If you run an XRP Ledger validator or use the XRP Ledger for your business, you can provide information about your usage of the XRP Ledger to the world in a machine-readable **<span class="code-snippet">xrp-ledger.toml</span>** file. Scripts and applications can use the information contained in your <span class="code-snippet">xrp-ledger.toml</span> file to better understand and represent you in the XRP Ledger. In some cases, humans may also find it useful to read the same file.
 
-One of the primary use cases for the `xrp-ledger.toml` file is [domain verification](#domain-verification).
+One of the primary use cases for the <span class="code-snippet">xrp-ledger.toml</span> file is [domain verification](#domain-verification).
 
 #### Notational Conventions
 
@@ -26,13 +26,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Serving the File
 
-The `xrp-ledger.toml` file is meant to be served by a web server. The file should be available at the following URL:
+The <span class="code-snippet">xrp-ledger.toml</span> file is meant to be served by a web server. The file should be available at the following URL:
 
 ```
 https://{DOMAIN}/.well-known/xrp-ledger.toml
 ```
 
-The `{DOMAIN}` is your domain name, including any subdomains. For example, you could serve the file from either of the following URLs:
+The <span class="code-snippet">{DOMAIN}</span> is your domain name, including any subdomains. For example, you could serve the file from either of the following URLs:
 
 ```
 https://example.com/.well-known/xrp-ledger.toml
@@ -41,36 +41,36 @@ https://xrp.services.example.com/.well-known/xrp-ledger.toml
 
 ### Protocol
 
-The contents MUST be served through the **HTTPS protocol** for security, using a current and secure version of [TLS](https://tools.ietf.org/html/rfc8446), using a valid certificate signed by a well-known certificate authority. (Note: TLS was formerly called SSL, but those versions are no longer secure.) In other words, a prerequisite for hosting an `xrp-ledger.toml` file is to have a properly-configured HTTPS web server.
+The contents MUST be served through the **HTTPS protocol** for security, using a current and secure version of [TLS](https://tools.ietf.org/html/rfc8446), using a valid certificate signed by a well-known certificate authority. (Note: TLS was formerly called SSL, but those versions are no longer secure.) In other words, a prerequisite for hosting an <span class="code-snippet">xrp-ledger.toml</span> file is to have a properly-configured HTTPS web server.
 
-The plain HTTP protocol is vulnerable to man-in-the-middle attacks; for example, some internet services have been known to modify contents retrieved over plain HTTP to inject their own advertisements. To prevent similar techniques from misrepresenting the contents of the `xrp-ledger.toml` file and potentially causing scripts to behave incorrectly or deceptively, one SHOULD NOT trust the contents of an `xrp-ledger.toml` file that is served over plain HTTP.
+The plain HTTP protocol is vulnerable to man-in-the-middle attacks; for example, some internet services have been known to modify contents retrieved over plain HTTP to inject their own advertisements. To prevent similar techniques from misrepresenting the contents of the <span class="code-snippet">xrp-ledger.toml</span> file and potentially causing scripts to behave incorrectly or deceptively, one SHOULD NOT trust the contents of an <span class="code-snippet">xrp-ledger.toml</span> file that is served over plain HTTP.
 
 
 ### Domain
 
-The domain where you serve the `xrp-ledger.toml` file is a statement of ownership. The file's contents are not as useful or trustworthy when they stand on their own. For practical reasons, it may be undesirable to serve the file from your main domain, so you MAY use any number of subdomains. When setting the [`Domain` field of XRP Ledger accounts](accountset.html#domain), you MUST provide the full domain, including all subdomains you used. See [Account Verification](#account-verification) for details.
+The domain where you serve the <span class="code-snippet">xrp-ledger.toml</span> file is a statement of ownership. The file's contents are not as useful or trustworthy when they stand on their own. For practical reasons, it may be undesirable to serve the file from your main domain, so you MAY use any number of subdomains. When setting the [<span class="code-snippet">Domain</span> field of XRP Ledger accounts](accountset.html#domain), you MUST provide the full domain, including all subdomains you used. See [Account Verification](#account-verification) for details.
 
-You MAY serve the same file from multiple subdomains, if desired. For example, if the subdomain `www.example.com` goes to the same website as `example.com`, you can serve the file from both locations. If your website _requires_ the `www` prefix, be sure to include it when you specify the domain (for example, when setting the `Domain` field of an XRP Ledger account).
+You MAY serve the same file from multiple subdomains, if desired. For example, if the subdomain <span class="code-snippet">www.example.com</span> goes to the same website as <span class="code-snippet">example.com</span>, you can serve the file from both locations. If your website _requires_ the <span class="code-snippet">www</span> prefix, be sure to include it when you specify the domain (for example, when setting the <span class="code-snippet">Domain</span> field of an XRP Ledger account).
 
-It is RECOMMENDED that you serve a human-readable website from the same domain as the `xrp-ledger.toml` file. The website can provide further information about your identity and how you use the XRP Ledger, which helps to build trust toward you and your services.
+It is RECOMMENDED that you serve a human-readable website from the same domain as the <span class="code-snippet">xrp-ledger.toml</span> file. The website can provide further information about your identity and how you use the XRP Ledger, which helps to build trust toward you and your services.
 
 
 ### Path
 
-In compliance with [RFC5785](https://tools.ietf.org/html/rfc5785), the path MUST start with `/.well-known/`. The file MUST be available at the path `/.well-known/xrp-ledger.toml` exactly (case-sensitive, all lower case). <!-- SPELLING_IGNORE: rfc5785 -->
+In compliance with [RFC5785](https://tools.ietf.org/html/rfc5785), the path MUST start with <span class="code-snippet">/.well-known/</span>. The file MUST be available at the path <span class="code-snippet">/.well-known/xrp-ledger.toml</span> exactly (case-sensitive, all lower case). <!-- SPELLING_IGNORE: rfc5785 -->
 
-You MAY, if desired, serve the same file from paths with different capitalization, such as `/.well-known/XRP-Ledger.TOML`. You MUST NOT serve different contents depending on how the path is capitalized.
+You MAY, if desired, serve the same file from paths with different capitalization, such as <span class="code-snippet">/.well-known/XRP-Ledger.TOML</span>. You MUST NOT serve different contents depending on how the path is capitalized.
 
 
 ### Headers
 
 #### Content-Type
 
-The recommended **Content-Type** for the `xrp-ledger.toml` file is **`application/toml`**. However, applications consuming the file SHOULD also accept a Content-Type value of `text/plain`.
+The recommended **Content-Type** for the <span class="code-snippet">xrp-ledger.toml</span> file is **<span class="code-snippet">application/toml</span>**. However, applications consuming the file SHOULD also accept a Content-Type value of <span class="code-snippet">text/plain</span>.
 
 #### CORS
 
-To allow scripts on other websites to query the file, [CORS][] should be enabled for the file. Specifically, the server should provide the following header when serving `xrp-ledger.toml`:
+To allow scripts on other websites to query the file, [CORS][] should be enabled for the file. Specifically, the server should provide the following header when serving <span class="code-snippet">xrp-ledger.toml</span>:
 
 ```
 Access-Control-Allow-Origin: *
@@ -84,13 +84,13 @@ The server MAY use other standard HTTP headers as desired, including ones for co
 
 ### Generation
 
-The `xrp-ledger.toml` file MAY be an actual file stored on the web server, or it MAY be generated on-demand by the web server. The latter case may be preferable depending on the contents provided in the file or the configuration of your website.
+The <span class="code-snippet">xrp-ledger.toml</span> file MAY be an actual file stored on the web server, or it MAY be generated on-demand by the web server. The latter case may be preferable depending on the contents provided in the file or the configuration of your website.
 
 
 
 ## Contents
 
-The contents of the `xrp-ledger.toml` file MUST be formatted in [TOML](https://github.com/toml-lang/toml). **All contents are optional.** Comments are optional, but encouraged for readability.
+The contents of the <span class="code-snippet">xrp-ledger.toml</span> file MUST be formatted in [TOML](https://github.com/toml-lang/toml). **All contents are optional.** Comments are optional, but encouraged for readability.
 
 Example contents:
 
@@ -163,92 +163,92 @@ symbol = "😆" # In practical situations, it may be unwise to use emoji
 
 ### Metadata
 
-The metadata section provides information about the `xrp-ledger.toml` file itself. If present, this section MUST BE presented as a single table, headed by the line  `[METADATA]`, using _single_ square brackets. (Most other sections of the `xrp-ledger.toml` file use double brackets, for arrays of information, but there is at most one `[METADATA]` section.) You MAY provide any of the following fields (case-sensitive):
+The metadata section provides information about the <span class="code-snippet">xrp-ledger.toml</span> file itself. If present, this section MUST BE presented as a single table, headed by the line  <span class="code-snippet">[METADATA]</span>, using _single_ square brackets. (Most other sections of the <span class="code-snippet">xrp-ledger.toml</span> file use double brackets, for arrays of information, but there is at most one <span class="code-snippet">[METADATA]</span> section.) You MAY provide any of the following fields (case-sensitive):
 
 | Field      | Type             | Description                                  |
 |:-----------|:-----------------|:---------------------------------------------|
-| `modified` | Offset Date-Time | The time the `xrp-leder.toml` file was last modified.    |
-| `expires`  | Offset Date-Time | If the current time is equal or greater than this time, the `xrp-ledger.toml` file should be considered expired. |
+| <span class="code-snippet">modified</span> | Offset Date-Time | The time the <span class="code-snippet">xrp-leder.toml</span> file was last modified.    |
+| <span class="code-snippet">expires</span>  | Offset Date-Time | If the current time is equal or greater than this time, the <span class="code-snippet">xrp-ledger.toml</span> file should be considered expired. |
 
-The specification does not define a `domain` field; the field should be determined from the site serving the file.
+The specification does not define a <span class="code-snippet">domain</span> field; the field should be determined from the site serving the file.
 
-**Tip:** For Offset Date-Time values, Ripple RECOMMENDS that you use the offset `Z` and provide precision up to milliseconds. (For example, `2019-01-22T22:26:58.027Z`) If you edit the file by hand, you MAY approximate the time by providing zeroes for the hours, minutes, seconds, and milliseconds. (For example, `2019-01-22T00:00:00.000Z`)
+**Tip:** For Offset Date-Time values, Ripple RECOMMENDS that you use the offset <span class="code-snippet">Z</span> and provide precision up to milliseconds. (For example, <span class="code-snippet">2019-01-22T22:26:58.027Z</span>) If you edit the file by hand, you MAY approximate the time by providing zeroes for the hours, minutes, seconds, and milliseconds. (For example, <span class="code-snippet">2019-01-22T00:00:00.000Z</span>)
 
 ### Validators
 
-The validators list provides information about validating servers you run. If present, the validators list MUST BE presented as an array of tables, with each entry using the header `[[VALIDATORS]]`, including double square brackets. Each entry describes a separate validating server.
+The validators list provides information about validating servers you run. If present, the validators list MUST BE presented as an array of tables, with each entry using the header <span class="code-snippet">[[VALIDATORS]]</span>, including double square brackets. Each entry describes a separate validating server.
 
-The _first_ `[[VALIDATORS]]` entry in the file is treated as your primary validator. If you run one or more validators for the production XRP Ledger, you should put the one you want others to trust first.
+The _first_ <span class="code-snippet">[[VALIDATORS]]</span> entry in the file is treated as your primary validator. If you run one or more validators for the production XRP Ledger, you should put the one you want others to trust first.
 
-For _each_ `[[VALIDATORS]]` entry, you MAY provide any of the following fields:
+For _each_ <span class="code-snippet">[[VALIDATORS]]</span> entry, you MAY provide any of the following fields:
 
 | Field        | Type   | Description                                          |
 |:-------------|:-------|:-----------------------------------------------------|
-| `public_key` | String | The master public key of your primary validator, encoded in the XRP Ledger's base58 format (typically, this starts with `n`). |
-| `attestation`| String | A signed message, in hexadecimal, indicating that the same entity runs this validator and the domain serving this TOML file. For more information, see [Domain Verification](xrp-ledger-toml.html#domain-verification).
-| `network`  | String | Which network chain this validator follows. If omitted, clients SHOULD assume that the validator follows the production XRP Ledger. Use `main` to explicitly specify the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
-| `owner_country` | String | The two-letter ISO-3166-2 country code describing the main legal jurisdiction that you (the validator's owner) are subject to. |
-| `server_country` | String | The two-letter ISO-3166-2 country code describing the physical location where this validating server is. |
-| `unl` | String | An HTTPS URL where one can find the list of other validators this validator trusts. If the validator is configured to use a validator list site for UNL recommendations, this MUST match the server's configuration. For the production XRP Ledger network, use `https://vl.ripple.com` (trailing slash optional). |
+| <span class="code-snippet">public_key</span> | String | The master public key of your primary validator, encoded in the XRP Ledger's base58 format (typically, this starts with <span class="code-snippet">n</span>). |
+| <span class="code-snippet">attestation</span>| String | A signed message, in hexadecimal, indicating that the same entity runs this validator and the domain serving this TOML file. For more information, see [Domain Verification](xrp-ledger-toml.html#domain-verification).
+| <span class="code-snippet">network</span>  | String | Which network chain this validator follows. If omitted, clients SHOULD assume that the validator follows the production XRP Ledger. Use <span class="code-snippet">main</span> to explicitly specify the production XRP Ledger. Use <span class="code-snippet">testnet</span> for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| <span class="code-snippet">owner_country</span> | String | The two-letter ISO-3166-2 country code describing the main legal jurisdiction that you (the validator's owner) are subject to. |
+| <span class="code-snippet">server_country</span> | String | The two-letter ISO-3166-2 country code describing the physical location where this validating server is. |
+| <span class="code-snippet">unl</span> | String | An HTTPS URL where one can find the list of other validators this validator trusts. If the validator is configured to use a validator list site for UNL recommendations, this MUST match the server's configuration. For the production XRP Ledger network, use <span class="code-snippet">https://vl.ripple.com</span> (trailing slash optional). |
 
 
 ### Accounts
 
-The accounts list provides information about XRP Ledger accounts you own. If present, the accounts list MUST BE presented as an array of tables, with each entry using the header `[[ACCOUNTS]]`, including double square brackets. Each entry describes a separate account. For _each_ `[[ACCOUNTS]]` entry, you MAY provide any of the following fields:
+The accounts list provides information about XRP Ledger accounts you own. If present, the accounts list MUST BE presented as an array of tables, with each entry using the header <span class="code-snippet">[[ACCOUNTS]]</span>, including double square brackets. Each entry describes a separate account. For _each_ <span class="code-snippet">[[ACCOUNTS]]</span> entry, you MAY provide any of the following fields:
 
 | Field     | Type   | Description                                             |
 |:----------|:-------|:--------------------------------------------------------|
-| `address` | String | The public address of the account, encoded in the XRP Ledger's base58 format (typically, this starts with an `r`). |
-| `network` | String | The network chain where this account is primarily used. If omitted, clients SHOULD assume that the account is claimed on the production XRP Ledger _and_ possibly other network chains. Use `main` for the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
-| `desc`    | String | A human-readable description of this account's purpose or how you use it. |
+| <span class="code-snippet">address</span> | String | The public address of the account, encoded in the XRP Ledger's base58 format (typically, this starts with an <span class="code-snippet">r</span>). |
+| <span class="code-snippet">network</span> | String | The network chain where this account is primarily used. If omitted, clients SHOULD assume that the account is claimed on the production XRP Ledger _and_ possibly other network chains. Use <span class="code-snippet">main</span> for the production XRP Ledger. Use <span class="code-snippet">testnet</span> for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| <span class="code-snippet">desc</span>    | String | A human-readable description of this account's purpose or how you use it. |
 
-**Caution:** Anyone could claim ownership of any account by hosting an `xrp-ledger.toml` file, so the presence of an account here SHOULD NOT be considered authoritative unless the [`Domain` field for these accounts in the XRP Ledger](accountset.html#domain) also matches the domain that this `xrp-ledger.toml` file was served from. See [Account Verification](#account-verification) for details.
+**Caution:** Anyone could claim ownership of any account by hosting an <span class="code-snippet">xrp-ledger.toml</span> file, so the presence of an account here SHOULD NOT be considered authoritative unless the [<span class="code-snippet">Domain</span> field for these accounts in the XRP Ledger](accountset.html#domain) also matches the domain that this <span class="code-snippet">xrp-ledger.toml</span> file was served from. See [Account Verification](#account-verification) for details.
 
 
 ### Principals
 
-The principals list provides information about the people (or business entities) involved in your XRP Ledger businesses and services. If present, the principals list MUST BE presented as an array of tables, with each entry using the header `[[PRINCIPALS]]`, including double square brackets. Each entry describes a different point of contact. For _each_ `[[PRINCIPALS]]` entry, you MAY provide any of the following fields:
+The principals list provides information about the people (or business entities) involved in your XRP Ledger businesses and services. If present, the principals list MUST BE presented as an array of tables, with each entry using the header <span class="code-snippet">[[PRINCIPALS]]</span>, including double square brackets. Each entry describes a different point of contact. For _each_ <span class="code-snippet">[[PRINCIPALS]]</span> entry, you MAY provide any of the following fields:
 
 | Field   | Type   | Description                                              |
 |:--------|:-------|:---------------------------------------------------------|
-| `name`  | String | The name of this principal.                              |
-| `email` | String | The email address where this principal can be contacted. |
+| <span class="code-snippet">name</span>  | String | The name of this principal.                              |
+| <span class="code-snippet">email</span> | String | The email address where this principal can be contacted. |
 
 You may provide other contact information as desired. (See [Custom Fields](#custom-fields) for information about custom fields.)
 
 
 ### Servers
 
-The servers list provides information about XRP Ledger servers (`rippled`) you run with public access. If present, the servers list MUST BE presented as an array of tables, with each entry using the header `[[SERVERS]]`, including double square brackets. Each entry describes a different server or server cluster. For _each_ `[[SERVERS]]` entry, you MAY provide any of the following fields:
+The servers list provides information about XRP Ledger servers (<span class="code-snippet">rippled</span>) you run with public access. If present, the servers list MUST BE presented as an array of tables, with each entry using the header <span class="code-snippet">[[SERVERS]]</span>, including double square brackets. Each entry describes a different server or server cluster. For _each_ <span class="code-snippet">[[SERVERS]]</span> entry, you MAY provide any of the following fields:
 
 | Field   | Type   | Description                                              |
 |:--------|:-------|:---------------------------------------------------------|
-| `json_rpc` | String (URL) | The URL where you serve a public JSON-RPC API. This MUST begin with either `http://` or `https://`. HTTPS is RECOMMENDED for public APIs. |
-| `ws` | String (URL) | The URL where you serve a public WebSocket API. This MUST begin with either `ws://` or `wss://`. WSS is RECOMMENDED for public APIs. |
-| `peer` | String (URL) | The URL where your server is listening for the XRP Ledger Peer Protocol. Other XRP Ledger servers can connect at this URL. If your server provides a Peer Crawler response, it is served from this URL with `crawl` appended. |
-| `network`  | String | Which network chain this server follows. If omitted, clients SHOULD assume that the server follows the production XRP Ledger. Use `main` to explicitly specify the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| <span class="code-snippet">json_rpc</span> | String (URL) | The URL where you serve a public JSON-RPC API. This MUST begin with either <span class="code-snippet">http://</span> or <span class="code-snippet">https://</span>. HTTPS is RECOMMENDED for public APIs. |
+| <span class="code-snippet">ws</span> | String (URL) | The URL where you serve a public WebSocket API. This MUST begin with either <span class="code-snippet">ws://</span> or <span class="code-snippet">wss://</span>. WSS is RECOMMENDED for public APIs. |
+| <span class="code-snippet">peer</span> | String (URL) | The URL where your server is listening for the XRP Ledger Peer Protocol. Other XRP Ledger servers can connect at this URL. If your server provides a Peer Crawler response, it is served from this URL with <span class="code-snippet">crawl</span> appended. |
+| <span class="code-snippet">network</span>  | String | Which network chain this server follows. If omitted, clients SHOULD assume that the server follows the production XRP Ledger. Use <span class="code-snippet">main</span> to explicitly specify the production XRP Ledger. Use <span class="code-snippet">testnet</span> for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
 
 For all URLs in this section, the trailing slash is RECOMMENDED. If omitted, client applications SHOULD assume that there is a trailing slash implied.
 
 
 ### Currencies
 
-If you issue any assets, tokens, or currencies in the XRP Ledger, you can provide information about them in the `[[CURRENCIES]]` list. If present, the currencies list MUST BE presented as an array of tables, with each entry using the header `[[CURRENCIES]]`, including double square brackets. Each entry describes a separate token or asset. For _each_ `[[CURRENCIES]]` entry, you MAY provide any of the following fields:
+If you issue any assets, tokens, or currencies in the XRP Ledger, you can provide information about them in the <span class="code-snippet">[[CURRENCIES]]</span> list. If present, the currencies list MUST BE presented as an array of tables, with each entry using the header <span class="code-snippet">[[CURRENCIES]]</span>, including double square brackets. Each entry describes a separate token or asset. For _each_ <span class="code-snippet">[[CURRENCIES]]</span> entry, you MAY provide any of the following fields:
 
 | Field   | Type   | Description                                           |
 |:--------|:-------|:------------------------------------------------------|
-| `code` | String | The (case-sensitive) ticker symbol of this token in the XRP Ledger. This can be a three-digit code, a 40-character hex code, or a custom format (for clients that know how to represent the non-standard code in the XRP Ledger). See the [Currency Code reference](currency-formats.html#currency-codes) for information on the XRP Ledger's currency code formats. |
-| `display_decimals` | Number | The number of decimals that a client application should use to display amounts of this currency. |
-| `issuer` | String | The address of the XRP Ledger account where you issue this currency, encoded in the XRP Ledger's base58 format (typically, this starts with an `r`). You SHOULD also list this address in the `[[ACCOUNTS]]` list. (Reminder: the presence of an address here is not authoritative on its own. See [Account Verification](#account-verification) for details.) |
-| `network` | String | The network chain where you issue this token. Use `main` to explicitly specify the production XRP Ledger. If omitted, clients SHOULD assume that the currency is issued on the production XRP Ledger. Use `testnet` for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
-| `symbol` | String | The text symbol, such "$" or "€", that should be used with amounts of this asset or currency, if it has a symbol in the Unicode standard. |
+| <span class="code-snippet">code</span> | String | The (case-sensitive) ticker symbol of this token in the XRP Ledger. This can be a three-digit code, a 40-character hex code, or a custom format (for clients that know how to represent the non-standard code in the XRP Ledger). See the [Currency Code reference](currency-formats.html#currency-codes) for information on the XRP Ledger's currency code formats. |
+| <span class="code-snippet">display_decimals</span> | Number | The number of decimals that a client application should use to display amounts of this currency. |
+| <span class="code-snippet">issuer</span> | String | The address of the XRP Ledger account where you issue this currency, encoded in the XRP Ledger's base58 format (typically, this starts with an <span class="code-snippet">r</span>). You SHOULD also list this address in the <span class="code-snippet">[[ACCOUNTS]]</span> list. (Reminder: the presence of an address here is not authoritative on its own. See [Account Verification](#account-verification) for details.) |
+| <span class="code-snippet">network</span> | String | The network chain where you issue this token. Use <span class="code-snippet">main</span> to explicitly specify the production XRP Ledger. If omitted, clients SHOULD assume that the currency is issued on the production XRP Ledger. Use <span class="code-snippet">testnet</span> for Ripple's XRP Ledger Test Net. You MAY provide other values to describe other test nets or non-standard network chains. |
+| <span class="code-snippet">symbol</span> | String | The text symbol, such "$" or "€", that should be used with amounts of this asset or currency, if it has a symbol in the Unicode standard. |
 
 
 ### Custom Fields
 
-The `xrp-ledger.toml` file is intended for users of the XRP Ledger to provide information to other users, scripts, and applications. As such, there may be many kinds of information that are useful to convey but are not described in this specification. Users are encouraged to add other fields at any level of the `xrp-ledger.toml` file, as desired to convey relevant information.
+The <span class="code-snippet">xrp-ledger.toml</span> file is intended for users of the XRP Ledger to provide information to other users, scripts, and applications. As such, there may be many kinds of information that are useful to convey but are not described in this specification. Users are encouraged to add other fields at any level of the <span class="code-snippet">xrp-ledger.toml</span> file, as desired to convey relevant information.
 
-Tools that parse the `xrp-ledger.toml` file MUST accept documents that contain any other fields that the application is not familiar with. Those tools MAY make those additional fields available to higher-level applications that call them, or MAY discard those fields. To maintain forward-compatibility with future versions of this specification, tools MAY also discard fields specified in this standard. Tools MUST NOT return an error if an `xrp-ledger.toml` file contains an unrecognized field. To detect typos, tools MAY provide a warning on unrecognized fields, especially if those field names are similar to the names of standard fields.
+Tools that parse the <span class="code-snippet">xrp-ledger.toml</span> file MUST accept documents that contain any other fields that the application is not familiar with. Those tools MAY make those additional fields available to higher-level applications that call them, or MAY discard those fields. To maintain forward-compatibility with future versions of this specification, tools MAY also discard fields specified in this standard. Tools MUST NOT return an error if an <span class="code-snippet">xrp-ledger.toml</span> file contains an unrecognized field. To detect typos, tools MAY provide a warning on unrecognized fields, especially if those field names are similar to the names of standard fields.
 
 Tools MAY return an error if a field they recognize is not formatted as expected, even if that field is not defined in this specification.
 
@@ -257,7 +257,7 @@ When creating custom fields, be mindful of the field name you choose. If you use
 
 ## CORS Setup
 
-You MUST configure your web server to allow Cross-Origin Resource Sharing ([CORS][]) for the `xrp-ledger.toml` file. This configuration depends on your web server.
+You MUST configure your web server to allow Cross-Origin Resource Sharing ([CORS][]) for the <span class="code-snippet">xrp-ledger.toml</span> file. This configuration depends on your web server.
 
 If you run an Apache HTTP Server, add the following to your config file:
 

@@ -9,9 +9,9 @@ labels:
 # validator_list_sites
 [[ソース]](https://github.com/ripple/rippled/blob/master/src/ripple/rpc/handlers/ValidatorListSites.cpp "Source")
 
-`validator_list_sites`コマンドは、バリデータリストを処理するサイトのステータス情報を返します。[新規: rippled 0.80.1][]
+<span class="code-snippet">validator_list_sites</span>コマンドは、バリデータリストを処理するサイトのステータス情報を返します。[新規: rippled 0.80.1][]
 
-*`validator_list_sites`要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
+*<span class="code-snippet">validator_list_sites</span>要求は、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。*
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -123,16 +123,16 @@ Connecting to 127.0.0.1:5005
 
 | `Field`           | 型  | 説明                      |
 |:------------------|:------|----------------------------------|
-| `validator_sites` | 配列 | バリデータサイトオブジェクトからなる配列。 |
+| <span class="code-snippet">validator_sites</span> | 配列 | バリデータサイトオブジェクトからなる配列。 |
 
-`validator_sites`フィールドの配列の各メンバーは、次のフィールドを有するオブジェクトです。
+<span class="code-snippet">validator_sites</span>フィールドの配列の各メンバーは、次のフィールドを有するオブジェクトです。
 
 | `Field`                | 型             | 説明                     |
 |:-----------------------|:-----------------|:--------------------------------|
-| `last_refresh_status`  | 文字列           | 存在する場合は、サイトの最終更新の[`ListDisposition`](https://github.com/ripple/rippled/blob/master/src/ripple/app/misc/ValidatorList.h)です。存在しない場合は、サイトに対するクエリーがまだ成功していません。 |
-| `last_refresh_time`    | 文字列           | サイトの最終照会時刻を人間が読み取れる形式で表示します。存在しない場合は、サイトに対するクエリーがまだ成功していません。 |
-| `refresh_interval_min` | 符号なし整数 | 更新試行間隔の分数。 |
-| `uri`                  | 文字列           | サイトのURI。 |
+| <span class="code-snippet">last_refresh_status</span>  | 文字列           | 存在する場合は、サイトの最終更新の[<span class="code-snippet">ListDisposition</span>](https://github.com/ripple/rippled/blob/master/src/ripple/app/misc/ValidatorList.h)です。存在しない場合は、サイトに対するクエリーがまだ成功していません。 |
+| <span class="code-snippet">last_refresh_time</span>    | 文字列           | サイトの最終照会時刻を人間が読み取れる形式で表示します。存在しない場合は、サイトに対するクエリーがまだ成功していません。 |
+| <span class="code-snippet">refresh_interval_min</span> | 符号なし整数 | 更新試行間隔の分数。 |
+| <span class="code-snippet">uri</span>                  | 文字列           | サイトのURI。 |
 
 ### 考えられるエラー
 

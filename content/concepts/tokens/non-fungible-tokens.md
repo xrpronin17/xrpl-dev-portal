@@ -39,30 +39,30 @@ To represent digital assets similar to these, use the XRP Ledger's Non-Fungible 
 
 ## NFTs on the XRP Ledger
 
-On the XRP Ledger, a non-fungible token is represented as a [NFToken][] object. A `NFToken` is a unique, indivisible unit that is not used for payments. Users can mint (create), hold, buy, sell, and burn (destroy) such tokens.
+On the XRP Ledger, a non-fungible token is represented as a [NFToken][] object. A <span class="code-snippet">NFToken</span> is a unique, indivisible unit that is not used for payments. Users can mint (create), hold, buy, sell, and burn (destroy) such tokens.
 
-The ledger stores up to 32 `NFToken` objects owned by the same account in a single [NFTokenPage object][] to save space. As a result, the owner's [reserve requirement](reserves.html) for `NFToken` objects only increases when the ledger needs to make a new page to store additional tokens.
+The ledger stores up to 32 <span class="code-snippet">NFToken</span> objects owned by the same account in a single [NFTokenPage object][] to save space. As a result, the owner's [reserve requirement](reserves.html) for <span class="code-snippet">NFToken</span> objects only increases when the ledger needs to make a new page to store additional tokens.
 
-Accounts can also name a broker, or "Authorized Minter", who can mint and sell `NFToken` objects on their behalf.
+Accounts can also name a broker, or "Authorized Minter", who can mint and sell <span class="code-snippet">NFToken</span> objects on their behalf.
 
-`NFToken` objects have several settings that are defined when the token is minted and cannot be changed later. These include:
+<span class="code-snippet">NFToken</span> objects have several settings that are defined when the token is minted and cannot be changed later. These include:
 
 - Various identifying data that uniquely defines the token.
 - Whether the issuer can burn the token regardless of who currently holds it.
-- Whether the holder of the token can transfer it to others. (The `NFToken` can always be sent to or from the issuer directly.)
+- Whether the holder of the token can transfer it to others. (The <span class="code-snippet">NFToken</span> can always be sent to or from the issuer directly.)
     - If transfers are allowed, the issuer can charge a transfer fee as a percentage of the sale price.
-- Whether the holder can sell the `NFToken` for [fungible token](tokens.html) amounts, or only for XRP.
+- Whether the holder can sell the <span class="code-snippet">NFToken</span> for [fungible token](tokens.html) amounts, or only for XRP.
 
 
-## `NFToken` Lifecycle
+## <span class="code-snippet">NFToken</span> Lifecycle
 
-Anyone can create a new `NFToken` using the [NFTokenMint transaction][] type. The `NFToken` lives on the [NFTokenPage object][] of the issuing account. Either the owner or an interested party can send a [NFTokenCreateOffer transaction][] to propose buying or selling the `NFToken`; the ledger tracks the proposed transfer as a [NFTokenOffer object][], and deletes the `NFTokenOffer` when either side accepts or cancels the offer. If the `NFToken` is transferable, it can be traded multiple times between accounts.
+Anyone can create a new <span class="code-snippet">NFToken</span> using the [NFTokenMint transaction][] type. The <span class="code-snippet">NFToken</span> lives on the [NFTokenPage object][] of the issuing account. Either the owner or an interested party can send a [NFTokenCreateOffer transaction][] to propose buying or selling the <span class="code-snippet">NFToken</span>; the ledger tracks the proposed transfer as a [NFTokenOffer object][], and deletes the <span class="code-snippet">NFTokenOffer</span> when either side accepts or cancels the offer. If the <span class="code-snippet">NFToken</span> is transferable, it can be traded multiple times between accounts.
 
-You can destroy a `NFToken` you own using the [NFTokenBurn transaction][]. If the issuer minted the token with `tfBurnable` flag enabled, the issuer can also burn the token regardless of the current owner. (This could be useful, for example, for a token that represents a ticket to an event which is used up at some point.)
+You can destroy a <span class="code-snippet">NFToken</span> you own using the [NFTokenBurn transaction][]. If the issuer minted the token with <span class="code-snippet">tfBurnable</span> flag enabled, the issuer can also burn the token regardless of the current owner. (This could be useful, for example, for a token that represents a ticket to an event which is used up at some point.)
 
 ![The NFT Lifecycle](img/nft-lifecycle.png "NFT Lifecycle Image")
 
-For more info about transferring `NFToken` objects, see [Trading NFTokens on the XRP Ledger](non-fungible-token-transfers.html).
+For more info about transferring <span class="code-snippet">NFToken</span> objects, see [Trading NFTokens on the XRP Ledger](non-fungible-token-transfers.html).
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}			

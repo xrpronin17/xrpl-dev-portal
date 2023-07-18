@@ -28,9 +28,9 @@ The processing of incorrect transaction would undermine the value of trust in th
 
 ## How it Works
 
-The invariant checker is a second layer of code that runs automatically in real-time after each transaction. Before the transaction's results are committed to the ledger, the invariant checker examines those changes for correctness. If the transaction's results would break one of the XRP Ledger's strict rules, the invariant checker rejects the transaction. Transactions that are rejected this way have the result code `tecINVARIANT_FAILED` and are included in the ledger with no effects.
+The invariant checker is a second layer of code that runs automatically in real-time after each transaction. Before the transaction's results are committed to the ledger, the invariant checker examines those changes for correctness. If the transaction's results would break one of the XRP Ledger's strict rules, the invariant checker rejects the transaction. Transactions that are rejected this way have the result code <span class="code-snippet">tecINVARIANT_FAILED</span> and are included in the ledger with no effects.
 
-To include the transaction in the ledger with a `tec`-class code, some minimal processing is necessary. If this minimal processing still breaks an invariant, the transaction fails with the code `tefINVARIANT_FAILED` instead, and is not included in the ledger at all.
+To include the transaction in the ledger with a <span class="code-snippet">tec</span>-class code, some minimal processing is necessary. If this minimal processing still breaks an invariant, the transaction fails with the code <span class="code-snippet">tefINVARIANT_FAILED</span> instead, and is not included in the ledger at all.
 
 
 ## Active Invariants
@@ -133,7 +133,7 @@ The XRP Ledger checks all the following invariants on each transaction:
 ### ValidNFTokenPage
 
 - **Invariant Condition(s):**
-    - The number of minted or burned NFTs can only be changed by `NFTokenMint` or `NFTokenBurn` transactions.
+    - The number of minted or burned NFTs can only be changed by <span class="code-snippet">NFTokenMint</span> or <span class="code-snippet">NFTokenBurn</span> transactions.
     - A successful NFTokenMint transaction must increase the number of NFTs.
     - A failed NFTokenMint transaction must not change the number of minted NFTs.
     - A NFTokenMint transaction cannot change the number of burned NFTs.

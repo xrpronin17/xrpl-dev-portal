@@ -29,7 +29,7 @@ Deposit Authorizationが有効になっている場合に[Paymentトランザク
 Deposit Authorizationを最大限に活用するため、以下の実施を推奨します。
 
 - XRP残高が常に最低[必要準備金](reserves.html)を上回るようにする。
-- DefaultRippleフラグをデフォルトの状態（無効）にしておく。トラストラインに対して[Rippling](rippling.html)を有効にしない。TrustSetトランザクションを送信するときには常に[`tfSetNoRipple`フラグ](trustset.html)を使用する。
+- DefaultRippleフラグをデフォルトの状態（無効）にしておく。トラストラインに対して[Rippling](rippling.html)を有効にしない。TrustSetトランザクションを送信するときには常に[<span class="code-snippet">tfSetNoRipple</span>フラグ](trustset.html)を使用する。
 - [オファー](offercreate.html)を行わない。このようなトランザクションの実行にあたり、消費される一致オファーを事前に把握することは不可能です。
 
 ## 詳細なセマンティクス
@@ -62,13 +62,13 @@ Deposit Authorizationが有効化されているアカウントの特徴は次�
 
 ## Deposit Authorizationの有効化または無効化
 
-アカウントのDeposit Authorizationを有効にするには、`SetFlag`フィールドに`asfDepositAuth`の値（9）を設定した[AccountSetトランザクション][]を送信します。アカウントのDeposit Authorizationを無効にするには、`ClearFlag`フィールドに`asfDepositAuth`の値（9）を設定した[AccountSetトランザクション][]を送信します。AccountSetフラグについての詳細は、[AccountSetフラグ](accountset.html)を参照してください。
+アカウントのDeposit Authorizationを有効にするには、<span class="code-snippet">SetFlag</span>フィールドに<span class="code-snippet">asfDepositAuth</span>の値（9）を設定した[AccountSetトランザクション][]を送信します。アカウントのDeposit Authorizationを無効にするには、<span class="code-snippet">ClearFlag</span>フィールドに<span class="code-snippet">asfDepositAuth</span>の値（9）を設定した[AccountSetトランザクション][]を送信します。AccountSetフラグについての詳細は、[AccountSetフラグ](accountset.html)を参照してください。
 
 ## AccountのDepositAuthの有効化の確認
 
-アカウントのDeposit Authorizationの有効化の状態を確認するには、[account_infoメソッド][]を使用してアカウントを調べます。`Flags`フィールド（`result.account_data`オブジェクト）の値を、[AccountRootレジャーオブジェクトのビット単位フラグ](accountroot.html)と比較します。
+アカウントのDeposit Authorizationの有効化の状態を確認するには、[account_infoメソッド][]を使用してアカウントを調べます。<span class="code-snippet">Flags</span>フィールド（<span class="code-snippet">result.account_data</span>オブジェクト）の値を、[AccountRootレジャーオブジェクトのビット単位フラグ](accountroot.html)と比較します。
 
-`Flags`値と`lsfDepositAuth`フラグ値（0x01000000）のビット単位のANDの結果がゼロ以外の場合、アカウントではDepositAuthが有効になっています。結果がゼロの場合、アカウントではDepositAuthが無効になっています。
+<span class="code-snippet">Flags</span>値と<span class="code-snippet">lsfDepositAuth</span>フラグ値（0x01000000）のビット単位のANDの結果がゼロ以外の場合、アカウントではDepositAuthが有効になっています。結果がゼロの場合、アカウントではDepositAuthが無効になっています。
 
 ## 事前承認
 
@@ -78,7 +78,7 @@ DepositAuthが有効なアカウントは、特定の送金元を _事前承認_
 
 事前承認は通貨に依存しません。特定の通貨のみについてアカウントを事前承認することはできません。
 
-特定の送金元を事前承認するには、`Authorize`フィールドに事前承認する別のアカウントのアドレスを指定した[DepositPreauthトランザクション][]を送信します。事前承認を取り消すには、当該アカウントのアドレスを`Unauthorize`フィールドに指定します。通常どおり、`Account`フィールドには自分自身のアドレスを指定します。現在DepositAuthを有効にしていない場合でも、アカウントを事前承認または承認解除できます。他のアカウントに設定した事前認証ステータスは保存されますが、DepositAuthを有効にしない限り、このステータスの影響はありません。アカウントがアカウント自体を事前認証することはできません。事前認証は一方向であり、反対方向の支払には影響しません。
+特定の送金元を事前承認するには、<span class="code-snippet">Authorize</span>フィールドに事前承認する別のアカウントのアドレスを指定した[DepositPreauthトランザクション][]を送信します。事前承認を取り消すには、当該アカウントのアドレスを<span class="code-snippet">Unauthorize</span>フィールドに指定します。通常どおり、<span class="code-snippet">Account</span>フィールドには自分自身のアドレスを指定します。現在DepositAuthを有効にしていない場合でも、アカウントを事前承認または承認解除できます。他のアカウントに設定した事前認証ステータスは保存されますが、DepositAuthを有効にしない限り、このステータスの影響はありません。アカウントがアカウント自体を事前認証することはできません。事前認証は一方向であり、反対方向の支払には影響しません。
 
 別のアカウントを事前認証すると、レジャーに[DepositPreauthオブジェクト](depositpreauth-object.html)が追加されます。これにより、認証を提供するアカウントの[所有者準備金](reserves.html#所有者準備金)が増加します。アカウントで事前承認が取り消されると、オブジェクトが削除され、準備金はこれに伴い減少します。
 
@@ -102,10 +102,10 @@ DepositPreauthトランザクションの処理が完了すると、承認済み
 
 - [DepositPreauthトランザクション][]リファレンス。
 - [DepositPreauthレジャーオブジェクトタイプ](depositpreauth-object.html)。
-- [`rippled` API](http-websocket-apis.html)の[deposit_authorizedメソッド][]。
-- [Authorized Trust Lines](authorized-trust-lines.html)機能（`RequireAuth`フラグ）により、アカウントが発行したXRP以外の通貨を保有できる取引相手が制限されます。
-- `DisallowXRP`フラグは、アカウントがXRPを受領してはならないことを示します。これはDeposit Authorizationよりもソフトな保護機能であり、XRP Ledgerにより強制されません。（クライアントアプリケーションはこのフラグに従うか、または少なくともこのフラグについて警告します。）
-- 送信トランザクションが[Destinationタグ](become-an-xrp-ledger-gateway.html#source-and-destination-tags)を指定している場合には、`RequireDest`フラグは、アカウントが通貨額のみを受領できることを示します。これにより、ユーザーが支払の目的を指定し忘れることがなくなりますが、恣意的な送金先タグを作成できる不明な送金元から受取人が保護されるわけではありません。
+- [<span class="code-snippet">rippled</span> API](http-websocket-apis.html)の[deposit_authorizedメソッド][]。
+- [Authorized Trust Lines](authorized-trust-lines.html)機能（<span class="code-snippet">RequireAuth</span>フラグ）により、アカウントが発行したXRP以外の通貨を保有できる取引相手が制限されます。
+- <span class="code-snippet">DisallowXRP</span>フラグは、アカウントがXRPを受領してはならないことを示します。これはDeposit Authorizationよりもソフトな保護機能であり、XRP Ledgerにより強制されません。（クライアントアプリケーションはこのフラグに従うか、または少なくともこのフラグについて警告します。）
+- 送信トランザクションが[Destinationタグ](become-an-xrp-ledger-gateway.html#source-and-destination-tags)を指定している場合には、<span class="code-snippet">RequireDest</span>フラグは、アカウントが通貨額のみを受領できることを示します。これにより、ユーザーが支払の目的を指定し忘れることがなくなりますが、恣意的な送金先タグを作成できる不明な送金元から受取人が保護されるわけではありません。
 - [Partial Payment](partial-payments.html)により、アカウントは不要な支払を返金できます。この際、[送金手数料](transfer-fees.html)と為替レートは送金額には追加されず、送金された金額から差し引かれます。
 <!--{# TODO: Add link to "check for authorization" tutorial DOC-1684 #}-->
 

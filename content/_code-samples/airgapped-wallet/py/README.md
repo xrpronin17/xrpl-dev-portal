@@ -7,10 +7,10 @@ This airgapped XRP wallet allows users to sign a Payment transaction in a secure
 
 This code sample consists of 2 parts:
 
-- `airgapped-wallet.py` - This code should be stored in a standalone airgapped machine, it consist of features to generate a wallet, store a keypair securely, sign a transaction and share the signed transaction via QR code.
-- `relay-transaction.py` - This code could be stored in any online machine, no credentials is stored on this code other than a signed transaction which would be sent to an XRPL node for it to be validated on the ledger.
+- <span class="code-snippet">airgapped-wallet.py</span> - This code should be stored in a standalone airgapped machine, it consist of features to generate a wallet, store a keypair securely, sign a transaction and share the signed transaction via QR code.
+- <span class="code-snippet">relay-transaction.py</span> - This code could be stored in any online machine, no credentials is stored on this code other than a signed transaction which would be sent to an XRPL node for it to be validated on the ledger.
 
-Preferably, `airgapped-wallet.py` should be on a Linux machine while `relay-transaction.py` could be on any operating system.
+Preferably, <span class="code-snippet">airgapped-wallet.py</span> should be on a Linux machine while <span class="code-snippet">relay-transaction.py</span> could be on any operating system.
 
 # Security Practices
 Strongly note that an airgapped system's security is not determined by its code alone but the security practices that are being followed by an operator.
@@ -65,7 +65,7 @@ sudo apt-get install python3.8 python3-pip
 ```
 **Website**: https://www.python.org/downloads/source/
 
-2. Clone all the files under the [`airgapped-wallet`](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/py) directory
+2. Clone all the files under the [<span class="code-snippet">airgapped-wallet</span>](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/py) directory
 
 3. Import all the modules required by running:
 ```
@@ -74,7 +74,7 @@ pip install -r requirements.txt
 
 4. Airgap the machine by following the security practices written [here](#security-practices).
 
-5. Run `airgapped-wallet.py`
+5. Run <span class="code-snippet">airgapped-wallet.py</span>
 
 6. Scan the QR code and fund the account using the [testnet faucet](https://test.bithomp.com/faucet/) 
 
@@ -94,16 +94,16 @@ sudo apt-get install python3.8 python3-pip
 ```
 **Website**: https://www.python.org/downloads/source/
 
-2. Clone all the files under the [`airgapped-wallet`](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/py) directory
+2. Clone all the files under the [<span class="code-snippet">airgapped-wallet</span>](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/airgapped-wallet/py) directory
 
 3. Import all the modules required by running:
 ```
 pip install -r requirements.txt
 ```
 
-4. Edit line 47 @ `relay-transaction.py` and insert the signed transaction blob from scanning the QR code Machine 1 generated.
+4. Edit line 47 @ <span class="code-snippet">relay-transaction.py</span> and insert the signed transaction blob from scanning the QR code Machine 1 generated.
 
-5. Run `relay-transaction.py`
+5. Run <span class="code-snippet">relay-transaction.py</span>
 
 ## Phone Setup
 The phone requires a working camera that is able to scan a QR code and an internet connection for it to be able to transmit the signed transaction blob to Machine 2.

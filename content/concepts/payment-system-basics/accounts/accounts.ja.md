@@ -10,9 +10,9 @@ labels:
 
 XRP Ledgerの「アカウント」は、XRPの所有者と[トランザクション](transaction-formats.html)の送信者を表します。アカウントの主な要素は次のとおりです。
 
-- 識別用の**アドレス**。例えば、`rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn`
+- 識別用の**アドレス**。例えば、<span class="code-snippet">rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn</span>
 
-  **注記:** XRPコミュニティは、取引所およびウォレットで[宛先タグ](https://xrpl.org/source-and-destination-tags.html)の代わりに使用できる新しいフォーマット、**X**アドレスを[提案](https://github.com/XRPLF/XRPL-Standards/issues/6)（これをサポートする[コーデック](https://github.com/xrp-community/xrpl-tagged-address-codec)も開発）しました。これらの「パック化」したアドレスは、`r`ではなく`X`で開始します。詳細は、[XRPL 𝗫-address format](https://xrpaddress.info/)のサイトを参照してください。
+  **注記:** XRPコミュニティは、取引所およびウォレットで[宛先タグ](https://xrpl.org/source-and-destination-tags.html)の代わりに使用できる新しいフォーマット、**X**アドレスを[提案](https://github.com/XRPLF/XRPL-Standards/issues/6)（これをサポートする[コーデック](https://github.com/xrp-community/xrpl-tagged-address-codec)も開発）しました。これらの「パック化」したアドレスは、<span class="code-snippet">r</span>ではなく<span class="code-snippet">X</span>で開始します。詳細は、[XRPL 𝗫-address format](https://xrpaddress.info/)のサイトを参照してください。
 
 - **XRPの残高**。このXRPの一部は、[準備金](reserves.html)用に確保されています。
 - **シーケンス番号**。このアカウントから送信されるトランザクションがすべて、正しい順序で、それぞれ1回のみ適用されるようにします。トランザクションを実行するには、トランザクションのシーケンス番号と送金元のシーケンス番号が一致する必要があります。その後も、トランザクションが適用されている限り、アカウントのシーケンス番号は1ずつ増加します。（関連項目: [基本的なデータタイプ: アカウントシーケンス](basic-data-types.html#アカウントシーケンス)）
@@ -59,9 +59,9 @@ XRP Ledgerでは、過去の使用という点で、一部のアドレスに特�
 
 | アドレス                    | 名前  | 意味    | ブラックホール? |
 |-----------------------------|------|---------|-------------|
-| rrrrrrrrrrrrrrrrrrrrrhoLvTp | ACCOUNT_ZERO | 値`0`を[base58][]形式にエンコードしたXRP Ledgerのアドレス。ピアツーピア通信では、このアドレスは、XRPの発行者として`rippled`で使用されます。 | はい |
-| rrrrrrrrrrrrrrrrrrrrBZbvji | ACCOUNT_ONE | 値`1`を[base58][]形式にエンコードしたXRP Ledgerのアドレス。レジャーの[RippleState項目](ripplestate.html)では、このアドレスは、トラストライン残高の発行者のプレースホルダーとして使用されます。 | はい |
-| rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh | ジェネシスアカウント | `rippled`で新しいジェネシスレジャーが一から開始される場合（例えば、スタンドアロンモード）、このアカウントはすべてのXRPを保持します。このアドレスは、シード値「masterpassphrase」から生成されており、この値は[ハードコーディング](https://github.com/ripple/rippled/blob/94ed5b3a53077d815ad0dd65d490c8d37a147361/src/ripple/app/ledger/Ledger.cpp#L184)されています。 | いいえ |
+| rrrrrrrrrrrrrrrrrrrrrhoLvTp | ACCOUNT_ZERO | 値<span class="code-snippet">0</span>を[base58][]形式にエンコードしたXRP Ledgerのアドレス。ピアツーピア通信では、このアドレスは、XRPの発行者として<span class="code-snippet">rippled</span>で使用されます。 | はい |
+| rrrrrrrrrrrrrrrrrrrrBZbvji | ACCOUNT_ONE | 値<span class="code-snippet">1</span>を[base58][]形式にエンコードしたXRP Ledgerのアドレス。レジャーの[RippleState項目](ripplestate.html)では、このアドレスは、トラストライン残高の発行者のプレースホルダーとして使用されます。 | はい |
+| rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh | ジェネシスアカウント | <span class="code-snippet">rippled</span>で新しいジェネシスレジャーが一から開始される場合（例えば、スタンドアロンモード）、このアカウントはすべてのXRPを保持します。このアドレスは、シード値「masterpassphrase」から生成されており、この値は[ハードコーディング](https://github.com/ripple/rippled/blob/94ed5b3a53077d815ad0dd65d490c8d37a147361/src/ripple/app/ledger/Ledger.cpp#L184)されています。 | いいえ |
 | rrrrrrrrrrrrrrrrrNAMEtxvNvQ | Ripple名予約のブラックホール | 以前は、Rippleでは、このアカウントにXRPを送信してRipple名を予約するようユーザーに求めていました。 | はい |
 | rrrrrrrrrrrrrrrrrrrn5RM1rHd | NaNアドレス | 以前のバージョンの[ripple-lib](https://github.com/XRPLF/xrpl.js)では、XRP Ledgerの[base58][]文字列エンコード形式を使用して、値[NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)をエンコードするときにこのアドレスを生成しました。 | はい |
 
@@ -72,12 +72,12 @@ XRP Ledgerでは、過去の使用という点で、一部のアドレスに特�
 
 削除するには、アカウントが次の要件を満たしている必要があります。
 
-- アカウントの`Sequence`番号に256を加えた値が、現在の[レジャーインデックス][]未満であること。
+- アカウントの<span class="code-snippet">Sequence</span>番号に256を加えた値が、現在の[レジャーインデックス][]未満であること。
 - アカウントが次のタイプの[レジャーオブジェクト](ledger-object-types.html)のいずれにも（送金元または受取人として）関連付けられていないこと。
-  - `Escrow`
-  - `PayChannel`
-  - `RippleState`
-  - `Check`
+  - <span class="code-snippet">Escrow</span>
+  - <span class="code-snippet">PayChannel</span>
+  - <span class="code-snippet">RippleState</span>
+  - <span class="code-snippet">Check</span>
 - アカウントがレジャー内に所有するオブジェクトが1000個未満であること。
 - [AccountDeleteトランザクション][]では、少なくとも1アイテムの[所有者準備金](reserves.html)（現在2 XRP）に相当する特別な[トランザクションコスト][]を支払う必要があります。
 
@@ -92,19 +92,19 @@ Bitcoinやその他の多くの暗号資産とは異なり、新バージョン�
 
 ## トランザクション履歴
 
-XRP Ledgerでは、トランザクション（取引）履歴をトランザクションの「スレッド」によって追跡することができます。これはトランザクションの識別用のハッシュとレジャーインデックスにリンクされています。`AccountRoot`レジャーオブジェクトには、それを最後に修正したトランザクションの識別用のハッシュとレジャーが含まれます。そのトランザクションのメタデータには、`AccountRoot`ノードの前の状態が含まれているため、この方法で1つのアカウントの履歴を繰り返すことができます。このトランザクション履歴には、`AccountRoot`ノードを直接変更するトランザクションが含まれます。以下に例を示します。
+XRP Ledgerでは、トランザクション（取引）履歴をトランザクションの「スレッド」によって追跡することができます。これはトランザクションの識別用のハッシュとレジャーインデックスにリンクされています。<span class="code-snippet">AccountRoot</span>レジャーオブジェクトには、それを最後に修正したトランザクションの識別用のハッシュとレジャーが含まれます。そのトランザクションのメタデータには、<span class="code-snippet">AccountRoot</span>ノードの前の状態が含まれているため、この方法で1つのアカウントの履歴を繰り返すことができます。このトランザクション履歴には、<span class="code-snippet">AccountRoot</span>ノードを直接変更するトランザクションが含まれます。以下に例を示します。
 
-- アカウントによって送信されるトランザクション。アカウントの`Sequence`番号が変更されるため。このようなトランザクションでは、[トランザクションコスト](transaction-cost.html)によりアカウントのXRP残高も変更されます。
+- アカウントによって送信されるトランザクション。アカウントの<span class="code-snippet">Sequence</span>番号が変更されるため。このようなトランザクションでは、[トランザクションコスト](transaction-cost.html)によりアカウントのXRP残高も変更されます。
 - アカウントのXRP残高を変更したトランザクション。例えば、着信する[Paymentトランザクション][]や他のタイプの取引（例:[PaymentChannelClaim][]や[EscrowFinish][]）。
 
 アカウントの _概念的な_ トランザクション履歴には、アカウントの所有オブジェクトとXRP以外の残高を変更したトランザクションも含まれます。これらのオブジェクトは別個のレジャーオブジェクトであり、それぞれに影響を及ぼした独自のトランザクションスレッドが含まれます。アカウントのレジャーの履歴全体がある場合は、それをたどって、その履歴によって作成または変更されたレジャーオブジェクトを見つけることができます。「完全」なトランザクション履歴には、トランザクションで所有されているオブジェクトの履歴が含まれます。例を以下に示します。
 
-- `RippleState`オブジェクト（トラストライン）。アカウントに関連付けられています。
-- `DirectoryNode`オブジェクト（特にアカウントの所有オブジェクトを追跡する所有者ディレクトリ）。
-- `Offer`オブジェクト。分散型取引所でのアカウントの未処理の取引注文を表すオブジェクト。
-- `PayChannel`アカウントとの間の非同期のPayment Channelを表すオブジェクト。
-- `Escrow`時間または暗号条件によってロックされ、アカウントとの間の保留中の支払いを表すオブジェクト。
-- `SignerList`[マルチシグ](multi-signing.html)によってアカウントのトランザクションを承認できるアドレスのリストを表すオブジェクト。
+- <span class="code-snippet">RippleState</span>オブジェクト（トラストライン）。アカウントに関連付けられています。
+- <span class="code-snippet">DirectoryNode</span>オブジェクト（特にアカウントの所有オブジェクトを追跡する所有者ディレクトリ）。
+- <span class="code-snippet">Offer</span>オブジェクト。分散型取引所でのアカウントの未処理の取引注文を表すオブジェクト。
+- <span class="code-snippet">PayChannel</span>アカウントとの間の非同期のPayment Channelを表すオブジェクト。
+- <span class="code-snippet">Escrow</span>時間または暗号条件によってロックされ、アカウントとの間の保留中の支払いを表すオブジェクト。
+- <span class="code-snippet">SignerList</span>[マルチシグ](multi-signing.html)によってアカウントのトランザクションを承認できるアドレスのリストを表すオブジェクト。
 
 これらの各オブジェクトの詳細は、[レジャーフォーマットのリファレンス](ledger-data-formats.html)を参照してください。
 
@@ -115,13 +115,13 @@ XRP Ledgerでは、トランザクション（取引）履歴をトランザク�
 
 [[ソース]](https://github.com/ripple/rippled/blob/35fa20a110e3d43ffc1e9e664fc9017b6f2747ae/src/ripple/protocol/impl/AccountID.cpp#L109-L140 "Source")
 
-XRP Ledgerのアドレスは、[base58][]_形式のディクショナリ_`rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz`を使用してエンコードされています。XRP Ledgerはbase58でいくつかのタイプのキーをエンコードするため、それらを区別するためにエンコードされたデータの前に1バイトの「タイププレフィクス」（「バージョンプレフィクス」とも呼ばれます）を付けます。タイププレフィクスによりアドレスは通常、base58形式の異なる文字で始まります。
+XRP Ledgerのアドレスは、[base58][]_形式のディクショナリ_<span class="code-snippet">rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz</span>を使用してエンコードされています。XRP Ledgerはbase58でいくつかのタイプのキーをエンコードするため、それらを区別するためにエンコードされたデータの前に1バイトの「タイププレフィクス」（「バージョンプレフィクス」とも呼ばれます）を付けます。タイププレフィクスによりアドレスは通常、base58形式の異なる文字で始まります。
 
 次の図は、キーとアドレスの関係を示しています。
 
 [![マスター公開鍵 + プレフィクスの種類 → アカウントID + チェックサム → アドレス](img/address-encoding.ja.png)](img/address-encoding.ja.png)
 
-公開鍵からXRP Ledgerアドレスを計算する式は次のとおりです。コード例全体については、[`encode_address.js`](https://github.com/XRPLF/xrpl-dev-portal/blob/master/content/_code-samples/address_encoding/js/encode_address.js)を参照してください。パスフレーズまたはシード値から公開鍵を導出するプロセスについては、[鍵の導出](cryptographic-keys.html#鍵導出)を参照してください。
+公開鍵からXRP Ledgerアドレスを計算する式は次のとおりです。コード例全体については、[<span class="code-snippet">encode_address.js</span>](https://github.com/XRPLF/xrpl-dev-portal/blob/master/content/_code-samples/address_encoding/js/encode_address.js)を参照してください。パスフレーズまたはシード値から公開鍵を導出するプロセスについては、[鍵の導出](cryptographic-keys.html#鍵導出)を参照してください。
 
 1. 次の必須アルゴリズムをインポートします。SHA-256、RIPEMD160、base58。base58のディクショナリーを設定します。
 
@@ -134,7 +134,7 @@ XRP Ledgerのアドレスは、[base58][]_形式のディクショナリ_`rpshna
         assert(crypto.getHashes().includes('sha256'));
         assert(crypto.getHashes().includes('ripemd160'));
 
-2. 33バイトのECDSA secp256k1公開鍵、または32バイトのEd25519公開鍵で始めます。Ed25519キーの場合は、キーの前にバイト`0xED`を付けます。
+2. 33バイトのECDSA secp256k1公開鍵、または32バイトのEd25519公開鍵で始めます。Ed25519キーの場合は、キーの前にバイト<span class="code-snippet">0xED</span>を付けます。
 
         const pubkey_hex =
           'ED9434799226374926EDA3B54B1B461B4ABF7237962EAE18528FEA67595397FA32';

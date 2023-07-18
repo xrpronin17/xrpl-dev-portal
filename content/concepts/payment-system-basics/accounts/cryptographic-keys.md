@@ -42,7 +42,7 @@ The passphrase is secret information, so you must protect it very carefully. Any
 
 ### Seed
 
-A _seed_ value is a compact value that is used to [derive](#key-derivation) the actual private and public keys for an account. In a [wallet_propose method][] response, the `master_key`, `master_seed`, and `master_seed_hex` all represent the same seed value, in various formats. Any of these formats can be used to [sign transactions](transaction-basics.html#signing-and-submitting-transactions) in the [`rippled` APIs](http-websocket-apis.html) and some [other XRP Ledger software](software-ecosystem.html). Despite being prefixed with `master_`, the keys this seed represents are not necessarily the master keys for an account; you can use a key pair as a regular key or a member of a multi-signing list as well.
+A _seed_ value is a compact value that is used to [derive](#key-derivation) the actual private and public keys for an account. In a [wallet_propose method][] response, the <span class="code-snippet">master_key</span>, <span class="code-snippet">master_seed</span>, and <span class="code-snippet">master_seed_hex</span> all represent the same seed value, in various formats. Any of these formats can be used to [sign transactions](transaction-basics.html#signing-and-submitting-transactions) in the [<span class="code-snippet">rippled</span> APIs](http-websocket-apis.html) and some [other XRP Ledger software](software-ecosystem.html). Despite being prefixed with <span class="code-snippet">master_</span>, the keys this seed represents are not necessarily the master keys for an account; you can use a key pair as a regular key or a member of a multi-signing list as well.
 
 The seed value is secret information, so you must protect it very carefully. Anyone who knows an address's seed value has effectively full control over that address.
 
@@ -54,7 +54,7 @@ Like the seed, the private key is secret information, so you must protect it ver
 
 ### Public Key
 
-The _public key_ is the value used to verify the authenticity of a digital signature. The public key is derived from the private key as part of key derivation. In a [wallet_propose method][] response, the `public_key` and `public_key_hex` both represent the same public key value.
+The _public key_ is the value used to verify the authenticity of a digital signature. The public key is derived from the private key as part of key derivation. In a [wallet_propose method][] response, the <span class="code-snippet">public_key</span> and <span class="code-snippet">public_key_hex</span> both represent the same public key value.
 
 Transactions in the XRP Ledger must include the public keys so that the network can verify the transactions' signatures. The public key cannot be used to create valid signatures, so it is safe to share publicly.
 
@@ -63,7 +63,7 @@ Transactions in the XRP Ledger must include the public keys so that the network 
 
 The **Account ID** is the core identifier for an [account](accounts.html) or a key pair. It is derived from the public key. In the XRP Ledger protocol, the Account ID is 20 bytes of binary data. Most XRP Ledger APIs represent the Account ID as an address, in one of two formats:
 
-- A "classic address" writes an Account ID in [base58][] with a checksum. In a [wallet_propose method][] response, this is the `account_id` value.
+- A "classic address" writes an Account ID in [base58][] with a checksum. In a [wallet_propose method][] response, this is the <span class="code-snippet">account_id</span> value.
 - An "X-Address" combines an Account ID _and_ a [Destination Tag](source-and-destination-tags.html) and writes the combined value in [base58][] with a checksum.
 
 The checksum in both formats is there so that small changes result in an invalid address, instead of changing it to refer to a different, but still potentially valid, account. This way, if you make a typo or a transmission error occurs, you don't send money to the wrong place.
@@ -76,7 +76,7 @@ Even if an Account ID or address does not refer to a funded account, you _can_ u
 
 The XRP Ledger supports more than one [cryptographic signing algorithm](#signing-algorithms). Any given key pair is only valid for a specific cryptographic signing algorithm. Some private keys may technically qualify as valid keys for more than one algorithm, but those private keys would have different public keys for each algorithm, and you should not reuse private keys anyway.
 
-The `key_type` field in the [wallet_propose method][] refers to the cryptographic signing algorithm to use.
+The <span class="code-snippet">key_type</span> field in the [wallet_propose method][] refers to the cryptographic signing algorithm to use.
 
 
 ## Master Key Pair
@@ -129,10 +129,10 @@ The XRP Ledger supports the following cryptographic signing algorithms:
 
 | Key Type    | Algorithm | Description |
 |-------------|-----------|---|
-| `secp256k1` | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) using the elliptic curve [secp256k1](https://en.bitcoin.it/wiki/Secp256k1) | This is the same scheme Bitcoin uses. The XRP Ledger uses these key types by default. |
-| `ed25519`   | [EdDSA](https://tools.ietf.org/html/rfc8032) using the elliptic curve [Ed25519](https://ed25519.cr.yp.to/) | This is a newer algorithm which has better performance and other convenient properties. Since Ed25519 public keys are one byte shorter than secp256k1 keys, `rippled` prefixes Ed25519 public keys with the byte `0xED` so both types of public key are 33 bytes. |
+| <span class="code-snippet">secp256k1</span> | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) using the elliptic curve [secp256k1](https://en.bitcoin.it/wiki/Secp256k1) | This is the same scheme Bitcoin uses. The XRP Ledger uses these key types by default. |
+| <span class="code-snippet">ed25519</span>   | [EdDSA](https://tools.ietf.org/html/rfc8032) using the elliptic curve [Ed25519](https://ed25519.cr.yp.to/) | This is a newer algorithm which has better performance and other convenient properties. Since Ed25519 public keys are one byte shorter than secp256k1 keys, <span class="code-snippet">rippled</span> prefixes Ed25519 public keys with the byte <span class="code-snippet">0xED</span> so both types of public key are 33 bytes. |
 
-When you generate a key pair with the [wallet_propose method][], you can specify the `key_type` to choose which cryptographic signing algorithm to use to derive the keys. If you generated a key type other than the default, you must also specify the `key_type` when signing transactions.
+When you generate a key pair with the [wallet_propose method][], you can specify the <span class="code-snippet">key_type</span> to choose which cryptographic signing algorithm to use to derive the keys. If you generated a key type other than the default, you must also specify the <span class="code-snippet">key_type</span> when signing transactions.
 
 The supported types of key pairs can be used interchangeably throughout the XRP Ledger as master key pairs, regular key pairs, and members of signer lists. The process of [deriving an address](accounts.html#address-encoding) is the same for secp256k1 and Ed25519 key pairs.
 
@@ -150,12 +150,12 @@ The process of deriving a key pair depends on the signing algorithm. In all case
 
 The key derivation processes described here are implemented in multiple places and programming languages:
 
-- In C++ in the `rippled` code base:
+- In C++ in the <span class="code-snippet">rippled</span> code base:
     - [Seed definition](https://github.com/XRPLF/rippled/blob/develop/src/ripple/protocol/Seed.h)
     - [General & Ed25519 key derivation](https://github.com/XRPLF/rippled/blob/develop/src/ripple/protocol/impl/SecretKey.cpp)
     - [secp256k1 key derivation](https://github.com/XRPLF/rippled/blob/develop/src/ripple/protocol/impl/SecretKey.cpp)
 - In Python 3 in [this repository's code samples section]({{target.github_forkurl}}/blob/{{target.github_branch}}/content/_code-samples/key-derivation/py/key_derivation.py).
-- In JavaScript in the [`ripple-keypairs`](https://github.com/XRPLF/xrpl.js/tree/main/packages/ripple-keypairs) package.
+- In JavaScript in the [<span class="code-snippet">ripple-keypairs</span>](https://github.com/XRPLF/xrpl.js/tree/main/packages/ripple-keypairs) package.
 
 ### Ed25519 Key Derivation
 [[Source]](https://github.com/XRPLF/rippled/blob/fc7ecd672a3b9748bfea52ce65996e324553c05f/src/ripple/protocol/impl/SecretKey.cpp#L203 "Source")
@@ -170,11 +170,11 @@ The key derivation processes described here are implemented in multiple places a
 
     **Caution:** As always with cryptographic algorithms, use a standard, well-known, publicly-audited implementation whenever possible. For example, [OpenSSL](https://www.openssl.org/) has implementations of core Ed25519 and secp256k1 functions.
 
-3. Prefix the 32-byte public key with the single byte `0xED` to indicate an Ed25519 public key, resulting in 33 bytes.
+3. Prefix the 32-byte public key with the single byte <span class="code-snippet">0xED</span> to indicate an Ed25519 public key, resulting in 33 bytes.
 
-    If you are implementing code to sign transactions, remove the `0xED` prefix and use the 32-byte key for the actual signing process.
+    If you are implementing code to sign transactions, remove the <span class="code-snippet">0xED</span> prefix and use the 32-byte key for the actual signing process.
 
-4. When serializing an account public key to [base58][], use the account public key prefix `0x23`.
+4. When serializing an account public key to [base58][], use the account public key prefix <span class="code-snippet">0x23</span>.
 
     Validator ephemeral keys cannot be Ed25519.
 
@@ -200,17 +200,17 @@ The steps to derive the XRP Ledger's secp256k1 account key pair from a seed valu
 
     3. If the result is not a valid secp256k1 secret key, increment the root sequence by 1 and start over. [[Source]](https://github.com/XRPLF/rippled/blob/fc7ecd672a3b9748bfea52ce65996e324553c05f/src/ripple/crypto/impl/GenerateDeterministicKey.cpp#L103 "Source")
 
-        A valid secp256k1 key must not be zero, and it must be numerically less than the _secp256k1 group order_. The secp256k1 group order is the constant value `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141`.
+        A valid secp256k1 key must not be zero, and it must be numerically less than the _secp256k1 group order_. The secp256k1 group order is the constant value <span class="code-snippet">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</span>.
 
     4. With a valid secp256k1 secret key, use the standard ECDSA public key derivation with the secp256k1 curve to derive the root public key. (As always with cryptographic algorithms, use a standard, well-known, publicly-audited implementation whenever possible. For example, [OpenSSL](https://www.openssl.org/) has implementations of core Ed25519 and secp256k1 functions.)
 
-    **Tip:** Validators use this root key pair. If you are calculating a validator's key pair, you can stop here. To distinguish between these two different types of public keys, the [base58][] serialization for validator public keys uses the prefix `0x1c`.
+    **Tip:** Validators use this root key pair. If you are calculating a validator's key pair, you can stop here. To distinguish between these two different types of public keys, the [base58][] serialization for validator public keys uses the prefix <span class="code-snippet">0x1c</span>.
 
 2. Convert the root public key to its 33-byte compressed form.
 
-    The uncompressed form of any ECDSA public key consists of a pair of 32-byte integers: an X coordinate, and a Y coordinate. The compressed form is the X coordinate and a one-byte prefix: `0x02` if the Y coordinate is even, or `0x03` if the Y coordinate is odd.
+    The uncompressed form of any ECDSA public key consists of a pair of 32-byte integers: an X coordinate, and a Y coordinate. The compressed form is the X coordinate and a one-byte prefix: <span class="code-snippet">0x02</span> if the Y coordinate is even, or <span class="code-snippet">0x03</span> if the Y coordinate is odd.
 
-    You can convert an uncompressed public key to the compressed form with the `openssl` commandline tool. For example, if the uncompressed public key is in the file `ec-pub.pem`, you can output the compressed form like this:
+    You can convert an uncompressed public key to the compressed form with the <span class="code-snippet">openssl</span> commandline tool. For example, if the uncompressed public key is in the file <span class="code-snippet">ec-pub.pem</span>, you can output the compressed form like this:
 
         $ openssl ec -in ec-pub.pem -pubin -text -noout -conv_form compressed
 
@@ -218,7 +218,7 @@ The steps to derive the XRP Ledger's secp256k1 account key pair from a seed valu
 
     1. Concatenate the following in order, for a total of 41 bytes:
         - The compressed root public key (33 bytes)
-        - `0x00000000000000000000000000000000` (4 bytes of zeroes). (This value was intended to be used to derive different members of the same family, but in practice only the value 0 is used.)
+        - <span class="code-snippet">0x00000000000000000000000000000000</span> (4 bytes of zeroes). (This value was intended to be used to derive different members of the same family, but in practice only the value 0 is used.)
         - A "key sequence" value (4 bytes), as a big-endian unsigned integer. Use 0 as a starting value for the key sequence.
 
     2. Calculate the [SHA-512Half][] of the concatenated value.
@@ -235,7 +235,7 @@ The steps to derive the XRP Ledger's secp256k1 account key pair from a seed valu
 
 5. Convert the master public key to its 33-byte compressed form, as before.
 
-6. When serializing an account's public key to its [base58][] format, use the account public key prefix, `0x23`.
+6. When serializing an account's public key to its [base58][] format, use the account public key prefix, <span class="code-snippet">0x23</span>.
 
     See [Address Encoding](accounts.html#address-encoding) for information and sample code to convert from an account's public key to its address.
 

@@ -36,4 +36,4 @@ For a practical example, see the [Batch Mint NFTokens](batch-minting.html) tutor
 
 ### Downside
 
-You need to meet the [reserve requirement](reserves.html) for all of the `NFToken` objects you mint. As a rule of thumb, this is roughly 1/12th XRP per NFToken object at the current reserve rate. In the event that you do not have enough XRP in reserve, your mint transactions fail until you get more XRP.
+You need to meet the [reserve requirement](reserves.html) for all of the <span class="code-snippet">NFToken</span> objects you mint. As a rule of thumb, this is roughly 1/12th XRP per NFToken object at the current reserve rate. In the event that you do not have enough XRP in reserve, your mint transactions fail until you get more XRP.

@@ -40,13 +40,13 @@ To be "canonical", signatures created with the ECDSA algorithm and secp256k1 cur
 
 Generally speaking, any standard ECDSA implementation handles these requirements automatically. However, with secp256k1, those requirements are insufficient to prevent malleability. Thus, the XRP Ledger has a concept of "fully canonical" signatures which do not have the same problem.
 
-An ECDSA signature consists of two integers, called R and S. The secp256k1 _group order_, called N, is a constant value for all secp256k1 signatures. Specifically, N is the value `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141`. For any given signature `(R,S)`, the signature `(R, N-S)` (that is, using N minus S in place of S) is also valid.
+An ECDSA signature consists of two integers, called R and S. The secp256k1 _group order_, called N, is a constant value for all secp256k1 signatures. Specifically, N is the value <span class="code-snippet">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</span>. For any given signature <span class="code-snippet">(R,S)</span>, the signature <span class="code-snippet">(R, N-S)</span> (that is, using N minus S in place of S) is also valid.
 
-Thus, to have _fully_ canonical signatures, one must choose which of the two possibilities is preferred and declare the other to be invalid. The creators of the XRP Ledger decided arbitrarily to prefer the _smaller_ of the two possible values, `S` or `N-S`. A transaction is considered _fully canonical_ if it uses the preferred (smaller) value of `S`, and follows all the normal rules for being canonical. To calculate a fully-canonical ECDSA signature, one must compare S and N-S to determine which is smaller, then use that value in the `Signature` field of the transaction.
+Thus, to have _fully_ canonical signatures, one must choose which of the two possibilities is preferred and declare the other to be invalid. The creators of the XRP Ledger decided arbitrarily to prefer the _smaller_ of the two possible values, <span class="code-snippet">S</span> or <span class="code-snippet">N-S</span>. A transaction is considered _fully canonical_ if it uses the preferred (smaller) value of <span class="code-snippet">S</span>, and follows all the normal rules for being canonical. To calculate a fully-canonical ECDSA signature, one must compare S and N-S to determine which is smaller, then use that value in the <span class="code-snippet">Signature</span> field of the transaction.
 
 With the [RequireFullyCanonicalSig amendment][] (enabled in 2020), all transactions must use _fully canonical_ signatures only.
 
-Between 2014 and 2020, the XRP Ledger was compatible with legacy software that did not always generate fully canonical signatures, but used a flag on transactions called [**`tfFullyCanonicalSig`**](transaction-common-fields.html#global-flags) to protect compatible software from transaction malleability. This flag, which compatible signing software enables by default, required that the transaction use a _fully-canonical_ signature to be valid. Now that the [RequireFullyCanonicalSig amendment][] is enabled, the flag is no longer necessary, but there is no harm in enabling it anyway.
+Between 2014 and 2020, the XRP Ledger was compatible with legacy software that did not always generate fully canonical signatures, but used a flag on transactions called [**<span class="code-snippet">tfFullyCanonicalSig</span>**](transaction-common-fields.html#global-flags) to protect compatible software from transaction malleability. This flag, which compatible signing software enables by default, required that the transaction use a _fully-canonical_ signature to be valid. Now that the [RequireFullyCanonicalSig amendment][] is enabled, the flag is no longer necessary, but there is no harm in enabling it anyway.
 
 
 ### Malleability with Multi-Signatures
@@ -67,11 +67,11 @@ Even if your authorized signers are not intentionally malicious, confusion or po
 
 - Do not collect more signatures than necessary.
 - Either appoint one party to assemble a transaction after collecting the necessary number of signatures, or instruct signers pass the transaction instructions forward to be signed in a set order.
-- Do not add unnecessary or untrusted signers to your multi-signing lists, even if the `weight` values associated with their keys are insufficient to authorize a transaction.
+- Do not add unnecessary or untrusted signers to your multi-signing lists, even if the <span class="code-snippet">weight</span> values associated with their keys are insufficient to authorize a transaction.
 - Be prepared for the possibility that a transaction executes with a different hash and set of signatures than you expected. Carefully monitor your account's sent transactions (for example, using the [account_tx method][]).
-- Monitor the `Sequence` number of your account (for example, using the [account_info method][]). This number always increases by exactly one when your account sends a transaction successfully, and never any other way. If the number does not match what you expect, you should check your recent transactions to confirm why. (Aside from malleable transactions, there are other ways this could happen, too. Perhaps you configured another application to send transactions for you. Maybe a malicious user gained access to your secret key. Or perhaps your application lost data and forgot about a transaction you sent already.)
-- If you re-create transactions to be multi-signed, _do not_ change the `Sequence` number unless you have manually confirmed that the intended actions have not already executed.
-- Confirm that the `tfFullyCanonicalSig` flag is enabled before signing.
+- Monitor the <span class="code-snippet">Sequence</span> number of your account (for example, using the [account_info method][]). This number always increases by exactly one when your account sends a transaction successfully, and never any other way. If the number does not match what you expect, you should check your recent transactions to confirm why. (Aside from malleable transactions, there are other ways this could happen, too. Perhaps you configured another application to send transactions for you. Maybe a malicious user gained access to your secret key. Or perhaps your application lost data and forgot about a transaction you sent already.)
+- If you re-create transactions to be multi-signed, _do not_ change the <span class="code-snippet">Sequence</span> number unless you have manually confirmed that the intended actions have not already executed.
+- Confirm that the <span class="code-snippet">tfFullyCanonicalSig</span> flag is enabled before signing.
 
 For greater security, these guidelines provide multiple layers of protection.
 
@@ -104,7 +104,7 @@ The process to exploit a vulnerable system follows a series of steps like the fo
 
 5. The malicious actor submits the modified transaction to the network.
 
-    This creates a "race" between the transaction as originally submitted and the modified version submitted by the malicious actor. The two transactions are mutually exclusive. Both are valid, but they have the same exact transaction data, including the `Sequence` number, so at most one of them can ever be included in a validated ledger.
+    This creates a "race" between the transaction as originally submitted and the modified version submitted by the malicious actor. The two transactions are mutually exclusive. Both are valid, but they have the same exact transaction data, including the <span class="code-snippet">Sequence</span> number, so at most one of them can ever be included in a validated ledger.
 
     Servers in the peer-to-peer network have no way of knowing which one "came first" or was intended by its original sender. Delays or other coincidences in network connectivity could result in validators seeing only one or the other by the time they finalize their consensus proposals, so either one could "win the race".
 
@@ -114,21 +114,21 @@ The process to exploit a vulnerable system follows a series of steps like the fo
 
 6. The malicious actor's version of the transaction achieves consensus and becomes included in a validated ledger.
 
-    At this point, the transaction has executed and cannot be reversed. Its effects (such as sending XRP) are final. The original version of the transaction is no longer valid because its `Sequence` number has been used.
+    At this point, the transaction has executed and cannot be reversed. Its effects (such as sending XRP) are final. The original version of the transaction is no longer valid because its <span class="code-snippet">Sequence</span> number has been used.
 
     The effects of the transaction in the XRP Ledger are exactly the same as if the original version had executed.
 
 7. The vulnerable system does not see the transaction hash it is expecting, and erroneously concludes that the transaction did not execute.
 
-    If the transaction included the `LastLedgerSequence` field, this would occur after the specified ledger index has passed.
+    If the transaction included the <span class="code-snippet">LastLedgerSequence</span> field, this would occur after the specified ledger index has passed.
 
-    If the transaction omitted the `LastLedgerSequence` field, this could be wrong in another way: if no other transaction from the same sender uses the same `Sequence` number, then the transaction could theoretically succeed later regardless of how much time has passed. (See [Reliable Transaction Submission](reliable-transaction-submission.html) for details.)
+    If the transaction omitted the <span class="code-snippet">LastLedgerSequence</span> field, this could be wrong in another way: if no other transaction from the same sender uses the same <span class="code-snippet">Sequence</span> number, then the transaction could theoretically succeed later regardless of how much time has passed. (See [Reliable Transaction Submission](reliable-transaction-submission.html) for details.)
 
 8. The vulnerable system takes action assuming that the transaction has failed.
 
     For example, it may refund (or not debit) a customer's balance in its own system, to account for the funds that it thinks have not been sent in the XRP Ledger.
 
-    Worse, the vulnerable system might construct a new transaction to replace the transaction, picking new `Sequence`, `LastLedgerSequence`, and `Fee` parameters based on the current state of the network, but keeping the rest of the transaction the same as the original. If this new transaction is also malleable, the system could be exploited in the same way an indefinite number of times.
+    Worse, the vulnerable system might construct a new transaction to replace the transaction, picking new <span class="code-snippet">Sequence</span>, <span class="code-snippet">LastLedgerSequence</span>, and <span class="code-snippet">Fee</span> parameters based on the current state of the network, but keeping the rest of the transaction the same as the original. If this new transaction is also malleable, the system could be exploited in the same way an indefinite number of times.
 
 
 ## See Also

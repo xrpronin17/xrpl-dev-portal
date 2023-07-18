@@ -11,7 +11,7 @@ Each account can have 0 or 1 authorized minter that can mint NFTs on its behalf.
 
 ## Assigning an Authorized Minter
 
-You set the authorized minter with an `AccountSet` transaction.
+You set the authorized minter with an <span class="code-snippet">AccountSet</span> transaction.
 
 ``` json
 tx_json = {
@@ -22,13 +22,13 @@ tx_json = {
 }
 ```
 
-`NFTokenMinter` is an account ID of an account on the same XRP Ledger instance. The `asfAuthorizedNFTokenMinter` flag authorizes the `NFTokenMinter` account to mint NFTs on behalf of the `Account`.
+<span class="code-snippet">NFTokenMinter</span> is an account ID of an account on the same XRP Ledger instance. The <span class="code-snippet">asfAuthorizedNFTokenMinter</span> flag authorizes the <span class="code-snippet">NFTokenMinter</span> account to mint NFTs on behalf of the <span class="code-snippet">Account</span>.
 
-*Note*: The `asfAuthorizedNFTokenMinter` flag is used only in the `AccountSet` transaction. It indicates whether the transaction affects the presence or value of the NFTokenMinter field on an account root. Specifically, there is no corresponding flag on the AccountRoot.
+*Note*: The <span class="code-snippet">asfAuthorizedNFTokenMinter</span> flag is used only in the <span class="code-snippet">AccountSet</span> transaction. It indicates whether the transaction affects the presence or value of the NFTokenMinter field on an account root. Specifically, there is no corresponding flag on the AccountRoot.
 
 ## Unassigning an Authorized Minter
 
-To remove an authorized minter, use the `AccountSet` transaction and clear the `asfAuthorizedNFTokenMinter` flag.
+To remove an authorized minter, use the <span class="code-snippet">AccountSet</span> transaction and clear the <span class="code-snippet">asfAuthorizedNFTokenMinter</span> flag.
 
 ``` json
 tx_json = {
@@ -40,7 +40,7 @@ tx_json = {
 
 ## Minting an NFT for Another Account
 
-You mint tokens for another account using the standard `NFTokenMint` transaction. The difference is that you must include the `Issuer` field, the account ID of the account for which you are minting the NFT.
+You mint tokens for another account using the standard <span class="code-snippet">NFTokenMint</span> transaction. The difference is that you must include the <span class="code-snippet">Issuer</span> field, the account ID of the account for which you are minting the NFT.
 
 ```json
 const transactionBlob = {

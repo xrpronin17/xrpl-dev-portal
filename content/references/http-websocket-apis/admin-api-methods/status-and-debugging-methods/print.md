@@ -8,9 +8,9 @@ labels:
 # print
 [[Source]](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/Print.cpp "Source")
 
-The `print` command returns the current status of various internal subsystems, including peers, the ledger cleaner, and the resource manager.
+The <span class="code-snippet">print</span> command returns the current status of various internal subsystems, including peers, the ledger cleaner, and the resource manager.
 
-*The `print` method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
+*The <span class="code-snippet">print</span> method is an [admin method](admin-api-methods.html) that cannot be run by unprivileged users!*
 
 ### Request Format
 An example of the request format:
@@ -232,7 +232,7 @@ Connecting to 127.0.0.1:5005
 
 <!-- MULTICODE_BLOCK_END -->
 
-The response follows the [standard format][]. Additional fields in the result depend on the internal state of the `rippled` server. The results of this command are subject to change without notice.
+The response follows the [standard format][]. Additional fields in the result depend on the internal state of the <span class="code-snippet">rippled</span> server. The results of this command are subject to change without notice.
 
 ### Possible Errors
 

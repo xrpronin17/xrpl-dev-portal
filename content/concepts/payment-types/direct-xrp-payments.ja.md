@@ -22,7 +22,7 @@ blurb: XRPによる直接支払いは、XRP Ledgerで資産を送金する最も
 
 上記のトランザクション指示によって、以下のように実行されます。rf1Bi ...からra5nK... にPaymentを送信することで、ちょうど13 XRPが送金されます。トランザクションが正常に処理されると、その内容が正確に実行されます。新しいレジャーバージョンが[検証済み](consensus.html)になるまでに、通常約4秒かかるため、現在処理中のレジャーの後にレジャーバージョンのキューに入れられても、正常なトランザクションを作成、送信、実行後、8秒以内に最終結果を出すことができます。
 
-**注意:** [Paymentトランザクションタイプ][Payment]は、[通貨間の支払い](cross-currency-payments.html)や[Partial Payment](partial-payments.html)を含む、より特殊な支払いにも使用できます。Partial Paymentの場合、トランザクションで非常に少ない金額しか送金しなかった場合でも、多額のXRPが`Amount`に表示される可能性があります。誤った金額を顧客に入金しないようにする方法については、[Partial Paymentの悪用](partial-payments.html#partial-paymentの悪用)を参照してください。
+**注意:** [Paymentトランザクションタイプ][Payment]は、[通貨間の支払い](cross-currency-payments.html)や[Partial Payment](partial-payments.html)を含む、より特殊な支払いにも使用できます。Partial Paymentの場合、トランザクションで非常に少ない金額しか送金しなかった場合でも、多額のXRPが<span class="code-snippet">Amount</span>に表示される可能性があります。誤った金額を顧客に入金しないようにする方法については、[Partial Paymentの悪用](partial-payments.html#partial-paymentの悪用)を参照してください。
 
 XRP間の直接支払ではPartial Paymentは使用できませんが、Partial Paymentでは複数の送金元通貨から変換後にXRPを送金できます。
 
@@ -47,7 +47,7 @@ XRP Ledgerでは、支払いを受け取ることができるアドレスは永�
 
 1. [Paymentトランザクション][]のパラメータを検証します。トランザクションがXRPを送信、送金するように構成されている場合、トランザクション処理エンジンはそのトランザクションをXRP間の直接支払として認識します。検証チェックは次のように行います。
 
-   - すべてのフィールドが正しいフォーマットであることを確認します。たとえば、XRPによる直接支払の場合、`Amount`フィールドは[XRPのdrop数][]でなければなりません。
+   - すべてのフィールドが正しいフォーマットであることを確認します。たとえば、XRPによる直接支払の場合、<span class="code-snippet">Amount</span>フィールドは[XRPのdrop数][]でなければなりません。
    - 送信元アドレスがXRP Ledgerの資金供給された[アカウント](accounts.html)であることを確認します。
    - 指定された署名がすべて、送信元アドレスに対して有効であることを確認します。
    - 宛先アドレスと送金元アドレスが異なることを確認します。（[宛先タグ](source-and-destination-tags.html)が異なる同一アドレスに送金するだけでは不十分です。）
@@ -60,11 +60,11 @@ XRP Ledgerでは、支払いを受け取ることができるアドレスは永�
    - 受取アドレスに資金が供給されている場合は、[DepositAuth](depositauth.html)や[RequireDest](source-and-destination-tags.html#requiring-tags)など、支払いの受け取りに関する制限が受取アドレスにあるかどうかを確認します。そのような制限を支払いが満たしていない場合、支払いは失敗します。
    - 受取アドレスに資金が供給されていない場合は、[必要準備金](reserves.html)の最低額を満たすのに十分なXRPが支払いで送金されるかどうかを確認します。十分でない場合、支払いは失敗します。
 
-3. `Amount`フィールドで指定されたXRPの金額と、[トランザクションコスト](transaction-cost.html)用に消却されるXRPの金額の合計を送金元アカウントから引き落とし、受取アカウントに同じ金額を送金します。
+3. <span class="code-snippet">Amount</span>フィールドで指定されたXRPの金額と、[トランザクションコスト](transaction-cost.html)用に消却されるXRPの金額の合計を送金元アカウントから引き落とし、受取アカウントに同じ金額を送金します。
 
-   必要に応じて、受取アドレス用に新規アカウント([AccountRootオブジェクト](accountroot.html)) を作成します。新規アカウントの開始残高は、支払いの`Amount`と同額になります。
+   必要に応じて、受取アドレス用に新規アカウント([AccountRootオブジェクト](accountroot.html)) を作成します。新規アカウントの開始残高は、支払いの<span class="code-snippet">Amount</span>と同額になります。
 
-   エンジンは、[トランザクションのメタデータ](transaction-metadata.html)に`delivered_amount`フィールドを追加して、送金金額を示します。正しい金額のXRPを受け取ったことを確認できるように、必ず`delivered_amount`を使用する必要があります。`Amount`フィールドでは**ありません**。（通貨間の支払「Partial Payment」では、`Amount`フィールドに記載されているよりも少額のXRPが送金される場合があります。）詳細は、[Partial Payments](partial-payments.html)を参照してください。
+   エンジンは、[トランザクションのメタデータ](transaction-metadata.html)に<span class="code-snippet">delivered_amount</span>フィールドを追加して、送金金額を示します。正しい金額のXRPを受け取ったことを確認できるように、必ず<span class="code-snippet">delivered_amount</span>を使用する必要があります。<span class="code-snippet">Amount</span>フィールドでは**ありません**。（通貨間の支払「Partial Payment」では、<span class="code-snippet">Amount</span>フィールドに記載されているよりも少額のXRPが送金される場合があります。）詳細は、[Partial Payments](partial-payments.html)を参照してください。
 
 
 ## 他の支払いタイプとの比較

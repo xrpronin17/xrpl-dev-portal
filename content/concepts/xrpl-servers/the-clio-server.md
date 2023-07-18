@@ -7,25 +7,25 @@ blurb: Clio is an XRP Ledger server optimized for API calls.
 
 Clio is an XRP Ledger API server optimized for WebSocket or HTTP API calls for validated ledger data.
 
-A Clio server does not connect to the peer-to-peer network. Instead, it extracts data from a specified `rippled` server which is connected to the P2P network. By handling API calls efficiently, Clio servers can help reduce the load on `rippled` servers running in P2P mode.
+A Clio server does not connect to the peer-to-peer network. Instead, it extracts data from a specified <span class="code-snippet">rippled</span> server which is connected to the P2P network. By handling API calls efficiently, Clio servers can help reduce the load on <span class="code-snippet">rippled</span> servers running in P2P mode.
 
-Clio stores validated historical ledger and transaction data in a space efficient format, using up to 4 times less space than `rippled`.  Clio uses Cassandra or ScyllaDB, allowing for scalable read throughput. Multiple Clio servers can share access to the same dataset, thereby enabling you to build a highly available cluster of Clio servers without the need for redundant data storage or computation.  
+Clio stores validated historical ledger and transaction data in a space efficient format, using up to 4 times less space than <span class="code-snippet">rippled</span>.  Clio uses Cassandra or ScyllaDB, allowing for scalable read throughput. Multiple Clio servers can share access to the same dataset, thereby enabling you to build a highly available cluster of Clio servers without the need for redundant data storage or computation.  
 
-Clio requires access to a `rippled` server, which can run on the same machine as Clio or separately.
+Clio requires access to a <span class="code-snippet">rippled</span> server, which can run on the same machine as Clio or separately.
 
-While Clio offers the complete [HTTP / WebSocket APIs](http-websocket-apis.html), by default, it only returns validated data. For any requests that require access to the P2P network, Clio automatically forwards the request to the `rippled` server on the P2P network and passes the response back.  
+While Clio offers the complete [HTTP / WebSocket APIs](http-websocket-apis.html), by default, it only returns validated data. For any requests that require access to the P2P network, Clio automatically forwards the request to the <span class="code-snippet">rippled</span> server on the P2P network and passes the response back.  
 
 ## Why Should I Run a Clio Server?
 
-There are lots of reasons you might want to run your own Clio server, but most of them can be summarized as: reduced load on `rippled` server(s) connected to the P2P network, lower memory usage and storage overhead, easier horizontal scaling, and higher throughput for API requests.   
+There are lots of reasons you might want to run your own Clio server, but most of them can be summarized as: reduced load on <span class="code-snippet">rippled</span> server(s) connected to the P2P network, lower memory usage and storage overhead, easier horizontal scaling, and higher throughput for API requests.   
 
-* Reduced load on `rippled` server(s) - A Clio server does not connect to the peer-to-peer network. It uses gRPC to get validated data from one or more trusted `rippled` servers that are connected to the P2P network. Thus, a Clio server handles requests more efficiently and reduces the load on `rippled` servers running in P2P mode.
+* Reduced load on <span class="code-snippet">rippled</span> server(s) - A Clio server does not connect to the peer-to-peer network. It uses gRPC to get validated data from one or more trusted <span class="code-snippet">rippled</span> servers that are connected to the P2P network. Thus, a Clio server handles requests more efficiently and reduces the load on <span class="code-snippet">rippled</span> servers running in P2P mode.
 
-* Lower memory usage and storage overhead - Clio uses Cassandra as a database and stores data in a space efficient format, using up to 4 times less space than `rippled`.
+* Lower memory usage and storage overhead - Clio uses Cassandra as a database and stores data in a space efficient format, using up to 4 times less space than <span class="code-snippet">rippled</span>.
 
 * Easier horizontal scaling - Multiple Clio servers can share access to the same dataset, thus enabling you to build a highly available cluster of Clio servers.
 
-* Higher throughput for API requests - A Clio server extracts validated data from one or more trusted `rippled` servers and stores this data efficiently. Thus, handling API calls efficiently, resulting in a higher throughput and in some cases, lower latency as well.
+* Higher throughput for API requests - A Clio server extracts validated data from one or more trusted <span class="code-snippet">rippled</span> servers and stores this data efficiently. Thus, handling API calls efficiently, resulting in a higher throughput and in some cases, lower latency as well.
 
 
 ## How does a Clio Server Work?

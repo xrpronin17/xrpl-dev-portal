@@ -9,13 +9,13 @@ labels:
 # validation_create
 [[ソース]](https://github.com/ripple/rippled/blob/315a8b6b602798a4cff4d8e1911936011e12abdb/src/ripple/rpc/handlers/ValidationCreate.cpp "Source")
 
-`validation_create`コマンドキーを使用して、[`rippled`サーバーがネットワークに対して自身の身元を識別させるのに使用できる暗号鍵](peer-protocol.html#ノードキーペア)を生成します。[wallet_proposeメソッド][]と同様に、このメソッドでは適切なフォーマットで一連のキーが単に生成されるだけです。XRP Ledgerのデータやサーバー構成は変更されません。
+<span class="code-snippet">validation_create</span>コマンドキーを使用して、[<span class="code-snippet">rippled</span>サーバーがネットワークに対して自身の身元を識別させるのに使用できる暗号鍵](peer-protocol.html#ノードキーペア)を生成します。[wallet_proposeメソッド][]と同様に、このメソッドでは適切なフォーマットで一連のキーが単に生成されるだけです。XRP Ledgerのデータやサーバー構成は変更されません。
 
-_`validation_create`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">validation_create</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 サーバーを設定することにより、生成されたキーペアを検証の署名（検証キーペア）に使用するか、または通常のピアツーピア通信の署名（[ノードキーペア](peer-protocol.html#ノードキーペア)）に使用するかを指定できます。
 
-**ヒント:**　堅牢なバリデータを設定するには、`validator-keys`ツール（`rippled` RPMに付属）を使用してバリデータトークン（ローテーション可能）とオフラインマスターキーを生成してください。詳細は、[rippledサーバーで検証を有効化](run-rippled-as-a-validator.html#3-rippledサーバーで検証を有効化)を参照してください。
+**ヒント:**　堅牢なバリデータを設定するには、<span class="code-snippet">validator-keys</span>ツール（<span class="code-snippet">rippled</span> RPMに付属）を使用してバリデータトークン（ローテーション可能）とオフラインマスターキーを生成してください。詳細は、[rippledサーバーで検証を有効化](run-rippled-as-a-validator.html#3-rippledサーバーで検証を有効化)を参照してください。
 
 
 ### 要求フォーマット
@@ -59,9 +59,9 @@ rippled validation_create "BAWL MAN JADE MOON DOVE GEM SON NOW HAD ADEN GLOW TIR
 
 | `Field`  | 型   | 説明                                              |
 |:---------|:-------|:---------------------------------------------------------|
-| `secret` | 文字列 | _（省略可）_ クレデンシャルを生成するときにこの値をシードとして使用します。同じシークレットを使用すると常に同じクレデンシャルが生成されます。シードは[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマットまたはXRP Ledgerの[base58][]フォーマットで指定できます。省略すると、ランダムシードが生成されます。 |
+| <span class="code-snippet">secret</span> | 文字列 | _（省略可）_ クレデンシャルを生成するときにこの値をシードとして使用します。同じシークレットを使用すると常に同じクレデンシャルが生成されます。シードは[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマットまたはXRP Ledgerの[base58][]フォーマットで指定できます。省略すると、ランダムシードが生成されます。 |
 
-**注記:** バリデータのセキュリティは、シードのエントロピーに応じて異なります。シークレット値が強力なランダム性のソースを使用して生成されている場合を除き、実際の事業目的のためにシークレット値を使用しないでください。新しいクレデンシャルを初めて生成するときには`secret`を省略することが推奨されます。
+**注記:** バリデータのセキュリティは、シードのエントロピーに応じて異なります。シークレット値が強力なランダム性のソースを使用して生成されている場合を除き、実際の事業目的のためにシークレット値を使用しないでください。新しいクレデンシャルを初めて生成するときには<span class="code-snippet">secret</span>を省略することが推奨されます。
 
 ### 応答フォーマット
 
@@ -104,14 +104,14 @@ Connecting to 127.0.0.1:5005
 
 | `Field`                 | 型   | 説明                               |
 |:------------------------|:-------|:------------------------------------------|
-| `validation_key`        | 文字列 | これらの検証クレデンシャルのシークレットキー（[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマット）。 |
-| `validation_public_key` | 文字列 | これらの検証クレデンシャルの公開鍵（XRP Ledgerの[base58][]エンコード文字列フォーマット）。 |
-| `validation_seed`       | 文字列 | これらの検証クレデンシャルのシークレットキー（XRP Ledgerの[base58][]エンコード文字列フォーマット）。 |
+| <span class="code-snippet">validation_key</span>        | 文字列 | これらの検証クレデンシャルのシークレットキー（[RFC-1751](https://tools.ietf.org/html/rfc1751)フォーマット）。 |
+| <span class="code-snippet">validation_public_key</span> | 文字列 | これらの検証クレデンシャルの公開鍵（XRP Ledgerの[base58][]エンコード文字列フォーマット）。 |
+| <span class="code-snippet">validation_seed</span>       | 文字列 | これらの検証クレデンシャルのシークレットキー（XRP Ledgerの[base58][]エンコード文字列フォーマット）。 |
 
 ### 考えられるエラー
 
 * [汎用エラータイプ][]のすべて。
-* `badSeed` - 要求に無効なシード値が指定されていました。この場合は通常、シード値が異なるフォーマットの有効文字列（アカウントアドレス、検証の公開鍵など）である可能性があります。
+* <span class="code-snippet">badSeed</span> - 要求に無効なシード値が指定されていました。この場合は通常、シード値が異なるフォーマットの有効文字列（アカウントアドレス、検証の公開鍵など）である可能性があります。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}

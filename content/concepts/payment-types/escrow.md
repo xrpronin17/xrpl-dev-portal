@@ -22,7 +22,7 @@ The XRP set aside in an escrow is locked up. No one can use or destroy the XRP u
 
 **Step 2:** After this transaction has been processed, the XRP Ledger has an [Escrow object](escrow-object.html) that holds the escrowed XRP. This object contains the properties of the escrow as defined by the transaction that created it. If this escrow has a finish time, no one can access the XRP before then.
 
-**Step 3:** The recipient, or any other XRP Ledger address, sends an [EscrowFinish transaction][] to deliver the XRP. If the correct conditions are met, this destroys the Escrow object in the ledger and credits the XRP to the intended recipient. If the escrow has a crypto-condition, this transaction must include a fulfillment for that condition. If the escrow has an expiration time that has already passed, the EscrowFinish transaction instead fails with the code [`tecNO_PERMISSION`](tec-codes.html).
+**Step 3:** The recipient, or any other XRP Ledger address, sends an [EscrowFinish transaction][] to deliver the XRP. If the correct conditions are met, this destroys the Escrow object in the ledger and credits the XRP to the intended recipient. If the escrow has a crypto-condition, this transaction must include a fulfillment for that condition. If the escrow has an expiration time that has already passed, the EscrowFinish transaction instead fails with the code [<span class="code-snippet">tecNO_PERMISSION</span>](tec-codes.html).
 
 ### Expiration Case
 
@@ -60,13 +60,13 @@ The following diagram shows the states an Escrow can progress through:
 
 [![State diagram showing escrows going from Held → Ready/Conditionally Ready → Expired](img/escrow-states.png)](img/escrow-states.png)
 
-The diagram shows three different cases for three possible combinations of the escrow's "finish-after" time (`FinishAfter` field), crypto-condition (`Condition` field), and expiration time (`CancelAfter` field):
+The diagram shows three different cases for three possible combinations of the escrow's "finish-after" time (<span class="code-snippet">FinishAfter</span> field), crypto-condition (<span class="code-snippet">Condition</span> field), and expiration time (<span class="code-snippet">CancelAfter</span> field):
 
-- **Time-based Escrow (left):** With only a finish-after time, the escrow is created in the **Held** state. After the specified time has passed, it becomes **Ready** and anyone can finish it. If the escrow has an expiration time and no one finishes it before that time passes, then the escrow becomes **Expired**. In the expired state, an escrow cannot be finished, and anyone can cancel it. If the escrow does not have a `CancelAfter` field, it never expires and cannot be canceled.
+- **Time-based Escrow (left):** With only a finish-after time, the escrow is created in the **Held** state. After the specified time has passed, it becomes **Ready** and anyone can finish it. If the escrow has an expiration time and no one finishes it before that time passes, then the escrow becomes **Expired**. In the expired state, an escrow cannot be finished, and anyone can cancel it. If the escrow does not have a <span class="code-snippet">CancelAfter</span> field, it never expires and cannot be canceled.
 
-- **Combination Escrow (center):** If the escrow specifies both a crypto-condition (`Condition` field) _and_ a "finish-after" time (`FinishAfter` field), the escrow is **Held** until its finish-after time has passed. Then it becomes **Conditionally Ready**, and can finish it if they supply the correct fulfillment to the crypto-condition. If the escrow has an expiration time (`CancelAfter` field), and no one finishes it before that time passes, then the escrow becomes **Expired**. In the expired state, an escrow cannot be finished, and anyone can cancel it. If the escrow does not have a `CancelAfter` field, it never expires and cannot be canceled.
+- **Combination Escrow (center):** If the escrow specifies both a crypto-condition (<span class="code-snippet">Condition</span> field) _and_ a "finish-after" time (<span class="code-snippet">FinishAfter</span> field), the escrow is **Held** until its finish-after time has passed. Then it becomes **Conditionally Ready**, and can finish it if they supply the correct fulfillment to the crypto-condition. If the escrow has an expiration time (<span class="code-snippet">CancelAfter</span> field), and no one finishes it before that time passes, then the escrow becomes **Expired**. In the expired state, an escrow cannot be finished, and anyone can cancel it. If the escrow does not have a <span class="code-snippet">CancelAfter</span> field, it never expires and cannot be canceled.
 
-- **Conditional Escrow (right):** If the escrow specifies a crypto-condition (`Condition` field) and not a finish-after time, the escrow becomes **Conditionally Ready** immediately when it is created. During this time, anyone can finish the escrow, but only if they supply the correct fulfillment to the crypto-condition. If no one finishes the escrow before its expiration time (`CancelAfter` field), the escrow becomes **Expired**. (An escrow without a finish-after time _must_ have an expiration time.) In the expired state, the escrow can no longer be finished, and anyone can cancel it.
+- **Conditional Escrow (right):** If the escrow specifies a crypto-condition (<span class="code-snippet">Condition</span> field) and not a finish-after time, the escrow becomes **Conditionally Ready** immediately when it is created. During this time, anyone can finish the escrow, but only if they supply the correct fulfillment to the crypto-condition. If no one finishes the escrow before its expiration time (<span class="code-snippet">CancelAfter</span> field), the escrow becomes **Expired**. (An escrow without a finish-after time _must_ have an expiration time.) In the expired state, the escrow can no longer be finished, and anyone can cancel it.
 
 
 
@@ -74,7 +74,7 @@ The diagram shows three different cases for three possible combinations of the e
 
 Conditional payments have been enabled by the ["Escrow" Amendment](known-amendments.html#escrow) to the XRP Ledger Consensus Protocol since 2017-03-31. A previous version of the same functionality was available on the [XRP Ledger Test Net](xrp-test-net-faucet.html) by the name "Suspended Payments" (SusPay) in 2016.
 
-When testing in [stand-alone mode][], you can force the Escrow feature to be enabled locally regardless of the amendment status. Add the following stanza to your `rippled.cfg`:
+When testing in [stand-alone mode][], you can force the Escrow feature to be enabled locally regardless of the amendment status. Add the following stanza to your <span class="code-snippet">rippled.cfg</span>:
 
     [features]
     Escrow
@@ -91,7 +91,7 @@ The additional transaction cost required is proportional to the size of the fulf
 
 **Note:** The above formula is based on the assumption that the reference cost of a transaction is 10 drops of XRP.
 
-If [Fee Voting](fee-voting.html) changes the `reference_fee` value, the formula scales based on the new reference cost. The generalized formula for an EscrowFinish transaction with a fulfillment is as follows:
+If [Fee Voting](fee-voting.html) changes the <span class="code-snippet">reference_fee</span> value, the formula scales based on the new reference cost. The generalized formula for an EscrowFinish transaction with a fulfillment is as follows:
 
 ```
 reference_fee * (signer_count + 33 + (fulfillment_bytes / 16))

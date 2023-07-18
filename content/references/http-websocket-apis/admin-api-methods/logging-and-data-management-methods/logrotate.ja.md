@@ -8,11 +8,11 @@ labels:
 # logrotate
 [[ソース]](https://github.com/ripple/rippled/blob/743bd6c9175c472814448ea889413be79dfd1c07/src/ripple/rpc/handlers/LogRotate.cpp "Source")
 
-`logrotate`コマンドは、ログファイルを閉じて再度開きます。これは、Linuxファイルシステムでのログローテーションを促進することを目的としています。
+<span class="code-snippet">logrotate</span>コマンドは、ログファイルを閉じて再度開きます。これは、Linuxファイルシステムでのログローテーションを促進することを目的としています。
 
-通常、Linuxシステムには、[`logrotate`](https://linux.die.net/man/8/logrotate)プログラムがプリインストールされていますが、このコマンドとは異なります。アプリケーション固有のログローテーションスクリプトは、`/etc/logrotate.d`に配置されています。
+通常、Linuxシステムには、[<span class="code-snippet">logrotate</span>](https://linux.die.net/man/8/logrotate)プログラムがプリインストールされていますが、このコマンドとは異なります。アプリケーション固有のログローテーションスクリプトは、<span class="code-snippet">/etc/logrotate.d</span>に配置されています。
 
-次のスクリプトは、`/etc/logrotate.d/rippled`として作成できるサンプルです。
+次のスクリプトは、<span class="code-snippet">/etc/logrotate.d/rippled</span>として作成できるサンプルです。
 
 ```logrotate
 /var/log/rippled/*.log {
@@ -32,13 +32,13 @@ labels:
 }
 ```
 
-保持するログの量に応じて、`minsize`や`rotate`などのパラメーターを構成できます。`rippled.cfg`ファイルの`log_level`設定を使用して、サーバーのログの詳細度を設定します。このサンプルスクリプトは標準の`log_level`に基づいており、約2週間分のログを圧縮形式で保存します。
+保持するログの量に応じて、<span class="code-snippet">minsize</span>や<span class="code-snippet">rotate</span>などのパラメーターを構成できます。<span class="code-snippet">rippled.cfg</span>ファイルの<span class="code-snippet">log_level</span>設定を使用して、サーバーのログの詳細度を設定します。このサンプルスクリプトは標準の<span class="code-snippet">log_level</span>に基づいており、約2週間分のログを圧縮形式で保存します。
 
-`rippled` 1.3以降、スクリプト`/etc/logrotate.d/rippled`は、DEBおよびRPMパッケージによって自動的にインストールされます。この設定は、必要に応じて変更できます。パッケージのアップグレード時に変更内容が上書きされることはありません。
+<span class="code-snippet">rippled</span> 1.3以降、スクリプト<span class="code-snippet">/etc/logrotate.d/rippled</span>は、DEBおよびRPMパッケージによって自動的にインストールされます。この設定は、必要に応じて変更できます。パッケージのアップグレード時に変更内容が上書きされることはありません。
 
 **注記:** システムのlogrotateスクリプトは、アプリケーションごとに1つしか持てません。同じディレクトリを処理するログローテーションが他にないことを確認してください。
 
-_`logrotate`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">logrotate</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 ### 要求フォーマット
 要求フォーマットの例:
@@ -106,7 +106,7 @@ Connecting to 127.0.0.1:5005
 
 | `Field`   | 型     | 説明                                                    |
 |:----------|:-------|:--------------------------------------------------------|
-| `message` | 文字列 | 正常に完了した場合、次のメッセージが含まれています。`The log file was closed and reopened.` |
+| <span class="code-snippet">message</span> | 文字列 | 正常に完了した場合、次のメッセージが含まれています。<span class="code-snippet">The log file was closed and reopened.</span> |
 
 ### 考えられるエラー
 

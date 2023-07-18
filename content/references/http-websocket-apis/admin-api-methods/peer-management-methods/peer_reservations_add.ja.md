@@ -8,9 +8,9 @@ labels:
 # peer_reservations_add
 [[ソース]](https://github.com/ripple/rippled/blob/4a1148eb2849513dd1e7ae080288fd47ab57a376/src/ripple/rpc/handlers/Reservations.cpp#L36 "Source")
 
-この`{{currentpage.name}}`メソッドは、XRP Ledger[ピアツーピアネットワーク](peer-protocol.html)内の特定のピアサーバーの予約済みスロットを追加または更新します。[新規: rippled 1.4.0][]
+この<span class="code-snippet">{{currentpage.name}}</span>メソッドは、XRP Ledger[ピアツーピアネットワーク](peer-protocol.html)内の特定のピアサーバーの予約済みスロットを追加または更新します。[新規: rippled 1.4.0][]
 
-_`{{currentpage.name}}`メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
+_<span class="code-snippet">{{currentpage.name}}</span>メソッドは、権限のないユーザーは実行できない[管理メソッド](admin-api-methods.html)です。_
 
 
 ### 要求フォーマット
@@ -55,8 +55,8 @@ rippled {{currentpage.name}} n9Jt8awsPzWLjBCNKVEEDQnw4bQEPjezfcQ4gttD1UzbLT1FoG9
 
 | `Field`       | 型     | 説明                                                |
 |:--------------|:-------|:----------------------------------------------------|
-| `public_key` | 文字列 | [base58][]での予約を追加するピアリザベーションの[ノード公開鍵][] 。 |
-| `description` | 文字列 | _(省略可)_ ピアリザベーションに関するカスタムの説明。64文字を超える部分は、再起動時にサーバーによって切り捨てられます。 |
+| <span class="code-snippet">public_key</span> | 文字列 | [base58][]での予約を追加するピアリザベーションの[ノード公開鍵][] 。 |
+| <span class="code-snippet">description</span> | 文字列 | _(省略可)_ ピアリザベーションに関するカスタムの説明。64文字を超える部分は、再起動時にサーバーによって切り捨てられます。 |
 
 
 
@@ -119,13 +119,13 @@ Connecting to 127.0.0.1:5005
 
 | `Field`    | 型     | 説明                                                   |
 |:-----------|:-------|:-------------------------------------------------------|
-| `previous` | オブジェクト | _（省略される場合があります）_ 同じ[ノード公開鍵][]の以前のエントリ（同じノード公開鍵を使用した予約がすでに存在する場合）。以下で説明するように、このオブジェクトは、**ピアリザベーションオブジェクト**というフォーマットになります。 |
+| <span class="code-snippet">previous</span> | オブジェクト | _（省略される場合があります）_ 同じ[ノード公開鍵][]の以前のエントリ（同じノード公開鍵を使用した予約がすでに存在する場合）。以下で説明するように、このオブジェクトは、**ピアリザベーションオブジェクト**というフォーマットになります。 |
 
-同じ[ノード公開鍵][]に以前のエントリがなかった場合、`result`オブジェクトは空です。
+同じ[ノード公開鍵][]に以前のエントリがなかった場合、<span class="code-snippet">result</span>オブジェクトは空です。
 
 #### ピアリザベーションオブジェクト
 
-`previous`フィールドが指定されている場合は、このピアリザベーションの以前のステータスが次のフィールドとともに表示されます。
+<span class="code-snippet">previous</span>フィールドが指定されている場合は、このピアリザベーションの以前のステータスが次のフィールドとともに表示されます。
 
 {% include '_snippets/peer_reservation_object.ja.md' %}
 <!--_ -->
@@ -134,8 +134,8 @@ Connecting to 127.0.0.1:5005
 ### 考えられるエラー
 
 - いずれかの[汎用エラータイプ][]。
-- `invalidParams` - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
-- `publicMalformed` - 要求の`public_key`フィールドが無効です。[base58][]フォーマットの有効なノード公開鍵である必要があります。
+- <span class="code-snippet">invalidParams</span> - 1つ以上のフィールドの指定が正しくないか、1つ以上の必須フィールドが指定されていません。
+- <span class="code-snippet">publicMalformed</span> - 要求の<span class="code-snippet">public_key</span>フィールドが無効です。[base58][]フォーマットの有効なノード公開鍵である必要があります。
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}
