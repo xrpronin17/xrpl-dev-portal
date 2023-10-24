@@ -18,7 +18,7 @@ const logos = {
     "onthedex",
   ],
   developer_tooling: ["blockforce", "Evernode", "threezy", "tokenize"],
-  interoperability: ["Allbridge", "futureverse", "multichain"],
+  interoperability: ["Allbridge", "multichain"],
   wallet: ["Bitfrost", "Crossmark", "Edge", "gem-wallet", "Xumm"],
   nfts: [
     "aesthetes",
@@ -172,6 +172,16 @@ const cardsData = [
     category_id: "interoperability",
     category_name: "Interoperability",
     link: "https://multichain.org/",
+  },
+  {
+    id: "allbridge",
+    title: "Allbridge",
+    description: 
+      "Allbridge is a generalized bridge between EVM and non-EVM compatible blockchains, supporting native and wrapped token transfers."
+    ,
+    category_id: "interoperability",
+    category_name: "Interoperability",
+    link: "https://allbridge.io/",
   },
   {
     id: "nft-master",
@@ -480,8 +490,12 @@ export default function Uses() {
   const filteredCards = cards.filter((card) =>
     selectedCategories.has(card.category_id)
   );
-  const featuredCount = Array.from(selectedCategories).filter(category => featured_categories.hasOwnProperty(category)).length;
-  const otherCount = Array.from(selectedCategories).filter(category => other_categories.hasOwnProperty(category)).length;
+  const featuredCount = Array.from(selectedCategories).filter((category) =>
+    featured_categories.hasOwnProperty(category)
+  ).length;
+  const otherCount = Array.from(selectedCategories).filter((category) =>
+    other_categories.hasOwnProperty(category)
+  ).length;
 
   const modalRef = React.useRef(null); // Create a reference
   React.useEffect(() => {
