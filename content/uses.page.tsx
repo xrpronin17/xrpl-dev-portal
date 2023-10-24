@@ -700,6 +700,7 @@ export default function Uses() {
             >
               {uses.map((use, index) => (
                 <li
+                  key={use.id}
                   className="col use-case-circle ls-none p-3 open-modal"
                   data-id={use.id}
                   data-title={use.title}
