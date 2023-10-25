@@ -709,7 +709,8 @@ export default function Uses() {
               </div>
             </div>
             <ul
-              className="card-grid card-grid-4xN ls-none mt-4 pt-lg-2"
+            style={{gridTemplateColumns: 'repeat(4,1fr)'}}
+              className="card-grid use-cases-grid ls-none mt-4 pt-lg-2"
               id="use-case-card-grid"
             >
               {uses.map((use, index) => (
