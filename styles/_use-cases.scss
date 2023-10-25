@@ -7,12 +7,12 @@ $interoperability-logos: "Allbridge", "multichain";
 $wallet-logos:  "Crossmark", "Edge", "gem-wallet", "Xumm";
 $nfts-logos: "aesthetes", "audiotarky", "nftmaster", "peerkat", "sologenic_dex", "xrp-cafe", "xrp-oval";
 $exchanges-logos: "sologenic_dex", "XPMarket";
-$gaming-logos: "Forte", "Futureverse", "ledger-city", "onXRP", "styngr";
+$gaming-logos: "Forte", "futureverse", "ledger-city", "onXRP", "styngr";
 $security-logos: "Anchain";
 $payments-logos: "ripple", "SuperMojo";
 $cbdc-logos: "ripple";
 $carbon-markets-logos: "carbonland-trust", "Rootmaker";
-$custody-logos: "Gatehub", "Bitgo";
+$custody-logos: "Gatehub", "bitgo";
 
 // Create a mixin to handle the common logic
 @mixin create-logo-classes($logo-list) {
