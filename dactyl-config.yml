@@ -1072,6 +1072,7 @@ pages:
     -   md: concepts/tokens/fungible-tokens/index.md
         targets:
             - en
+            - ja
 
     -   md: "@i18n/ja/concepts/tokens/trust-lines-and-issuing.md"
         targets:
@@ -1081,14 +1082,14 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/authorized-trust-lines.md"
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/authorized-trust-lines.md"
         targets:
             - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/index.md
         targets:
             - en
-#            - ja
+#           - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-settings.md
         targets:
@@ -1121,7 +1122,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/clawing-back-tokens.md"
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/clawing-back-tokens.md"
         status: not_enabled
         targets:
             - ja
@@ -1130,7 +1131,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/freezes.md"
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/freezes.md"
         outdated_translation: true
         targets:
             - ja
@@ -1139,7 +1140,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/common-misconceptions-about-freezes.md"
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/common-misconceptions-about-freezes.md"
         targets:
             - ja
 
@@ -1151,7 +1152,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/rippling.md"
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/rippling.md"
         targets:
             - ja
             
@@ -1241,7 +1242,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/demurrage.md"
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/demurrage.md"
         targets:
             - ja
 

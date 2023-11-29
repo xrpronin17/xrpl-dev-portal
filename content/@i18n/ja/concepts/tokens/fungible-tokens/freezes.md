@@ -1,6 +1,6 @@
 ---
 html: freezes.html
-parent: tokens.html
+parent: fungible-tokens.html
 blurb: 発行者はコンプライアンス目的でトークンの取引を停止できます。
 labels:
   - トークン

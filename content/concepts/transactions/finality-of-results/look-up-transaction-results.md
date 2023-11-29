@@ -228,7 +228,7 @@ If the payment contains a `CreatedNode` with `"LedgerEntryType": "AccountRoot"`,
 
 Payments involving tokens are a bit more complicated.
 
-All changes in token balances are reflected in [RippleState objects](ripplestate.html), which represent [trust lines](trust-lines-and-issuing.html). An increase to one party's balance on a trust line is considered to decrease the counterparty's balance by equal amount; in the metadata, this is only recorded as a single change to the shared `Balance` for the RippleState object. Whether this change is recorded as an "increase" or "decrease" depends on which account has the numerically higher address.
+All changes in token balances are reflected in [RippleState objects](ripplestate.html), which represent [trust lines](fungible-tokens.html). An increase to one party's balance on a trust line is considered to decrease the counterparty's balance by equal amount; in the metadata, this is only recorded as a single change to the shared `Balance` for the RippleState object. Whether this change is recorded as an "increase" or "decrease" depends on which account has the numerically higher address.
 
 A single payment may go across a long [path](paths.html) consisting of several trust lines and order books. The process of changing the balances on several trust lines to connect parties indirectly is called [rippling](rippling.html). Depending on the `issuer` specified in the transaction's `Amount` field, it is also possible that the amount delivered may be split between several trust lines (`RippleState` accounts) connected to the destination account.
 
@@ -391,7 +391,7 @@ There are several ways to request to close a payment channel, aside from the imm
 
 ### TrustSet Transactions
 
-TrustSet transactions create, modify, or delete [trust lines](trust-lines-and-issuing.html), which are represented as [`RippleState` objects](ripplestate.html). A single `RippleState` object contains settings for both parties involved, including their limits, [rippling settings](rippling.html), and more. Creating and modifying trust lines can also [adjust the sender's owner reserve and owner directory](#general-purpose-bookkeeping).
+TrustSet transactions create, modify, or delete [trust lines](fungible-tokens.html), which are represented as [`RippleState` objects](ripplestate.html). A single `RippleState` object contains settings for both parties involved, including their limits, [rippling settings](rippling.html), and more. Creating and modifying trust lines can also [adjust the sender's owner reserve and owner directory](#general-purpose-bookkeeping).
 
 The following example shows a new trust line, where **`rf1BiG...`** is willing to hold up to 110 USD issued by **`rsA2Lp...`**:
 

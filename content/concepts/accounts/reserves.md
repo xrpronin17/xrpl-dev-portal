@@ -33,7 +33,7 @@ Reserves on other networks may vary.
 
 Many objects in the ledger (ledger entries) are owned by a particular account. Usually, the owner is the account that created the object. Each object increases the owner's total reserve requirement by the owner reserve. When objects are removed from the ledger, they no longer count against the reserve requirement.
 
-Objects that count towards their owner's reserve requirement include: [Checks](checks.html), [Deposit Preauthorizations](depositauth.html#preauthorization), [Escrows](escrow.html), [NFT Offers](non-fungible-token-transfers.html), [NFT Pages](non-fungible-tokens.html), [Offers](offer.html), [Payment Channels](payment-channels.html), [Signer Lists](multi-signing.html), [Tickets](tickets.html), and [Trust Lines](trust-lines-and-issuing.html).
+Objects that count towards their owner's reserve requirement include: [Checks](checks.html), [Deposit Preauthorizations](depositauth.html#preauthorization), [Escrows](escrow.html), [NFT Offers](non-fungible-token-transfers.html), [NFT Pages](non-fungible-tokens.html), [Offers](offer.html), [Payment Channels](payment-channels.html), [Signer Lists](multi-signing.html), [Tickets](tickets.html), and [Trust Lines](fungible-tokens.html).
 
 Some special cases:
 

@@ -24,7 +24,7 @@ All freeze settings can be enacted regardless of whether the balance(s) to be fr
 
 ## Individual Freeze
 
-The **Individual Freeze** feature is a setting on a [trust line](trust-lines-and-issuing.html). When an issuer enables the Individual Freeze setting, the following rules apply to the tokens in that trust line:
+The **Individual Freeze** feature is a setting on a [trust line](fungible-tokens.html). When an issuer enables the Individual Freeze setting, the following rules apply to the tokens in that trust line:
 
 * Payments can still occur directly between the two parties of the frozen trust line.
 * The counterparty of that trust line can no longer decrease its balance on the frozen trust line, except in direct payments to the issuer. The counterparty can only send the frozen currencies directly to the issuer.
@@ -84,7 +84,7 @@ You can only enable the No Freeze setting with a transaction signed by your addr
 
 - [Freeze Code Samples](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/freeze)
 - **Concepts:**
-    - [Trust Lines and Issuing](trust-lines-and-issuing.html)
+    - [Trust Lines and Issuing](fungible-tokens.html)
 - **Tutorials:**
     - [Enable No Freeze](enable-no-freeze.html)
     - [Enact Global Freeze](enact-global-freeze.html)

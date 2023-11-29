@@ -73,7 +73,7 @@ A client application can locally track the funding status of Offers. To do this,
 
 ## Offers and Trust
 
-The limit values of [trust lines](trust-lines-and-issuing.html) do not affect Offers. In other words, you can use an Offer to acquire more than the maximum amount you trust an issuer for.
+The limit values of [trust lines](fungible-tokens.html) do not affect Offers. In other words, you can use an Offer to acquire more than the maximum amount you trust an issuer for.
 
 However, holding tokens still requires a trust line to the issuer. When an Offer is consumed, it automatically creates any necessary trust lines, setting their limits to 0. Because [trust lines increase the reserve an account must hold](reserves.html), any Offers that would require a new trust line also require the address to have enough XRP to meet the reserve for that trust line.
 
