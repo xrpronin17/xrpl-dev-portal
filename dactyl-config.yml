@@ -1255,7 +1255,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/decentralized-exchange.md"
+    -   md: "@i18n/ja/concepts/tokens/decentralized-exchange/index.md"
         targets:
             - ja
 
@@ -1264,7 +1264,7 @@ pages:
             - en
 
 
-    -   md: "@i18n/ja/concepts/tokens/offers.md"
+    -   md: "@i18n/ja/concepts/tokens/decentralized-exchange/offers.md"
         targets:
             - ja
 
@@ -1272,7 +1272,11 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/autobridging.md"
+    -   md: "@i18n/ja/concepts/tokens/decentralized-exchange/ticksize.md"
+        targets:
+            - ja
+
+    -   md: "@i18n/ja/concepts/tokens/decentralized-exchange/autobridging.md"
         targets:
             - ja
 
@@ -1281,7 +1285,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/automated-market-makers.md"
+    -   md: "@i18n/ja/concepts/tokens/decentralized-exchange/automated-market-makers.md"
         outdated_translation: true
         targets:
             - ja
