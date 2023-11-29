@@ -1,6 +1,6 @@
 ---
 html: clawing-back-tokens.html
-parent: ft-index.html
+parent: fungible-tokens.html
 blurb: Issuers can claw back their tokens for compliance purposes if they enable the Clawback feature before issuing tokens.
 labels:
   - Tokens

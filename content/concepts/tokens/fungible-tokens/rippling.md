@@ -1,6 +1,6 @@
 ---
 html: rippling.html
-parent: ft-index.html
+parent: fungible-tokens.html
 blurb: Rippling is automatic multi-party net settlement of token balances.
 labels:
   - Tokens

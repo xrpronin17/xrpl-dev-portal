@@ -1,6 +1,6 @@
 ---
-html: nft-index.html
-parent: tk-index.html
+html: nfts.html
+parent: tokens.html
 blurb: Introduction to XRPL NFTs.
 labels:
  - Non-fungible Tokens, NFTs
@@ -28,7 +28,7 @@ NFTs have several immutable settings that are defined when the token is minted. 
 - Whether the issuer can burn the token, regardless of who currently holds it.
 - Whether the holder of the token can transfer it to others. (An NFT can always be sent to or from the issuer directly.)
 - If transfers are allowed, the issuer can charge a transfer fee as a percentage of the sale price.
-- Whether the holder can sell the NFT for [fungible token](ft-index.html) amounts, or only for XRP.
+- Whether the holder can sell the NFT for [fungible token](fungible-tokens.html) amounts, or only for XRP.
 
 ## NFT Lifecycle
 

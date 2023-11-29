@@ -1,6 +1,6 @@
 ---
 html: sc-index.html
-parent: ft-index.html
+parent: fungible-tokens.html
 blurb: There are five common types of stablecoin traded on the XRP Ledger.
 labels:
   - XRP

@@ -125,7 +125,7 @@ Each "trust line" is a bidirectional relationship consisting of:
 
 Each trust line is specific to a given currency code. Two accounts can have any number of trust lines between them for different currency codes, but only one shared trust line for any particular currency code.
 
-See [Trust Lines](ft-index.html#trust-lines).
+See [Trust Lines](fungible-tokens.html#trust-lines).
 
 ### Authorized Trust Lines
 

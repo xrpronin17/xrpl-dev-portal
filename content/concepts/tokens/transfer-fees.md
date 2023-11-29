@@ -1,6 +1,6 @@
 ---
 html: transfer-fees.html
-parent: tk-index.html
+parent: tokens.html
 blurb: Token issuers can charge a fee for transferring their tokens.
 labels:
   - Fees

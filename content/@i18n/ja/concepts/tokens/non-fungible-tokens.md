@@ -1,5 +1,5 @@
 ---
-html: nft-index.html
+html: non-fungible-tokens.html
 parent: tokens.html
 blurb: XRPL NFTの紹介。
 labels:

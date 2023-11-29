@@ -1,6 +1,6 @@
 ---
 html: nft-payload-storage.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: Storage options for the payload of your NFT.
 labels:
   - Non-fungible Tokens, NFTs

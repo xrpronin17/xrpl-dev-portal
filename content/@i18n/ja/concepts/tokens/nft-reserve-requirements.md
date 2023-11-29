@@ -1,6 +1,6 @@
 ---
 html: reserve-requirements.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: NFTのMintと保有に必要な準備金について学びましょう。
 labels:
  - 非代替性トークン, NFT

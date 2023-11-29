@@ -1,5 +1,5 @@
 ---
-html: tk-index.html
+html: tokens.html
 parent: concepts.html
 blurb: Anyone can make tokens representing digital value on the XRP Ledger.
 labels:
@@ -15,7 +15,7 @@ Standard tokens are fungible: meaning, all units of that token are interchangeab
 
 Tokens can also be non-fungible. Non-fungible tokens (NFTs) serve to encode ownership of unique physical, non-physical, or purely digital goods, such as works of art or in-game items.
 
-See [Fungible Tokens](ft-index.html) and [Non-fungible Tokens](nft-index.html).
+See [Fungible Tokens](fungible-tokens.html) and [Non-fungible Tokens](non-fungible-tokens.html).
 
 ## Stablecoins
 

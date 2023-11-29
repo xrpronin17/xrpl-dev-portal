@@ -1,6 +1,6 @@
 ---
 html: freezes.html
-parent: ft-index.html
+parent: fungible-tokens.html
 blurb: Issuers can freeze their issued tokens for compliance purposes.
 labels:
   - Tokens

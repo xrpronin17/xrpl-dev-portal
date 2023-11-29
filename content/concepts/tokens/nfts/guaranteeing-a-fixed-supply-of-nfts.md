@@ -1,6 +1,6 @@
 ---
 html: guaranteeing-a-fixed-supply-of-nfts.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: Use a new account to mint a fixed number of NFTs, then black hole the account.
 labels:
   - Non-fungible Tokens, NFTs

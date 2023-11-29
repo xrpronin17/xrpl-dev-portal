@@ -1,7 +1,7 @@
 ---
 name: 代理Mint
 html: authorized-minting.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: NFTのMintを他のアカウントに代行してもらうことができます。
 labels:
  - 非代替性トークン, NFT

@@ -1,6 +1,6 @@
 ---
 html: nft-apis.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: Specialized APIs let you access useful NFT metadata.
 labels:
  - Non-fungible Tokens, NFTs

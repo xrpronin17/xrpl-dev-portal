@@ -1,6 +1,6 @@
 ---
 html: collections.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: NFTのTaxonフィールドを使用して、NFTをコレクションとしてミントすることができます。
 labels:
  - 非代替性トークン, NFT

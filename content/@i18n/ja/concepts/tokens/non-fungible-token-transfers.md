@@ -1,7 +1,7 @@
 ---
 name: NFTの取引
 html: transfers.html
-parent: nft-index.html
+parent: non-fungible-tokens.html
 blurb: NFTokenをダイレクトモードまたはブローカーモードで取引する。
 labels:
  - 非代替性トークン, NFT

@@ -1,6 +1,6 @@
 ---
 html: demurrage.html
-parent: ft-index.html
+parent: fungible-tokens.html
 blurb: (Obsolete) Some older XRP Ledger tools used to support currency codes with built-in interest and negative interest rates.
 status: removed
 ---

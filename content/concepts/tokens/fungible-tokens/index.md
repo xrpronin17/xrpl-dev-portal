@@ -1,6 +1,6 @@
 ---
-html: ft-index.html
-parent: tk-index.html
+html: fungible-tokens.html
+parent: tokens.html
 blurb: Learn about the properties and rationale of trust lines.
 labels:
   - Tokens

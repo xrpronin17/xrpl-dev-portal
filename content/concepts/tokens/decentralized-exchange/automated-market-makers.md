@@ -1,6 +1,6 @@
 ---
 html: automated-market-makers.html
-parent: de-index.html
+parent: decentralized-exchange.html
 blurb: Automated Market Makers (AMMs) provide liquidity between asset pairs, complemeting the order books in the decentralized exchange while providing passive income for their liquidity providers.
 status: not_enabled
 labels:
