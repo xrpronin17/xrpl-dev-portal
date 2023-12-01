@@ -1207,7 +1207,7 @@ pages:
         targets:
             - ja
 
-    -   md: concepts/tokens/nfts/minting-nfts-into-collections.md
+    -   md: concepts/tokens/nfts/nft-collections.md
         targets:
             - en
 

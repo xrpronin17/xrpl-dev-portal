@@ -1,5 +1,5 @@
 ---
-html: minting-nfts-into-collections.html
+html: nft-collections.html
 parent: non-fungible-tokens.html
 blurb: You can mint NFTs as collections using the NFT Taxon field.
 labels:
