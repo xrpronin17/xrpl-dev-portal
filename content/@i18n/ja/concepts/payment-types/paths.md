@@ -1,7 +1,7 @@
 ---
 html: paths.html
-parent: tokens.html
-blurb: トークンによる支払いは、接続されているユーザーのパスとオーダーブックを通す必要があります。
+parent: payment-types.html
+blurb: 発行済み通貨の支払いは、接続されているユーザーのパスとオーダーブックを通す必要があります。
 labels:
   - 支払い
   - 複数通貨間

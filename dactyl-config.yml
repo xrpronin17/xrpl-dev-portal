@@ -1056,7 +1056,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/paths.md"
+    -   md: "@i18n/ja/concepts/payment-types/paths.md"
         targets:
             - ja
 
