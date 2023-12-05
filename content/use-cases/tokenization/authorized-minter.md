@@ -21,7 +21,7 @@ If you want to set up a larger site with high volume, it might be worth investin
 
 ## Set up your marketplace
 
-Rather than designing NFTs yourself, you coordinate with an NFT creator to become an authorized minter and generate NFTs on their behalf. This allows the creator to focus on making new NFTs while you handle production and sales of the NFTs. See [Authorized Minter](nftoken-authorized-minting.html).
+Rather than designing NFTs yourself, you coordinate with an NFT creator to become an authorized minter and generate NFTs on their behalf. This allows the creator to focus on making new NFTs while you handle production and sales of the NFTs. See [Authorized Minter](authorize-another-minter.html).
 
 Once you finish creating NFTs, the creator can revoke your privileges and reassert control over the NFTs. You might also transfer the tokens to a marketplace that will handle sales of the NFTs. You can act as a broker to match sell offers to buy offers. See [Running an NFT auction](running-an-nft-auction.html).
 

@@ -1197,12 +1197,17 @@ pages:
     -   md: concepts/tokens/nfts/authorizing-another-minter.md
         targets:
             - en
-            - ja
+
+    # TODO: update translation to match English updates
+     -  md: "@i18n/ja/concepts/tokens/nfts/authorizing-another-minter.md"
+        targets:
+            - ja           
 
     -   md: concepts/tokens/nfts/running-an-nft-auction.md
         targets:
             - en
 
+   # TODO: update translation to match English updates
     -   md: "@i18n/ja/concepts/tokens/nfts/running-an-nft-auction.md"
         targets:
             - ja

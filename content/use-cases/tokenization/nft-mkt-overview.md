@@ -67,7 +67,7 @@ You can mint your own NFTs with content you create yourself, but you can also be
 
 Once the authorized minter has finished creating NFTs for you, you can revoke their privileges so that they no longer have any control over your NFTs.
 
-See [Authorized Minter](nftoken-authorized-minting.html).
+See [Authorized Minter](authorize-another-minter.html).
 
 Minted NFTs are listed on a `NFTokenPage`. There is a reserve requirement of 2 XRP for every `NFTokenPage` on your account. See [NFT Reserve Requirements](nft-reserve-requirements.html).
 

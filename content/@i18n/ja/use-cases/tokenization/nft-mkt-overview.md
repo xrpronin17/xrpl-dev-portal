@@ -65,7 +65,7 @@ NFTokenのURLは、NFTのコンテンツが保存されている場所へのリ�
 
 認可MinterがクリエイターのためにNFTをミントし終えたら、その権限を取り消し、クリエイターのNFTを制御できないようにすることができます。
 
-[認可Minter](nftoken-authorized-minting.html)をご覧ください。
+[認可Minter](authorize-another-minter.html)をご覧ください。
 
 ミント済みのNFTは、`NFTokenPage`に記録されます。アカウント上の`NFTokenPage`1つにつき2XRPの準備金が必要です。[NFT準備金](nft-reserve-requirements.html)をご覧ください。
 

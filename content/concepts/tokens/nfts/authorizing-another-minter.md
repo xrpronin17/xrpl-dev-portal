@@ -1,5 +1,5 @@
 ---
-html: authorized-another-minter.html
+html: authorize-another-minter.html
 parent: non-fungible-tokens.html
 blurb: You can assign another account to mint NFTs in your stead.
 labels:
