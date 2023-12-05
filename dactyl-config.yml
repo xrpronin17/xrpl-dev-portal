@@ -1065,7 +1065,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/tokens.md"
+    -   md: "@i18n/ja/concepts/tokens/index.md"
         targets:
             - ja
 
@@ -1176,7 +1176,7 @@ pages:
     -   md: concepts/tokens/nfts/trading-nfts.md
         targets:
             - en
-    -   md: "@i18n/ja/concepts/tokens/non-fungible-token-transfers.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/trading-nfts.md"
         status: not_enabled
         targets:
             - ja

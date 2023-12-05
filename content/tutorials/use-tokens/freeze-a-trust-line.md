@@ -74,7 +74,7 @@ You can only freeze one trust line per transaction, so you need to know which tr
 - The address of the account linked to yours via the trust line.
 - The currency code of the trust line.
 
-There can be multiple [trust lines](trust-lines-and-issuing.html) between two accounts, each for a different currency. If you suspect a particular account is behaving maliciously, you may want to freeze all the trust lines between your accounts, one at a time. Use the [account_lines method][] with a pair of accounts to find all trust lines between those accounts, then choose a trust line to freeze from among the results. For example:
+There can be multiple [trust lines](fungible-tokens.html) between two accounts, each for a different currency. If you suspect a particular account is behaving maliciously, you may want to freeze all the trust lines between your accounts, one at a time. Use the [account_lines method][] with a pair of accounts to find all trust lines between those accounts, then choose a trust line to freeze from among the results. For example:
 
 <!-- MULTICODE_BLOCK_START -->
 
@@ -331,7 +331,7 @@ As before, wait for the transaction to be validated by consensus.
 
 - **Concepts:**
     - [Freezing Issued Currencies](freezes.html)
-    - [Trust Lines and Issuing](trust-lines-and-issuing.html)
+    - [Trust Lines](fungible-tokens.html)
 - **Tutorials:**
     - [Enable No Freeze](enable-no-freeze.html)
     - [Enact Global Freeze](enact-global-freeze.html)

@@ -9,7 +9,7 @@ labels:
 
 [[Source]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/SetTrust.cpp "Source")
 
-Create or modify a [trust line](trust-lines-and-issuing.html) linking two accounts.
+Create or modify a [trust line](fungible-tokens.html) linking two accounts.
 
 ## Example {{currentpage.name}} JSON
 

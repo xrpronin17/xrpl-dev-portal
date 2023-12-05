@@ -179,7 +179,7 @@ Response:
 
 - **Concepts:**
     - [Freezing Issued Currencies](freezes.html)
-    - [Trust Lines and Issuing](trust-lines-and-issuing.html)
+    - [Trust Lines](fungible-tokens.html)
 - **Tutorials:**
     - [Enact Global Freeze](enact-global-freeze.html)
     - [Freeze a Trust Line](freeze-a-trust-line.html)

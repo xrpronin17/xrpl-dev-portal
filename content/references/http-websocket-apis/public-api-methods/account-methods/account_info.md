@@ -220,7 +220,7 @@ The `account_flags` field contains the following nested fields:
 | `disallowIncomingCheck` | Boolean | If `true`, the account does not allow others to send [Checks](checks.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
 | `disallowIncomingNFTokenOffer` | Boolean | If `true`, the account does not allow others to make [NFT buy or sell offers](non-fungible-token-transfers.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
 | `disallowIncomingPayChan` | Boolean | If `true`, the account does not allow others to make [Payment Channels](payment-channels.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
-| `disallowIncomingTrustline` | Boolean | If `true`, the account does not allow others to make [trust lines](trust-lines-and-issuing.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
+| `disallowIncomingTrustline` | Boolean | If `true`, the account does not allow others to make [trust lines](fungible-tokens.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
 | `disallowIncomingXRP`  | Boolean | If `true`, the account does not want to receive XRP from others. (This is advisory, and not enforced at a protocol level.) |
 | `globalFreeze`         | Boolean | If `true`, all tokens issued by the account are currently frozen. |
 | `noFreeze`             | Boolean | If `true`, the account has permanently given up the abilities to freeze individual trust lines or end a global freeze. See [No Freeze](freezes.html#no-freeze) for details. |
