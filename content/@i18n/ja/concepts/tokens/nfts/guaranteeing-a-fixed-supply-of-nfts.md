@@ -1,5 +1,5 @@
 ---
-html: fixed-supply.html
+html: guaranteeing-a-fixed-supply-of-nfts.html
 parent: non-fungible-tokens.html
 blurb: 新しいアカウントを使って一定数のNFTをミントし、そのアカウントをブラックホール化します。
 labels:

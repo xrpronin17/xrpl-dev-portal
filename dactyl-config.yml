@@ -1219,7 +1219,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nft-fixed-supply.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/guaranteeing-a-fixed-supply-of-nfts.md"
         targets:
             - ja
 

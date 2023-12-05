@@ -41,8 +41,8 @@ Considerations that might be most interesting to you:
 
 * [Minting NFTs into Collections](nft-collections.html)
 Use the TokenTaxon field to gather a set of NFTs centered around a specific theme or purpose. 
-* [Guaranteeing a Fixed Supply of NFTs](nft-fixed-supply.html)
-You can assure scarcity of NFTs you create by creating them with what might be characterized as a “burner” account that you use to mint a set number of NFTs for another account, then delete the account you used to mint the NFTs. See [Guaranteeing a Fixed Supply of NFTs](nft-fixed-supply.html).
+* [Guaranteeing a Fixed Supply of NFTs](guaranteeing-a-fixed-supply-of-nfts.html)
+You can assure scarcity of NFTs you create by creating them with what might be characterized as a “burner” account that you use to mint a set number of NFTs for another account, then delete the account you used to mint the NFTs. See [Guaranteeing a Fixed Supply of NFTs](guaranteeing-a-fixed-supply-of-nfts.html).
 
 ## Transferring NFTs
 
