@@ -13,7 +13,7 @@ _([AMM amendment][] :not_enabled:が必要です。)_
 
 [自動マーケットメーカー](automated-market-makers.html)（AMM）インスタンスに資金を預け、AMMの流動性プロバイダートークン（ _LPトークン_ ）を受け取ります。AMMのプールにある資産の一方または両方を預けることができます。
 
-トランザクションが成功すると、LPトークンを保持するためにAMMアカウント(リミット0)に[トラストライン](trust-lines-and-issuing.html)が作成されます。
+トランザクションが成功すると、LPトークンを保持するためにAMMアカウント(リミット0)に[トラストライン](fungible-tokens.html)が作成されます。
 
 ## {{currentpage.name}} JSONの例
 

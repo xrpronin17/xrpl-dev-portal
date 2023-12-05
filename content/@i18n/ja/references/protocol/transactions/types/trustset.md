@@ -9,7 +9,7 @@ labels:
 
 [[ソース]](https://github.com/XRPLF/rippled/blob/master/src/ripple/app/tx/impl/SetTrust.cpp "Source")
 
-2つのアカウントをリンクする[トラストライン](trust-lines-and-issuing.html)を作成または変更します。
+2つのアカウントをリンクする[トラストライン](fungible-tokens.html)を作成または変更します。
 
 ## {{currentpage.name}} JSONの例
 
