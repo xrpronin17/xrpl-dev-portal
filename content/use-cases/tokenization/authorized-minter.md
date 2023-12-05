@@ -23,7 +23,7 @@ If you want to set up a larger site with high volume, it might be worth investin
 
 Rather than designing NFTs yourself, you coordinate with an NFT creator to become an authorized minter and generate NFTs on their behalf. This allows the creator to focus on making new NFTs while you handle production and sales of the NFTs. See [Authorized Minter](nftoken-authorized-minting.html).
 
-Once you finish creating NFTs, the creator can revoke your privileges and reassert control over the NFTs. You might also transfer the tokens to a marketplace that will handle sales of the NFTs. You can act as a broker to match sell offers to buy offers. See [Running an NFT auction](nftoken-auctions.html).
+Once you finish creating NFTs, the creator can revoke your privileges and reassert control over the NFTs. You might also transfer the tokens to a marketplace that will handle sales of the NFTs. You can act as a broker to match sell offers to buy offers. See [Running an NFT auction](running-an-nft-auction.html).
 
 ![Auctioning NFTs](img/uc-nft-transferring-nfts.png)
 
@@ -48,7 +48,7 @@ You can assure scarcity of NFTs you create by creating them with what might be c
 
 You transfer NFTs by creating a sell offer or accepting a buy offer. See [Transfer NFTokens](transfer-nfts-using-javascript.html).
 
-You can sell your NFTs in an auction format. See [Running an NFT Auction](nftoken-auctions.html).
+You can sell your NFTs in an auction format. See [Running an NFT Auction](running-an-nft-auction.html).
 
 You can act as a broker, connecting sellers with bidders, completing the transfer and keeping a percentage of the purchase price. See [Broker a NFToken sale](broker-an-nft-sale-using-javascript.html).
 

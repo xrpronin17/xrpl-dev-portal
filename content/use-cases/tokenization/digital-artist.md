@@ -44,7 +44,7 @@ You transfer NFTs by creating a sell offer. See [Transfer NFTokens](transfer-nft
 
 ![Transferring NFTs](img/uc-nft-transferring-nfts.png)
 
-You can sell your NFTs in an auction format. See [Running an NFT Auction](nftoken-auctions.html).
+You can sell your NFTs in an auction format. See [Running an NFT Auction](running-an-nft-auction.html).
 
 ### Reserve requirements
 

@@ -82,7 +82,7 @@ NFTokenのURLは、NFTのコンテンツが保存されている場所へのリ�
 
 NFTの取引は、売りオファーの作成または買いオファーの承諾によって行われます。[NFTokensの取引](transfer-nfts-using-javascript.html)をご覧ください。
 
-NFTをオークション形式で販売することができます。[NFTオークションの実行](nftoken-auctions.html)をご覧ください。
+NFTをオークション形式で販売することができます。[NFTオークションの実行](running-an-nft-auction.html)をご覧ください。
 
 あなたはブローカーとして、売り手と入札者をつなぎ、取引を完了させ、購入価格の何パーセントかを保持することができます。[NFTokenの取引を仲介する](broker-an-nft-sale-using-javascript.html)をご覧ください。
 

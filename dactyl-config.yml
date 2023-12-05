@@ -1203,7 +1203,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nftoken-auctions.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/running-an-nft-auction.md"
         targets:
             - ja
 
