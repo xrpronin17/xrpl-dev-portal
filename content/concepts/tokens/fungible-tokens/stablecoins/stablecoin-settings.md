@@ -1,6 +1,6 @@
 ---
 html: stablecoin-settings.html
-parent: sc-index.html
+parent: stablecoins.html
 blurb: Settings to configure before issuing your stablecoin.
 labels:
   - XRP

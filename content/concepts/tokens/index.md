@@ -21,7 +21,7 @@ See [Fungible Tokens](fungible-tokens.html) and [Non-fungible Tokens](non-fungib
 
 Stablecoins are a common model for tokens in the XRP Ledger. The issuer holds assets of  value outside of the XRP Ledger, and issues tokens representing the equivalent value on the ledger.
 
-See [Stablecoins](sc-index.html).
+See [Stablecoins](stablecoins.html).
 
 ## Community Credit
 

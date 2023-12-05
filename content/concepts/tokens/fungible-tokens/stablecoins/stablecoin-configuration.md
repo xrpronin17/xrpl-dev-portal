@@ -1,6 +1,6 @@
 ---
 html: stablecoin-configuration.html
-parent: sc-index.html
+parent: stablecoins.html
 blurb: Configure your stablecoin to fine tune its capabilities.
 labels:
   - Tokens

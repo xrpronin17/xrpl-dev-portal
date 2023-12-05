@@ -1,6 +1,6 @@
 ---
 html: stablecoin-technical-details.html
-parent: sc-index.html
+parent: stablecoins.html
 blurb: Issue your own stablecoin, based on assets of equal value outside of the XRP Ledger.
 labels:
   - Tokens

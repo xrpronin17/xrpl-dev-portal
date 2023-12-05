@@ -1086,35 +1086,36 @@ pages:
         targets:
             - ja
 
+# TODO - Translate all files under /stablecoins/ directory
     -   md: concepts/tokens/fungible-tokens/stablecoins/index.md
         targets:
             - en
-#           - ja
+            - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-settings.md
         targets:
             - en
-#            - ja
+            - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-configuration.md
         targets:
             - en
-#            - ja
+            - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-precautions.md
         targets:
             - en
-#            - ja
+            - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-compliance-guidelines.md
         targets:
             - en
-#            - ja
+            - ja
 
     -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-technical-details.md
         targets:
             - en
-#            - ja
+            - ja
 
 # TODO - Translate
     -   md: concepts/tokens/fungible-tokens/clawing-back-tokens.md
@@ -1176,6 +1177,7 @@ pages:
     -   md: concepts/tokens/nfts/trading-nfts.md
         targets:
             - en
+            
     -   md: "@i18n/ja/concepts/tokens/nfts/trading-nfts.md"
         status: not_enabled
         targets:
@@ -1185,7 +1187,7 @@ pages:
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nft-reserve-requirements.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/nft-reserve-requirements.md"
         targets:
             - ja
 

@@ -30,7 +30,7 @@ The first step is to decide the type of stablecoin you want to create. Your choi
 
 ![Stablecoin](img/uc-stablecoin-stable-coin.png)
 
-There are five common types of currency tokens you can create on the XRPL: fiat-backed, crypto-backed, commodity-backed, financial instrument-backed, and non-collateralized. See [Stablecoins](sc-index.html).
+There are five common types of currency tokens you can create on the XRPL: fiat-backed, crypto-backed, commodity-backed, financial instrument-backed, and non-collateralized. See [Stablecoins](stablecoins.html).
 
 ## Set Up Your Node Services
 
