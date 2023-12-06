@@ -33,7 +33,7 @@ XRP Ledgerでは、スパムや悪意のある使用によって、共有グロ�
 
 レジャー内の多くのオブジェクト(レジャーエントリー)は、特定のアカウントが所有しています。通常、所有者はオブジェクトを作成したアカウントです。各オブジェクトは、所有者の合計必要準備金を所有者準備金によって増加させます。オブジェクトがレジャーから削除されると、所有者の必要準備金にカウントされなくなります。
 
-所有者の必要準備金にカウントされるオブジェクトには次のものが含まれます。[Check](checks.html), [入金の事前承認](depositauth.html#事前承認), [エスクロー](escrow.html), [NFTのオファー](non-fungible-token-transfers.html), [NFTのページ](non-fungible-tokens.html), [オファー](offer.html), [ペイメントチャネル](payment-channels.html), [マルチシグの署名者リスト](multi-signing.html), [Ticket](tickets.html), そして[トラストライン](fungible-tokens.html).
+所有者の必要準備金にカウントされるオブジェクトには次のものが含まれます。[Check](checks.html), [入金の事前承認](depositauth.html#事前承認), [エスクロー](escrow.html), [NFTのオファー](transfers.html), [NFTのページ](non-fungible-tokens.html), [オファー](offer.html), [ペイメントチャネル](payment-channels.html), [マルチシグの署名者リスト](multi-signing.html), [Ticket](tickets.html), そして[トラストライン](fungible-tokens.html).
 
 次のようないくつかの特殊なケースが存在します。
 

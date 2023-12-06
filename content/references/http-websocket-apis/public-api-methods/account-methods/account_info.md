@@ -218,7 +218,7 @@ The `account_flags` field contains the following nested fields:
 | `depositAuth`          | Boolean | If `true`, the account is using [Deposit Authorization](depositauth.html) and does not accept any payments from unknown parties. |
 | `disableMasterKey`     | Boolean | If `true`, the account's [master key pair](cryptographic-keys.html) is disabled. |
 | `disallowIncomingCheck` | Boolean | If `true`, the account does not allow others to send [Checks](checks.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
-| `disallowIncomingNFTokenOffer` | Boolean | If `true`, the account does not allow others to make [NFT buy or sell offers](non-fungible-token-transfers.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
+| `disallowIncomingNFTokenOffer` | Boolean | If `true`, the account does not allow others to make [NFT buy or sell offers](transfers.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
 | `disallowIncomingPayChan` | Boolean | If `true`, the account does not allow others to make [Payment Channels](payment-channels.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
 | `disallowIncomingTrustline` | Boolean | If `true`, the account does not allow others to make [trust lines](fungible-tokens.html) to it. _(Requires the [DisallowIncoming amendment][])_ |
 | `disallowIncomingXRP`  | Boolean | If `true`, the account does not want to receive XRP from others. (This is advisory, and not enforced at a protocol level.) |

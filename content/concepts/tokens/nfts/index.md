@@ -38,7 +38,7 @@ You can destroy an NFT you own using the [NFTokenBurn transaction][]. If the iss
 
 ![The NFT Lifecycle](img/nft-lifecycle.png "NFT Lifecycle Image")
 
-For more info about transferring NFTs, see [Trading NFTs on the XRP Ledger](non-fungible-token-transfers.html).
+For more info about transferring NFTs, see [Trading NFTs on the XRP Ledger](transfers.html).
 
 <!--{# common link defs #}-->
 {% include '_snippets/rippled-api-links.md' %}			

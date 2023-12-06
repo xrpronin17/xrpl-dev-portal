@@ -56,7 +56,7 @@ NFTをオークション形式で販売することができます。[NFTオー�
 3. 少額の[取引手数料](transfer-fees.html)
 
 
-ブローカー販売については、トピック[XRP Ledgerでのトークン取引](non-fungible-token-transfers.html)で詳しく説明しています。
+ブローカー販売については、トピック[XRP Ledgerでのトークン取引](transfers.html)で詳しく説明しています。
 
 トークン取引手数料については、[取引手数料](transfer-fees.html)で詳しく解説しています。
 

@@ -56,7 +56,7 @@ See:
 2. NFToken page ([Owner reserve](nft-reserve-requirements.html#owner-reserve))
 3. Trivial [transfer fees](transfer-fees.html)
 
-You can learn more about brokered sales in the topic [Trading Tokens on the XRP Ledger](non-fungible-token-transfers.html).
+You can learn more about brokered sales in the topic [Trading Tokens on the XRP Ledger](transfers.html).
 
 Learn more about token transfer fees in the topic [Transfer Fees](transfer-fees.html).
 
