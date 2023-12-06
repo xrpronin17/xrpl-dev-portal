@@ -7,7 +7,7 @@ labels:
 ---
 # Tokens
 
-All assets other than XRP can be represented in the XRP Ledger as _tokens_. 
+All assets other than XRP can be represented in the XRP Ledger as _tokens_.
 
 Standard tokens are fungible: meaning, all units of that token are interchangeable and indistinguishable. Tokens can be used for [cross-currency payments](cross-currency-payments.html) and can be traded in the [decentralized exchange](decentralized-exchange.html).
 
@@ -15,7 +15,7 @@ Standard tokens are fungible: meaning, all units of that token are interchangeab
 
 Tokens can also be non-fungible. Non-fungible tokens (NFTs) serve to encode ownership of unique physical, non-physical, or purely digital goods, such as works of art or in-game items.
 
-See [Fungible Tokens](fungible-tokens.html) and [Non-fungible Tokens](non-fungible-tokens.html).
+See [Fungible Tokens](trust-lines-and-issuing.html) and [Non-fungible Tokens](non-fungible-tokens.html).
 
 ## Stablecoins
 
@@ -48,6 +48,6 @@ Issuers have options with tokens that are not available with XRP. Issuers can ch
 Tokens use decimal (base-10) math with 15 digits of precision and an exponent that allows them to express very large values (up to 9999999999999999 × 10<sup>80</sup>) and very small values (down to 1.0 × 10<sup>-81</sup>).
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

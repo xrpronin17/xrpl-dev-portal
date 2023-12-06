@@ -1,6 +1,6 @@
 ---
 html: freezes.html
-parent: fungible-tokens.html
+parent: trust-lines-and-issuing.html
 blurb: 発行者はコンプライアンス目的でトークンの取引を停止できます。
 labels:
   - トークン
@@ -28,7 +28,7 @@ XRP Ledgerでは、XRP以外の通貨はすべてトークンとして表すこ�
 
 ## Individual Freeze
 
-**Individual Freeze**機能は、[トラストライン](fungible-tokens.html)に関する設定です。発行アドレスがIndividual Freeze設定を有効にすると、そのトラストラインの通貨に対して以下のルールが適用されます。
+**Individual Freeze**機能は、[トラストライン](trust-lines-and-issuing.html)に関する設定です。発行アドレスがIndividual Freeze設定を有効にすると、そのトラストラインの通貨に対して以下のルールが適用されます。
 
 * 凍結されたトラストラインの両当事者間の直接決済は、凍結後も可能です。
 * そのトラストラインの取引相手は、イシュアーへ直接支払う場合を除き、凍結されたトラストラインの残高を減らすことはできません。取引相手は、凍結されたイシュアンスを直接イシュアーに送信することだけが可能です。
@@ -91,6 +91,6 @@ No Freeze設定は、アドレスのマスターキーのシークレットキ�
 * [凍結コードの例](https://github.com/XRPLF/xrpl-dev-portal/tree/master/content/_code-samples/freeze)
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

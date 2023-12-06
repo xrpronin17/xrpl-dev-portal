@@ -108,7 +108,7 @@ The XRP Ledger checks all the following invariants on each transaction:
 ### No XRP Trust Lines
 
 - **Invariant Condition(s):**
-    - [Trust lines](fungible-tokens.html) using XRP are not allowed.
+    - [Trust lines](trust-lines-and-issuing.html) using XRP are not allowed.
 
 
 ### No Bad Offers

@@ -300,7 +300,7 @@ As before, wait for the previous transaction to be validated by consensus before
 
 ### {{n.next()}}. Create Trust Line from Hot to Cold Address
 
-Before you can receive tokens, you need to create a [trust line](fungible-tokens.html) to the token issuer. This trust line is specific to the [currency code](currency-formats.html#currency-codes) of the token you want to issue, such as USD or FOO. You can choose any currency code you want; each issuer's tokens are treated as separate in the XRP Ledger protocol. However, users' balances of tokens with the same currency code can [ripple](rippling.html) between different issuers if the users enable rippling settings.
+Before you can receive tokens, you need to create a [trust line](trust-lines-and-issuing.html) to the token issuer. This trust line is specific to the [currency code](currency-formats.html#currency-codes) of the token you want to issue, such as USD or FOO. You can choose any currency code you want; each issuer's tokens are treated as separate in the XRP Ledger protocol. However, users' balances of tokens with the same currency code can [ripple](rippling.html) between different issuers if the users enable rippling settings.
 
 The hot address needs a trust line like this before it can receive tokens from the issuer. Similarly, each user who wants to hold your token must also create a trust line[¹](#footnotes). Each trust line increases the [reserve requirement](reserves.html) of the hot address, so you must hold enough spare XRP to pay for the increased requirement. Your reserve requirement goes back down if you remove the trust line.
 

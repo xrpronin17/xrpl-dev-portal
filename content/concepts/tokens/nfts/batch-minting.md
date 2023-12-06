@@ -1,5 +1,5 @@
 ---
-html: batch-minting.html
+html: nftoken-batch-minting.html
 parent: non-fungible-tokens.html
 blurb: Minting NFTs in batches.
 labels:

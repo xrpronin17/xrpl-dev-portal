@@ -1,6 +1,6 @@
 ---
 html: authorized-trust-lines.html
-parent: fungible-tokens.html
+parent: trust-lines-and-issuing.html
 blurb: 認可トラストラインとは、トークンを保有できる人を制限するための設定です。
 labels:
   - トークン
@@ -125,6 +125,6 @@ POST http://localhost:8088/
     - [RippleState (トラストライン) フラグ](ripplestate.html#ripplestateのフラグ)
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

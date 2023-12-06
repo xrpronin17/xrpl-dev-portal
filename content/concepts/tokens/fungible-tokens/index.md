@@ -1,5 +1,5 @@
 ---
-html: fungible-tokens.html
+html: trust-lines-and-issuing.html
 parent: tokens.html
 blurb: Learn about the properties and rationale of trust lines.
 labels:
@@ -7,9 +7,9 @@ labels:
 ---
 # Fungible Tokens
 
-Anyone can issue fungible tokens on the XRP Ledger, ranging from informal "IOUs" to fiat-backed stablecoins, purely digital fungible and semi-fungible tokens, and more. 
+Anyone can issue fungible tokens on the XRP Ledger, ranging from informal "IOUs" to fiat-backed stablecoins, purely digital fungible and semi-fungible tokens, and more.
 
-Fungible tokens are interchangeable and indistinguishable from one another. They can be swapped and substituted for other tokens of equivalent value. 
+Fungible tokens are interchangeable and indistinguishable from one another. They can be swapped and substituted for other tokens of equivalent value.
 
 > Fun·gi·ble /´fənjəbəl/ (adj) <!-- SPELLING_IGNORE: fənjəbəl -->
 >

@@ -1,6 +1,6 @@
 ---
 html: clawing-back-tokens.html
-parent: fungible-tokens.html
+parent: trust-lines-and-issuing.html
 blurb: 発行者は、トークンを発行する前にClawback機能を有効にすると、規制遵守の目的でトークンを取り戻すことができます。
 labels:
   - トークン
@@ -37,6 +37,6 @@ Clawback機能はデフォルトで無効になっています。使用するに
 このトランザクションが成功した場合、rp6abvbTbjoce8ZDJkT6snvxTZSYMBCC9Sが発行し、rsA2LpzuawewSBQXkiju3YQTMzW13pAAdWが保有する最大314.159FOOを回収することになります。
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

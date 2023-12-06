@@ -65,4 +65,4 @@ If you were to mint 200 NFTs and create an `NFTokenSellOffer`for each, that woul
 | Total               | 436 XRP |
 |                     |         |
 
-If the required reserves exceed the amount you are comfortable setting aside, consider using the mint-on-demand model to reduce the number of NFTs and offers you hold at any one time. See [Mint on Demand](nftoken-batch-minting.html#mint-on-demand-lazy-minting).
+If the required reserves exceed the amount you are comfortable setting aside, consider using the mint-on-demand model to reduce the number of NFTs and offers you hold at any one time. For details, see [Batch Minting](nftoken-batch-minting.html).

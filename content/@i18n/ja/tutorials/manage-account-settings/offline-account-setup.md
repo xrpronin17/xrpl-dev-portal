@@ -145,7 +145,7 @@ Loading: "/etc/opt/ripple/rippled.cfg"
 - ユーザーが送金理由や送金相手をタグ付けせずに送金できないようにするために、[宛先タグを要求する](require-destination-tags.html)。
 - アカウントセキュリティを強化するために、[マルチシグを設定する](set-up-multi-signing.html)。
 - 明示的に承認した送金、または事前に承認した相手からの送金のみを受け取れるようにするために、[DepositAuthを有効にする](depositauth.html)。
-- ユーザーがあなたの許可なくあなたへの[トラストライン](fungible-tokens.html)を開けないようにするために、[RequireAuthを有効にする](authorized-trust-lines.html#requireauthの有効化)。XRP Ledgerの分散型取引所やトークン機能を使用する予定がない場合は、これを対策として行うことをお勧めします。
+- ユーザーがあなたの許可なくあなたへの[トラストライン](trust-lines-and-issuing.html)を開けないようにするために、[RequireAuthを有効にする](authorized-trust-lines.html#requireauthの有効化)。XRP Ledgerの分散型取引所やトークン機能を使用する予定がない場合は、これを対策として行うことをお勧めします。
 - トークン[ゲートウェイ](stablecoin-issuer.html)には次のような追加の設定がある場合があります。
   - トークンを送金するユーザーに対して[TransferRateを設定する](stablecoin-issuer.html#transfer-fees)。
   - このアドレスをトークンのみに使用する予定の場合は、[XRPペイメントを禁止する](stablecoin-issuer.html#disallow-xrp)。
@@ -343,6 +343,6 @@ Loading: "/etc/opt/ripple/rippled.cfg"
 
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

@@ -57,7 +57,7 @@ For more detail on configuration capbilities, see [Stablecoin Issuer Configurati
 
 ## Asset Information
 
-Publish standard information about your stablecoin to enable potential traders to verify the coin's stability.  
+Publish standard information about your stablecoin to enable potential traders to verify the coin's stability.
 
 
 ### Asset Nomenclature
@@ -66,7 +66,7 @@ Choose a 3-character string for your currency code. Per ISO 4217, supranational 
 
 Currency codes do not have to be unique. For instance, if you're issuing a stablecoin backed by a national fiat currency, it's better to use the official code for that currency, such as _EUR_.
 
-### xrp-ledger.toml 
+### xrp-ledger.toml
 
 You can use the _Currencies_ table in an XRPL TOML file on your website to provide additional information about your stablecoin. This makes the information about your cryptocurrency accessible in an expected place and format, and enhances transparency. See [xrp-ledger.toml File](xrp-ledger-toml.html#currencies).
 
@@ -82,7 +82,7 @@ See [Multi-signing](multi-signing.html).
 <!--
 ### Omnibus Wallets
 
-For customers who prefer not to take custody of their own wallets, you can create an omnibus account with subaccounts, then assign these accounts to customers. 
+For customers who prefer not to take custody of their own wallets, you can create an omnibus account with subaccounts, then assign these accounts to customers.
 
 ## Treasury Management
 
@@ -125,7 +125,7 @@ Each "trust line" is a bidirectional relationship consisting of:
 
 Each trust line is specific to a given currency code. Two accounts can have any number of trust lines between them for different currency codes, but only one shared trust line for any particular currency code.
 
-See [Trust Lines](fungible-tokens.html#trust-lines).
+See [Trust Lines](trust-lines-and-issuing.html#trust-lines).
 
 ### Authorized Trust Lines
 
@@ -138,7 +138,7 @@ See [Authorized Trust Lines](authorized-trust-lines.html).
 
 ### Freeze a Trust Line
 
-If you issue tokens in the XRP Ledger, you can enable the _No Freeze_ setting to permanently limit your own ability to use the token freezing features of the XRP Ledger. (As a reminder, this only applies to issued tokens, not XRP.) 
+If you issue tokens in the XRP Ledger, you can enable the _No Freeze_ setting to permanently limit your own ability to use the token freezing features of the XRP Ledger. (As a reminder, this only applies to issued tokens, not XRP.)
 
 If you do not enable the _No Freeze_ setting, when an account shows suspicious activity or violates your institution's terms of use, you have the option of freezing the trust line while you resolve the issue.
 
@@ -147,7 +147,7 @@ See [Freezing Tokens](freezes.html).
 
 ### Global Freeze
 
-If you see signs of suspicious activity, you can enact a global freeze on your account to prevent users from sending your tokens to each other and trading your token in the decentralized exchange. 
+If you see signs of suspicious activity, you can enact a global freeze on your account to prevent users from sending your tokens to each other and trading your token in the decentralized exchange.
 
 ![Global Freeze](img/uc-stablecoin-global-freeze.png)
 
@@ -203,11 +203,11 @@ _(Requires the [AMM amendment][] :not_enabled:)_
 
 Automated Market Makers (AMMs) are smart contracts that provide liquidity in the XRP Ledger's decentralized exchange. Each AMM holds a pool of two assets and enables users to swap between them at an exchange rate set by a formula.
 
-For any given pair of assets, there can be up to one AMM in the ledger. You can create the AMM for an asset pair with your new token if it doesn't exist yet, or deposit to an existing AMM. Those who deposit assets into an AMM are called _liquidity providers_ (LPs) and receive _LP Tokens_ from the AMM. 
+For any given pair of assets, there can be up to one AMM in the ledger. You can create the AMM for an asset pair with your new token if it doesn't exist yet, or deposit to an existing AMM. Those who deposit assets into an AMM are called _liquidity providers_ (LPs) and receive _LP Tokens_ from the AMM.
 
 See [Automated Market Makers](automated-market-makers.html).
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

@@ -1,6 +1,6 @@
 ---
 html: rippling.html
-parent: fungible-tokens.html
+parent: trust-lines-and-issuing.html
 blurb: Rippling is automatic multi-party net settlement of token balances.
 labels:
   - Tokens
@@ -8,7 +8,7 @@ labels:
 ---
 # Rippling
 
-In the XRP Ledger, "rippling" describes a process of atomic net settlement between multiple connected parties who have [trust lines](fungible-tokens.html) for the same token. Rippling is essential, because it allows users who hold tokens to send those to each other with the issuer as a passive intermediary. In a sense, rippling is like a passive, two-way [exchange order](offers.html) with no limit and a 1:1 exchange rate for two tokens with the same currency code but different issuers.
+In the XRP Ledger, "rippling" describes a process of atomic net settlement between multiple connected parties who have [trust lines](trust-lines-and-issuing.html) for the same token. Rippling is essential, because it allows users who hold tokens to send those to each other with the issuer as a passive intermediary. In a sense, rippling is like a passive, two-way [exchange order](offers.html) with no limit and a 1:1 exchange rate for two tokens with the same currency code but different issuers.
 
 Rippling only occurs along the [paths](paths.html) of a payment. [Direct XRP-to-XRP payments](direct-xrp-payments.html) do not involve rippling.
 

@@ -28,7 +28,7 @@ NFTs have several immutable settings that are defined when the token is minted. 
 - Whether the issuer can burn the token, regardless of who currently holds it.
 - Whether the holder of the token can transfer it to others. (An NFT can always be sent to or from the issuer directly.)
 - If transfers are allowed, the issuer can charge a transfer fee as a percentage of the sale price.
-- Whether the holder can sell the NFT for [fungible token](fungible-tokens.html) amounts, or only for XRP.
+- Whether the holder can sell the NFT for [fungible token](trust-lines-and-issuing.html) amounts, or only for XRP.
 
 ## NFT Lifecycle
 
@@ -41,6 +41,6 @@ You can destroy an NFT you own using the [NFTokenBurn transaction][]. If the iss
 For more info about transferring NFTs, see [Trading NFTs on the XRP Ledger](transfers.html).
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

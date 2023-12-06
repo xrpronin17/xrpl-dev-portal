@@ -8,13 +8,13 @@ labels:
 # RippleState
 [[Source]](https://github.com/XRPLF/rippled/blob/5d2d88209f1732a0f8d592012094e345cbe3e675/src/ripple/protocol/impl/LedgerFormats.cpp#L70 "Source")
 
-A `RippleState` ledger entry represents a [trust line](fungible-tokens.html) between two accounts. Each account can change its own limit and other settings, but the balance is a single shared value. A trust line that is entirely in its default state is considered the same as a trust line that does not exist and is automatically deleted.
+A `RippleState` ledger entry represents a [trust line](trust-lines-and-issuing.html) between two accounts. Each account can change its own limit and other settings, but the balance is a single shared value. A trust line that is entirely in its default state is considered the same as a trust line that does not exist and is automatically deleted.
 
 ## High vs. Low Account
 
 There can only be one `RippleState` entry per currency for any given pair of accounts. Since no account is privileged in the XRP Ledger, a `RippleState` entry sorts account addresses numerically, to ensure a canonical form. Whichever address is numerically lower when [decoded](addresses.html#address-encoding) is deemed the "low account" and the other is the "high account". The net balance of the trust line is stored from the low account's perspective.
 
-The ["issuer"](fungible-tokens.html) for the balance in a trust line depends on whether the balance is positive or negative. If a `RippleState` entry shows a positive balance, the high account is the issuer. If the balance is negative, the low account is the issuer. Often, the issuer has its limit set to 0 and the other account has a positive limit, but this is not reliable because limits can change without affecting an existing balance.
+The ["issuer"](trust-lines-and-issuing.html) for the balance in a trust line depends on whether the balance is positive or negative. If a `RippleState` entry shows a positive balance, the high account is the issuer. If the balance is negative, the low account is the issuer. Often, the issuer has its limit set to 0 and the other account has a positive limit, but this is not reliable because limits can change without affecting an existing balance.
 
 
 ## Example {{currentpage.name}} JSON

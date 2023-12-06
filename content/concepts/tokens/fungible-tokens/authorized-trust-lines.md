@@ -1,6 +1,6 @@
 ---
 html: authorized-trust-lines.html
-parent: fungible-tokens.html
+parent: trust-lines-and-issuing.html
 blurb: Authorized trust lines is a setting to limit who can hold a token.
 labels:
   - Tokens
@@ -129,6 +129,6 @@ In the response's `result.lines` array, find the object whose `currency` field i
     - [RippleState (trust line) Flags](ripplestate.html#ripplestate-flags)
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

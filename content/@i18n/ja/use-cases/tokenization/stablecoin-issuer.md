@@ -24,7 +24,7 @@ XRP Ledgerでは、誰でも任意の通貨コードを持つトークンを発�
 
 何らかの外部システムの資金に裏打ちされたトークンは、 _ステーブルコイン_ と呼ばれることがあります。これには、銀行口座の不換紙幣、別のブロックチェーン上の暗号通貨、あるいは他の種類の資産や価値の形態に裏打ちされたトークンが含まれます。「ステーブルコイン」という言葉は、トークンとそれが表す資産との交換レートが1：1(手数料を差し引いた値)で「安定」しているという考えに由来しています。
 
-より詳細な情報は[トラストラインとトークン発行](fungible-tokens.html)をご覧ください。
+より詳細な情報は[トラストラインとトークン発行](trust-lines-and-issuing.html)をご覧ください。
 
 
 ### XRP
@@ -44,7 +44,7 @@ XRP Ledgerには分散型取引所があり、どのユーザもXRPとトーク�
 
 分散型取引所の詳細については、[分散型取引所](decentralized-exchange.html)をご覧ください。
 
-<!-- TODO: figure out what to do with this 
+<!-- TODO: figure out what to do with this
 Liquidity providers can use the [HTTP / WebSocket APIs](http-websocket-apis.html), [client libraries](client-libraries.html), or another application to access the distributed exchange. It may also help client applications to display information about your business if you provide an [`xrp-ledger.toml` file](xrp-ledger-toml.html).
 -->
 
