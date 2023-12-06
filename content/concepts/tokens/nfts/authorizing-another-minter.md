@@ -1,5 +1,5 @@
 ---
-html: authorize-another-minter.html
+html: nftoken-authorized-minting.html
 parent: non-fungible-tokens.html
 blurb: You can assign another account to mint NFTs in your stead.
 labels:
@@ -15,7 +15,7 @@ You set the authorized minter with an `AccountSet` transaction.
 
 ``` json
 tx_json = {
-  "TransactionType": "AccountSet",    
+  "TransactionType": "AccountSet",
   "Account": "rrE5EgHN4DfjXhR9USecudHm7UyhTYq6m",
   "NFTokenMinter": "r3riWB2TDWRmwmT7FRKdRHjqm6efYu4s9C",
   "SetFlag": xrpl.AccountSetAsfFlags.asfAuthorizedNFTokenMinter

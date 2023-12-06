@@ -21,9 +21,9 @@ _私は認可Minterとして、トークン発行者のために合意された�
 
 ## マーケットプレイスのセットアップ
 
-NFTを自分で設計するのではなく、NFTクリエイターと連携して認可Minterとなり、NFTの生成を代行することができます。これにより、NFTクリエイターは新しいNFTの生成に専念でき、あなたはNFTのミントと販売を担当することができます。[認可Minter](authorize-another-minter.html)をご覧ください。
+NFTを自分で設計するのではなく、NFTクリエイターと連携して認可Minterとなり、NFTの生成を代行することができます。これにより、NFTクリエイターは新しいNFTの生成に専念でき、あなたはNFTのミントと販売を担当することができます。[認可Minter](nftoken-authorized-minting.html)をご覧ください。
 
-NFTの作成を終了すると、作成者は認可Minterの権限を取り消し、NFTに対する権限を取り戻すことができます。また、NFTの販売を行うマーケットプレイスにトークンを譲渡することもできます。あなたは、売りオファーと買いオファーのマッチングを行うブローカーとして機能することができます。[NFTオークションの実行](running-an-nft-auction.html)を参照してください。
+NFTの作成を終了すると、作成者は認可Minterの権限を取り消し、NFTに対する権限を取り戻すことができます。また、NFTの販売を行うマーケットプレイスにトークンを譲渡することもできます。あなたは、売りオファーと買いオファーのマッチングを行うブローカーとして機能することができます。[NFTオークションの実行](nftoken-auctions.html)を参照してください。
 
 他のアカウントに代わって最初のNFTをミントする場合は、[他アカウントからのNFTミントを許可する](assign-an-authorized-minter-using-javascript.html)をご覧ください。
 
@@ -37,14 +37,14 @@ NFTokenのURLは、NFTのコンテンツが保存されている場所へのリ�
 
 * [コレクションとしてNFTをミントする](nft-collections.html)
 TokenTaxonフィールドを使用して、特定のテーマや目的をもったNFTのセットを作成します。
-* [NFTの一定の供給量を保証する](guaranteeing-a-fixed-supply-of-nfts.html)
-また、「使い捨て」アカウントでNFTを作成し、別のアカウントで一定数のNFTを取得した後、ミントに使用した「使い捨て」アカウントを削除することで、作成したNFTの希少性を確保することができます。[NFTの一定の供給量を保証する](guaranteeing-a-fixed-supply-of-nfts.html)をご覧ください。
+* [NFTの一定の供給量を保証する](nft-fixed-supply.html)
+また、「使い捨て」アカウントでNFTを作成し、別のアカウントで一定数のNFTを取得した後、ミントに使用した「使い捨て」アカウントを削除することで、作成したNFTの希少性を確保することができます。[NFTの一定の供給量を保証する](nft-fixed-supply.html)をご覧ください。
 
 ## NFTの取引
 
 NFTの取引は、売りオファーの作成または買いオファーの承諾によって行われます。[NFTokensの取引](transfer-nfts-using-javascript.html)をご覧ください。
 
-NFTをオークション形式で販売することができます。[NFTオークションの実行](running-an-nft-auction.html)をご覧ください。
+NFTをオークション形式で販売することができます。[NFTオークションの実行](nftoken-auctions.html)をご覧ください。
 
 あなたはブローカーとして、売り手と入札者をつなぎ、取引を完了させ、購入価格の何パーセントかを保持することができます。[NFTokenの取引を仲介する](broker-an-nft-sale-using-javascript.html)をご覧ください。
 
@@ -74,12 +74,12 @@ NFTを出品する際、オブジェクトのメタデータを使って分類�
 
 関連項目:
 
-- [Clioのセットアップ](install-clio-on-ubuntu.html) 
+- [Clioのセットアップ](install-clio-on-ubuntu.html)
 - [XRPL Data API](https://api.xrpldata.com/docs/static/index.html#/)
 - [Bithomp](https://docs.bithomp.com/#nft-xls-20)
 
-<!-- 
-[Clio setup](install-clio-on-ubuntu.html) 
+<!--
+[Clio setup](install-clio-on-ubuntu.html)
 
 [https://api.xrpldata.com/docs/static/index.html#/](https://api.xrpldata.com/docs/static/index.html#/)
 

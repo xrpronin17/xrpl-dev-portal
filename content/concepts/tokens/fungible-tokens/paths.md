@@ -1,6 +1,6 @@
 ---
 html: paths.html
-parent: payment-types.html
+parent: trust-lines-and-issuing.html
 blurb: Payments of tokens must traverse paths of connected users and order books.
 labels:
   - Payments
@@ -116,6 +116,6 @@ The `type` field, used for the binary serialization of a path set, is actually c
 
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

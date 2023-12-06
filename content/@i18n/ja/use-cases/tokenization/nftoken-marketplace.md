@@ -9,7 +9,7 @@ labels:
 
 _NFTokenマーケットプレイスでは、XRPLを利用して、厳選されたNFTokenを消費者に譲渡するためのWeb上のサービスを提供し、ブランド構築と売上に応じた仲介手数料を得ることができるというメリットを得ることができるようになります。_
 
---- 
+---
 
 NFTokenマーケットプレイスは、NFTokenクリエイターとコレクターの仲介役となります。マーケットプレイスの運営は、NFTokenのクリエイターを探し出し、販売するアイテムを集めます。購入者は、あなたのサイトを訪れ、選択されたアイテムを確認し、オファーを提示します。あなたは、クリエイターが設定した最低価格と購入者から提示された最適な価格を照合し、トランザクションを完了させ、仲介手数料を受け取ります。
 
@@ -36,7 +36,7 @@ Current wallet options on XRPL: This is a good opportunity for XRPL to highlight
 
 NFTの取引は、売りオファーの作成または買いオファーの承諾によって行われます。[NFTokensの取引](transfer-nfts-using-javascript.html)をご覧ください。
 
-NFTをオークション形式で販売することができます。[NFTオークションの実行](running-an-nft-auction.html)をご覧ください。
+NFTをオークション形式で販売することができます。[NFTオークションの実行](nftoken-auctions.html)をご覧ください。
 
 あなたはブローカーとして、売り手と入札者をつなぎ、取引を完了させ、購入価格の何パーセントかを保持することができます。[NFTokenの取引を仲介する](broker-an-nft-sale-using-javascript.html)をご覧ください。
 
@@ -56,7 +56,7 @@ NFTをオークション形式で販売することができます。[NFTオー�
 3. 少額の[取引手数料](transfer-fees.html)
 
 
-ブローカー販売については、トピック[XRP Ledgerでのトークン取引](transfers.html)で詳しく説明しています。
+ブローカー販売については、トピック[XRP Ledgerでのトークン取引](non-fungible-token-transfers.html)で詳しく説明しています。
 
 トークン取引手数料については、[取引手数料](transfer-fees.html)で詳しく解説しています。
 
@@ -74,11 +74,11 @@ NFTを出品する際、オブジェクトのメタデータを使って分類�
 
 関連項目:
 
-- [Clioのセットアップ](install-clio-on-ubuntu.html) 
+- [Clioのセットアップ](install-clio-on-ubuntu.html)
 - [XRPL Data API](https://api.xrpldata.com/docs/static/index.html#/)
 - [Bithomp](https://docs.bithomp.com/#nft-xls-20)
 
-<!-- 
+<!--
 
 Sorting and filtering [No link]
     Creator - nft_info (issuer field)

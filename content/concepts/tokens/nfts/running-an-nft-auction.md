@@ -1,5 +1,5 @@
 ---
-html: running-an-nft-auction.html
+html: nftoken-auctions.html
 parent: non-fungible-tokens.html
 blurb: You can assign another account to mint NFTs in your stead.
 labels:
@@ -15,7 +15,7 @@ This flow is the most straightforward. Note that the `NFTokenOffer` objects can 
 
 1. Store your bids in a private database.
 2. You take a cut of the winning bid.
-3. Send the buyer/seller the XRPL transaction to complete the purchase. 
+3. Send the buyer/seller the XRPL transaction to complete the purchase.
 
 ## Run the Auction in Brokered Mode, with a Reserve
 
@@ -39,7 +39,7 @@ Run the auction in brokered mode, as an auction with a reserve.
 
 A major mitigating factor of this downside is that if this behavior were to happen, brokers would lose their entire market share, which sellers should understand.
 
-## Run the Auction in Brokered Mode, without a Reserve. 
+## Run the Auction in Brokered Mode, without a Reserve.
 
 This is the most complex workflow of the three.
 

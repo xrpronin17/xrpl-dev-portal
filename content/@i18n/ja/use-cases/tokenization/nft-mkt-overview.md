@@ -65,7 +65,7 @@ NFTokenのURLは、NFTのコンテンツが保存されている場所へのリ�
 
 認可MinterがクリエイターのためにNFTをミントし終えたら、その権限を取り消し、クリエイターのNFTを制御できないようにすることができます。
 
-[認可Minter](authorize-another-minter.html)をご覧ください。
+[認可Minter](nftoken-authorized-minting.html)をご覧ください。
 
 ミント済みのNFTは、`NFTokenPage`に記録されます。アカウント上の`NFTokenPage`1つにつき2XRPの準備金が必要です。[NFT準備金](nft-reserve-requirements.html)をご覧ください。
 
@@ -82,7 +82,7 @@ NFTokenのURLは、NFTのコンテンツが保存されている場所へのリ�
 
 NFTの取引は、売りオファーの作成または買いオファーの承諾によって行われます。[NFTokensの取引](transfer-nfts-using-javascript.html)をご覧ください。
 
-NFTをオークション形式で販売することができます。[NFTオークションの実行](running-an-nft-auction.html)をご覧ください。
+NFTをオークション形式で販売することができます。[NFTオークションの実行](nftoken-auctions.html)をご覧ください。
 
 あなたはブローカーとして、売り手と入札者をつなぎ、取引を完了させ、購入価格の何パーセントかを保持することができます。[NFTokenの取引を仲介する](broker-an-nft-sale-using-javascript.html)をご覧ください。
 
@@ -106,7 +106,7 @@ XRPL NFTの最もシンプルな支払い方法はXRPです。XRPを使ったNFT
 
 他の通貨での取引は、DEXを活用してあらゆる種類の発行通貨を受け入れ、取引することができます。[分散型取引所での取引](trade-in-the-decentralized-exchange.html#trade-in-the-decentralized-exchange)をご覧ください。
 
-<!-- 
+<!--
 
 - Fiat payment ([Cross-currency payments](cross-currency-payments.html))
 - On-chain validation of completing transactions [No link- isn’t this just a cross-currency payment?] (Query after the transaction is completed.]
@@ -118,12 +118,12 @@ NFTを出品する際、オブジェクトのメタデータを使って分類�
 
 関連項目:
 
-- [Clioのセットアップ](install-clio-on-ubuntu.html) 
+- [Clioのセットアップ](install-clio-on-ubuntu.html)
 - [XRPL Data API](https://api.xrpldata.com/docs/static/index.html#/)
 - [Bithomp](https://docs.bithomp.com/#nft-xls-20)
 
 
-<!-- 
+<!--
 Sorting and filtering [No link]
     Creator - nft_info (issuer field)
     Price - nft_sell_offer->offers->amount field)
@@ -142,7 +142,7 @@ Supplement Information [No link]
  -->
 
 ## NFTのキャッシュ
-<!-- 
+<!--
 
 Image optimization for web experience [No link]
 
@@ -158,9 +158,9 @@ CloudflareやInfuraをはじめとする多くのプロバイダが、こうし�
 
 [NFTのキャッシュ](nftoken.html#nftokenデータとメタデータの取得)をご覧ください。
 
-<!-- 
-You can also consider a solution such as Pinata. [https://drive.google.com/file/d/14wuulkvjVjtGlUJj0ppaJ4Sziyp5WFGA/view?usp=sharing](https://drive.google.com/file/d/14wuulkvjVjtGlUJj0ppaJ4Sziyp5WFGA/view?usp=sharing) 
+<!--
+You can also consider a solution such as Pinata. [https://drive.google.com/file/d/14wuulkvjVjtGlUJj0ppaJ4Sziyp5WFGA/view?usp=sharing](https://drive.google.com/file/d/14wuulkvjVjtGlUJj0ppaJ4Sziyp5WFGA/view?usp=sharing)
 
-We can derive inspiration for the need of caching and point to some of their docs 
-[https://docs.pinata.cloud/gateways](https://docs.pinata.cloud/gateways) 
+We can derive inspiration for the need of caching and point to some of their docs
+[https://docs.pinata.cloud/gateways](https://docs.pinata.cloud/gateways)
  -->

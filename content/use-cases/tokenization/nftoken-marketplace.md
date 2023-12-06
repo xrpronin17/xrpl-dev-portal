@@ -9,7 +9,7 @@ labels:
 
 _In my NFToken Marketplace, I want to use the XRPL to create a web presence where I can arrange transfer of a curated selection of NFTokens to consumers, with the benefit that I can build a brand and earn broker fees based on sales._
 
---- 
+---
 
 NFToken Marketplaces act as intermediaries between NFToken creators and collectors. As a marketplace curator, you seek out NFToken creators and assemble a collection of items to sell. Buyers come to your site to review your selections and post offers. You match the minimum prices set by the creators with the optimal offers from the buyers, complete the transaction, and collect a broker fee.
 
@@ -35,7 +35,7 @@ You transfer NFTs by creating a sell offer or accepting a buy offer. See [Transf
 
 ![Transferring NFTs](img/uc-nft-transferring-nfts.png)
 
-You can sell your NFTs in an auction format. See [Running an NFT Auction](running-an-nft-auction.html).
+You can sell your NFTs in an auction format. See [Running an NFT Auction](nftoken-auctions.html).
 
 You can act as a broker, connecting sellers with bidders, completing the transfer and keeping a percentage of the purchase price. See [Broker a NFToken sale](broker-an-nft-sale-using-javascript.html).
 
@@ -56,11 +56,11 @@ See:
 2. NFToken page ([Owner reserve](nft-reserve-requirements.html#owner-reserve))
 3. Trivial [transfer fees](transfer-fees.html)
 
-You can learn more about brokered sales in the topic [Trading Tokens on the XRP Ledger](transfers.html).
+You can learn more about brokered sales in the topic [Trading Tokens on the XRP Ledger](non-fungible-token-transfers.html).
 
 Learn more about token transfer fees in the topic [Transfer Fees](transfer-fees.html).
 
-You can get started building a brokered sales marketplace by following the steps in the [Broker a NFToken Sale](broker-an-nft-sale-using-javascript.html). 
+You can get started building a brokered sales marketplace by following the steps in the [Broker a NFToken Sale](broker-an-nft-sale-using-javascript.html).
 
 ### Checkout
 
@@ -78,11 +78,11 @@ When listing NFTs for sale, it can be useful to use object metadata to organize 
 
 See:
 
-- [Clio setup](install-clio-on-ubuntu.html) 
+- [Clio setup](install-clio-on-ubuntu.html)
 - [XRPL Data API](https://api.xrpldata.com/docs/static/index.html#/)
 - [Bithomp](https://docs.bithomp.com/#nft-xls-20)
 
-<!-- 
+<!--
 
 Sorting and filtering [No link]
     Creator - nft_info (issuer field)

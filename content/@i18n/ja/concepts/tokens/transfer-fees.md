@@ -1,7 +1,7 @@
 ---
 html: transfer-fees.html
 parent: tokens.html
-blurb: 通貨発行者は、自己の発行済み通貨の送金に手数料を課すことができます。
+blurb: 通貨発行者は、自己のトークンの送金に手数料を課すことができます。
 labels:
   - 手数料
   - トークン
@@ -64,6 +64,6 @@ XRPにはイシュアーがいないため、送金手数料が発生するこ�
 
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			 
-{% include '_snippets/tx-type-links.md' %}			 
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

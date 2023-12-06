@@ -18,7 +18,7 @@ There are five common types of currency token traded on the XRP Ledger.
 
 ## Fiat Backed
 
-Fiat-backed stablecoins are based on an existing currency such as EUR, USD, YEN, and so on. They are backed at an exchange rate of 1:1. It is a simple, stable option, but it is more centralized and susceptible to hacking.
+Fiat-backed stablecoins are based on an existing currency such as EUR, USD, YEN, and so on. They are backed at an exchange rate of 1:1. It is a simple, stable option, but it is more centralized and susceptible to hacking. In the strictest definition of a "stablecoin", only 100% fiat-backed tokens qualify.
 
 ## Crypto Backed
 
@@ -34,4 +34,4 @@ A stablecoin can be backed by financial instruments such as bonds or equity shar
 
 ## Non-collateralized
 
-A non-collateralized currency token relies on algorithm-generated smart contracts to supply or sell tokens, similar to a central bank's approach to printing and destroying currency. No collateral is required to mint currency. Value is controlled by supply and demand through algorithms that stabilize the price. Non-collateralized currency tokens are a less popular option due to their volatility.
+A non-collateralized token relies on algorithm-generated smart contracts to supply or sell tokens, similar to a central bank's approach to printing and destroying currency. No collateral is required to mint tokens. Value is controlled by supply and demand through algorithms that stabilize the price. Non-collateralized tokens are typically not considered stablecoins, due to their volatility.

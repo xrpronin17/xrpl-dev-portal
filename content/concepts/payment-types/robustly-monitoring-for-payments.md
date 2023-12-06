@@ -5,7 +5,6 @@ blurb: Recommendations for monitoring incoming payments for a variety of possibl
 labels:
   - Tokens
 ---
-
 # Robustly Monitoring for Payments
 
 To robustly check for incoming payments, issuers should do the following:

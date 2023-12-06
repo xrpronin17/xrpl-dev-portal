@@ -17,7 +17,7 @@ As a digital artist, you’re focused on creating NFTs, presumably to sell on th
 
 You can create NFTokens using an app such as the [Xumm app](https://xumm.app).
 
-For a more hands-on experience, you can follow the steps in the [Quickstart Tutorial 3 - Mint and Burn NFTokens](mint-and-burn-nfts-using-javascript.html). 
+For a more hands-on experience, you can follow the steps in the [Quickstart Tutorial 3 - Mint and Burn NFTokens](mint-and-burn-nfts-using-javascript.html).
 
 [![Digital Artist Flow](img/nft-mkt-digital-artist.png "Digital Artist Flow")](img/nft-mkt-digital-artist.png)
 
@@ -44,7 +44,7 @@ You transfer NFTs by creating a sell offer. See [Transfer NFTokens](transfer-nft
 
 ![Transferring NFTs](img/uc-nft-transferring-nfts.png)
 
-You can sell your NFTs in an auction format. See [Running an NFT Auction](running-an-nft-auction.html).
+You can sell your NFTs in an auction format. See [Running an NFT Auction](nftoken-auctions.html).
 
 ### Reserve requirements
 
@@ -79,7 +79,7 @@ When listing NFTs for sale, it can be useful to use object metadata to organize 
 
 See:
 
-- [Clio setup](install-clio-on-ubuntu.html) 
+- [Clio setup](install-clio-on-ubuntu.html)
 - [XRPL Data API](https://api.xrpldata.com/docs/static/index.html#/)
 - [Bithomp](https://docs.bithomp.com/#nft-xls-20)
 

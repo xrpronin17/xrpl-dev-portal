@@ -55,7 +55,7 @@ XRP Ledgerでは、容量を節約するために、一つのアカウントで�
 
 ![The NFT Lifecycle](img/nft-lifecycle.png "NFT Lifecycle Image")
 
-`NFToken` オブジェクトの転送に関する詳細は、[XRP Ledger上でNFTokenを売買する](transfers.html) を参照してください。
+`NFToken` オブジェクトの転送に関する詳細は、[XRP Ledger上でNFTokenを売買する](non-fungible-token-transfers.html) を参照してください。
 
 
 ## 関連項目
@@ -77,6 +77,6 @@ XRP Ledgerでは、容量を節約するために、一つのアカウントで�
     - [nft_info メソッド][] (Clioサーバのみ)
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

@@ -11,7 +11,7 @@ _As an authorized minter, I want to mint tokens for a token issuer at an agreed 
 
 You can act as an authorized minter for token issuers. When you do this, you own the NFToken, but royalties flow to the NFToken issuer. When you make a sale of that NFToken, the proceeds of the initial sale go to you. You can have an agreement with your issuer to pay them some or all of your portion of the initial sale amount.
 
-You can learn more in the tutorial [Assign an Authorized Minter](assign-an-authorized-minter-using-javascript.html). 
+You can learn more in the tutorial [Assign an Authorized Minter](assign-an-authorized-minter-using-javascript.html).
 
 [![Authorized Minter Flow](img/nft-mkt-auth-minter.png "Authorized Minter Flow")](img/nft-mkt-auth-minter.png)
 
@@ -21,9 +21,9 @@ If you want to set up a larger site with high volume, it might be worth investin
 
 ## Set up your marketplace
 
-Rather than designing NFTs yourself, you coordinate with an NFT creator to become an authorized minter and generate NFTs on their behalf. This allows the creator to focus on making new NFTs while you handle production and sales of the NFTs. See [Authorized Minter](authorize-another-minter.html).
+Rather than designing NFTs yourself, you coordinate with an NFT creator to become an authorized minter and generate NFTs on their behalf. This allows the creator to focus on making new NFTs while you handle production and sales of the NFTs. See [Authorized Minter](nftoken-authorized-minting.html).
 
-Once you finish creating NFTs, the creator can revoke your privileges and reassert control over the NFTs. You might also transfer the tokens to a marketplace that will handle sales of the NFTs. You can act as a broker to match sell offers to buy offers. See [Running an NFT auction](running-an-nft-auction.html).
+Once you finish creating NFTs, the creator can revoke your privileges and reassert control over the NFTs. You might also transfer the tokens to a marketplace that will handle sales of the NFTs. You can act as a broker to match sell offers to buy offers. See [Running an NFT auction](nftoken-auctions.html).
 
 ![Auctioning NFTs](img/uc-nft-transferring-nfts.png)
 
@@ -40,15 +40,15 @@ The NFToken URL is a link to the location where the content of the NFT is stored
 Considerations that might be most interesting to you:
 
 * [Minting NFTs into Collections](nft-collections.html)
-Use the TokenTaxon field to gather a set of NFTs centered around a specific theme or purpose. 
-* [Guaranteeing a Fixed Supply of NFTs](guaranteeing-a-fixed-supply-of-nfts.html)
-You can assure scarcity of NFTs you create by creating them with what might be characterized as a “burner” account that you use to mint a set number of NFTs for another account, then delete the account you used to mint the NFTs. See [Guaranteeing a Fixed Supply of NFTs](guaranteeing-a-fixed-supply-of-nfts.html).
+Use the TokenTaxon field to gather a set of NFTs centered around a specific theme or purpose.
+* [Guaranteeing a Fixed Supply of NFTs](nft-fixed-supply.html)
+You can assure scarcity of NFTs you create by creating them with what might be characterized as a “burner” account that you use to mint a set number of NFTs for another account, then delete the account you used to mint the NFTs. See [Guaranteeing a Fixed Supply of NFTs](nft-fixed-supply.html).
 
 ## Transferring NFTs
 
 You transfer NFTs by creating a sell offer or accepting a buy offer. See [Transfer NFTokens](transfer-nfts-using-javascript.html).
 
-You can sell your NFTs in an auction format. See [Running an NFT Auction](running-an-nft-auction.html).
+You can sell your NFTs in an auction format. See [Running an NFT Auction](nftoken-auctions.html).
 
 You can act as a broker, connecting sellers with bidders, completing the transfer and keeping a percentage of the purchase price. See [Broker a NFToken sale](broker-an-nft-sale-using-javascript.html).
 
@@ -84,12 +84,12 @@ When listing NFTs for sale, it can be useful to use object metadata to organize 
 
 See:
 
-- [Clio setup](install-clio-on-ubuntu.html) 
+- [Clio setup](install-clio-on-ubuntu.html)
 - [XRPL Data API](https://api.xrpldata.com/docs/static/index.html#/)
 - [Bithomp](https://docs.bithomp.com/#nft-xls-20)
 
-<!-- 
-[Clio setup](install-clio-on-ubuntu.html) 
+<!--
+[Clio setup](install-clio-on-ubuntu.html)
 
 [https://api.xrpldata.com/docs/static/index.html#/](https://api.xrpldata.com/docs/static/index.html#/)
 

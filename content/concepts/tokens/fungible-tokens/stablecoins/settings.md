@@ -45,7 +45,7 @@ See [Tick Size](ticksize.html).
 
 ## Set the Default Ripple Flag
 
-The Default Ripple flag controls whether the balances on a trust line are allowed to _ripple_ by default. Rippling is what allows customers to send and trade tokens among themselves. An issuer MUST allow rippling on all the trust lines to its issuing address. 
+The Default Ripple flag controls whether the balances on a trust line are allowed to _ripple_ by default. Rippling is what allows customers to send and trade tokens among themselves. An issuer MUST allow rippling on all the trust lines to its issuing address.
 
 Before asking customers to create trust lines to your issuing address, enable the Default Ripple flag on that address. Otherwise, you must individually disable the No Ripple flag for each trust line that other addresses have created.
 
@@ -78,6 +78,8 @@ See [Freezing Tokens](freezes.html).
 
 
 ### Clawback Flags
+
+_(Requires the [Clawback amendment](known-amendments.html#clawback) :not_enabled:)_
 
 Clawback allows you to retrieve, or _clawback_, stablecoins from a trust line under specific circumstances. This gives you added ability to respond to challenges such as lost account access or malicious activity.
 

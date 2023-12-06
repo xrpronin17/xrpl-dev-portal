@@ -9,27 +9,11 @@ labels:
 
 Anyone can issue fungible tokens on the XRP Ledger, ranging from informal "IOUs" to fiat-backed stablecoins, purely digital fungible and semi-fungible tokens, and more.
 
-Fungible tokens are interchangeable and indistinguishable from one another. They can be swapped and substituted for other tokens of equivalent value.
-
-> Fun·gi·ble /´fənjəbəl/ (adj) <!-- SPELLING_IGNORE: fənjəbəl -->
->
-> 1. able to replace or be replaced by another identical item; mutually interchangeable. <!-- STYLE_OVERRIDE: identical -->
-
-A good example of a fungible item might be a postage stamp. If you're standing around in 1919 and need to send a letter by airmail, you would buy a 24-cent stamp and affix it to your envelope. If you lost that stamp, you could use a different 24-cent stamp or use 2 10-cent stamps and 2 2-cent stamps. Very fungible.
-
-![Jenny Stamps](img/nft-concepts1.png "Jenny Stamps")
-
-But since you are standing around in 1919, you might be offered 24-cent airmail stamps where the aeroplane on the stamp is accidentally printed upside down. These are the world famous “Inverted Jenny” stamps. Only 100 were circulated on a single sheet of stamps, making them extremely rare and sought after. The current value of each mint condition stamp is appraised at over 1.5 million US dollars.
-
-![Inverted Jenny Stamps](img/nft-concepts2.png "Inverted Jenny Stamps")
-
-Those stamps cannot be replaced by an ordinary 24-cent stamp. They have become _non-fungible_.
-
-The steps to issue a fungible token are not complicated. You determine the name for the token, create a _trust line_ between an issuing account and a consuming account, then send fungible tokens from the issuing account to the consuming account.
+Fungible tokens are interchangeable and indistinguishable from one another. They can be swapped and substituted for other tokens of equivalent value. To create fungible tokens, you set up a _trust line_, a form of accounting relationship, between two accounts, then send payments between them. For most use cases, there are also some settings you should configure first.
 
 ## Trust Lines
 
-Trust lines are structures in the XRP Ledger for holding [tokens](tokens.html). Trust lines enforce the XRP Ledger's rule that you cannot cause someone else to hold a token they don't want. This precaution is necessary to enable the XRP Ledger's use case for [community credit](tokens.html#community-credit) among other benefits.
+Trust lines are structures in the XRP Ledger for holding fungible [tokens](tokens.html). Trust lines enforce the XRP Ledger's rule that you cannot cause someone else to hold a token they don't want. This precaution is necessary to enable the XRP Ledger's use case for [community credit](tokens.html#community-credit) among other benefits.
 
 Each "trust line" is a _bidirectional_ relationship consisting of:
 

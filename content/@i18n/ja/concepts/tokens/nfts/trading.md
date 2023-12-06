@@ -1,6 +1,6 @@
 ---
 name: NFTの取引
-html: transfers.html
+html: non-fungible-token-transfers.html
 parent: non-fungible-tokens.html
 blurb: NFTokenをダイレクトモードまたはブローカーモードで取引する。
 labels:
@@ -79,6 +79,6 @@ _([NonFungibleTokensV1_1 amendment][]により追加されました)_
 
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			
-{% include '_snippets/tx-type-links.md' %}			
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

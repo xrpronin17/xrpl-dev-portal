@@ -1,5 +1,5 @@
 ---
-html: running-an-nft-auction.html
+html: nftoken-auctions.html
 parent: non-fungible-tokens.html
 blurb: NFTのMintを他のアカウントに代行してもらうことができます。
 labels:

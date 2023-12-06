@@ -156,6 +156,8 @@ See [Enact Global Freeze](enact-global-freeze.html)
 
 ### Clawback
 
+_(Requires the [Clawback amendment][] :not_enabled:)_
+
 Clawback is an optional setting that you can choose before you begin to distribute your stablecoin. For regulatory purposes, some issuers _must_ have the ability to recover issued tokens after they are distributed to accounts. For example, if an issuer were to discover that tokens were sent to an account sanctioned for illegal activity, the issuer could recover, or _claw back_, the funds.
 
 See [Clawback](clawback.html).
@@ -172,9 +174,11 @@ See [Partial Payments](partial-payments.html).
 
 ### Burn
 
-One way to manage the value of a stablecoin is to destroy, or _burn_ stablecoins. When you burn stablecoins, you reduce the number of tokens in circulation. That will typically increase the value of the remaining tokens as supply falls.
+One way to manage the value of a token is to destroy, or _burn_ tokens, which reduces the number of tokens in circulation. On the XRP Ledger, fungible tokens are automatically "burned" when they are sent to the issuing address. However, the issuer can freely create more tokens.
 
-To destroy stablecoins, you can transfer them to a "black hole" account (an account address where no one knows the secret key).
+To ensure a limited supply, you can "black hole" the issuer after issuing tokens, by setting its regular key to an address like `rrrrrrrrrrrrrrrrrrrrrhoLvTp` for which no one knows the private key, and disabling the master key pair.
+
+**Warning:** A black hole account has no way to send transactions of any kind, so you cannot update any settings or do any maintenance on the account afterwards!
 
 See [Disable Master Key Pair](disable-master-key-pair.html).
 
@@ -193,9 +197,9 @@ To submit transactions reliably, follow these guidelines:
 
 For more information, see [Reliable Transaction Submission](reliable-transaction-submission.html).
 
-### List on an XRPL Native DEX
+### List on the XRPL Native DEX
 
-Decentralized exchanges are integral to the decentralized finance ecosystem. Listing your token on well known DEXs operating on XRPL will enhance its visibility and accessibility, thereby attracting more liquidity. Begin by placing sell offers on a suitable DEX, such as [Sologenic](https://sologenic.org/trade).
+Decentralized exchanges (DEXes) are integral to the decentralized finance ecosystem. Listing your token on the XRP Ledger's built-in DEX enhances its visibility and accessibility, thereby attracting more liquidity. Begin by placing sell offers using a suitable interface, such as [Sologenic](https://sologenic.org/trade). As a precaution, use a separate account, not your issuing address, to trade.
 
 
 ### List on an AMM

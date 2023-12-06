@@ -1,7 +1,7 @@
 ---
 html: paths.html
-parent: payment-types.html
-blurb: 発行済み通貨の支払いは、接続されているユーザーのパスとオーダーブックを通す必要があります。
+parent: trust-lines-and-issuing.html
+blurb: トークンによる支払いは、接続されているユーザーのパスとオーダーブックを通す必要があります。
 labels:
   - 支払い
   - 複数通貨間
@@ -113,6 +113,6 @@ XRPは任意のアドレスに直接送金できるため、[XRP間のトラン�
   - [ripple_path_findメソッド][]
 
 <!--{# common link defs #}-->
-{% include '_snippets/rippled-api-links.md' %}			 
-{% include '_snippets/tx-type-links.md' %}			 
+{% include '_snippets/rippled-api-links.md' %}
+{% include '_snippets/tx-type-links.md' %}
 {% include '_snippets/rippled_versions.md' %}

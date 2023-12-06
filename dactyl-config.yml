@@ -1052,14 +1052,6 @@ pages:
             - en
             - ja
 
-    -   md: concepts/payment-types/paths.md
-        targets:
-            - en
-
-    -   md: "@i18n/ja/concepts/payment-types/paths.md"
-        targets:
-            - ja
-
     # Tokens ------------------------------------------------------------------
     -   md: concepts/tokens/index.md
         targets:
@@ -1092,27 +1084,27 @@ pages:
             - en
             - ja
 
-    -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-settings.md
+    -   md: concepts/tokens/fungible-tokens/stablecoins/settings.md
         targets:
             - en
             - ja
 
-    -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-configuration.md
+    -   md: concepts/tokens/fungible-tokens/stablecoins/configuration.md
         targets:
             - en
             - ja
 
-    -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-precautions.md
+    -   md: concepts/tokens/fungible-tokens/stablecoins/precautions.md
         targets:
             - en
             - ja
 
-    -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-compliance-guidelines.md
+    -   md: concepts/tokens/fungible-tokens/stablecoins/compliance-guidelines.md
         targets:
             - en
             - ja
 
-    -   md: concepts/tokens/fungible-tokens/stablecoins/stablecoin-technical-details.md
+    -   md: concepts/tokens/fungible-tokens/stablecoins/technical-details.md
         targets:
             - en
             - ja
@@ -1145,6 +1137,14 @@ pages:
         targets:
             - ja
 
+    -   md: concepts/tokens/fungible-tokens/paths.md
+        targets:
+            - en
+
+    -   md: "@i18n/ja/concepts/tokens/fungible-tokens/paths.md"
+        targets:
+            - ja
+
     -   md: concepts/tokens/fungible-tokens/rippling.md
         targets:
             - en
@@ -1153,37 +1153,33 @@ pages:
         targets:
             - ja
 
-    -   md: "@i18n/ja/concepts/tokens/nfts/authorizing-another-minter.md"
-        targets:
-            - ja
-
     -   md: concepts/tokens/nfts/index.md
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/non-fungible-tokens.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/index.md"
         targets:
             - ja
 
-    -   md: concepts/tokens/nfts/nft-payload-storage.md
+    -   md: concepts/tokens/nfts/payload-storage.md
         targets:
             - en
             - ja
 
-    -   md: concepts/tokens/nfts/trading-nfts.md
+    -   md: concepts/tokens/nfts/trading.md
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nfts/trading-nfts.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/trading.md"
         status: not_enabled
         targets:
             - ja
 
-    -   md: concepts/tokens/nfts/nft-reserve-requirements.md
+    -   md: concepts/tokens/nfts/reserve-requirements.md
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nfts/nft-reserve-requirements.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/reserve-requirements.md"
         targets:
             - ja
 
@@ -1199,28 +1195,32 @@ pages:
         targets:
             - en
 
+    -   md: "@i18n/ja/concepts/tokens/nfts/authorizing-another-minter.md"
+        targets:
+            - ja
+
     -   md: concepts/tokens/nfts/running-an-nft-auction.md
         targets:
             - en
 
-        # TODO: update translation to match English updates
     -   md: "@i18n/ja/concepts/tokens/nfts/running-an-nft-auction.md"
+        outdated_translation: true
         targets:
             - ja
 
-    -   md: concepts/tokens/nfts/nft-collections.md
+    -   md: concepts/tokens/nfts/collections.md
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nft-collections.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/collections.md"
         targets:
             - ja
 
-    -   md: concepts/tokens/nfts/guaranteeing-a-fixed-supply-of-nfts.md
+    -   md: concepts/tokens/nfts/guaranteeing-a-fixed-supply.md
         targets:
             - en
 
-    -   md: "@i18n/ja/concepts/tokens/nfts/guaranteeing-a-fixed-supply-of-nfts.md"
+    -   md: "@i18n/ja/concepts/tokens/nfts/guaranteeing-a-fixed-supply.md"
         targets:
             - ja
 
