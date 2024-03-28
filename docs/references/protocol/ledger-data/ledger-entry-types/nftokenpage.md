@@ -71,6 +71,8 @@ This design allows for efficient lookups of individual `NFToken` objects without
 
 To find a specific `NFToken`, you need to know its `NFTokenID` and current owner. Compute the `NFTokenPage` ID as described above. Search for a ledger entry whose identifier is less than or equal to that value. If that entry does not exist or is not an `NFTokenPage`, that account does not own that `NFToken`.
 
+Due to the complexity involved in finding specific tokens, the Clio server offers the [account_nfts](account_nfts) and [nft_info](nft_info) methods to make it easier to find and examine NFTs.
+
 
 ### Adding NFTokens
 
