@@ -1,101 +1,224 @@
-# XRPL Dev Portal
+I’m sorry to hear that someone on GitHub allegedly stole your work for the blockchain-based donation platform for children with cystic fibrosis (CF) on the XRP Ledger (XRPL). The message you provided outlines excellent steps to secure your intellectual property (IP) and address misuse, likely sent by someone trying to help you protect your project. Below, I’ll respond to this situation by:
+* Addressing the theft claim: Guiding you through verifying ownership and taking action (e.g., DMCA takedown).
+* Implementing the suggested security measures: Adapting the Java Spring Boot code from our prior conversation to include a license, copyright notice, and GitHub security features.
+* Enhancing the project: Ensuring it remains Section 508-compliant, integrates with Tier 1 bank accounts, and uses XRPL for transparent donations, while protecting it from further misuse.
+* Answering your needs: Offering help with specific actions (e.g., DMCA request, making the repository private) as requested in the message’s “Next Steps.”
+Since you mentioned the Java code we discussed (a Spring Boot app with xrpl4j, JSP frontend, and Bootstrap), I’ll assume the stolen work is this or a similar implementation. I’ll update the codebase to incorporate the suggested protections (license, copyright notice) and provide instructions for securing your GitHub repository. If the stolen work differs significantly, please share details (e.g., GitHub links, specifics of the theft), and I can tailor the response.
 
-The XRP Ledger Dev Portal https://xrpl.org is the authoritative source for XRP Ledger documentation, including the `rippled` server, client libraries, and other open-source XRP Ledger software.
+Addressing the Theft Claim
+If someone has stolen your work and is hosting it on GitHub without permission, immediate action is crucial to protect your IP and reputation. Here’s how to proceed based on the provided advice:
+1. Verify Ownership
+To prove you created the donation platform, gather evidence such as:
+* Git Commits: Check your local or private Git repository for timestamped commits (e.g., git log). If hosted on GitHub, ensure your repository predates the infringing one.
+* Original Files: Collect drafts, design docs, or screenshots (e.g., IntelliJ project files, JSP templates).
+* Communications: Emails, chats, or notes discussing the project (e.g., with collaborators or mentors).
+* Prior Queries: Our conversation history (e.g., your questions about XRPL, Section 508, and Tier 1 banks) indirectly supports your ideation process.
+Action: Export your Git commit history (git log > commits.txt) and screenshot relevant files. If your repository is public, ensure it’s accessible to show your ownership.
+2. File a DMCA Takedown Request
+If the stolen work is hosted on GitHub, a DMCA takedown request is the fastest way to remove it. Follow these steps:
+* Gather Evidence:
+    * Infringing URL: Find the GitHub repository or file URLs (e.g., https://github.com/thief/stolen-repo).
+    * Your Original Work: Link to your repository (if public) or provide commit hashes/files proving ownership.
+    * Description: Note similarities (e.g., identical Java code, JSP templates, or XRPL integration).
+* Submit DMCA:
+    * Use GitHub’s DMCA Takedown Form.
+    * Include:
+        * Your contact info.
+        * Description of your work (e.g., “Spring Boot app for CF donations on XRPL”).
+        * Infringing URLs.
+        * Proof of ownership (e.g., commit history, screenshots).
+        * A statement like: “I have a good faith belief that the use of the described material is not authorized by the copyright owner, its agent, or the law.”
+        * Your signature (electronic is fine).
+* Follow Up: GitHub typically responds within 1–2 business days. The infringing content may be removed or disabled.
+Action: If you share the infringing repository’s URL, I can help draft the DMCA notice or verify similarities.
+3. Consult Legal Advice
+If the theft is significant (e.g., commercial misuse, large-scale distribution), consult an intellectual property (IP) attorney. They can:
+* Assess damages (e.g., if the thief profits from your CF donation platform).
+* Pursue legal action beyond DMCA (e.g., cease-and-desist letters).
+* Advise on copyright registration (optional but strengthens claims).
+Action: Search for IP lawyers via the American Bar Association or local legal aid if cost is a concern.
 
-The site is built and published using Redocly. 
+Enhancing and Securing the Java Code
+I’ll update the Spring Boot application from our prior response to incorporate the suggested protections (license, copyright notice, security features) and ensure it remains aligned with your goals (XRPL donations, Tier 1 bank integration, Section 508 compliance). The code will include:
+* MIT License: A permissive open-source license to clarify usage rights.
+* Copyright Notice: Added to source files and documentation.
+* Security Enhancements: Sanitized inputs and GitHub security configurations.
+* Improved JSP Templates: Addressing your suggestions (error handling, styling, internationalization).
+* Testing: Unit tests and accessibility checks.
+1. Updated Project Structure
+* License: Add LICENSE file.
+* Copyright: Include in Java/JSP files.
+* Code: Enhance prior Spring Boot app with security and accessibility.
+LICENSE (MIT License)
+MIT License
 
-NOTE: The toolchain used to build and publish the site has recently been migrated from Dactyl to Redocly. 
+Copyright (c) 2025 xrpronin17
 
-Before you proceed, make sure you have Node version >= 18 LTS.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-To build the site locally:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-1. Clone the repo and change into its directory:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+README.md
+# XRPL Donation Platform for CF Care
 
-        git clone git@github.com:XRPLF/xrpl-dev-portal.git && cd xrpl-dev-portal
+A blockchain-based donation platform to support children with cystic fibrosis (CF) in poverty-stricken countries, using the XRP Ledger (XRPL) for transparent, low-cost transactions. Donors can contribute via Tier 1 bank digital accounts, and funds are tracked to ensure they reach medical providers.
 
-2. Install **Redocly Realm**:
+## Copyright
+Copyright © 2025 xrpronin17. All rights reserved.
 
-        npm install @redocly/realm
+## License
+This project is licensed under the MIT License see license to file for details.
 
-3. Switch to the `master` branch if you aren't on it already.
-      
-        git switch master
+## Setup
+1. Clone the repository.
+2. Install Java 17 and Maven.
+3. Run `mvn spring-boot:run`.
+4. Access at `http://localhost:8080`.
 
-4. Build and start a local server:
+## Security
+- OWASP HTML Sanitizer for XSS prevention.
+- Branch protection and signed commits enabled.
+2. Updated Java Code
+Below are key changes to the prior codebase, focusing on security, licensing, and your template suggestions. I’ll highlight only modified or new files to avoid redundancy.
+pom.xml
+* Added OWASP Java HTML Sanitizer for XSS prevention (already included in prior response).
+src/main/java/com/cf/donation/XrplDonationPlatformApplication.java
+package com.cf.donation;
 
-        npm start
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.ResourceBundleMessageSource;
 
-For more details, see the [contribution guidelines (EN)](CONTRIBUTING.md) ([日本語](CONTRIBUTING.ja.md)) and the [contributor Code of Conduct (EN)](CODE-OF-CONDUCT.md) ([日本語](CODE-OF-CONDUCT.ja.md)).
+/*
+ * Copyright © 2025 xrpronin17. All rights reserved.
+ * Licensed under the MIT License. See LICENSE file in the project root.
+ */
+@SpringBootApplication
+public class XrplDonationPlatformApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(XrplDonationPlatformApplication.class, args);
+    }
 
-## Domain Verification Checker
+    @Bean
+    public ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("messages");
+        source.setDefaultEncoding("UTF-8");
+        return source;
+    }
+}
+src/main/java/com/cf/donation/service/XrplService.java
+* Enhanced with stricter input validation and sanitized outputs.
+* Added copyright notice.
+package com.cf.donation.service;
 
-If you make changes to the [Domain Verification Checker](https://xrpl.org/validator-domain-verifier.html) tool and edit the domain-verifier-checker.js file, you will need to do the following:
+import org.owasp.html.PolicyFactory;
+import org.owasp.html.Sanitizers;
+import org.springframework.stereotype.Service;
+import org.xrpl.xrpl4j.client.JsonRpcClientErrorException;
+import org.xrpl.xrpl4j.client.XrplClient;
+import org.xrpl.xrpl4j.crypto.keys.Seed;
+import org.xrpl.xrpl4j.model.client.accounts.AccountInfoResult;
+import org.xrpl.xrpl4j.model.client.common.LedgerIndex;
+import org.xrpl.xrpl4j.model.client.transactions.SubmitResult;
+import org.xrpl.xrpl4j.model.transactions.Payment;
+import org.xrpl.xrpl4j.model.transactions.XrpCurrencyAmount;
+import org.xrpl.xrpl4j.wallet.Wallet;
 
-1. Install [webpack](https://webpack.js.org/) and required libraries via npm:
+import java.math.BigDecimal;
 
-        npm install webpack webpack-cli --save-dev
-        npm install ripple-binary-codec ripple-address-codec ripple-keypairs
+/*
+ * Copyright © 2025 xrpronin17. All rights reserved.
+ * Licensed under the MIT License. See LICENSE file in the project root.
+ */
+@Service
+public class XrplService {
 
-2. From the project root directory (this step may be different depending on how you installed webpack)
+    private final XrplClient client;
+    private final Wallet donorWallet;
+    private final PolicyFactory sanitizer;
 
-        cd assets/js
-        webpack-cli domain-verifier-checker.js --optimize-minimize -o domain-verifier-bundle.js
+    public XrplService() {
+        this.client = new XrplClient("https://s.altnet.rippletest.net:51234");
+        this.donorWallet = Seed.fromBase58EncodedSeed("sEdT9k3sZ7z8v7v7v7v7v7v7v7v7v7v").deriveKeyPair().toWallet();
+        this.sanitizer = Sanitizers.FORMATTING.and(Sanitizers.BLOCKS).and(Sanitizers.LINKS);
+    }
 
-3. Build the site:
+    public BigDecimal mockBankTransfer(double fiatAmount) {
+        if (fiatAmount <= 0) {
+            throw new IllegalArgumentException("Amount must be positive");
+        }
+        return BigDecimal.valueOf(fiatAmount * 0.5); // Mock: 1 USD = 0.5 XRP
+    }
 
-        npm start
+    public DonationResponse sendDonation(double amount, String recipient) {
+        DonationResponse response = new DonationResponse();
 
+        try {
+            // Strict validation
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Amount must be positive");
+            }
+            if (recipient == null || (!recipient.equals("hospital") && !recipient.equals("family"))) {
+                throw new IllegalArgumentException("Recipient must be 'hospital' or 'family'");
+            }
 
-### Internationalization 
+            BigDecimal xrpAmount = mockBankTransfer(amount);
+            String destinationAddress = recipient.equals("hospital")
+                    ? "rHospitalTestAddress1234567890"
+                    : "rFamilyTestAddress1234567890";
 
-This repo includes English (en) and Japanese (ja) locales. 
+            Payment payment = Payment.builder()
+                    .account(donorWallet.classicAddress())
+                    .amount(XrpCurrencyAmount.ofXrp(xrpAmount))
+                    .destination(destinationAddress)
+                    .build();
 
-This is done by setting up the internationalization (@l10n) folders, adding the `i18n` configuration to your `redocly.yaml` file, and adding the translated content in the respective language directory under the @l10n directory.
+            AccountInfoResult accountInfo = client.accountInfo(donorWallet.classicAddress(), LedgerIndex.CURRENT);
+            payment = payment.toBuilder()
+                    .sequence(accountInfo.accountData().sequence())
+                    .build();
+            String signedTx = donorWallet.sign(payment);
 
-To add support for a new language:
+            SubmitResult result = client.submit(signedTx);
+            if (result.engineResult().equals("tesSUCCESS")) {
+                String txId = sanitizer.sanitize(result.transactionResult().hash());
+                response.setStatus("Success");
+                response.setTransactionId(txId);
+                response.setMessage("Donation sent for CF care. View at: https://testnet.xrpl.org/transactions/" + txId);
+            } else {
+                throw new RuntimeException("Transaction failed: " + sanitizer.sanitize(result.engineResultMessage()));
+            }
 
-1. Create a new subdirectory in the @l10n directory of the portal. For example, to add support for Spanish, create a new subdirectory "es-ES".
+        } catch (JsonRpcClientErrorException e) {
+            response.setStatus("Error");
+            response.setMessage("XRPL connection failed: " + sanitizer.sanitize(e.getMessage()));
+        } catch (IllegalArgumentException e) {
+            response.setStatus("Error");
+            response.setMessage("Invalid input: " + sanitizer.sanitize(e.getMessage()));
+        } catch (Exception e) {
+            response.setStatus("Error");
+            response.setMessage("Unexpected error: " + sanitizer.sanitize(e.getMessage()));
+        }
 
-2. Update the i18n configuration in your `redocly.yaml` file defining the display labels for the different languages you support.
-
-        l10n:
-          defaultLocale: en-US
-          locales:
-            - code: en-US
-              name: English
-            - code: ja
-              name: 日本語
-            - code: es-ES
-              name: Spanish
-
-3. Add the translated content in the respective language directory under the @l10n directory. 
-
-    The relative path from the language directory to the translated file must be the same as the relative path from the root of the portal to the file in the default language. For example, if you originally had a file with path `path/to/my/markdown.md`, the file translated to Spanish must be /`@l10n/es-ES/path/to/my/markdown.md`.
-
-## Issues, Projects, and Project Boards
-
-Use GitHub Issues under the [`xrpl-dev-portal`](https://github.com/XRPLF/xrpl-dev-portal) repository to report bugs, feature requests, and suggestions for the XRP Ledger Documentation or the `xrpl.org` website. 
-
-For issues related to `rippled` or client libraries (`xrpl.js`, `xrpl-py`, and others), use the respective source repository under [`https://github.com/XRPLF`](https://github.com/XRPLF).
-
-If you are a contributor, use GitHub Projects and Project Boards to plan and track updates to xrpl.org. 
-
-### Project Board `xrpl-docs`
-
-The [`xrpl-docs`](https://github.com/orgs/XRPLF/projects/4) Kanban board is used to plan and track updates to the XRP Ledger Documentation. Contributors must update the status of an issue as it progresses through different stages.
-
-The `xrpl-docs` board has six columns based on the status of issues in this repository:
-
-* **No Status**: New or existing issues that no one has triaged yet.
-
-* **Backlog**: Issues that represent tasks to be done eventually. They should contain actionable and helpful information for a contributor to work on addressing the issue.
-
-* **Planned**: Issues with assignees who plan to address them in the near future, like 2-4 weeks.
-
-* **In Progress**: Issues that a contributor is actively working on.
-
-* **In Review**: Issues with a proposed fix that is currently being reviewed. These should be associated with an open pull request.
-
-* **Done**: Issues that have been completed, whose related content updates have been merged.
-
+        return response;
+    }
+}
+src/main/webapp/WEB-INF/views/donation-result.jsp
+* Incorporated your suggestions: error handling, security, Bootstrap styling, internationalization, and accessibility.
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
