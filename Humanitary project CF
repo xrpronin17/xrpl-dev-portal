@@ -1,0 +1,105 @@
+@GetMapping("/csrf-token")
+public String getCsrfToken(CsrfToken csrfToken) {
+    return csrfToken.getToken();
+}import { useState, useEffect } from "react";
+import DOMPurify from "dompurify";
+import "./styles.css";
+
+export default function DonationForm() {
+    const [amount, setAmount] = useState("");
+    const [recipient, setRecipient] = useState("hospital");
+    const [response, setResponse] = useState(null);
+    const [csrfToken, setCsrfToken] = useState("");
+
+    useEffect(() => {
+        // Fetch CSRF token from backend (mocked)
+        fetch("http://your-heroku-app.herokuapp.com/csrf-token", { credentials: "include" })
+            .then(res => res.text())
+            .then(token => setCsrfToken(token))
+            .catch(() => setCsrfToken("mock-csrf-token"));
+    }, []);
+
+    const donate = async () => {
+        const sanitizedAmount = DOMPurify.sanitize(amount);
+        const sanitizedRecipient = DOMPurify.sanitize(recipient);
+
+        if (!sanitizedAmount || isNaN(sanitizedAmount) || sanitizedAmount <= 0) {
+            setResponse({ status: "Error", message: "Invalid amount" });
+            return;
+        }
+        if (!["hospital", "family"].includes(sanitizedRecipient)) {
+            setResponse({ status: "Error", message: "Invalid recipient" });
+            return;
+        }
+
+        try {
+            const res = await fetch("http://your-heroku-app.herokuapp.com/donate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRF-TOKEN": csrfToken
+                },
+                credentials: "include",
+                body: `amount=${encodeURIComponent(sanitizedAmount)}&recipient=${encodeURIComponent(sanitizedRecipient)}`
+            });
+            const data = await res.json();
+            setResponse(data);
+        } catch (error) {
+            setResponse({ status: "Error", message: "Failed to connect to server" });
+        }
+    };
+
+    return (
+        <div className="container">
+            <h1 id="form-title">Donate for CF Care</h1>
+            <p>Support children with cystic fibrosis in poverty-stricken countries.</p>
+            <div className="form-group">
+                <label htmlFor="amount">Donation Amount (USD):</label>
+                <input
+                    id="amount"
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    min="1"
+                    step="0.01"
+                    required
+                    aria-required="true"
+                    placeholder="Enter amount"
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="recipient">Recipient:</label>
+                <select
+                    id="recipient"
+                    value={recipient}
+                    onChange={(e) => setRecipient(e.target.value)}
+                    aria-describedby="recipient-help"
+                >
+                    <option value="hospital">Hospital (CF Equipment)</option>
+                    <option value="family">Family (Medical Bills)</option>
+                </select>
+                <p id="recipient-help" className="help-text">Choose who receives your donation.</p>
+            </div>
+            <button onClick={donate} aria-label="Donate via bank account">Donate via Bank</button>
+            {response && (
+                <div className={`alert ${response.status === "Success" ? "alert-success" : "alert-danger"}`} role="alert">
+                    <p><strong>Status:</strong> {DOMPurify.sanitize(response.status || "Unknown")}</p>
+                    <p><strong>Message:</strong> {DOMPurify.sanitize(response.message || "No donation processed.")}</p>
+                    {response.transactionId && (
+                        <p>
+                            <strong>Transaction ID:</strong>{" "}
+                            <a
+                                href={`https://testnet.xrpl.org/transactions/${DOMPurify.sanitize(response.transactionId)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View transaction on XRPL Testnet"
+                            >
+                                {DOMPurify.sanitize(response.transactionId)}
+                            </a>
+                        </p>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+}
