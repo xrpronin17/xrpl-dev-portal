@@ -1,4 +1,4 @@
----
+git--repo
 html: deleting-accounts.html
 parent: accounts.html
 blurb: Acerca de eliminar una cuenta XRP Ledger.
